@@ -6,21 +6,24 @@ pagination:
 ---
 
 <div id="posts-list">
-  {% for post in paginator.posts %}
-    <div class="post-content post-item">
-      <h2 style="font-style: italic;">
-        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
-      </h2>
-      <div class="meta">
-        <span>{{ post.date | date: "%B %d, %Y" }}</span>
+  {% if paginator.posts %}
+    {% for post in paginator.posts %}
+      <div class="post-content post-item">
+        <h2 style="font-style: italic;">
+          <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </h2>
+        <div class="meta">
+          <span>{{ post.date | date: "%B %d, %Y" }}</span>
+        </div>
+        <hr>
+        {{ post.excerpt }}
       </div>
-      <hr>
-      {{ post.content }}
-    </div>
-  {% endfor %}
+    {% endfor %}
+  {% else %}
+    <p>No posts found.</p>
+  {% endif %}
 </div>
 
-<!-- Pagination linkss -->
 <div class="pagination" style="text-align:center;">
   {% if paginator.previous_page %}
     <a href="{{ paginator.previous_page_path | relative_url }}">&laquo; Prev</a>
