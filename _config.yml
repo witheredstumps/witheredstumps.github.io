@@ -1,0 +1,32 @@
+title: And Other Withered Stumps Of Time
+description: "A Jekyll blog inspired by witheredstumps.wordpress.com"
+# theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-paginate-v2
+
+pagination:
+  enabled: true
+  per_page: 5
+  title: ':title - page :num'
+  trail:
+    before: 2
+    after: 2
+  sort_field: 'date'
+  sort_reverse: true
+  permalink: '/page/:num/'
+  indexpage: 'index'
+
+# GitHub Pages settings
+github:
+  is_project_page: false
+
+# Permalinks
+permalink: /:year/:month/:day/:title/
+
+markdown: kramdown
+kramdown:
+ math_engine: mathjax
+ math_engine_opts:
+    preview: false
