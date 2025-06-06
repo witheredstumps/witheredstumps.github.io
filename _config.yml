@@ -22,14 +22,14 @@ pagination:
   sort_field: 'date'
   sort_reverse: true
   permalink: '/page/:num/'
-  indexpage: 'index'
+  indexpage: 'index.html'
 
 # GitHub Pages settings
 github:
   is_project_page: false
 
 # Permalinks
-permalink: /:year/:month/:day/:title/
+permalink: pretty
 
 markdown: kramdown
 kramdown:
