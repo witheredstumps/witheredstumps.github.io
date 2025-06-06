@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-bundle exec jekyll build
+# bundle exec jekyll build
 
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
 TEMP_DIR=$(mktemp -d)
