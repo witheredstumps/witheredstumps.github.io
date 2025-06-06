@@ -6,6 +6,12 @@ plugins:
   - jekyll-seo-tag
   - jekyll-paginate-v2
 
+exclude:
+  - README.md
+  - posts_rawmd
+  - inline.py
+  - deploy-gh-pages.sh
+
 pagination:
   enabled: true
   per_page: 1
