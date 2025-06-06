@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Home - page 2 | And Other Withered Stumps Of Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Page 2 of 2 for Home - page 2 | And Other Withered Stumps Of Time</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Home - page 2" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
+<meta property="og:description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
+<meta property="og:site_name" content="And Other Withered Stumps Of Time" />
+<meta property="og:type" content="website" />
+<link rel="prev" href="/index.html" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Home - page 2" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"A Jekyll blog inspired by witheredstumps.wordpress.com","headline":"Home - page 2","url":"/page/2/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Fonts: Original + Sidebar style -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <!-- Sidebar and toggle button container -->
+    <div class="sidebar-toggle-container">
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar header with search bar -->
+        <nav>
+          <a href="/" >Home</a>
+          <a href="/about/" >About</a>
+        </nav>              
+        <!-- Archive section (label and dropdown) -->
+        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
+          <option value="#">Archive</option>
+          
+          
+            
+            
+              <option value="/2020/04/">
+                April 2020
+              </option>
+            
+            
+          
+            
+            
+              <option value="/2020/03/">
+                March 2020
+              </option>
+            
+            
+          
+        </select>
+        <div class="sidebar-footer"> 
+                   <form class="sidebar-search-form" action="/search/">
+            <input type="text" name="q" placeholder="Search..." class="sidebar-search-input">
+	</form> 
+        </div>
+      </aside>
+      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
+      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+    </div>
+    <!-- Backdrop for overlay effect -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
+    <!-- Main Content (not shifted) -->
+    <div class="main-content">
+      <header>
+        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      </header>
+	<main>
+  	
+    	<div id="posts-list">
+  
+    
+      <div class="post-content post-item">
+        <h2 style="font-style: italic;">
+          <a href="/2020/03/27/jacobi-fields-part-i/">Jacobi fields: Part I</a>
+        </h2>
+        <div class="meta">
+          <span>March 27, 2020</span>
+        </div>
+        <hr>
+        <p>In the subsequent series of posts I would like to talk about certain comparison theorems in Riemannian geometry while learning them. I have a very rough sketch of what I would like to do, but it seemed like an enticing idea to start writing my thoughts down somewhere. I will start by introducing Jacobi fields in this post, which will be used crucially when discussing comparison theorems and what they are. While writing this I have used do Carmo, “Riemannian Geometry” and Milnor, “Morse Theory” as references and inspiration, and strongly recommend looking through both for more detail and perspective.</p>
+
+<p>Let \((M, g)\) be a Riemannian manifold and \(\nabla\) the unique torsion-free metric connection on the manifold. Given a path \(\gamma : [a, b] \to M\) starting at \(\gamma(a) = p\), a variation of \(\gamma\) is defined to be a smooth map \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\) such that \(V(0, t) = \gamma(t)\) and \(V(s, a) = p\) for all \(t \in [a, b]\) and \(s \in (-\varepsilon, \varepsilon)\). We shall define \(\gamma_s : [a, b] \to M\) by \(\gamma_s(t) = V(s, t)\), and think of the variation as a smooth family \(\{\gamma_s\}_{s \in (-\varepsilon, \varepsilon)}\) of curves starting at \(p\), passing through \(\gamma\).</p>
+
+<p>To any variation \(V\) of \(\gamma\) we can associate a vector field \(X\) defined along \(\gamma\) by \(X(t) = \partial_s \gamma_s(t) \vert_{s = 0}\); observe that \(X(a) = 0\). Conversely, given a vector field \(X\) defined along \(\gamma\) such that \(X(a) = 0\), the map \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\) defined by \(V(s, t) = \exp_{\gamma(t)}(s X(t))\)  defines a variation of \(\gamma\). Therefore such vector fields effectively carry informations about infinitisimal variations of \(\gamma\) and we shall call them variation fields along \(\gamma\).</p>
+
+<p>We will be particularly interested in variations of geodesics on \((M, g)\). To wit, suppose \(\gamma\) is a geodesic on the manifold with \(\gamma'(0) = v\), and \(V\) is a variation of \(\gamma\) through geodesics, i.e., \(\gamma_s\) are geodesics for all \(s \in (-\varepsilon, \varepsilon)\). Let \(X\) be the variation field corresponding to \(V\). Then we observe that</p>
+
+\[\displaystyle 0 = \nabla_X \nabla_{\gamma'} \gamma' = \nabla_{\gamma'} \nabla_X \gamma' + \nabla_{[X, \gamma']} \gamma' + R(X, \gamma') \gamma'\]
+
+<p>But \(X = V_* \partial_s \vert_{s = 0}\), and \(\gamma' = V_* \partial_t \vert_{s = 0}\), therefore \([X, \gamma'] = V_* [\partial_s, \partial_t]\vert_{s = 0} = 0\). Also observe that \(\nabla_X \gamma' = \nabla_{\gamma'} X + [X, \gamma'] =  \nabla_{\gamma'} X\) by previous line. Plugging these in above, we obtain</p>
+
+\[\displaystyle \nabla_{\gamma'}^2 X + R(X, \gamma') \gamma' = 0\]
+
+<p>This is known as the Jacobi equation, and is a second order linear ordinary differential equation. Suppose \(X\) is an arbitrary solution to the above equation with \(X(0) = 0\) and \((\nabla_{\gamma'} X)(0) = w\) for some \(w \in T_p M\).  Observe that the variation field \(J(t) = (d\exp_p)_{tv}(tw)\) along \(\gamma\) satisfies \(J(0) = 0\) and</p>
+
+\[\displaystyle \nabla_{\gamma'} J = \nabla_{\gamma'} t (d\exp_p)_{tv}(w) = (d\exp_p)_{tv}(w) + t \nabla_{\gamma'} (d\exp_p)_{tv}(w)\]
+
+<p>hence at \(t= 0\), we obtain \((\nabla_{\gamma'} J)(0) = (d\exp_p)_0(w) = w\) since \((d\exp_p)_0 = \text{Id}\). Consider now the variation \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\), defined by \(V(s, t) = \exp_p(t(v + sw))\). Then observe that \(J(t) = \partial_s V(s, t)\vert_{s = 0} = (d\exp_p)_{tv}(tv)\) for all \(t \in [a, b]\) and \(J(0) = 0\), hence \(J\) is the variation field for \(V\). Since \(V(s, \cdot)\) is a geodesic for all \(s \in (-\varepsilon, \varepsilon)\), we conclude \(V\) is a variation of \(\gamma\) through geodesics hence \(J\) is a solution to the Jacobi equation with the same initial conditions as \(X\), and thus \(X = J\) by uniqueness of solutions to ODEs.</p>
+
+<p>This proves that solutions of the Jacobi equation \(\nabla_{\gamma'}^2 X + R(X, \gamma')\gamma' = 0\) are exactly variation fields along \(\gamma\) corresponding to variations through geodesics. Such variation fields are thus called Jacobi fields. By uniqueness and existence theorem of ODEs, there is a unique Jacobi field \(J\) along \(\gamma\) with initial conditions \(J(0)\) and \((\nabla_{\gamma'} J)(0)\) specified, and moreover since the ODE in question is linear, we conclude that there are \(2n\) linearly independent Jacobi fields along \(\gamma\), where \(n = \dim M\), corresponding to the \(n\) independent degrees of freedom for both the initial conditions. In particular the space of Jacobi fields along \(\gamma\) is finite-dimensional. There is a trivial Jacobi field along \(\gamma\) given simply by scaling the tangent field: \(t \gamma'\). We usually consider the Jacobi fields normal to \(\gamma\) thereof.</p>
+
+<p>Here is a way to put the variational perspective to context. Consider two points \(p, q \in M\) and denote by \(\Omega_{p, q}\) to be the space of all \(C^\infty\)-paths between \(p\) and \(q\) in \(M\). We equip it with the Whitney topology, but we can keep that detail in the background for now. From the variational perspective we saw earlier, for any \(\gamma \in \Omega_{p, q}\), a path in \(\Omega_{p, q}\) through \(\gamma\) is a variation \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\) such that \(V(0, \cdot) = \gamma\), \(V(s, a) = p\) and \(V(s, b) = q\) for all \(s \in (-\varepsilon, \varepsilon)\); note that here we fix both endpoints during the variation. To be precise, if we define \(\gamma_s(.) = V(s, .)\) as earlier, then \(s \mapsto \gamma_s\) is the desired path through \(\gamma_0 = \gamma\). If there is any truth to the world, the tangent vector at time \(s = 0\) of this path will be the variation field \(X = \partial_s \gamma_s \vert_{s = 0}\). By completely analogous arguments as earlier, we will see such variation fields \(X\) along \(\gamma\) are exactly the ones for which \(X(p) = X(q) = 0\). Thus we imagine \(\Omega_{p, q}\) as an “infinite-dimensional manifold” and define \(T_{\gamma} \Omega_{p, q}\) to be the space of all variation fields along \(\gamma\) vanishing at the endpoints.</p>
+
+<p>There is a completely variational definition of geodesics using the energy functional, defined as a function \(\mathcal{E} : \Omega_{p, q} \to \Bbb{R}\) by</p>
+
+\[\displaystyle \mathcal{E}(\gamma) = \int_{\gamma} \vert\gamma'\vert^2 = \int_a^b \vert\gamma'(t)\vert^2 dt\]
+
+<p>Note that we can take directional derivative of \(\mathcal{E}\) on \(\Omega_{p, q}\) using our dictionary now; for any variation \(X \in T_{\gamma} \Omega_{p, q}\), define \(d\mathcal{E}(\gamma)(X) = \partial_s \mathcal{E}(\gamma_s)\) where \(\{\gamma_s\}\) is a variation of \(\gamma\) with tangent vector \(X\) at \(\gamma\). Of course, one would have to check if this is a well-defined notion, which follows from the following calculations. I will abuse notation and denote \(V_* \partial_s\), \(V_* \partial_t\) as simply \(\partial_s\), \(\partial_t\).</p>
+
+\[\displaystyle \begin{aligned}d\mathcal{E}(\gamma)(X) &amp;= 2 \int_a^b g(\nabla_{\partial_s} \partial_t \gamma_s, \partial_t\gamma_s) dt \\&amp;= 2 \int_a^b g(\nabla_{\partial_t} \partial_s \gamma_s, \partial_t \gamma_s) dt \\ &amp;= 2\int_a^b \partial_t g(\partial_s \gamma_s, \partial_t \gamma_s) dt - 2\int_a^b g(\partial_s \gamma_s, \nabla_{\partial_t} \partial_t \gamma_s) dt \\ &amp;= - 2\int_\gamma g(X, \nabla_{\gamma'} \gamma')\end{aligned}\]
+
+<p>The last equation following because we evaluate the expression at \(s = 0\). The last expression does not depend on the choice of the variation \(\{\gamma_s\}\) but only on the tangent vector at \(s = 0\) given by the variation field \(X\). This is known as the first variation formula.</p>
+
+<p>Immediate consequence of this formula is that \(d\mathcal{E}(\gamma)(X) = 0\) for all \(X \in T_\gamma \Omega_{p, q}\) if and only if \(\gamma\) is a geodesic. Therefore, geodesics in \(\Omega_{p, q}\) are critical points of the energy functional. This is already a very attractive result, but we can do better. We can also try to define the Hessian of \(\mathcal{E}\) in the obvious way: Suppose \(X, Y \in T_{\gamma} \Omega_{p, q}\) are two variation fields, and define</p>
+
+\[\displaystyle V : (-\varepsilon, \varepsilon) \times (-\varepsilon, \varepsilon) \times [a, b] \to M\]
+
+<p>to be a two-parameter variation of \(\gamma\) such that \(\partial_r V \vert_{(u, s) = (0, 0)} = X\) and \(\partial_s V\vert_{(u, s) = (0, 0)} = Y\). We would visualize \(V\) as small patch of a surface on \(\Omega_{p, q} M\) passing through \(\gamma\) with tangent vectors \(X\) and \(Y\) at \(\gamma\). Then define \(h \mathcal{E}(\gamma)(X, Y) = \partial_u \partial_s \mathcal{E}(\gamma_{u, s})\) where \(\gamma_{u, s}(\cdot) = V(u, s, \cdot)\). We do some nasty calculations, remembering the formula for the Riemann curvature tensor</p>
+
+\[R(U, V)W = \nabla_U \nabla_V W - \nabla_V \nabla_U W - \nabla_{[U, V]} W,\]
+
+<p>repeatedly using symmetry and fundamental theorem of calculus whenever possible:</p>
+
+\[\displaystyle \begin{aligned}  h \mathcal{E}(\gamma)(X, Y) &amp;= 2\int_a^b g(\nabla_{\partial_u} \nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(\nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \nabla_{\partial_u} \partial_t \gamma_{u, s}(t)) dt  \\ &amp;= 2\int_a^b g(\nabla_{\partial_u} \nabla_{\partial_t} \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(\nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \nabla_{\partial_u} \partial_t \gamma_{u, s}(t)) dt  \\ &amp;=2\int_a^b g(\nabla_{\partial_t} \nabla_{\partial_u} \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(R(\partial_u, \partial_t) \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u,s}(t)) dt \\ &amp;~~~~+   2\int_a^b g(\nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \nabla_{\partial_u} \partial_t \gamma_{u, s}(t)) dt \\ &amp;= -2\int_a^b g(\nabla_{\partial_u} \partial_s \gamma_{u, s}(t), \nabla_{\partial_t} \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(R(\partial_u, \partial_t) \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u,s}(t)) dt \\ &amp;~~~~+ 2\int_a^b g(\nabla_{\partial_t} \partial_s \gamma_{u, s}(t), \nabla_{\partial_t} \partial_u \gamma_{u, s}(t)) dt\end{aligned}\]
+
+<p>If \(\gamma\) is a geodesic, the first integral vanishes since \(\nabla_{\partial_t} \partial_t = 0\). As we are evaluating the expressions at \((u, s) = (0, 0)\), we obtain the final formula as:</p>
+
+\[\displaystyle h\mathcal{E}(\gamma)(X, Y) = 2\int_\gamma \left (g(R(X, \gamma')Y, \gamma') + g(\nabla_{\gamma'} X, \nabla_{\gamma'} Y)\right )\]
+
+<p>This is known as the second variation formula, and we get independence of \(h\mathcal{E}(\gamma)(X, Y)\) on the choice of the two-parameter variation \(V\) with tangents \(X, Y \in T_\gamma \Omega_{p, q}\) from here.  Using the identity \(g(R(U, V)Z, W) = g(R(Z, W), U, V)\), we obtain symmetry \(h\mathcal{E}(\gamma)(X, Y) = h\mathcal{E}(\gamma)(Y, X)\) of the Hessian, which is also clear from the definition by commutativity of partials. Observe that \(h\mathcal{E}(\gamma)\) only has these nice properties if \(\gamma\) is a geodesic, i.e., a critical point of \(\mathcal{E}\), which is of course not unexpected since that is how the Hessian behaves in the finite dimensional case as well.</p>
+
+<p>We can rewrite the above formula by an application of the fundamental theorem of calculus and the identity \(g(R(U, V)W, Z) = -g(R(U, V)Z, W)\) as follows:</p>
+
+\[\displaystyle \begin{aligned}h\mathcal{E}(\gamma)(X, Y) &amp;= - 2 \int_\gamma \left ( g(R(X, \gamma')\gamma', Y) + g(\nabla_{\gamma'}^2 X, Y) \right ) \\ &amp;= -2 \int_\gamma g(\nabla_{\gamma'}^2 X+ R(X, \gamma')\gamma', Y)\end{aligned}\]
+
+<p>And therefore we obtain that \(X \in T_{\gamma}\Omega_{p, q}\) is a Jacobi field along \(\gamma\) if and only if \(h\mathcal{E}(\gamma)(X, Y) = 0\) for all variation fields \(Y \in T_{\gamma}\Omega_{p, q}\). Thus the subspace of Jacobi fields on \(\gamma\) vanishing at the endpoints is the kernel \(\ker h\mathcal{E}(\gamma)\) of the Hessian of the energy functional.</p>
+
+<p>Actually occurrences of such Jacobi fields are rather rare, and can only be seen for some very special pair of points \(p, q\) on \(M\), called conjugate points, and they are usually said to be conjugate to each other with reference to the geodesic \(\gamma \in \Omega_{p, q}\) along which a Jacobi field vanishing at the endpoints exist. If \(p, q\) are a pair of points conjugate along \(\gamma\), we define multiplicity of the conjugate pair (or that of \(p\) with respect to \(q\), or vice versa) to be the dimension of \(\ker h\mathcal{E}(\gamma)\). Recall from earlier computations that there are \(n\) linearly independent Jacobi fields along \(\gamma\) which vanish at \(p\), and one of them is the redundant scaled tangent vector field \(t \gamma'(t)\) since it does not vanish for \(t = b\).  Thus, we have the bound on multiplicity of any pair of conjugate points</p>
+
+\[\displaystyle \dim \ker h\mathcal{E}(\gamma) \leq n-1\]
+
+<p>(The equality is achieved, for example, in case of \(M = S^n\).) So the variations of the geodesic \(\gamma\) through geodesics inside \(\Omega_{p, q}\) “trace out” a finite-dimensional critical submanifold of \(\mathcal{E}\) the tangent space of which witnesses the degeneracy of the Hessian of \(\mathcal{E}\). This essentially describes \(\mathcal{E} : \Omega_{p, q} \to \Bbb{R}\) as a Morse function on an infinite-dimensional manifold, where since the domain is so huge we cannot expect to have isolated nondegenerate critical points, but our best bet is to have finite dimensional critical submanifolds and Hessian to have finite nullity. This is explored in detail in Milnor, and maybe we’ll discuss this in a future post.</p>
+
+<p>As a final note on this, observe that if \(\gamma : [0, c] \to M\) is a geodesic passing through \(\gamma(0) = p\), then \(q = \gamma(t_0)\) is conjugate to \(p\) along \(\gamma\) if and only if \(t_0 \gamma'(0)\) is a critical point of the exponential map \(\exp_p : T_p M \dashrightarrow M\). This follows directly from the definitions, since the Jacobi field \(J\) witnessing the conjugacy can be written as \(J(t) = d(\exp_p)_{tv}(tw)\) where \(v = \gamma'(0)\) and \(w \in T_p M = T_0 T_p M\) is some vector. Since \(J(t_0) = 0\), we obtain that \(w \in  \ker d(\exp_p)_{t_0v}\). Therefore in fact \(\dim \ker d(\exp_p)_{t_0 v}\) is the multiplicity of the conjugate point \(q\) of \(p\). This proves that for any point \(p\), the set of points on \(M\) conjugate to \(p\) along some geodesic is the set of critical values of \(\exp_p\) which is a measure zero subset of \(M\) by Sard’s theorem; this justifies our rareness comment from earlier. This subset is called the conjugate locus of \(p\) in \(M\); it is closely related to an even more complicated subset of \(M\) known as the cut locus of \(p\), both of which, to my understanding, are witnesses of how badly the collection of geodesics emanating from \(p\) fails to be a foliation.</p>
+
+<p>As a closing remark, let’s try to sketch where to go from here. The Jacobi equation is useful in describing how far nearby geodesics starting at the same point diverge with respect to time. For example, let \(M\) be a Riemannian \(2\)-manifold with constant Gaussian curvature \(K\), and suppose \(J\) is a normal Jacobi field along an arclength-parametrized geodesic \(\gamma: [0, c] \to M\). Let \(\mathbf{e}\) be a parallel unit normal field along \(\gamma\). Then \(J(t) = f(t) \mathbf{e}(t)\) for all \(t \in [0, c]\) where \(f(t)\) is the length of the Jacobi field at time \(t\). From the Jacobi equations we obtain</p>
+
+\[\displaystyle \begin{aligned} 0 = g(\nabla_{\gamma'}^2 J + R(J, \gamma')\gamma', \mathbf{e}) &amp;= g(\nabla_{\gamma'}^2 f \mathbf{e}, \mathbf{e}) + g(R(f \mathbf{e}, \gamma')\gamma', \mathbf{e}) \\ &amp;= f'' + K f \end{aligned}\]
+
+<p>Where \(K = g(R(\mathbf{e}, \gamma')\gamma', \mathbf{e})\) is the sectional curvature along \(\gamma\). Thus, we obtain the familiar second order differential equation \(f'' + K f = 0\) whose solutions are trigonometric if \(K &gt; 0\), linear if \(K = 0\) and exponential if \(K &lt; 0\). Since length of the Jacobi field controls deviations of nearby geodesics, we obtain from this that geodesics starting at a common point tend to converge if \(K &gt; 0\), diverge linearly if \(K = 0\) and diverge exponentially if \(K &lt; 0\). Contrast these to the model spaces of constant curvature \(+1\) (\(S^2\)), \(0\) (\(\Bbb R^2\)) and \(-1\) (\(\Bbb H^2\)), where we know this occurs. This is the “comparison philosophy”; to understand how curvature controls rate of divergence of geodesics, and to compare this rate in spaces of different curvatures. We shall talk about this in detail in the next few posts.</p>
+
+      </div>
+    
+  
+</div>
+
+<div class="pagination" style="text-align:center;">
+  
+    <a href="/index.html">&laquo; Prev</a>
+  
+  <span>Page 2 of 2</span>
+  
+</div>
+  	
+	</main>
+    </div>
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+          backdrop.style.display = 'block';
+          // Move the toggle button with the sidebar
+          sidebarToggle.classList.add('open');
+        } else {
+          backdrop.style.display = 'none';
+          sidebarToggle.classList.remove('open');
+        }
+      }
+      function closeSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('open');
+        backdrop.style.display = 'none';
+      }
+      // Optional: close sidebar with Esc key
+      document.addEventListener('keydown', function(e){
+        if (e.key === "Escape") closeSidebar();
+      });
+    </script>
+  </body>
+</html>

@@ -1,15 +1,12 @@
 #!/bin/bash
-# Simple script to deploy _site/ to the gh-pages branch
-
 set -e
 
-# Build your site first (uncomment if needed)
-# bundle exec jekyll build
+bundle exec jekyll build
 
-# Save current branch name
 CURRENT_BRANCH=$(git rev-parse --abbrev-ref HEAD)
+TEMP_DIR=$(mktemp -d)
+cp -a _site/. "$TEMP_DIR"
 
-# Switch to gh-pages branch (create if it doesn't exist)
 if git show-ref --quiet refs/heads/gh-pages; then
   git checkout gh-pages
 else
@@ -17,20 +14,13 @@ else
   git reset --hard
 fi
 
-# Remove all files except .git
-find . -maxdepth 1 ! -name '.' ! -name '.git' ! -name '..' -exec rm -rf {} +
+find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+cp -a "$TEMP_DIR"/. .
+rm -rf "$TEMP_DIR"
 
-# Copy contents of _site to root
-cp -R _site/* .
-
-# Add and commit
 git add .
 git commit -m "Deploy site to gh-pages branch" || echo "No changes to commit"
+git push --force origin gh-pages
 
-# Push to origin
-git push origin gh-pages
-
-# Switch back to original branch
 git checkout "$CURRENT_BRANCH"
-
 echo "Deployed to gh-pages branch!"
