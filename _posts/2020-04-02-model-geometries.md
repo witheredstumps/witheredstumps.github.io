@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: post
 title: 'Model geometries'
 date: 2020-04-22 
 type: post
@@ -9,7 +9,7 @@ categories:
 tags:
 - cat(k)
 - morse-theory
-permalink: "/2020/04/02/mode-geometries/"
+permalink: "/2020/04/02/model-geometries/"
 ---
 
 I will use this post to record some properties and calculations in the model surface $$ M_K$$ of constant curvature $$ K$$. I have used Chapter 2 of Thurston's "The Geometry and Topology of 3-Manifolds" as a reference while writing this. It is recommended for readers to skip all the junk I have written below and directly read that chapter. I found Chapter 4.5 of Christian Bär's lecture notes on differential geometry to be helpful while studying hyperbolic trigonometry, and I have tried to emulate the exposition at the end.
