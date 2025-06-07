@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'Jacobi fields: Part I'
-date: 2020-03-27 18:23:23.000000000 +05:30
+date: 2020-03-27
 type: post
 categories:
 - Differential Geometry
