@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+<div class="content">
+  <h2>
+ <em>Archive from {{ page.date | date: "%B %Y" }}</em>
+  </h2>
+  <ul>
+    {% for post in page.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}"><em>{{ post.title }}</em></a>
+        <span>({{ post.date | date: "%B %-d, %Y" }})</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>

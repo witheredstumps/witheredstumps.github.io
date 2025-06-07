@@ -2,12 +2,29 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }} | {{ site.title }}</title>
+    <title> | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    {% seo %}
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>And Other Withered Stumps Of Time | A Jekyll blog inspired by witheredstumps.wordpress.com</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="And Other Withered Stumps Of Time" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
+<meta property="og:description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
+<link rel="canonical" href="http://localhost:4000/2020/" />
+<meta property="og:url" content="http://localhost:4000/2020/" />
+<meta property="og:site_name" content="And Other Withered Stumps Of Time" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-01-01T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="And Other Withered Stumps Of Time" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-01-01T00:00:00+05:30","datePublished":"2020-01-01T00:00:00+05:30","description":"A Jekyll blog inspired by witheredstumps.wordpress.com","headline":"And Other Withered Stumps Of Time","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/"},"url":"http://localhost:4000/2020/"}</script>
+<!-- End Jekyll SEO tag -->
+
     <!-- Fonts: Original + Sidebar style -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+    <link rel="stylesheet" href="/assets/main.css">
     <!-- MathJax -->
     <script>
       window.MathJax = {
@@ -22,28 +39,32 @@
   <body>
     <div class="background-pattern"></div>
     <!-- Sidebar and toggle button container -->
-    <div class="sidebar-toggle-container{% if page.url == '/' %} home{% endif %}">
+    <div class="sidebar-toggle-container">
       <aside class="sidebar" id="sidebar">
         <!-- Sidebar header with search bar -->
         <nav>
-          <a href="{{ '/' | relative_url }}" {% if page.url == '/' %}class="active"{% endif %}>Home</a>
-          <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}class="active"{% endif %}>About</a>
+          <a href="/" >Home</a>
+          <a href="/about/" >About</a>
         </nav>              
         <!-- Archive section (label and dropdown) -->
         <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
   <option value="#">Archive</option>
-  {% assign years = site.posts | group_by_exp:"post", "post.date | date: '%Y'" %}
-  {% for year in years %}
-    {% assign months = year.items | group_by_exp:"post", "post.date | date: '%m'" %}
-    {% for month in months %}
-      <option value="/{{ year.name }}/{{ month.name }}/">
-        {{ month.items[0].date | date: "%B %Y" }}
+  
+  
+    
+    
+      <option value="/2020/04/">
+        April 2020
       </option>
-    {% endfor %}
-  {% endfor %}
+    
+      <option value="/2020/03/">
+        March 2020
+      </option>
+    
+  
 </select>
         <div class="sidebar-footer"> 
-                   <form class="sidebar-search-form" action="{{ '/search/' | relative_url }}">
+                   <form class="sidebar-search-form" action="/search/">
             <input type="text" name="q" placeholder="Search..." class="sidebar-search-input">
 	</form> 
         </div>
@@ -59,13 +80,26 @@
         <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
       </header>
 	<main>
-  	{% if page.layout == "page" or page.url contains "/about" %}
+  	
     	<div class="content">
-      	{{ content }}
-    	</div>
-  	{% else %}
-    	{{ content }}
-  	{% endif %}
+  <h2>
+ <em>Archive from January 2020</em>
+  </h2>
+  <ul>
+    
+      <li>
+        <a href="/2020/04/02/model-geometries/"><em>Model geometries</em></a>
+        <span>(April 22, 2020)</span>
+      </li>
+    
+      <li>
+        <a href="/2020/03/27/jacobi-fields-part-i/"><em>Jacobi fields: Part I</em></a>
+        <span>(March 27, 2020)</span>
+      </li>
+    
+  </ul>
+</div>
+  	
 	</main>
     </div>
     <script>

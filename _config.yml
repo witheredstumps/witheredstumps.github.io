@@ -5,6 +5,7 @@ plugins:
   - jekyll-feed
   - jekyll-seo-tag
   - jekyll-paginate-v2
+  - jekyll-archives
 
 exclude:
   - README.md
@@ -23,6 +24,15 @@ pagination:
   sort_reverse: true
   permalink: '/page/:num/'
   indexpage: 'index.html'
+
+jekyll-archives:
+  enabled:
+    - month
+    - year
+  layout: archive
+  permalinks:
+    month: '/:year/:month/'
+    year: '/:year/'
 
 # GitHub Pages settings
 github:
