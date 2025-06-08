@@ -1,14 +1,14 @@
 ---
 layout: post
 title: 'Model geometries'
-date: 2020-04-22 
+date: 2020-04-02 
 type: post
-categories:
-- Differential Geometry
-- Riemannian Geometry
 tags:
 - cat(k)
-- morse-theory
+- hyperbolic-geometry
+- jacobi-fields
+- model-geometry
+- special-relativity
 permalink: "/2020/04/02/model-geometries/"
 ---
 

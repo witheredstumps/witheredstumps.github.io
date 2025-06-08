@@ -3,9 +3,6 @@ layout: post
 title: 'Jacobi fields: Part I'
 date: 2020-03-27
 type: post
-categories:
-- Differential Geometry
-- Riemannian Geometry
 tags:
 - cat(k)
 - morse-theory
