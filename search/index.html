@@ -2,24 +2,23 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title> | And Other Withered Stumps Of Time</title>
+    <title>Search | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>And Other Withered Stumps Of Time | A Jekyll blog inspired by witheredstumps.wordpress.com</title>
+<title>Search | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="And Other Withered Stumps Of Time" />
+<meta property="og:title" content="Search" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
 <meta property="og:description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
-<link rel="canonical" href="http://localhost:4000/2020/" />
-<meta property="og:url" content="http://localhost:4000/2020/" />
+<link rel="canonical" href="http://localhost:4000/search/" />
+<meta property="og:url" content="http://localhost:4000/search/" />
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
-<meta property="og:type" content="article" />
-<meta property="article:published_time" content="2020-01-01T00:00:00+05:30" />
+<meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="And Other Withered Stumps Of Time" />
+<meta property="twitter:title" content="Search" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-01-01T00:00:00+05:30","datePublished":"2020-01-01T00:00:00+05:30","description":"A Jekyll blog inspired by witheredstumps.wordpress.com","headline":"And Other Withered Stumps Of Time","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/"},"url":"http://localhost:4000/2020/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"A Jekyll blog inspired by witheredstumps.wordpress.com","headline":"Search","url":"http://localhost:4000/search/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -84,24 +83,76 @@
       </header>
 	<main>
   	
-    	<div class="content">
-  <h2>
- <em>Archive from January 2020</em>
-  </h2>
-  <ul>
-    
-      <li>
-        <a href="/2020/04/02/model-geometries/"><em>Model geometries</em></a>
-        <span>(April 22, 2020)</span>
-      </li>
-    
-      <li>
-        <a href="/2020/03/27/jacobi-fields-part-i/"><em>Jacobi fields: Part I</em></a>
-        <span>(March 27, 2020)</span>
-      </li>
-    
-  </ul>
-</div>
+    	<h2>Search Results</h2>
+<div id="search-results"></div>
+<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+
+<script>
+let idx = null;
+let posts = [];
+
+function displayResults(results) {
+  const resultsContainer = document.getElementById('search-results');
+  if (!results.length) {
+    resultsContainer.innerHTML = "<p>No results found.</p>";
+    return;
+  }
+  let html = '<ul>';
+  results.forEach(result => {
+    const post = posts.find(p => p.url === result.ref);
+    html += `<li><a href="${post.url}">${post.title}</a><br><small>${post.date}</small></li>`;
+  });
+  html += '</ul>';
+  resultsContainer.innerHTML = html;
+}
+
+function doSearch(query) {
+  if (!idx) return;
+  const results = idx.search(query);
+  displayResults(results);
+}
+
+// Parse query from URL (?q=...)
+function getQueryParam(param) {
+  const urlParams = new URLSearchParams(window.location.search);
+  return urlParams.get(param) || "";
+}
+
+fetch('/search.json')
+  .then(response => response.json())
+  .then(data => {
+    posts = data;
+    idx = lunr(function () {
+      this.ref('url');
+      this.field('title');
+      this.field('content');
+      this.field('categories');
+      this.field('tags');
+      posts.forEach(post => this.add(post));
+    });
+
+    const q = getQueryParam('q');
+    if (q) {
+      document.querySelector('.sidebar-search-input').value = q;
+      doSearch(q);
+    }
+  });
+
+// Optional: listen for searches from the sidebar form
+document.addEventListener('DOMContentLoaded', function() {
+  const searchForm = document.querySelector('.sidebar-search-form');
+  const searchInput = document.querySelector('.sidebar-search-input');
+  if (searchForm) {
+    searchForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      const query = searchInput.value;
+      window.location.href = '/search/?q=' + encodeURIComponent(query);
+    });
+  }
+});
+</script>
+
+
   	
 	</main>
     </div>
