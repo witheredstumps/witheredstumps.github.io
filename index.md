@@ -35,16 +35,33 @@ pagination:
 </div>
 
 <!-- Fixed-position buttons -->
-<div class="bottom-btns-vertical">
+<div class="bottom-btns-vertical" id="bottomNavBtns">
   {% if paginator.previous_page %}
     <a class="fixed-bottom-btn" 
        href="{% if paginator.previous_page == 1 %}{{ '/' | relative_url }}{% else %}{{ paginator.previous_page_path | relative_url }}{% endif %}">
-      &#171; Newer
+      &#171; Prev
     </a>
   {% endif %}
   {% if paginator.next_page %}
     <a class="fixed-bottom-btn" href="{{ paginator.next_page_path | relative_url }}">
-      Older &#187;
+      Next &#187;
     </a>
   {% endif %}
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var navBtns = document.getElementById('bottomNavBtns');
+  function checkScroll() {
+    // Show when 90% scrolled or closer to bottom
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300)) {
+      navBtns.classList.add('visible');
+    } else {
+      navBtns.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', checkScroll);
+  // In case the page is already at the bottom on load
+  checkScroll();
+});
+</script>
