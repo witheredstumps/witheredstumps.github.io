@@ -192,15 +192,16 @@
 document.addEventListener('DOMContentLoaded', function() {
   var navBtns = document.getElementById('bottomNavBtns');
   function checkScroll() {
-    // Show when 90% scrolled or closer to bottom
-    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300)) {
+    var scrollPosition = window.scrollY + window.innerHeight;
+    var totalHeight = document.body.offsetHeight;
+    // Show when scrolled past 50% of the page
+    if (scrollPosition / totalHeight >= 0.25) {
       navBtns.classList.add('visible');
     } else {
       navBtns.classList.remove('visible');
     }
   }
   window.addEventListener('scroll', checkScroll);
-  // In case the page is already at the bottom on load
   checkScroll();
 });
 </script>

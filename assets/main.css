@@ -279,7 +279,7 @@ a:focus {
   z-index: 1000;
   opacity: 0; /* hidden by default */
   pointer-events: none; /* don't capture mouse events when hidden */
-  transition: opacity 0.4s;
+  transition: opacity 1s;
 }
 .bottom-btns-vertical.visible {
   opacity: 1;
