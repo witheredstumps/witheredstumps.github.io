@@ -277,6 +277,13 @@ a:focus {
   flex-direction: column;
   gap: 12px;
   z-index: 1000;
+  opacity: 0; /* hidden by default */
+  pointer-events: none; /* don't capture mouse events when hidden */
+  transition: opacity 0.4s;
+}
+.bottom-btns-vertical.visible {
+  opacity: 1;
+  pointer-events: auto;
 }
 .fixed-bottom-btn {
   background: #fff;

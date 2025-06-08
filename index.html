@@ -11,13 +11,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
 <meta property="og:description" content="A Jekyll blog inspired by witheredstumps.wordpress.com" />
+<link rel="canonical" href="http://localhost:4000/" />
+<meta property="og:url" content="http://localhost:4000/" />
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
 <meta property="og:type" content="website" />
-<link rel="next" href="/page/2/index.html" />
+<link rel="next" href="http://localhost:4000/page/2/index.html" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Home" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebSite","description":"A Jekyll blog inspired by witheredstumps.wordpress.com","headline":"Home","name":"And Other Withered Stumps Of Time","url":"/"}</script>
+{"@context":"https://schema.org","@type":"WebSite","description":"A Jekyll blog inspired by witheredstumps.wordpress.com","headline":"Home","name":"And Other Withered Stumps Of Time","url":"http://localhost:4000/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -233,7 +235,7 @@
 </div>
 
 <!-- Fixed-position buttons -->
-<div class="bottom-btns-vertical">
+<div class="bottom-btns-vertical" id="bottomNavBtns">
   
   
     <a class="fixed-bottom-btn" href="/page/2/index.html">
@@ -241,6 +243,24 @@
     </a>
   
 </div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var navBtns = document.getElementById('bottomNavBtns');
+  function checkScroll() {
+    // Show when 90% scrolled or closer to bottom
+    if ((window.innerHeight + window.scrollY) >= (document.body.offsetHeight - 300)) {
+      navBtns.classList.add('visible');
+    } else {
+      navBtns.classList.remove('visible');
+    }
+  }
+  window.addEventListener('scroll', checkScroll);
+  // In case the page is already at the bottom on load
+  checkScroll();
+});
+</script>
+
   	
 	</main>
     </div>
