@@ -25,6 +25,8 @@
     <!-- Fonts: Original + Sidebar style -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
+	<!-- include lunar.js -->
+	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
     <!-- MathJax -->
     <script>
       window.MathJax = {
@@ -64,9 +66,10 @@
   
 </select>
         <div class="sidebar-footer"> 
-                   <form class="sidebar-search-form" action="/search/">
-            <input type="text" name="q" placeholder="Search..." class="sidebar-search-input">
-	</form> 
+<form class="sidebar-search-form" onsubmit="return false;">
+  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
+  <div id="autocomplete-results" class="autocomplete-results"></div>
+</form>
         </div>
       </aside>
       <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
@@ -364,5 +367,6 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === "Escape") closeSidebar();
       });
     </script>
+<script src="/assets/js/lunr-autocomplete.js"></script>
   </body>
 </html>

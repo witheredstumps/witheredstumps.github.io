@@ -151,13 +151,12 @@ body {
 
 /* --- Sidebar toggle button - moves with sidebar --- */
 .sidebar-toggle {
-  display: block;
-  position: fixed;
+  position: absolute;
   top: 1rem;
-  left: 1rem;
+  left: calc(100% + 0.75rem); /* 0.75rem gap from sidebar edge */
   background: #fff;
   color: #2d3a4b;
-  border: 1px solid #e6e6e6;
+  border: 0px solid #e6e6e6;
   font-size: 2rem;
   z-index: 200;
   border-radius: 4px;
@@ -166,11 +165,19 @@ body {
   box-shadow: 1px 1px 8px rgba(80,60,40,0.03);
   transition: left 0.2s, background 0.15s, color 0.15s;
 }
+/* When sidebar is closed, hide toggle button inside the container */
+.sidebar:not(.open) + .sidebar-toggle,
+.sidebar-toggle:not(.open) {
+  left: calc(0% + 0.75rem);
+  background: #fff;
+  color: #8a2d2d;
+}
+/* When sidebar is open, keep the toggle button in the same place for consistency (optional) */
 .sidebar.open + .sidebar-toggle,
 .sidebar-toggle.open {
-  left: 280px;
-  background: #f0f1f6;
-  color: #8a2d2d;
+  left: calc(100% + 0.75rem);
+  background: #8a2d2d;
+  color: #fff;
 }
 @media (max-width: 900px) {
   .sidebar-toggle.open px{
