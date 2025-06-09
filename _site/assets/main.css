@@ -255,6 +255,16 @@ main {
   display: block;
 }
 
+.figure-row figure {
+  margin: 0 1em;
+  text-align: center;
+}
+.figure-row figcaption {
+  font-size: 0.95em;
+  color: #666;
+  margin-top: 0.4em;
+}
+
 /* --- mathjax --- */
 
 mjx-container {

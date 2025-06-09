@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Poisson Process: I | And Other Withered Stumps Of Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Poisson Process: I | And Other Withered Stumps Of Time</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Poisson Process: I" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="I am taking the course Introduction to Stochastic Processes offered by my institute and taught by Parthanil Roy this semester, and wanted to jot down some notes interspersed with my own thoughts somewhere, hence this post. We have started by discussing about point processes, so that is what I expect to talk about in the first few posts of the series. I have recycled the exposition and terminology present in the lecture notes from the instructor of the course, and the text “Lectures on the Poisson Process” by Last and Penrose, also available online, which I am reading independently." />
+<meta property="og:description" content="I am taking the course Introduction to Stochastic Processes offered by my institute and taught by Parthanil Roy this semester, and wanted to jot down some notes interspersed with my own thoughts somewhere, hence this post. We have started by discussing about point processes, so that is what I expect to talk about in the first few posts of the series. I have recycled the exposition and terminology present in the lecture notes from the instructor of the course, and the text “Lectures on the Poisson Process” by Last and Penrose, also available online, which I am reading independently." />
+<link rel="canonical" href="http://localhost:4000/2020/09/06/poisson-process-i/" />
+<meta property="og:url" content="http://localhost:4000/2020/09/06/poisson-process-i/" />
+<meta property="og:site_name" content="And Other Withered Stumps Of Time" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-09-06T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Poisson Process: I" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-09-06T00:00:00+05:30","datePublished":"2020-09-06T00:00:00+05:30","description":"I am taking the course Introduction to Stochastic Processes offered by my institute and taught by Parthanil Roy this semester, and wanted to jot down some notes interspersed with my own thoughts somewhere, hence this post. We have started by discussing about point processes, so that is what I expect to talk about in the first few posts of the series. I have recycled the exposition and terminology present in the lecture notes from the instructor of the course, and the text “Lectures on the Poisson Process” by Last and Penrose, also available online, which I am reading independently.","headline":"Poisson Process: I","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/09/06/poisson-process-i/"},"url":"http://localhost:4000/2020/09/06/poisson-process-i/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Fonts: Original + Sidebar style -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+	<!-- include lunar.js -->
+	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <!-- Sidebar and toggle button container -->
+    <div class="sidebar-toggle-container">
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar header with search bar -->
+        <nav>
+          <a href="/" >Home</a>
+          <a href="/about/" >About</a>
+        </nav>              
+        <!-- Archive section (label and dropdown) -->
+        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
+  <option value="#">Archive</option>
+  
+  
+    
+    
+      <option value="/2024/03/">
+        March 2024
+      </option>
+    
+      <option value="/2024/02/">
+        February 2024
+      </option>
+    
+  
+    
+    
+      <option value="/2022/05/">
+        May 2022
+      </option>
+    
+      <option value="/2022/03/">
+        March 2022
+      </option>
+    
+      <option value="/2022/01/">
+        January 2022
+      </option>
+    
+  
+    
+    
+      <option value="/2021/12/">
+        December 2021
+      </option>
+    
+  
+    
+    
+      <option value="/2020/11/">
+        November 2020
+      </option>
+    
+      <option value="/2020/09/">
+        September 2020
+      </option>
+    
+      <option value="/2020/06/">
+        June 2020
+      </option>
+    
+      <option value="/2020/05/">
+        May 2020
+      </option>
+    
+      <option value="/2020/04/">
+        April 2020
+      </option>
+    
+      <option value="/2020/03/">
+        March 2020
+      </option>
+    
+  
+</select>
+        <div class="sidebar-footer"> 
+<form class="sidebar-search-form" onsubmit="return false;">
+  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
+  <div id="autocomplete-results" class="autocomplete-results"></div>
+</form>
+        </div>
+      </aside>
+      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
+      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+    </div>
+    <!-- Backdrop for overlay effect -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
+    <!-- Main Content (not shifted) -->
+    <div class="main-content">
+      <header>
+        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      </header>
+	<main>
+  	
+    	<div class="content">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title" style="font-style: italic;">
+          Poisson Process: I
+        </h2>
+      <div class="post-meta">
+          <span>September 06, 2020</span>
+        </div>
+        <hr>
+    </header>
+    <p>I am taking the course Introduction to Stochastic Processes offered by my institute and taught by Parthanil Roy this semester, and wanted to jot down some notes interspersed with my own thoughts somewhere, hence this post. We have started by discussing about point processes, so that is what I expect to talk about in the first few posts of the series. I have recycled the exposition and terminology present in the lecture notes from the instructor of the course, and the text “Lectures on the Poisson Process” by Last and Penrose, also available online, which I am reading independently.</p>
+
+<p>A point process on a space \(\mathbb{X}\) is a random collection of countably many points on \(\mathbb{X}\). One can think of it as a measure on the configuration space of countably many points on \(\mathbb{X}\) but this becomes rather uselessly abstract. One way to understand this is to imagine \(\mathbb{X}\) as a dartboard, and we are randomly throwing countably many darts at it. We can fix any measurable subset \(B \subset \mathbb{X}\) of the dartboard and ask how many darts hit \(B\). This itself is a random variable, and taking expectation of this variable defines a measure \(\lambda\) on \(\mathbb{X}\), where \(\lambda(B)\) is the average number, or the intensity of darts that hit \(B\). As we vary \(B \subset \mathbb{X}\), probing the whole dartboard by its measurable subsets, the random variables which count the number of darts in the region \(B\) of the dartboard determines the full random configuration of darts.</p>
+
+<p>To make this setup precise, we’ll change our viewpoint. Let \((\mathbb{X}, \mathcal{X})\) be a measurable space, and \(M(\mathbb{X})\) be the space of \(\Bbb N_0\)-valued measures on this space. Moreover let \(\bar{M}(\mathbb{X})\) be the space of countable linear combination of elements of \(M(\mathbb{X})\); we shall think of elements of this space as counting measures on \(\mathbb{X}\), although generally they can be more complicated than counting measures, which are really linear combinations of Dirac masses at distinct points on \(\mathbb{X}\). We can equip \(\bar{M}(\mathbb{X})\) with a \(\sigma\)-algebra \(\mathcal{M}\) generated by collection of all cylinder subsets of the form \(\{\mu \in \bar{M}(\mathbb{X}) : \mu(B) = k\}\), where \(B \in \mathcal{X}\), \(k \in \Bbb N_0 \cup \{\infty\}\). Define a point process on \((\mathbb{X}, \mathcal{X})\) to be a measurable map \(\eta : (\Omega, \mathcal{A}, \Bbb P) \to (\bar{M}(\mathbb{X}), \mathcal{M})\) from some probability measure space \((\Omega, \mathcal{A}, \Bbb P)\).</p>
+
+<p>This looks different from what we were describing in the first paragraph but all we did was a currying trick; for any fixed measurable set \(B \subset \mathbb{X}\), denote by \(\eta(B)\) to be the random variable \((\Omega, \mathcal{A}, \Bbb P) \to \Bbb N_0 \cup \{\infty\}\), \(\omega \mapsto \eta(\omega)(B)\), which is the number of points of \(\eta\) in \(B\). The intensity measure on \((\mathbb{X}, \mathcal{X})\) is given by \(\lambda(B) := \Bbb E \eta(B)\). What this perspective allows us to see is that a point process can alternatively be described as a random counting measure on \((\mathbb{X}, \mathcal{X})\). Alternatively, one can unfurl the whole thing to a map \(\eta : \Omega \times \mathcal{X} \to \Bbb N_0 \cup \{\infty\}\), \((\omega, B) \mapsto \eta(\omega)(B)\). This is called the transition kernel of the process.</p>
+
+<p>A simple example of a point process is as follows. Let \(X_1, \cdots, X_n : (\Omega, \mathcal{A}, \Bbb P) \to (\mathbb{X}, \mathcal{X})\) be \(\mathbb{X}\)-valued random variables, or random points on \(\mathbb{X}\), which are independently distributed with the same law \(\mu\). Then define \(\eta := \delta_{X_1} + \cdots + \delta_{X_n}\) where \(\delta_x\) denotes the Dirac mass at \(x \in \mathbb{X}\). This is called the binomial process with sample size \(n\) and sampling distribution \(\mu\) on \(\mathbb{X}\), as</p>
+
+\[\displaystyle \Bbb P(\eta(B) = k) = \binom{n}{k} \mu(B)^k (1 - \mu(B))^{n-k}\]
+
+<p>A point process \(\eta\) on \(\mathbb{X}\) is called proper if there exists \(\mathbb{X}\)-valued random variables \(X_1, X_2, \cdots\) and a \(\mathbb{N}_0 \cup \{\infty\}\)-valued random variable \(Z\) such that almost surely, \(\eta = \sum_{i = 1}^Z \delta_{X_i}\).</p>
+
+<p>A class of examples of central attention for us are Poisson processes. Let us begin by introducing such a process on the non-negative real line \([0, \infty)\) for ease of exposition.</p>
+
+<p>A countable collection of points on \([0, \infty)\) can be imagined as marking off the times - starting the clock at \(0\) - that certain random events of similar nature occur; for example, arrival time of buses in a bus-stop, or calls in a telephone exchange, or perhaps decay of a particle (we shall stick to the second analogy for its relative simplicity and antiquity). In such an experiment we have various arrival times \(0 = S_0 \leq S_1 \leq S_2 \leq S_3 \leq \cdots\) for the phone calls. Let us denote the consecutive differences \(X_i = S_i - S_{i-1}\), \(i \in \Bbb N\) to be the interarrival times between the \((i-1)\)-th and the \(i\)-th phonecalls. Motivated from statistical and physical models, we shall assume that the interarrival times are identically and independently distributed exponential variables, i.e., \(X_1, X_2, \cdots \stackrel{\mathrm{iid}}{\sim} \mathrm{Exp}(\alpha)\). This describes our point process completely; it is a random configuration of countably many points in \([0, \infty)\) including \(0\) such that the spacing between two consecutive points is exponential with parameter \(\alpha\). We call this the homogeneous Poisson point process \(\wp_\alpha\) on \([0, \infty)\) with intensity \(\alpha\).</p>
+
+<p>But we would like to put this in the context of our discussion earlier involving the kernel of a point process. So let us start off by denoting \(N_t = \max\{n \geq 0 : S_n \leq t\}\) to be the number of phonecalls that arrive upto time \(t\). This is the number of points of \(\wp_\alpha\) in \([0, t]\) in our language from earlier. Note that \(N_t\) is apriori a \(\Bbb N_0 \cup \{\infty\}\)-valued random variable for every \(t \geq 0\). Observe:</p>
+
+\[\displaystyle \Bbb P(N_t = n) = \Bbb P(S_n \leq t &lt; S_{n+1}) = \Bbb P(S_n \leq t) - \Bbb P(S_{n+1} \leq t)\]
+
+<p>Remember that \(S_m = X_1 + \cdots + X_m\) where \(X_i\) are i.i.d. exponential with parameter \(\alpha\). Thus, \(S_m \sim \mathrm{Gamma}(m, \alpha)\). Plugging the cdf of the Gamma distribution in the expression above, we obtain for any \(n \in \Bbb N_0\),</p>
+
+\[\displaystyle \begin{aligned}\Bbb P(N_t = n) &amp;= \int_{0}^t \frac{\alpha^n}{(n-1)!} s^{n-1} e^{-\alpha s} ds - \int_{0}^t \frac{\alpha^{n+1}}{n!} s^n e^{-\alpha s} ds \\ &amp;= \frac{\alpha^n}{n!} e^{-\alpha t} t^n = \frac{(\alpha t)^n}{n!} e^{-\alpha t}\end{aligned}\]
+
+<p>Using a simple application of integration by parts on the first integral, writing \(s^{n-1} ds = d(s^n)/n\). Thus, we obtain \(\Bbb P(N_t &lt; \infty) = \sum_{n \in \Bbb N_0} \Bbb P(N_t = n) = 1\), hence \(N_t\) can be treated as a \(\Bbb N_0\)-valued random variable, in which case \(N_t \sim \mathrm{Poi}(\alpha t)\) for all \(t &gt; 0\) by comparing pmf’s. In the case \(t = 0\), we simply have \(N_0 \equiv 0\).</p>
+
+<p>Next, we would like to compute more generally the number of phone calls that arrive in a specific time-interval \(I \subset [0, \infty)\), that is to say, the number of points of the point process \(\wp_\alpha\) in \(I\). To proceed, fix \(t_0 &gt; 0\) and consider the interval \(I = [t_0,  t_0 + t]\). Then the number of interest is \(\widetilde{N}_t := N_{t_0 + t} - N_{t_0}\). Taking cue from the telephone exchange analogy, we set up the whole process again, but starting our clock at time \(t_0\). That is to say, suppose the telephone operator slept through their alarm and arrives at the telephone exchange office late. They hurriedly start jotting down the arrival times of the calls after time \(t_0\), which would then be \(t_0 \leq S_{N_{t_0}+1} \leq S_{N_{t_0}+2} \leq \cdots\). The relevant interarrival times are then given by \(\widetilde{X}_i = S_{N_{t_0} + i} - S_{N_{t_0} + i-1} = X_{N_{t_0} + i}\) for all \(i \geq 2\) and \(\widetilde{X}_1 = S_{N_{t_0} + 1} - t_0\). Define \(\widetilde{S}_n = \widetilde{X}_1 + \cdots + \widetilde{X}_n\) and \(\widetilde{S}_0 \equiv 0\). What we have done is simply the following: we have chopped off the original Poisson process on \([0, \infty)\) at time \(t_0\) and translated \([t_0, \infty)\) back to \([0, \infty)\) to define a new point process, by using the random configuration of countably many points that appear after \(t_0\). It turns out that this is also a Poisson process with intensity \(\alpha\)!</p>
+
+<p>To see this, all we have to do is to prove \(\widetilde{X}_1, \widetilde{X}_2, \widetilde{X}_3, \cdots \stackrel{\mathrm{iid}}{\sim} \mathrm{Exp}(\alpha)\). Observe,</p>
+
+\[\displaystyle \begin{aligned}&amp; \Bbb P(\widetilde{X}_1 &gt; x_1, \cdots, \widetilde{X}_k &gt; x_k, N_{t_0} = n) \\ &amp;= \Bbb P(S_{n+1} &gt; t_0 +  x_1, X_{n+2} &gt; x_2, \cdots, X_{n+k} &gt; x_k, S_n \leq t_0 &lt; S_{n+1}) \\ &amp;= \Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0 + x_1, X_{n+2} &gt; x_2, \cdots, X_{n+k} &gt; x_k) \\ &amp;= \Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0 + x_1) \Bbb P(X_{n+2} &gt; x_2, \cdots, X_{n+k} &gt; x_k) \end{aligned}\]
+
+<p>where in the last equality we used \((S_n, S_{n+1}) \perp \!\!\! \perp (X_{n+2}, \cdots, X_{n+k})\). A long calculation involving the law of conditional probability ensues:</p>
+
+\[\displaystyle \begin{aligned}\Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0 + x_1) &amp;= \Bbb P(S_n \leq t_0, X_{n+1} &gt; t_0 + x_1 - S_n) \\ &amp;= \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 + x_1 - u | S_n = u) f_{S_n}(u) du \\ &amp;= \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 + x_1 - u) f_{S_n}(u) du \\ &amp;= \int_0^{t_0} e^{-\alpha(t_0 + x_1 - u)} f_{S_n}(u) du \\ &amp; = e^{-\alpha x_1} \int_0^{t_0} e^{-\alpha(t_0 - u)} f_{S_n}(u) du \\ &amp;= \Bbb P(X_{n+1}&gt; x_1) \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 - u) f_{S_n}(u) du \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 - u|S_n = u) f_{S_n}(u) du \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \Bbb P(S_n \leq t_0, X_{n+1} &gt; t_0 - S_n) \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0) \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \Bbb P(N_{t_0} = n)\end{aligned}\]
+
+<p>Substituting this back in the earlier equation, we obtain:</p>
+
+\[\displaystyle \Bbb P(\widetilde{X}_1 \!&gt;\! x_1, \cdots, \widetilde{X}_k\! &gt;\! x_k, N_{t_0} \!=\! n) = \Bbb P(X_{n+1}\! &gt;\! x_1) \cdots \Bbb P(X_{n+k}\! &gt;\! x_k) \Bbb P(N_{t_0} \!=\! n)\]
+
+<p>This is of course expected, because the identity here expresses the fact that in probability the new Poisson process is obtained from shifting the old Poisson process back by time \(t_0\). Note that this not only proves that the variables \(\widetilde{X}_i\) are i.i.d. exponential with parameter \(\alpha\) (replace the variables \(X_{n+i}\) on the right hand side of the identity by the equally distributed exponential variables \(X_i\), and sum over \(n\)), but also that \((\widetilde{X}_1, \widetilde{X}_2, \cdots) \perp \!\!\!\perp N_{t_0}\). The new Poisson process has forgotten how many calls arrived before time \(t_0\). This is the most rudimentary form of Markov property of stochastic processes.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Observe now that \(\widetilde{N}_t = \max\{n \geq 0 : \widetilde{S}_n \leq t\}\) is just the number of phonecalls which arrived before time \(t\) in the new chopped off Poisson process with intensity \(\alpha\), so of course, \(\widetilde{N}_t \sim \mathrm{Poi}(\alpha t)\) as well. This proves that the number of points of \(\wp_\alpha\) in \(I \subset [0, \infty)\) follows the Poisson distribution with parameter $$\alpha</td>
+      <td>I</td>
+      <td>\(, i.e.,\)\wp_\alpha(I) \sim \mathrm{Poi}(\alpha</td>
+      <td>I</td>
+      <td>)\(. Therefore, we also have that the intensity measure induced by\)\rho_\alpha\(on\)[0, \infty)\(is the Lebesgue measure scaled by\)\alpha\(. The fact that\)N_t \perp !!! \perp N_{t + s} - N_t\(for any\)t, s \geq 0\(indicates in general that if\)0 \leq t_1 \leq t_2 \leq \cdots \leq t_k\(then\)N_{t_1}, N_{t_2 - t_1}, \cdots, N_{t_k - t_{k-1}}\(are independent random variables, which is to say, if\)I_1, I_2, \cdots, I_k \subset \Bbb R\(are pairwise disjoint intervals then\)\wp_\alpha(I_1), \cdots, \wp_\alpha(I_k)$$ are independent random variables.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>In general let \((\Bbb{X}, \mathcal{X})\) be a measurable space and \(\lambda\) be a \(\sigma\)-finite measure on \(\Bbb{X}\). We define a (inhomogeneous) Poisson point process \(\wp_\lambda\) with intensity measure \(\lambda\) to be a point process such that \(B \in \mathcal{X}\), \(\wp_\lambda(B) \sim \mathrm{Poi}(\lambda(B))\) and for every collection \(B_1, \cdots, B_n \in \mathcal{X}\) of pairwise disjoint sets, \(\wp_\lambda(B_1), \cdots, \wp_\lambda(B_n)\) are independent random variables.</p>
+
+<p>We have constructed such a process on \([0, \infty)\). It is worthwhile to note that in this case the full package of the Poisson process can be presented as just the stochastic process \(\{N_t\}_{t \in [0, \infty)}\) given by the number of phonecalls upto time \(t\), because of linearity of the underlying space; namely, \(\wp_\alpha([a, b]) = N_b - N_a\) for any interval \([a, b] \subset \Bbb R\), so it suffices to specify the variables \(N_t\) for all \(t \geq 0\) to recover the whole point process. \(\{N_t\}_{t \in [0, \infty)}\) is a continuous-time stochastic process with independent Poisson increments, which are precisely what the two properties in the definition of a general Poisson process above are trying to capture. In the next post we shall construct a Poisson process on any measurable space with a given \(\sigma\)-finite measure.</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>Finally, let us close this conversation with a few words on the Markov property. We view the homogeneous Poisson process with intensity \(\alpha\) on \([0, \infty)\) as a random collection of countably many points on \([0, \infty)\) as before in the telephone exchange model. We claim that for any fixed \(n \geq 1\), the joint distribution $$(S_1, \cdots, S_n)</td>
+      <td>S_{n+1} = s\(of the first\)n\(points given the knowledge of the\)(n+1)\(-th point has the same distribution as the order statistics vector\)(U_{(1)}, \cdots, U_{(n)})\(of a sample\)U_1, \cdots, U_n \stackrel{\mathrm{iid}}{\sim} \mathrm{Unif}(0, s)\(of\)n$$ uniform points.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>To prove this, define a linear transformation \(T(x_1, \cdots, x_{n+1}) = (x_1, x_1+x_2, \cdots, x_1+\cdots+x_{n+1})\) for all \(\mathbf{x} \in (0, \infty)^{n+1}\). This has range \(\{\mathbf{s} \in \Bbb R^n : 0 &lt; s_1 &lt; \cdots &lt; s_{n+1}\}\) and is invertible on the range, with inverse given by \(T^{-1}(s_1, \cdots, s_{n+1}) = (s_1, s_2 - s_1, \cdots, s_{n+1} - s_n)\). Clearly \(\det(T) = 1\) as the matrix of \(T\) is upper triangular with \(1\)’s along the diagonal. By the change of density formula,</p>
+
+\[\displaystyle \begin{aligned}f_{S_1, \cdots, S_{n+1}}(s_1, s_2, \cdots, s_{n+1}) &amp; = f_{X_1, \cdots, X_{n+1}}(s_1, s_2 - s_1, \cdots, s_{n+1} - s_n) \\ &amp;= \lambda e^{-\lambda s_1} \lambda e^{-\lambda (s_2 - s_1)} \cdots \lambda e^{-\lambda (s_{n+1} - s_n)} \mathbf{1}_{(0 &lt; s_1 &lt; \cdots &lt; s_{n+1})} \\ &amp;= \lambda^{n+1}e^{-\lambda s_{n+1}} \mathbf{1}_{(0 &lt; s_1 &lt; \cdots &lt; s_{n+1})} \end{aligned}\]
+
+<table>
+  <tbody>
+    <tr>
+      <td>\(S_{n+1}\) is distributed as \(\text{Gamma}(n+1, \lambda)\), hence \(f_{S_{n+1}}(s) = \lambda^{n+1} s^n e^{-\lambda s}/n! \cdot \mathbf{1}_{(s &gt; 0)}\), so the conditional pdf of the conditional distribution $$(S_1, \cdots, S_n)</td>
+      <td>S_{n+1} = s$$ is given by</td>
+    </tr>
+  </tbody>
+</table>
+
+\[\displaystyle \begin{aligned} f_{S_1 \cdots S_n | S_{n+1}}(s_1, \cdots, s_n | s) = \frac{f_{S_1, \cdots, S_{n+1}}(s_1, \cdots, s_n, s)}{f_{S_{n+1}}(s)} &amp; = \frac{\lambda^{n+1} e^{-\lambda s}}{\lambda^{n+1}s^ne^{-\lambda s}/n!} \mathbf{1}_{(0&lt;s_1&lt;\cdots&lt;s_n&lt;s)} \\ &amp;= n! \left (\frac{1}{s}\right )^n \mathbf{1}_{0&lt;s_1&lt;\cdots&lt;s_n&lt;s} \end{aligned}\]
+
+<p>which is precisely the pdf of \((U_{(1)}, \cdots, U_{(n)})\), as promised. One way to interpret this is to say that the knowledge of the position of the \((n+1)\)-th point in the configuration gives no insight into the position of the points before, except their relative order, and we have already seen before that restarting the clock at time \(S_{n+1}\) completely reboots the Poisson process.</p>
+
+  </article>
+</div>
+
+<!-- Fixed-position buttons for previous/next post -->
+<div class="bottom-btns-vertical visible">
+  
+    <a class="fixed-bottom-btn" href="/2020/06/19/brownian-motions-i/">
+      Older &#187;
+    </a>
+  
+  
+    <a class="fixed-bottom-btn" href="/2020/11/02/markov-chains-i/">
+      &#171; Newer
+    </a>
+  
+</div>
+
+<!-- Arrow key navigation for previous/next post -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2020/06/19/brownian-motions-i/";
+  var nextUrl = "/2020/11/02/markov-chains-i/";
+  document.addEventListener('keydown', function(event) {
+    // Left arrow (37) or 'A'
+    if ((event.key === "ArrowLeft" || event.key === "a" || event.key === "A") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Right arrow (39) or 'D'
+    if ((event.key === "ArrowRight" || event.key === "d" || event.key === "D") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+  });
+});
+</script>
+
+<!-- Keyboard navigation hint popup -->
+<style>
+.keyboard-nav-popup {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.97);
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.keyboard-nav-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.keyboard-nav-popup kbd {
+  background: #222;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid #555;
+}
+</style>
+<div class="keyboard-nav-popup" id="keyboardNavPopup">
+  Navigate posts with <kbd>←</kbd> or <kbd>A</kbd> &nbsp; / &nbsp; <kbd>→</kbd> or <kbd>D</kbd>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2020/06/19/brownian-motions-i/";
+  var nextUrl = "/2020/11/02/markov-chains-i/";
+  var popup = document.getElementById('keyboardNavPopup');
+
+  // Show popup for 3 seconds on load
+  if (popup) {
+    popup.classList.add('visible');
+    setTimeout(function() {
+      popup.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show popup for 1 seconds on keypress (if not already visible)
+  function showPopupOnKey() {
+    if (!popup.classList.contains('visible')) {
+      popup.classList.add('visible');
+      setTimeout(function() {
+        popup.classList.remove('visible');
+      }, 1000);
+    }
+  }
+
+  document.addEventListener('keydown', function(event) {
+    // Left arrow or 'A'
+    if ((event.key === "ArrowLeft" || event.key.toLowerCase() === "a") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+    // Right arrow or 'D'
+    if ((event.key === "ArrowRight" || event.key.toLowerCase() === "d") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Show popup again on any navigation key
+    if (
+      (event.key === "ArrowLeft" && nextUrl) ||
+      (event.key.toLowerCase() === "a" && nextUrl) ||
+      (event.key === "ArrowRight" && prevUrl) ||
+      (event.key.toLowerCase() === "d" && prevUrl)
+    ) {
+      showPopupOnKey();
+    }
+  });
+});
+</script>
+  	
+	</main>
+    </div>
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+          backdrop.style.display = 'block';
+          // Move the toggle button with the sidebar
+          sidebarToggle.classList.add('open');
+        } else {
+          backdrop.style.display = 'none';
+          sidebarToggle.classList.remove('open');
+        }
+      }
+      function closeSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('open');
+        backdrop.style.display = 'none';
+      }
+      // Optional: close sidebar with Esc key
+      document.addEventListener('keydown', function(e){
+        if (e.key === "Escape") closeSidebar();
+      });
+    </script>
+<script src="/assets/js/lunr-autocomplete.js"></script>
+  </body>
+</html>

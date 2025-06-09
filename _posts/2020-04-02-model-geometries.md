@@ -89,14 +89,14 @@ $$ \displaystyle \gamma(t) = \frac{1}{\sqrt{K}} \left ( \cos(t \sqrt{K}), \sin(t
 This describes the geodesics of $$ \Bbb H_K^2$$ in the hyperboloid model completely. If we project to the unit disk conformally, we obtain that the geodesics in the disk model are exactly diameters as well as semicircular arcs which hit the boundary circle perpendicularly, as illustrated in the following picture:
 
 <div class="figure-row">
-<img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/HyperboloidProjection.png" alt="hyperboloidprojection" height="250" width="250"/>
+<img src="/assets/images/hyperboloid-projection-1.png" height="250" width="250"/>
 </div>
 
 Here on the left we have an illustration of a geodesic tessellation of $$ \Bbb H_K^2$$ in Poincare disk model, and on the right is "Circle Limit III" by Escher, who mistakenly thought that the white lines are geodesics, but in fact they meet the boundary circle in somewhere close to 80 degrees, as Coxeter found out:
 
 <div class="figure-row">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Hyperbolic_tiling_6_5_2_8.svg" height="200" width="200"/>
-    <img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Escher_Circle_Limit_III.jpg/290px-Escher_Circle_Limit_III.jpg" height="200" width="200"/>
+    <img src="/assets/images/hyperbolic-tiling.svg" height="200" width="200"/>
+    <img src="/assets/images/circle-limit.jpg" height="200" width="200"/>
 </div>
 
 <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Hyperbolic_tiling_6_5_2_8.svg" height="200" width="200"/><img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Escher_Circle_Limit_III.jpg/290px-Escher_Circle_Limit_III.jpg" height="200" width="200"/> -->

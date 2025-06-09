@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Seiberg-Witten Theory: IV | And Other Withered Stumps Of Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Seiberg-Witten Theory: IV | And Other Withered Stumps Of Time</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Seiberg-Witten Theory: IV" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Let \(M\) be a closed oriented smooth \(4\)-manifold with a choice of a Riemannian metric \(g\), and a spinC-structure \(\mathfrak{s}\). The spinC-structure gives rise to a Clifford representation of the complexified tangent bundle \(\rho : T^{\Bbb C} M \to \mathrm{End}(S)\) on the complex spinor bundle \(S\) which is of rank \(4 = 2^{4/2}\), admitting a chiral decomposition \(S = S^- \oplus S^+\) and associated determinant line bundle \(L = \Lambda^2 S^+ \cong \Lambda^2 S^-\) whose 1st Chern class is the integral lift of the 2nd Stiefel-Whitney class of \(M\) coming from \(\mathfrak{s}\), as discussed in Part III. We choose a connection \(A\) on \(L\) which, combined with the LC connection on \((M, g)\), determines a spin connection on \(S\). Then there is an associated Dirac operator \(\slash \!\!\! \partial_A : \Gamma^{\pm}(S) \to \Gamma^{\mp}(S)\)." />
+<meta property="og:description" content="Let \(M\) be a closed oriented smooth \(4\)-manifold with a choice of a Riemannian metric \(g\), and a spinC-structure \(\mathfrak{s}\). The spinC-structure gives rise to a Clifford representation of the complexified tangent bundle \(\rho : T^{\Bbb C} M \to \mathrm{End}(S)\) on the complex spinor bundle \(S\) which is of rank \(4 = 2^{4/2}\), admitting a chiral decomposition \(S = S^- \oplus S^+\) and associated determinant line bundle \(L = \Lambda^2 S^+ \cong \Lambda^2 S^-\) whose 1st Chern class is the integral lift of the 2nd Stiefel-Whitney class of \(M\) coming from \(\mathfrak{s}\), as discussed in Part III. We choose a connection \(A\) on \(L\) which, combined with the LC connection on \((M, g)\), determines a spin connection on \(S\). Then there is an associated Dirac operator \(\slash \!\!\! \partial_A : \Gamma^{\pm}(S) \to \Gamma^{\mp}(S)\)." />
+<link rel="canonical" href="http://localhost:4000/2022/03/19/sw-theory-iv/" />
+<meta property="og:url" content="http://localhost:4000/2022/03/19/sw-theory-iv/" />
+<meta property="og:site_name" content="And Other Withered Stumps Of Time" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-19T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Seiberg-Witten Theory: IV" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-19T00:00:00+05:30","datePublished":"2022-03-19T00:00:00+05:30","description":"Let \\(M\\) be a closed oriented smooth \\(4\\)-manifold with a choice of a Riemannian metric \\(g\\), and a spinC-structure \\(\\mathfrak{s}\\). The spinC-structure gives rise to a Clifford representation of the complexified tangent bundle \\(\\rho : T^{\\Bbb C} M \\to \\mathrm{End}(S)\\) on the complex spinor bundle \\(S\\) which is of rank \\(4 = 2^{4/2}\\), admitting a chiral decomposition \\(S = S^- \\oplus S^+\\) and associated determinant line bundle \\(L = \\Lambda^2 S^+ \\cong \\Lambda^2 S^-\\) whose 1st Chern class is the integral lift of the 2nd Stiefel-Whitney class of \\(M\\) coming from \\(\\mathfrak{s}\\), as discussed in Part III. We choose a connection \\(A\\) on \\(L\\) which, combined with the LC connection on \\((M, g)\\), determines a spin connection on \\(S\\). Then there is an associated Dirac operator \\(\\slash \\!\\!\\! \\partial_A : \\Gamma^{\\pm}(S) \\to \\Gamma^{\\mp}(S)\\).","headline":"Seiberg-Witten Theory: IV","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2022/03/19/sw-theory-iv/"},"url":"http://localhost:4000/2022/03/19/sw-theory-iv/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Fonts: Original + Sidebar style -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+	<!-- include lunar.js -->
+	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <!-- Sidebar and toggle button container -->
+    <div class="sidebar-toggle-container">
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar header with search bar -->
+        <nav>
+          <a href="/" >Home</a>
+          <a href="/about/" >About</a>
+        </nav>              
+        <!-- Archive section (label and dropdown) -->
+        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
+  <option value="#">Archive</option>
+  
+  
+    
+    
+      <option value="/2024/03/">
+        March 2024
+      </option>
+    
+      <option value="/2024/02/">
+        February 2024
+      </option>
+    
+  
+    
+    
+      <option value="/2022/05/">
+        May 2022
+      </option>
+    
+      <option value="/2022/03/">
+        March 2022
+      </option>
+    
+      <option value="/2022/01/">
+        January 2022
+      </option>
+    
+  
+    
+    
+      <option value="/2021/12/">
+        December 2021
+      </option>
+    
+  
+    
+    
+      <option value="/2020/11/">
+        November 2020
+      </option>
+    
+      <option value="/2020/09/">
+        September 2020
+      </option>
+    
+      <option value="/2020/06/">
+        June 2020
+      </option>
+    
+      <option value="/2020/05/">
+        May 2020
+      </option>
+    
+      <option value="/2020/04/">
+        April 2020
+      </option>
+    
+      <option value="/2020/03/">
+        March 2020
+      </option>
+    
+  
+</select>
+        <div class="sidebar-footer"> 
+<form class="sidebar-search-form" onsubmit="return false;">
+  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
+  <div id="autocomplete-results" class="autocomplete-results"></div>
+</form>
+        </div>
+      </aside>
+      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
+      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+    </div>
+    <!-- Backdrop for overlay effect -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
+    <!-- Main Content (not shifted) -->
+    <div class="main-content">
+      <header>
+        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      </header>
+	<main>
+  	
+    	<div class="content">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title" style="font-style: italic;">
+          Seiberg-Witten Theory: IV
+        </h2>
+      <div class="post-meta">
+          <span>March 19, 2022</span>
+        </div>
+        <hr>
+    </header>
+    <p>Let \(M\) be a closed oriented smooth \(4\)-manifold with a choice of a Riemannian metric \(g\), and a spinC-structure \(\mathfrak{s}\). The spinC-structure gives rise to a Clifford representation of the complexified tangent bundle \(\rho : T^{\Bbb C} M \to \mathrm{End}(S)\) on the complex spinor bundle \(S\) which is of rank \(4 = 2^{4/2}\), admitting a chiral decomposition \(S = S^- \oplus S^+\) and associated determinant line bundle \(L = \Lambda^2 S^+ \cong \Lambda^2 S^-\) whose 1st Chern class is the integral lift of the 2nd Stiefel-Whitney class of \(M\) coming from \(\mathfrak{s}\), as discussed in Part III. We choose a connection \(A\) on \(L\) which, combined with the LC connection on \((M, g)\), determines a spin connection on \(S\). Then there is an associated Dirac operator \(\slash \!\!\! \partial_A : \Gamma^{\pm}(S) \to \Gamma^{\mp}(S)\).</p>
+
+<p>Moreover, we have the Hodge star operator \(\star : \Omega^2(M) \to \Omega^2(M)\) and we shall call the eigenspaces of \(\star\) of eigenvalues \(\pm 1\) as the self-dual and anti-self-dual \(2\)-forms, giving a decomposition \(\Omega^2 = \Omega^{2,+} \oplus \Omega^{2, -}\); we shall write \(\omega^+\) to mean the self-dual part of a \(2\)-form \(\omega\). The SD-ASD decomposition mirrors the chiral decomposition \(S = S^+ \oplus S^-\). More precisely, the connection between these is explained by the spin representation \(\rho : T^{\Bbb C} M \to \mathrm{End}(S) = S \otimes S\) which may be baked to a representation</p>
+
+\[\displaystyle \rho : \Omega^2(M) \otimes \Bbb C = \Lambda^2 T^*M \otimes \Bbb C \to S \otimes S\]
+
+<p>by replacing wedge with Clifford multiplication wherever it appears. We obtain the decomposition \(S^+ \otimes S^- \cong \Omega^0 \oplus \Omega^{2,+}\), a mnemonic for which is that a left-handed and a right-handed spin-1/2 fermion can combine to give a spin 0 (which has a single state, so rank of \(\Omega^0\) is \(1\)) or a spin 1 (which has three states -1, 0, 1, so rank of \(\Omega^{2,+}\) is \(3\)) fermion; note that the projection to the first factor is simply taking trace. Whenever \(\psi\) is a positive chirality spinor (a section of \(S^+\)), we will write \((\psi \otimes \psi^\dagger)_0\) to mean the trace-0 part of the tensor, conceptualized as a self-dual 2-form.</p>
+
+<p>Given all of this, we shall now write down the Seiberg-Witten equations. For a pair \((A, \psi) \in \mathcal{A}(L) \oplus \Gamma(S^+)\), these are given by</p>
+
+\[\displaystyle \slash \!\!\! \partial_A \psi = 0 \\ F_A^+ = (\psi \otimes \psi^\dagger)_0\]
+
+<p>The second equation is the quadratic part; observe both sides are \(i \Bbb R\)-valued self-dual \(2\)-forms on \(M\). We may perturb the SW equations by adding \(i \mu\) to the right hand side of the second equation, for a fixed self-dual \(2\)-form \(\mu\), which I expect is useful for transversality arguments later.</p>
+
+<p>The natural gauge symmetries of these equations is recorded by the group \(\mathcal{G} = C^\infty(M, S^1)\). For \(g \in \mathcal{G}\), it acts on the complex vector bundle \(S^+\) by pointwise multiplication; thus the induced action on sections is \(\psi \mapsto g \psi\) and the induced action on the line bundle \(L\) is by \(g^2\) (see Part III); this implies the action by conjugation on the covariant derivative \(\nabla^A_L\) corresponding to the connection \(A\) is given as follows:</p>
+
+\[\displaystyle g^{-2} \nabla^A_L g^{2} = g^{-2} d g^{2} + g^{-2} A g^2 = -2g^{-1} dg + A\]
+
+<p>Therefore, the induced action on connections is given by \(A \mapsto -2g^{-1} dg + A\). It is straightforward to check that SW-equations are invariant under the action of \(\mathcal{G}\); indeed \(\slash \!\!\! \partial_{g\cdot A} (g \cdot \psi) = \gamma^\mu ( g^{-1} \nabla^A_i g )g \psi = g^{-1} \gamma^\mu \nabla^A_i \psi\) and \(F_{g\cdot A}^+ = F_A^+\) as deforming the connection by a locally exact form \(-2g^{-1} dg = -2d\log(g)\) leaves the curvature invariant. The moduli space of solutions of the SW-equations, defined by the space of solutions modded out by the action of \(\mathcal{G}\) will be denoted as \(\mathcal{M}_{\mathfrak{s}, g, \mu}\).</p>
+
+<p>The main result which will be discussed in the course of time is that \(\mathcal{M}_{\mathfrak{s}, g, \mu}\) is a compact, smooth, oriented manifold of dimension \(-(2\chi(M) + 3\sigma(M))/4 + c_1(L)^2\) for a generic perturbation \(\mu\) when \(b_2^+ &gt; 1\). In the zero dimensional case, counting the signed connected components gives us the so-called Seiberg-Witten invariants of \(M\).</p>
+
+  </article>
+</div>
+
+<!-- Fixed-position buttons for previous/next post -->
+<div class="bottom-btns-vertical visible">
+  
+    <a class="fixed-bottom-btn" href="/2022/01/03/sw-theory-iii/">
+      Older &#187;
+    </a>
+  
+  
+    <a class="fixed-bottom-btn" href="/2022/05/17/h-principle-legendrian/">
+      &#171; Newer
+    </a>
+  
+</div>
+
+<!-- Arrow key navigation for previous/next post -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2022/01/03/sw-theory-iii/";
+  var nextUrl = "/2022/05/17/h-principle-legendrian/";
+  document.addEventListener('keydown', function(event) {
+    // Left arrow (37) or 'A'
+    if ((event.key === "ArrowLeft" || event.key === "a" || event.key === "A") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Right arrow (39) or 'D'
+    if ((event.key === "ArrowRight" || event.key === "d" || event.key === "D") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+  });
+});
+</script>
+
+<!-- Keyboard navigation hint popup -->
+<style>
+.keyboard-nav-popup {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.97);
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.keyboard-nav-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.keyboard-nav-popup kbd {
+  background: #222;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid #555;
+}
+</style>
+<div class="keyboard-nav-popup" id="keyboardNavPopup">
+  Navigate posts with <kbd>←</kbd> or <kbd>A</kbd> &nbsp; / &nbsp; <kbd>→</kbd> or <kbd>D</kbd>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2022/01/03/sw-theory-iii/";
+  var nextUrl = "/2022/05/17/h-principle-legendrian/";
+  var popup = document.getElementById('keyboardNavPopup');
+
+  // Show popup for 3 seconds on load
+  if (popup) {
+    popup.classList.add('visible');
+    setTimeout(function() {
+      popup.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show popup for 1 seconds on keypress (if not already visible)
+  function showPopupOnKey() {
+    if (!popup.classList.contains('visible')) {
+      popup.classList.add('visible');
+      setTimeout(function() {
+        popup.classList.remove('visible');
+      }, 1000);
+    }
+  }
+
+  document.addEventListener('keydown', function(event) {
+    // Left arrow or 'A'
+    if ((event.key === "ArrowLeft" || event.key.toLowerCase() === "a") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+    // Right arrow or 'D'
+    if ((event.key === "ArrowRight" || event.key.toLowerCase() === "d") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Show popup again on any navigation key
+    if (
+      (event.key === "ArrowLeft" && nextUrl) ||
+      (event.key.toLowerCase() === "a" && nextUrl) ||
+      (event.key === "ArrowRight" && prevUrl) ||
+      (event.key.toLowerCase() === "d" && prevUrl)
+    ) {
+      showPopupOnKey();
+    }
+  });
+});
+</script>
+  	
+	</main>
+    </div>
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+          backdrop.style.display = 'block';
+          // Move the toggle button with the sidebar
+          sidebarToggle.classList.add('open');
+        } else {
+          backdrop.style.display = 'none';
+          sidebarToggle.classList.remove('open');
+        }
+      }
+      function closeSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('open');
+        backdrop.style.display = 'none';
+      }
+      // Optional: close sidebar with Esc key
+      document.addEventListener('keydown', function(e){
+        if (e.key === "Escape") closeSidebar();
+      });
+    </script>
+<script src="/assets/js/lunr-autocomplete.js"></script>
+  </body>
+</html>
