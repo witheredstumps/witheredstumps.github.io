@@ -5,7 +5,7 @@
     <title>Home - page 9 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 9 of 16 for Home - page 9 | And Other Withered Stumps Of Time</title>
+<title>Page 9 of 17 for Home - page 9 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 9" />
 <meta property="og:locale" content="en_US" />
@@ -24,7 +24,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -33,7 +33,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -139,108 +142,135 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2021/12/26/steenrod-squares/">Notes on Steenrod Squares</a>
+          <a href="/2021/12/27/sw-theory-ii/">Seiberg-Witten Theory: II</a>
         </h2>
         <div class="meta">
-          <span>December 26, 2021</span>
+          <span>December 27, 2021</span>
         </div>
         <hr>
-        <p>These are some roughly written notes I am preparing as I study Steenrod operations. I expect nothing new beyond what is in Hatcher Chapter 4.L will be said here, but I will mention other references if I use them. This post is not going to be part of a series, and will instead be updated as I progress and decide to write more.</p>
+        <p>Recall from the last paragraph of Part I that we wished to carry out all of the linear algebra but now parametrized over a manifold \(M\). Let us try to naively carry out the procedure, and in the process we will encounter the issue: let \((M, g)\) be a Riemannian \(n\)-manifold where \(n = 2m\) is even. The Riemannian metric \(g\) is a smoothly-varying inner product on each tangent space \(T_p M\), \(p \in M\) which assemble to the tangent bundle \(TM\), so one can take the Clifford algebra \(\mathrm{Cliff}(T_p M, g_p)\) for each \(p \in M\) and assemble these to a “Clifford algebra bundle” \(\mathrm{Cliff}(M) := \mathrm{Cliff}(TM, g)\). One can try to construct a fiberwise complex spinor representation, which would be a bundle \(S\) over \(M\) such that for each \(p \in M\), \(S_p\) is the complex spinor representation of \(\mathrm{Cliff}(T_pM, g_p)\); this we know how to construct, simply look at the complexification \(T_p^{\Bbb C} M := T_p M \otimes \Bbb C\) with the complexified inner product \(g^{\Bbb C}_p := g_p \otimes \Bbb C\) (which is a symmetric bilinear form, not a Hermitian inner product), take \(\mathrm{Cliff}^{\Bbb C}(T_p M, g_p) := \mathrm{Cliff}(T_p^{\Bbb C} M, g^{\Bbb C}_p)\) the complex Clifford algebra (which is in fact the complexification of the real Clifford algebra as described before in Part I) which assemble to the complex Clifford bundle \(\mathrm{Cliff}^{\Bbb C}(M)\), look at its action on the exterior algebra over the maximal totally isotropic subspace (or “Lagrangian subspace” in symplectic geometry terminology) of \(T_p^{\Bbb C} M\) as described previously, and that’s exactly \(S_p\). Assemble these up and we are done…</p>
 
-<p>A cohomology operation of type \((G_1, G_2, m_1, m_2)\) is a natural transformation</p>
+<p>Except, to construct the maximal isotropic, we needed an extra piece of data, a choice of an orthogonal almost-complex structure or a transformation \(J_p  : T_p M \to T_p M\) such that \(J_p^2 = -I\) and \(J_p\) is an isometry with respect to \(g_p\); the eigenspace corresponding to the eigenvalue \(i\) of \(J_p\) on \(T_p^{\Bbb C} M\) is the maximal isotropic. This extra piece of data is not just a random choice that we can make; to assemble everything to a bundle at the end, we need a smoothly varying family of almost-complex structures on each tangent space of \(M\), i.e., a metric-compatible, fiberwise almost complex structure \(J : TM \to TM\), \(J^2 = -I\). Existence of such a thing is not automatic, in fact they do not always exist. Kahler manifolds (eg, smooth zero loci of homogeneous equations treated as subsets of \(\Bbb{CP}^n\)) are examples of such things, in fact they are exactly the ones for which this \(J\) is integrable in the sense that it gives rise to complex coordinate charts on the manifold; integrability is a closed condition \(J\) (the Nijenhuis tensor vanishes) so certainly Kahler manifolds are a rarer class than we are looking for. So what exactly are the Riemannian manifolds \((M, g)\) which admit an orthogonal almost-complex structure? Define \(\omega(X, Y) = g(X, JY)\) and observe that \(\omega\) is a \(2\)-form on \(M\), and moreover \(\omega^m := \omega \wedge \cdots \wedge \omega\) is a nowhere vanishing volume form on \(M\). Thus, \(\omega\) is an almost-symplectic structure, the difference from an actual symplectic structure being again an integrability condition: \(d\omega = 0\) or closedness of \(\omega\). On the other hand if \(M\) was an almost-symplectic manifold, the form \(\omega\) assumed to have no apriori compatibility with \(g\), one could have constructed an orthogonal almost-complex structure by the polar decomposition formula: \(J = (\Omega^{\mathsf{T}} \Omega)^{-1/2}\Omega\) where \(\Omega\) denotes the matrix of the bilinear form \(\omega\) with respect to some \(g\)-orthonormal basis; these are the so-called \(\omega\)-compatible almost complex structures (particularly relevant when \(\omega\) is symplectic, in the theory of pseudoholomorphic curves). In any case, we see that the class of manifolds we are interested in is larger, even, than symplectic manifolds.</p>
 
-\[H^{m_1}(-; G_1) \to H^{m_2}(-; G_2)\]
+<p>Nonetheless, they are not abundant. The only spheres which admit an almost-complex structures are \(S^2\) and \(S^6\). Indeed, suppose \(TS^{2n}\) admits an almost complex structure \(J\). Then \(J \otimes \Bbb C\) gives an eigendecomposition of complex vector bundles \(T^{\Bbb C} S^{2n} = E \oplus \overline{E}\) where \(E = TS^{2n}\) with the complex structure \(J\), and \(\overline{E}\) is the conjugate. We compute the Chern class \(c_n\) of either side; note that \(c_n(T^{\Bbb C} S^{2n}) = 0\) by complex stable triviality of the complexified tangent bundle of the sphere, and \(c_n(E \oplus \overline{E}) = c_n(E) + c_n(\overline{E})\). If \(n\) was even, this would be \(2c_n(E) = 2\chi(S^{2n})[S^{2n}] = 4[S^{2n}]\), which gives the required contradiction. Note that the argument here is really a Pontryagin class argument, \(p_k(S^{4k}) = c_{2k}(T^{\Bbb C} S^{4k})\). Indeed, if \(k = 1\), then \(p_1(S^4) = 0\) can be seen geometrically, since by Chern-Weil theory \(p_1(M) = 1/(8\pi^2) \int_M \mathrm{tr}(\Omega^2)\) where \(\Omega\) is the curvature \(2\)-form of some chosen Riemannian metric on \(M\). If \(M\), like the sphere, admits a metric of constant curvature \(K\), then \(\Omega_{ij} = K d\omega^i \wedge d\omega^j\) which implies \(\Omega^2\) has no diagonal terms and so the \(1\)st Pontryagin form itself is zero. In the case \(n\) is odd, the above procedure gives no contradiction as \(c_n(\overline{E}) = -c_n(E)\); we can instead argue by Chern classes modulo \(p\) for some odd prime \(p\): from here, we see if \(n - p + 1 &gt; 0\), the universal Chern classes modulo \(p\), \(c_n \pmod{p}\) can be written as a polynomial in \(c_1 \pmod{p}, \cdots, c_{n-1} \pmod{p}\) and the first Steenrod power \(P^1(c_{n-p+1} \pmod{p})\). Specializing to \(TS^{2n}\) we get that since \(c_i = 0\) for all \(i &lt; n\), \(c_n(TS^{2n}) = 2[S^{2n}] \pmod{p} = 0\), which would be a contradiction. For this, we require an odd prime \(p\) such that \(p &lt; n - 1\), that is, \(n &gt; 4\). This leaves the cases \(n = 1, 2, 3, 4\) and \(n = 2, 4\) are eliminated by the earlier argument with the Pontryagin class. Thus, \(n = 1, 3\) are the only possibilities and these in fact do admit almost complex structure; whether \(S^6\) admits an integrable almost complex structure is still an open problem.</p>
 
-<p>where \(H^*\) denotes singular cohomology. In other words, they are homomorphisms</p>
+<p>Here’s the punchline. You do not actually need an almost complex structure to get a spinor bundle, all you need is a much weaker spinc structure. My understanding is that the story of spin geometry begins with trying to “soften” almost complex geometry; almost complex structures are rare, so we would like to enlarge the tangent bundle to the “spinor bundle” where almost complex structures are abundant.</p>
 
-\[\Phi_X : H^{m_1}(X; G_1) \to H^{m_2}(X; G_2)\]
+<p>Let’s organize what we did in Part I from this viewpoint; given a real inner product space \((V, \langle \cdot, \cdot \rangle)\), we are interested in studying Clifford modules \(W\) over \(V\) which is a Hermitian inner product space \(W\) on which \(V\) acts in a way that each unit vector \(v \in V\) acts by an almost complex structure \(J_v : W \to W\), i.e., \(J_v^2 = -I\) and for any pair \(u, v \in V\) of unit vectors, \(J_u J_v = -J_v J_u\). That is to say, \(W\) is an enlargement of \(V\) which admit the unit sphere in \(V\)’s worth of almost-complex structures which are all compatible (i.e., for any pair of unit vectors \(u, v\), the complex structures \(I, J_u, J_v, J_u J_v\) form a linear almost-hyperKahler structure on \(W\)). The subalgebra of \(\mathrm{End}(W)\) generated by \(\{J_v : v \in V, \|v\| = 1\}\) is the (actual, physically perceivable) Clifford algebra \(\mathrm{Cliff}(V) \subset \mathrm{End}(W)\); one simply identifies \(v\) with \(J_v\) and composition of operators is the Clifford product, so \(V\) sits inside its Clifford algebra as the degree \(1\) elements. Next, observe that the axioms of the Clifford algebra implies for any pair of orthogonal unit vectors \(u, v\in V\), \(-vuv^{-1} = u\) unless \(u = \pm v\) in which case \(-vuv^{-1} = -u\). Define</p>
 
-<p>such that for any map \(f : X \to Y\), \(f^* \Phi_Y(\alpha) = \Phi_X(f^* \alpha)\); we will mostly drop the reference to the space \(X\) and denote the natural transformation by \(\Phi\), as the space will be clear from context. One way to understand the motivation here is via the fact that singular cohomology is representable by Eilenberg-Maclane space \(K(G, n)\) (recall these are CW-complexes characterized uniquely upto homotopy equivalence by the property that all the homotopy groups vanish except the one in degree \(n\), and \(\pi_n \cong G\)), that is, \(H^n(X; G) = [X, K(G, n)]\) where \([A, B]\) denotes based homotopy classes of maps \(A \to B\). Therefore, invoking Yoneda’s lemma, we obtain that cohomology operations of type \((G_1, G_2, m_1, m_2)\) are classified by elements of \(H^{m_2}(K(G_1, m_1); G_2)\). As a corollary, nontrivial cohomology operations only exist when \(m_1 \leq m_2\). Moreover if \(m_1 = m_2\) then by Hurewicz’s theorem and universal coefficients theorem, we compute the cohomology group to be \(\mathrm{Hom}(G_1, G_2)\), which implies the only cohomology operations in this case are change-of-coefficients homomorphisms. First interesting examples of cohomology operations are \(H^k(X; \Bbb F_p) \to H^{kp}(X; \Bbb F_p)\) given by \(\alpha \mapsto \alpha^p\).</p>
+\[\begin{gather*}\mathrm{ad} : \mathrm{Cliff}(V)^\times \to \mathrm{End}(\mathrm{Cliff}(V)),\\
+\mathrm{ad}_\alpha(u) = -\alpha u \alpha^{-1}\end{gather*}\]
 
-<p>In the case \(p = 2\), the cup-square modulo 2 is a useful cohomology operation and can be used to detect topology. For example, consider \(\Bbb{CP}^2\) and \(S^2 \vee S^4\). These spaces have the same cohomology groups by cellular homology. However, if \(\alpha \in H^2(\Bbb{CP}^2; \Bbb F_2)\) denotes the generator then \(\alpha^2 = 1\) but there is no degree \(2\) element in the cohomology ring of \(S^2 \vee S^4\) which squares to \(0\); incidentally this says the attaching map of the \(4\)-cell in \(\Bbb{CP}^2\), which is the Hopf map \(h : S^3 \cong \partial D^4 \to (\Bbb{CP}^2)^{(3)} = S^2\), is not nullhomotopic, implying \(\pi_3(S^2) \neq 0\). The major drawback with this operation, though, is that it is not stable under suspension. Indeed, the ring structure in \(H^*(\Sigma \Bbb{CP}^2; \Bbb F_2)\) is completely trivial, cup product of any pair of elements is \(0\). However, \(\Sigma \Bbb{CP}^2\) is not homotopy equivalent to \(\Sigma(S^2 \vee S^4) \simeq S^3 \vee S^5\). To prove something like this, we need to develop a stable generalization of the cup-square modulo 2 or the \(p\)-th power operation modulo \(p\) in general; these are exactly what Steenrod squares or Steenrod power operations are, respectively. Notice that as a corollary of this we end up proving that the attaching map of the \(5\)-cell in \(\Sigma \Bbb{CP}^2\), which is the suspension \(\Sigma h : S^4 \to S^3\) of the Hopf map is not nullhomotopic, which demonstrates \(\pi_4(S^3) \neq 0\). Indeed, we shall end up proving that the spaces are never homotopy equivalent even if they are suspended \(k\)-fold, which demonstrates the first stable stem \(\pi_1^s := \lim_k \pi_{k+1}(S^k) \neq 0\). (Actually, one can deduce this from just \(\pi_4(S^3) \neq 0\), by the sharp version of the Freudenthal suspension theorem specifying the stable range.)</p>
+<p>Observe that \(\mathrm{ad}_v(V) \subset V\) if \(v\) is a degree \(1\) element by our observation before. In fact, we get also from our observation that if \(\|v\| = 1\) then \(\mathrm{ad}_v\) is reflection along the hyperplane \(\langle v \rangle^\perp\). Thus, define,</p>
 
-<p>There are two cases to consider, \(p = 2\) and \(p\) an odd prime. In the former, we shall have the Steenrod square operations \(Sq^i : H^n(X; \Bbb F_2) \to H^{n+i}(X; \Bbb F_2)\) for every \(i \geq 0\). In the latter case, we shall have the Steenrod power operations \(P^i : H^n(X; \Bbb F_p) \to H^{n+2i(p-1)}(X; \Bbb F_p)\) for every \(i \geq 0\). These operations are characterized by the following axioms:</p>
+\[\displaystyle \begin{align*}\mathrm{Pin}(V) &amp;= \{v_1 \cdots v_k \in \mathrm{Cliff}(V) : v_i \in V, \|v_i\| = 1\} \\ \mathrm{Spin}(V) &amp;= \mathrm{Pin}(V) \cap \mathrm{Cliff}^+(V)\end{align*}\]
 
-<ol>
-  <li>
-    <p>\(Sq^0 = \mathbf{1}, P^0 = \mathbf{1}\).</p>
-  </li>
-  <li>
-    <p>\(Sq^1 = \beta_2\) is the Bockstein homomorphism for the sequence \(0 \to \Bbb Z_2 \to \Bbb Z_4 \to \Bbb Z_2 \to 0\).</p>
-  </li>
-  <li>
-    <p>\(Sq^i a = a^2\) if \(i = \vert a\vert\), \(Sq^i a = 0\) if \(i &gt; \vert a\vert\), and likewise \(P^i a = a^p\) if \(2i = \vert a\vert\), \(P^i a = 0\) if \(2i &gt; \vert a\vert\).</p>
-  </li>
-  <li>
-    <p>\(Sq^i \sigma = \sigma Sq^i, P^i \sigma = \sigma P^i\), where \(\sigma : H^*(X) \to H^*(\Sigma X)\) is the suspension isomorphism.</p>
-  </li>
-  <li>
-    <p>Cartan’s formula: \(Sq^j(a \smile b) = \sum_i Sq^i a\smile Sq^{j-i} b\) and \(P^j(a \smile b) = \sum_i P^i a \smile P^{j-i} b\).</p>
-  </li>
-  <li>
-    <p>Adem relations regarding compositions of Steenrod squares or powers:</p>
-  </li>
-</ol>
+<p>These are both subgroups of \(\mathrm{Cliff}(V)^\times\), and the adjoint representation restricts to homomorphisms (caveat: this doesn’t quite work, but the lie will be explained below) \(\mathrm{ad} : \mathrm{Pin}(V) \to \mathrm{O}(V)\) and \(\mathrm{ad} : \mathrm{Spin}(V) \to \mathrm{SO}(V)\) (here we are using that every orthogonal transformation is a product of reflections) which are \(2:1\) because \(\langle v \rangle^\perp = \langle -v\rangle^\perp\) so the reflections \(\mathrm{ad}_v\) and \(\mathrm{ad}_{-v}\) are the same. In fact they are both covering maps, and \(\mathrm{ad} : \mathrm{Spin}(V) \to \mathrm{SO}(V)\) is the universal cover.</p>
 
-\[\displaystyle \begin{aligned}Sq^i Sq^j &amp;= \sum_k \binom{j-k-1}{i-2k} Sq^{i+j-k} Sq^k, \; i &lt; 2j \\ P^i P^j &amp;= \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk} P^{i+j-2k} P^k, \; i &lt; pj \\ P^i \beta_p P^j &amp;= \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk} \beta_p P^{i+j-k} P^k \\ &amp;- \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk-1} P^{i+j-k} \beta_p P^k, \; i \leq pj.\end{aligned}\]
+<p>There is an alternative description of these groups: consider the involution \(*\) on \(\mathrm{Cliff}(V)\) which acts on degree \(1\) elements by \(v^* := -\overline{v}\) and extending to monomials by reversing order: \((v_1 \cdots v_k)^* = v_k^* \cdots v_1^*\). The spinor norm is defined by \(\\|x\\| = x^* x\); observe on degree \(1\) elements this coincides with the norm coming from the inner product, and \(\\|xy\\| = \\|x\\| \\|y\\|\) follows from the definition. Thus, products of unit norm elements of \(V\) is contained in the unit sphere of \(\mathrm{Cliff}(V)\) under this norm, hence so is \(\mathrm{Pin}(V)\). But it is possible to have non-monomial elements in the unit sphere as well; to eliminate these we need the extra condition that \(x^* V x = V\). Indeed, then \(\mathrm{ad}_x \in \mathrm{O}(V)\) hence \(x \in \mathrm{Pin}(V)\) is forced. Therefore,</p>
 
-<p>Define the totals \(Sq : H^*(X; \Bbb F_2) \to H^*(X; \Bbb F_2)\) and \(P : H^*(X; \Bbb F_p) \to H^*(X; \Bbb F_p)\) as</p>
+\[\displaystyle \mathrm{Pin}(V) = \{x \in \mathrm{Cliff}(V) : \\|x\\| = 1, x^* V x = V\}\]
 
-\[\begin{align*} Sq &amp;= Sq^0 + Sq^1 + Sq^2 + \cdots \\ P &amp;= P^0 + P^1 + P^2 + \cdots\end{align*}\]
+<p>and \(\mathrm{Spin}(V) = \mathrm{Pin}(V) \cap \mathrm{Cliff}^+(V)\) as before. Now we are in a position to explain the lie in the definition of the double cover \(\mathrm{Pin}(V) \to \mathrm{O}(V)\) above; the adjoint action \(\mathrm{ad}_x(u) = -xux^*\) is not a homomorphism in \(x\) from the full pin group. Indeed, \(\mathrm{ad}_x \circ \mathrm{ad}_{x'} = -\mathrm{ad}_{xx'}\); one has to correct for signs here, one of the many woes of working in a superalgebra. One way to do it is to taint an element with negative sign in odd degrees and positive sign in even degrees. Then \(\mathrm{ad}_x(v) := (-1)^{\|x\|} x v x^*\) works perfectly fine and agrees with the usual adjoint on the spin group, where sign is a non-issue as it lives in even degrees.</p>
 
-<p>Then Cartan’s formula is just stating \(Sq\) and \(P\) are ring endomorphisms. The relativized versions \(Sq : H^*(X, A; \Bbb F_2) \to H^*(X, A; \Bbb F_2)\) and \(P : H^*(X, A; \Bbb F_p) \to H^*(X, A; \Bbb F_p)\) of the operations can be constructed from the axioms via the natural isomorphism \(H^*(X, A) \cong H^*(X/A)\); for these we require the Cartan formula is true under relative cup product \(H^*(X, A) \times H^*(X, B) \to H^*(X, A \cup B)\). The axioms above are not independent in any sense. In fact, the rest of the axioms follow from the relativized versions of 1, 3 and 5 (see Epstein-Steenrod)</p>
+<p>So far all we have talked about is the real Clifford algebra. The complex Clifford algebra is just obtained from tensoring everything up with \(\otimes_{\Bbb R} \Bbb C\); the last definition of the pin group goes through in this setup provided we complexify \(*\) correctly: define \(v^* = -\overline{v}\) in degree \(1\) instead; note that the conjugation only affects the scalars that hang around because of extending scalars to \(\Bbb C\) in the definition of the complex Clifford algebra, not the vectors themselves (remember the inner product on \(V \otimes \Bbb C\) is still a symmetric bilinear form, not a Hermitian one). We call the resulting groups \(\mathrm{Pin}^{\Bbb C}(V)\) and \(\mathrm{Spin}^{\Bbb C}(V)\). Explicity,</p>
 
-<p>We begin with the construction of the Steenrod squares and power operations instead. The general idea is pretty geometric: consider the \(p\)-fold exterior cup product</p>
+\[\displaystyle \begin{align*}\mathrm{Pin}^{\Bbb C}(V) &amp;= \{e^{i\theta} x \in \mathrm{Cliff}^{\Bbb C}(V) : x \in \mathrm{Pin}(V)\} \\
+\mathrm{Spin}^{\Bbb C}(V) &amp;= \{e^{i\theta} x \in \mathrm{Cliff}^{\Bbb C}(V) : x \in \mathrm{Spin}(V)\}\end{align*}\]
 
-\[H^*(X; \Bbb F_p)^{\otimes p} \to H^*(X^p; \Bbb F_p)\]
+<p>This time \(\mathrm{ad} : \mathrm{Pin}^{\Bbb C}(V) \to \mathrm{O}(V)\) and \(\mathrm{ad} : \mathrm{Spin}^{\Bbb C}(V) \to \mathrm{SO}(V)\) have kernel \(S^1 \cong U(1)\).  From the concrete description of the spin group above, we see \(\mathrm{Spin}^{\Bbb C}(V)\) is almost \(U(1) \times \mathrm{Spin}(V)\), except \(\pm 1\) can appear in either factor, which leads to a \(\Bbb Z/2\)-ambiguity. Thus, \(\mathrm{Spin}^{\Bbb C}(V) \cong U(1) \times_{\Bbb Z/2} \mathrm{Spin}(V)\). As a consequence, \(\mathrm{Spin}^{\Bbb C}(V)\) can also be thought as a double cover of \(U(1) \times \mathrm{SO}(V)\).</p>
 
-<p>Let \(\alpha \in H^n(X; \Bbb F_p)\) be an element, and consider its image under the map \(\alpha^{\otimes p}\). Appealing to the fact quoted in the first paragraph of this post, this is represented by a map \(f : X^p \to K(\Bbb Z/p, np)\). Note that \(\Bbb Z/p\Bbb Z\) acts on \(X^p\) by permuting the factors cyclically. Let us define</p>
+<p>The real usage of complexifying everything up is that the representation theory of \(\mathrm{Cliff}^{\Bbb C}(V)\) is simpler than that of \(\mathrm{Cliff}(V)\). This is not strictly speaking relevant to us, but just to explain that comment I will go into a very brief detour: our focus has so far been on even-dimensional \(V\) but more or less everything discussed above goes through in odd-dimensions as well (however, \(\mathrm{Cliff}^{\Bbb C}(V)\) for odd dimensional \(V\) has two irreducible representations). Then for every \(n\) we have the Clifford algebras \(\mathrm{Cliff}(n)\) (what we called \(\mathrm{Cliff}_{n, 0}\) in Part I) and \(\mathrm{Cliff}^{\Bbb C}(n)\). But as it happens, there is a periodicity in the structure of these algebras: the complex Clifford algebras are \(2\)-periodic in the sense that \(\mathrm{Cliff}^{\Bbb C}(n+2) = M_2(\mathrm{Cliff}^{\Bbb C}(n))\) whereas the real Clifford algebras happen to be \(8\)-periodic, i.e., \(\mathrm{Cliff}(n+8) = M_{16}(\mathrm{Cliff}(n))\). \(\mathrm{Cliff}^{\Bbb C}(n)\) is always either a matrix algebra (on its unique complex spinor representation) or a product of two matrix algebras (in case \(n\) is odd). But \(\mathrm{Cliff}(n)\) form the complicated Bott tower: the first eight algebras starting from \(n = 0\) are</p>
 
-\[\begin{gather*}T : X^p \to X^p \\ T(x_1, \cdots, x_p) = (x_p, x_1, \cdots, x_{p-1})\end{gather*}\]
+\[\displaystyle \Bbb R, \Bbb C, \Bbb H, \Bbb H \oplus \Bbb H, M_2(\Bbb H), M_4(\Bbb C), M_8(\Bbb R), M_8(\Bbb R) \oplus M_8(\Bbb R)\]
 
-<p>Then $T$ generates the aforementioned cyclic action. The composition \(f \circ T : X^p \to K(\Bbb Z/p, np)\) is a new map but it is nonetheless homotopic to the older map \(f\) as they both represent the same element \(\alpha^{\otimes p} \in H^{np}(X^p; \Bbb F_p)\). The homotopy can be written as a map \(X^p \times [0, 1/p] \to K(\Bbb Z/p, np)\) (the odd choice \([0, 1/p]\) for the time-interval will be clear in a bit). One can argue the same for \(f \circ T\) and \(f \circ T^2\) and obtain a homotopy \(X^p \times [1/p, 2/p] \to K(\Bbb Z/p, np)\), and so on until we have come back full circles to \(f \circ T^{p-1}\) and \(f \circ T^p = f\). Paste these homotopies end-to-end to get a map</p>
+<p>One should conceptualize this as a linear version of the topological Bott periodicty, one of many ways of stating which is that the homotopy groups of \(O(\infty)\) are \(8\)-periodic.</p>
 
-\[f_1 : X^p \times S^1 \to K(\Bbb Z/p, np)\]
+<p>Let me mention a modest, but illuminating example. \(\mathrm{Cliff}(3)\) is generated by \(e_1, e_2, e_3\), the full graded algebra breaks into four parts \(\mathrm{Cliff}_0 \oplus \mathrm{Cliff}_1 \oplus \mathrm{Cliff}_2 \oplus \mathrm{Cliff}_3\) indexed by degree. The degree \(2\) part is generated by \(e_1 e_2, e_2 e_3, e_3 e_1\) which can be sent to the quaternions \(i, j, k\); hence, there is an embedding \(\Bbb H \cong \mathrm{Cliff}(2) \hookrightarrow \mathrm{Cliff}(3)\) as the degree \(2\) elements (more generally, \(\mathrm{Cliff}(n-1)\) embeds in \(\mathrm{Cliff}(n)\) as the degree \(n-1\) elements). The degree \(0\) and \(3\) parts are both \(1\)-dimensional, the latter generated by \(e_1 e_2 e_3\). The \(\mathrm{Spin}(3)\) group lives inside the even degree part which is \(\mathrm{Cliff}_0 \oplus \mathrm{Cliff}_2 = \Bbb R \oplus i \Bbb H = \Bbb H\), consisting of all the elements of unit norm, i.e., \(\mathrm{Spin}(3) \cong S^3 \cong \mathrm{SU}(2)\). It is a classical fact that conjugation by a quaternion are rotations in the \(i\Bbb H\) factor, so this gives</p>
 
-<p>It turns out that one can choose all the earlier homotopies between \(f, f \circ T, f \circ T^2, \cdots\) carefully such that, by obstruction theory, \(f_1\) is nullhomotopic. Once that is established, consider the \(\Bbb Z/p\)-action on \(X^p \times S^1\) given by a diagonal action where the action on \(X^p\) is as before and on \(S^1\) is given by a \(2\pi/p\) rotation, permuting the arcs which were intervals of the earlier homotopies; these \(\Bbb Z/p\)-translates of \(f_1\) are also all nullhomotopic, and the nullhomotopies \(X^p \times D^2 \to K(\Bbb Z/p, np)\) glue up to a map</p>
+\[\mathrm{ad} : \mathrm{Spin}(3) \cong \mathrm{SU}(2) \to \mathrm{SO}(3)\]
 
-\[f_2 : X^p \times E_2 \to K(\Bbb Z/p, np),\]
+<p>It is tempting to try to figure out \(\mathrm{Spin}(4)\) as well. From the Bott tower above we can see</p>
 
-<p>where \(E_2\) is the complex given by attaching \(p\)-many \(2\)-cells to the circle, and it admits a \(\Bbb Z/p\)-action which simultaneously rotates the “equator” \(S^1\) by \(2\pi/p\) and cyclically permutes the \(2\)-cells. Inducting upward, one ends up with a map \(f_\infty : X^p \times E\Bbb Z/p \to K(\Bbb Z/p, np)\) where \(E\Bbb Z/p\) is a contractible complex on which \(\Bbb Z/p\) acts freely. Restrict this map on the first factor to the diagonal copy of \(X \subset X^p\), and mod out by the \(\Bbb Z/p\)-action to get a map \(X \times B\Bbb Z/p \to K(\Bbb Z/p, np)\). This represents an element in</p>
+\[\mathrm{Cliff}(4) \cong \Bbb H \oplus \Bbb H\]
 
-\[H^{*}(X \times B\Bbb Z/p; \Bbb F_p) \cong H^{*}(X; \Bbb F_p) \otimes \Lambda_{\Bbb F_p}^*[x] \otimes \Bbb F_p[y]\]
+<p>This is in fact a \(*\)-algebra isomorphism. The unit sphere then is \(\mathrm{SU}(2) \times \mathrm{SU}(2)\). So, we have</p>
 
-<p>of degree \(np\), where \(\vert x\vert  = 1, \vert y\vert  = 2\). Therefore, the element can be written as</p>
+\[\mathrm{Spin}(4) \subseteq \mathrm{SU}(2) \times \mathrm{SU}(2)\]
 
-\[\sum_{0 \leq i \leq np} \omega_{(p-1)n-i} \otimes \theta_i(\alpha)\]
+<p>The equality holds as there is a \(2 : 1\) map \(\mathrm{SU}(2) \times \mathrm{SU}(2) \to \mathrm{SO}(4)\) given by \((q_1, q_2) \mapsto (u \mapsto q_1 u \overline{q_2})\), and the kernel is \(\Bbb Z/2 \cong \{(1, 1), (-1, -1)\}\). I haven’t quite worked out the details of how it fits together with the linear algebra of \(\mathrm{Cliff}(4)\), though.</p>
 
-<p>where \(\omega_{2j} = y^j, \omega_{2j+1} = x y^j\) and \(\theta_i(\alpha) \in H^{n+i}(X; \Bbb F_p)\). If \(p = 2\), the Steenrod squares will be \(Sq^i = \theta_i\) and if \(p\) is an odd prime the Steenrod powers will be \(P^i = \kappa_i \theta_{2i(p-1)}\) for certain appropriate normalizing factor \(\kappa_i\).</p>
+<p>The final piece of linear algebra that I want to discuss in this post is about how the complex Clifford algebra, the complex spinor representation and the spin group are tied together. First, observe (say, using Schur’s lemma) that \(\mathrm{End}_{\Bbb C}(S) \cong \mathrm{Cliff}^{\Bbb C}(V)\), so the Clifford algebra is completely recovered from the complex spinor representation. Next, consider the spinc automorphisms of \(S\), i.e., a pair of transformations \(A : V \to V\) and \(T : S \to S\) such that \(A\) is orthogonal and \(T\) is unitary, such that \(T \circ \rho \circ T^{-1} = \rho \circ A\) where \(\rho : V \to \mathrm{End}(S)\) is the (reified, i.e., in degree \(1\)) Clifford representation. Then we claim \(\mathrm{Aut}_{\mathrm{Spin}^{\Bbb C}}(S) \cong \mathrm{Spin}^{\Bbb C}(V)\), so that the spin group is also recoverable from the complex spinor representation. Indeed, \(T \in \mathrm{End}(S) \cong \mathrm{Cliff}^{\Bbb C}(V)\) hence \(T = \rho(x)\) for some \(x \in \mathrm{Cliff}^{\Bbb C}(V)\). Unitarity of \(T\) implies \(\\|x\\| = 1\); moreover the condition implies \(\rho(x^* v x) = \rho(A v)\) for all \(v \in V\). But \(\rho : \mathrm{Cliff}(V) \to \mathrm{End}(S)\) is an isomorphism so \(x^*vx = Av\). Therefore, \(\mathrm{ad}_x(V) = V\), but also \(\mathrm{ad}_x\) is an orientation-preserving transformation of \(V\). This implies \(x\) is in fact even, and so \(x \in \mathrm{Spin}^{\Bbb C}(V)\), which proves the claim. Finally, the complex spinor representation itself can be restricted to the group \(\mathrm{Spin}^{\Bbb C}(V) \subset \mathrm{Cliff}^{\Bbb C}(V)\) from the full Clifford algebra, which gives a representation, also called the complex spinor representation, \(\mathrm{Spin}^{\Bbb C}(V) \to \mathrm{End}(S)\). Recall in the case \(\dim V\) was even, we had defined a splitting \(S = S^+ \oplus S^-\) into the eigenspaces of the volume form on \(V\) and degree \(1\) elements acted on the decomposition by switching \(S^+, S^-\). As \(\mathrm{Spin}^{\Bbb C}(V)\) consists only even elements, we obtain that the representation over the spin group splits as \(S^+ \oplus S^-\); it is a fact that \(S^{\pm}\) are irreducible representations of \(\mathrm{Spin}^{\Bbb C}(V)\).</p>
 
-<p><em>Caveat</em>: Here we used the isomorphism</p>
+<p>Here is how all of this ties the topological setup that was being discussed in the first couple of paragraphs in the beginning of the post. Suppose that \(S\) is a spinor bundle over a Riemannian manifold \((M, g)\) of dimension \(n = 2m\). Consider the model spinc structure \(\rho_0 : \Bbb R^n \to \mathrm{End}(\Bbb C^{2^m})\) that was discussed in Part I. Then define a principal \(\mathrm{Spin}^{\Bbb C}(n)\)-bundle \(P_\rho \to M\) whose fiber over \(p \in M\) consists of all the spinc isomorphisms between \(\rho_0\) and \(\rho_p : T_p M \to \mathrm{End}(S_x)\); that is:</p>
 
-\[H^*(B\Bbb Z/p; \Bbb F_p) \cong \Lambda^*_{\Bbb F_p}[x] \otimes \Bbb F_p[y],\]
+\[\displaystyle P_\rho = \{(p, A, T) : A \in \mathrm{Isom}(\Bbb R^n, S_p), T \in \mathrm{Isom}(\Bbb C^{2^m}, S), T \circ \rho_0 \circ T^{-1} = \rho \circ A\}\]
 
-<p>where \(\vert x\vert  = 1, \vert y\vert  = 2\). To demonstrate this, observe \(B\Bbb Z/p\) is an infinite dimensional lens space so has a single cell in every dimension; the integral cellular cochain complex has differentials alternating between \(0\) and multiplication by \(p\) whereas the mod \(p\) cellular cochain complex has no differentials. By naturality with respect to the change of coefficients homomorphism \(\Bbb Z \to \Bbb Z_p\), we see that the map from integral cohomology is surjective in even degrees and zero in odd degrees. Comparing the Bockstein sequences corresponding to the short exact sequences \(0 \to \Bbb Z \to \Bbb Z \to \Bbb Z_p \to 0\) and \(0 \to \Bbb Z_p \to \Bbb Z_{p^2} \to \Bbb Z_p \to 0\), we obtain that the Bockstein homomorphism</p>
+<p>with \(\mathrm{Spin}^{\Bbb C}(n)\) acting by \(\alpha \cdot (p, A, T) = (p, A \circ \mathrm{ad}_\alpha, T \circ \rho_0(\alpha))\). If we forget the factor of \(T\) then this is simply the orthonormal frame bundle \(\mathrm{Fr}(M) \to M\), fiber of a generic point \(p\) of which is simply the space of all possible frames of \(T_p M\), and \(\mathrm{Spin}^{\Bbb C}(n)\) acts non-effectively by the projection \(\mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n)\) to the group of orthogonal transformations, which simply permute the frames around over any given point. Remembering the spinor representation in the definition has the effect that the “spin” (whatever that is, more on this below) of the framing is remembered. In fact, consider \(P_\rho \times_{\mathrm{ad}} \mathrm{SO}(n) = (P \times  \mathrm{SO}(n))/\mathrm{Spin}^{\Bbb C}(n)\) where \(\mathrm{Spin}^{\Bbb C}(n)\) acts diagonally, on \(P\) by permuting the spin framings and on \(\Bbb R^n\) by \(\mathrm{ad}\). Then it is clear that \(P_\rho \times_{\mathrm{ad}} \mathrm{SO}(n) \cong \mathrm{Fr}(M)\), as one is collapsing down the \(T\) factor (“spin”) wherever they record more information than the \(A\) factor (“frames”), so one just ends up with the frames. This is an incredibly concise way of putting the idea of spinor bundles, and it is clear with a little though that one can go the other way as well; if there was a \(\mathrm{Spin}^{\Bbb C}(n)\)-equivariant map \(P \to \mathrm{Fr}(M)\) from some principal \(\mathrm{Spin}^{\Bbb C}(n)\)-bundle to the frame bundle, one could take \(P \times_{\rho_0} \Bbb{C}^{2^m}\) to get back the spinor representation, where \(\rho_0 : \mathrm{Spin}^{\Bbb C}(n) \to M_{2^m}(\Bbb C)\) is the restriction of the model spinor representation to the spinc subgroup. All of this goes through likewise for real spinor representations as well, and parity of dimension of \(M\) is a mere convenience.</p>
 
-\[\beta_p : H^n(B\Bbb Z/p; \Bbb F_p) \to H^{n+1}(B\Bbb Z/p; \Bbb F_p)\]
+<p><b>Definition</b>. A spinc structure on an oriented Riemannian manifold \((M^n, g)\) is a principal \(\mathrm{Spin}^{\Bbb C}(n)\)-bundle \(P \to M\) such that \(P \times_{\mathrm{ad}} \mathrm{SO}(n) \cong \mathrm{Fr}(M)\). Likewise, a spin structure is a principal \(\mathrm{Spin}(n)\)-bundle \(P \to M\) such that \(P \times_{\mathrm{ad}} \mathrm{SO}(n) \cong \mathrm{Fr}(M)\).</p>
 
-<p>is zero in even degrees and an isomorphism in odd degrees. Next, let \(y \in H^2(B \Bbb Z/p; \Bbb F_p)\) be pullback of the generator of \(H^2(\Bbb{CP}^\infty)\) under the fibration \(B\Bbb Z/p \to \Bbb{CP}^\infty\) induced from \(S^\infty \to \Bbb{CP}^\infty\) after quotienting by the \(\Bbb Z/p \subset U(1)\) action on the domain; this is simply an isomorphism in even degrees by the discussion above. Then by the fact that \(\beta_p\) is an isomorphism in degree \(1\), we find an element \(x \in H^1(B\Bbb Z/p; \Bbb F_p)\) such that \(\beta_p(x) = y\). By ring structure of the Bockstein, \(\beta(x y^k) = y^{k+1}\) are generators in even degrees, therefore \(xy^k\)’s must generate the odd degrees. This finishes the proof.</p>
+<p>We have proved that admitting a (complex) spinor representation is equivalent to admitting a spinc structure. I will demonstrate that this is far, far more flexible a condition than admitting an almost complex structure, but before that I would like to present some pictures which puts it in an intuitive and handwavy way; after all, for much of the time we have been doing abstract linear algebra and it might seem at first that spin structures emerge out of playing such algebraic games. I would like to argue, on the contrary, that it “actually exists”  and something whose presence “can be felt”.</p>
 
-<p>Unfortunately, checking that these indeed satisfy the required properties is much harder than it sounds, for full details see Hatcher, Ch 4.L (I might add in more details here as I understand them on the way).</p>
+<p>Let me discuss the real spin structure. Recall \(\mathrm{Spin}(n)\) is the universal double cover of \(\mathrm{SO}(n)\). For any nice topological group \(G\) the universal cover can be written as follows:</p>
 
-<p>We move on to some computations. To return to the earlier example, observe that for the generator \(\alpha \in H^2(\Bbb{CP}^2; \Bbb F_2)\), \(Sq^2 \alpha = \alpha^2 \neq 0\) and therefore by stabilit we must also have \(Sq^2 \sigma^k(\alpha) \neq 0\), where \(\sigma^k(\alpha) \in H^{2+k}(\Sigma^k \Bbb{CP}^2; \Bbb F_2)\) is the generator of the \(k\)-fold suspension. However, for</p>
+\[\widetilde{G} = \{\gamma \in \mathrm{Maps}([0, 1], G) : \gamma(0) = e\}/\sim\]
 
-\[S^k(S^2 \vee S^4) \simeq S^{2+k} \vee S^{4+k},\]
+<p>where \(\sim\) denotes homotopy relative to the basepoint \(0\). The covering projection \(\widetilde{G} \to G\) is \(\gamma \mapsto \gamma(1)\). Now, there is a group structure on \(\widetilde{G}\) which is given by \((\alpha \beta)(t) = \alpha(t) \beta(t)\) and this is the one which lifts the group structure on \(G\). However, it is equivalent to the group structure given by \(\alpha * (\alpha(1)\beta)\) where \(*\) denotes path concatenation, as can be seen by hand. Specialize to the case \(G = \mathrm{SO}(n)\), which tells you elements of \(\mathrm{Spin}(n)\) are paths in \(\mathrm{SO}(n)\) starting at the identity, with multiplication of two such paths given by translating the initial point to the endpoint of the other, and then concatenating.</p>
 
-<p>all Steenrod squares simply vanish, since \(Sq^2\) of a class in \(H^*(S^{2+k})\) stays there by naturality with respect to the retract on that factor, and likewise for the other factor, but there’s no space in the cohomology of spheres for nontrivial cohomology operations. The argument goes through word-by-word with the mapping cone \(C(f)\) in place of \(\Bbb{CP}^2\), where \(f : S^{2n-1} \to S^n\) is a map of Hopf invariant \(1\). This shows the stable stem \(\pi_1^s, \pi_3^s, \pi_7^s\) are all nonzero, as they call contain the stable Hopf fibrations of appropriate degree, which by above are actually non-null.</p>
+<p>To visualize this with \(n = 3\), consider the following artifice. Consider a sphere \(S^2 \subset \Bbb R^3\) with an infinite strip (or a framed, proper ray) attached to it, which has red markings by arrows pointing up:</p>
 
-<p>In fact, one can argue using these Hopf fibrations that \(\pi_2^s, \pi_6^s, \pi_{14}^s\) are nonzero as well: recall that there is a graded ring structure on \(\pi_*^s\) defined upto appropriately stabilizing by \((f, g) \mapsto \Sigma^* f \circ g\), the graded commutativity of this product upto stabilization can be seen by writing the suspension as smashing with the circle many times, and then permuting factors, which tells that the product is homotopic to \(\Sigma^* f \wedge \Sigma^* g\). The claim is that under this product, the squares of the Hopf fibrations are stably nonzero. Suppose \(h : S^{n+1} \to S^n\) is a suspension of the Hopf map, and let \(C_n\) denote the mapping cone. If \(\Sigma h \circ h : S^{n+2} \to S^n\) is nullhomotopic, consider the map \(S^{n+3} = D^{n+2} \cup_{S^{n+1}} D^{n+2} \to C_n\) defined on the equator by sending it to the \(n\)-skeleton by \((\Sigma h) \circ h\), on the top hemisphere by the nullhomotopy of \(\Sigma h \circ h\) and on the bottom hemisphere by \(C(\Sigma h) \circ h\). Attach a \(D^{n+4}\) to \(C_h\) along this map to obtain a cell complex \(X\). Then observe \(Sq^2 : H^n(X; \Bbb F_2) \to H^{n+2}(X; \Bbb F_2)\) is, by naturality applied to inclusion of the \((n+2)\)-skeleton, the same as \(Sq^2 : H^n(C_h; \Bbb F_2) \to H^{n+2}(C_h; \Bbb F_2)\) which is a suspension of the corresponding \(Sq^2\) on the mapping cone of the Hopf map, which is the Hopf invariant, \(1\). Thus,</p>
+<div class="figure-row">
+    <img src="/assets/images/belt-trick-1.webp" height="50%" width="50%" />
+</div>
 
-\[Sq^2 : H^n(X; \Bbb F_2) \to H^{n+2}(X; \Bbb F_2)\]
+<p>\(\mathrm{SO}(3)\) acts on the sphere by rotating it, but when we physically carry out a rotation we will have to follow a path of rotations starting at the identity and leading to the required rotation; the purpose of the strip is to keep track of this path “in space” rather than “in time”. For example, this is the effect of rotating the sphere by \(2\pi\) around the blue axis, which is the identity operation but as the strip tells you, that path you traced out is a nontrivial loop in \(\mathrm{SO}(3)\).</p>
 
-<p>is an isomorphism. Further, we obtain that \(Sq^2 : H^{n+2}(X; \Bbb F_2) \to H^{n+4}(X; \Bbb F_2)\) is the same, since by naturality applied to the quotient map \(X \to X/S^n\) which is an isomorphism above degree \(n\) by cellular homology, \(Sq^2 : H^{n+2}(C_{\Sigma^2 h}; \Bbb F_2) \to H^{n+4}(C_{\Sigma^2 h}; \Bbb F_2)\), once again an isomorphism. Thierefore \(Sq^2 Sq^2 : H^n \to H^{n+4}\) must be an isomorphism but by Adem relations \(Sq^2 Sq^2 = Sq^3 Sq^1 = 0\) as \(Sq^1 = 0\); there’s no \(H^{n+1}\) for it to be nonzero.</p>
+<div class="figure-row">
+    <img src="/assets/images/belt-trick-2.webp" height="55%" width="55%" />
+</div>
 
-<p>(I will probably fill in something about the relation between Steenrod squares and Stiefel-Whitney classes, an analogous relation between Steenrod powers with Chern classes modulo \(p\) will be used in Seiberg-Witten Theory: Part 2. I might end up doing some exercises from Chapter 4.L and write the interesting solutions here, and there’s plenty of examples in Hatcher in any case. Recommendations on computations are welcome.)</p>
+<p>Indeed, try to unravel the strip out by moving it to one side as it was before, and one ends up with the following configuration:</p>
+
+<div class="figure-row">
+    <img src="/assets/images/belt-trick-3.webp" height="55%" width="55%" />
+</div>
+
+<p>We see one of the red arrows pointing down, in other words a full twist in the strip. If we do it again, we might see either two full twists or none, depending on how we unravel the strip and bring it to one side - I encourage carrying this out by cutting out some paper strips. Therefore, it makes sense to count the number of twists on the strip modulo 2, i.e., the strip can have only two states, an “up” state and a “down” state, corresponding to any state of the sphere. This is exactly how elements of \(\mathrm{Spin}(3)\) look like. This description of the spin group is not new; it is called the Dirac’s belt/plate trick. An elaborate animation can be found <a href="https://upload.wikimedia.org/wikipedia/commons/f/f7/Anti-Twister.gif">here</a> where many such strips or belts are emerging out of the object that is exhibiting rotation.</p>
+
+<p>I think of a spin structure on a manifold \(M\) as a collection of such strips or framed proper rays from infinity attached to each unit tangent sphere so that the manifold looks like a marionette, and the associated “spin field” is the signed count of the number of full-twists or the up/down states along the strings. Probably not very useful, but sort of pleasant.</p>
+
+<p>Finally, let us get to exactly what kind of topological obstructions there are for a spin or spinc structure on a manifold to exist. Off the top of my head, here is a way to do this by throwing the kitchen sink at it: the frame bundle of \(M\) is classified by a map \(M \to B\mathrm{SO}(n)\), and the question of admitting a spin or spinc structure is the same question as lifting this to a map \(\psi : M \to B\mathrm{Spin}(n)\) or \(M \to B\mathrm{Spin}^{\Bbb C}(n)\) respectively. In the first case, there is a fibration sequence \(\mathrm{SO}(n) \to \mathrm{Spin}(n) \to B\Bbb Z/2\) where the last map classifies the first map, which is a double covering. By delooping everything, we get a fibration sequence \(B\mathrm{SO}(n) \to B\mathrm{Spin}(n) \to B^2\Bbb Z/2\). Thus, the question of lifting a map from \(M\) to the middle term to a map into the fiber is equivalent to the question of whether the composition \(M \to B^2 \Bbb Z/2\) to the base is nullhomotopic. This is classified by an element of \(H^2(M; \Bbb Z/2)\); moreover it follows that this element lies in the image of the homomorphism \(\psi^* : H^2(B\mathrm{SO}(n); \Bbb Z/2) \to H^2(M; \Bbb Z/2)\). As explained in this post, the cohomology ring \(H^*(B\mathrm{SO}(n); \Bbb F_2) = \Bbb F_2[w_1, w_2, \cdots, w_n]\) is generated by universal Stiefel-Whitney classes, hence the unique nonzero element in degree \(2\) is \(w_2\). Thus, the class in \(H^2(M; \Bbb Z/2)\) is the second Stiefel-Whitney class \(w_2(M)\). In the second case, there is a fibration sequence \(\mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n) \to BU(1)\) which one can deloop as before and argue that the relevant obstruction for lifting \(\psi\) to \(M \to B\mathrm{Spin}^{\Bbb C}(n)\) lies in \(H^3(M; \Bbb Z)\). Apparently, the class here is the “3rd integral Stiefel-Whitney class” \(W_3 := \beta w_2\), where \(\beta : H^2(-; \Bbb F_2) \to H^3(-; \Bbb Z)\) is the integral Bockstein in degree \(2\), which looks intuitive enough but I haven’t worked out precisely why. Moreover, it might be worth phrasing all of this in terms of explicit cocycles than abstract obstruction theory.</p>
+
+<p>Edit: I have figured out why the obstruction class is \(W_3 = \beta w_2\). There is a short exact sequence</p>
+
+\[0 \to \Bbb Z/2 \to \mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n) \times \mathrm{U}(1) \to 0\]
+
+<p>which is classified by an element of \(H^2(\mathrm{SO}(n) \times \mathrm{U}(1); \Bbb Z/2) \cong H^2(\mathrm{SO}(n); \Bbb Z/2) \oplus H^2(\mathrm{U}(1); \Bbb Z/2)\) whose projection to the first factor classifies the short exact sequence</p>
+
+\[0 \to \Bbb Z/2 \to \mathrm{Spin}(n) \stackrel{\mathrm{ad}}{\to} \mathrm{SO}(n) \to 0\]
+
+<p>obtained from the above short exact sequence by “forgetting the complex scalars” and the projection to the second factor classifies the short exact sequence</p>
+
+\[0 \to \Bbb Z/2 \to U(1) \stackrel{\times 2}{\to} U(1)\]
+
+<p>obtained from the same short exact sequence by “forgetting the orthogonal matrices”. Therefore, the pertaining element of \(H^2(\mathrm{SO}(n); \Bbb Z/2)\) is \(w_2\) and let us call the element in \(H^2(U(1); \Bbb Z/2)\) as \(\alpha\). Thus, the classifying element is \(w_1 + \alpha\). Extending the short exact sequence to a fiber long exact sequence by delooping and dualizing gives for any \(X\) a short exact sequence</p>
+
+\[\displaystyle [X, B\mathrm{Spin}^{\Bbb C}(n)] \to [X, B\mathrm{SO}(n)] \oplus [X, B\mathrm{U}(1)] \to [X, B^2 \Bbb Z/2] \cong H^2(X; \Bbb Z/2)\]
+
+<p>where the last map is, treating \([X, BG]\) as the group of isomorphism classes of principal \(G\)-bundles,</p>
+
+\[(E, F) \mapsto w_2(E) + \alpha(F) \pmod{2}\]
+
+<p>Thus, \(E\) is a spinc-bundle if and only if \((E, E)\) maps to \(0\) if and only if</p>
+
+\[w_2(E) = \alpha(E) \pmod{2}\]
+
+<p>Observe this condition is equivalent to demanding that \(\alpha(E)\) is an integral lift in \(H^2(X; \Bbb Z)\) of \(w_2(E) \in H^2(X; \Bbb Z/2)\). Thus, \(\beta w_2(E) = 0 \in H^3(X; \Bbb Z)\) by construction of Bockstein. In fact, once \(E\) has a spinc-structure then one focus on the complex scalars in the structure group and immediately turn it into a complex bundle, and \(c_1(E) = \alpha(E)\) is exactly its first Chern class.</p>
+
+<p>In either case, it is evident from this that the existence of spin or spinc structures is much easier than almost complex structures; to start, all spheres have them! Every oriented \(3\)-manifold admits a spin structure because they are parallelizable, so all the pertaining characteristic classes vanish. Apparently, it is true that any oriented \(4\)-manifold admits a spinc structure.</p>
+
+<p>Next time, we shall discuss some geometry: the spin connection and the Dirac operator.</p>
 
       </div>
     
@@ -251,7 +281,7 @@
   
     <a href="/page/8/index.html"></a>
   
-<!-- <span class="page-number">Page 9 of 16</span> -->
+<!-- <span class="page-number">Page 9 of 17</span> -->
   
     <a href="/page/10/index.html"></a>
   
@@ -262,12 +292,12 @@
   
     <a class="fixed-bottom-btn" 
        href="/page/8/index.html">
-      &#171; Prev
+      &#171; Newer
     </a>
   
   
     <a class="fixed-bottom-btn" href="/page/10/index.html">
-      Next &#187;
+      Older &#187;
     </a>
   
 </div>

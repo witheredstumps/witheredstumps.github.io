@@ -5,7 +5,7 @@
     <title>Home - page 11 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 11 of 16 for Home - page 11 | And Other Withered Stumps Of Time</title>
+<title>Page 11 of 17 for Home - page 11 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 11" />
 <meta property="og:locale" content="en_US" />
@@ -24,7 +24,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -33,7 +33,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -139,97 +142,63 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2020/09/06/poisson-process-i/">Poisson Process: I</a>
+          <a href="/2020/11/02/markov-chains-i/">Markov Chains: I</a>
         </h2>
         <div class="meta">
-          <span>September 06, 2020</span>
+          <span>November 02, 2020</span>
         </div>
         <hr>
-        <p>I am taking the course Introduction to Stochastic Processes offered by my institute and taught by Parthanil Roy this semester, and wanted to jot down some notes interspersed with my own thoughts somewhere, hence this post. We have started by discussing about point processes, so that is what I expect to talk about in the first few posts of the series. I have recycled the exposition and terminology present in the lecture notes from the instructor of the course, and the text “Lectures on the Poisson Process” by Last and Penrose, also available online, which I am reading independently.</p>
+        <p>Broadly speaking, a discrete-time dynamical system is a “space” \(X\) along with a transformation \(T : X \to X\), in an appropriate category of “spaces” (topological spaces, measure spaces, …). I think of a discrete Markov chain as a discrete-time dynamical system where the transformation \(T\) behaves “randomly”. Before illustrating this in detail let me reproduce the precise definition, based on Lecture 10 of the course notes <a href="https://sites.google.com/view/parthanilroy/home/teaching/stoch_proc">here</a>.</p>
 
-<p>A point process on a space \(\mathbb{X}\) is a random collection of countably many points on \(\mathbb{X}\). One can think of it as a measure on the configuration space of countably many points on \(\mathbb{X}\) but this becomes rather uselessly abstract. One way to understand this is to imagine \(\mathbb{X}\) as a dartboard, and we are randomly throwing countably many darts at it. We can fix any measurable subset \(B \subset \mathbb{X}\) of the dartboard and ask how many darts hit \(B\). This itself is a random variable, and taking expectation of this variable defines a measure \(\lambda\) on \(\mathbb{X}\), where \(\lambda(B)\) is the average number, or the intensity of darts that hit \(B\). As we vary \(B \subset \mathbb{X}\), probing the whole dartboard by its measurable subsets, the random variables which count the number of darts in the region \(B\) of the dartboard determines the full random configuration of darts.</p>
+<p>We shall say a discrete-time stochastic process \(\{X_n\}_{n \geq 0}\) takes values in a countable “state space” \(S\) if \(\mathrm{Range}(X_n) \subseteq S\) for all \(n \geq 0\) and \(S\) is countable. Without loss of generality, we can throw away the “irrelevant states” and let \(S = \bigcup_{n \geq 0} \mathrm{Range}(X_n)\).  We fix a probability distribution \(\mathbf{a} = (a_k : k \in S)\) on the state space, i.e., \(0 \leq a_k \leq 1\) for all \(k \in S\), such that \(\sum_{k \in S} a_k = 1\). Furthermore, let \(P = (p_{ij})_{i, j \in S}\) be a \(\|S\| \times \|S\|\)-dimensional matrix with elements indexed by \(S \times S\), such that for all \(i, j \in S\), \(0 \leq p_{ij} \leq 1\) and \(\sum_{j \in S} p_{ij} = 1\) for all \(i \in S\).</p>
 
-<p>To make this setup precise, we’ll change our viewpoint. Let \((\mathbb{X}, \mathcal{X})\) be a measurable space, and \(M(\mathbb{X})\) be the space of \(\Bbb N_0\)-valued measures on this space. Moreover let \(\bar{M}(\mathbb{X})\) be the space of countable linear combination of elements of \(M(\mathbb{X})\); we shall think of elements of this space as counting measures on \(\mathbb{X}\), although generally they can be more complicated than counting measures, which are really linear combinations of Dirac masses at distinct points on \(\mathbb{X}\). We can equip \(\bar{M}(\mathbb{X})\) with a \(\sigma\)-algebra \(\mathcal{M}\) generated by collection of all cylinder subsets of the form \(\{\mu \in \bar{M}(\mathbb{X}) : \mu(B) = k\}\), where \(B \in \mathcal{X}\), \(k \in \Bbb N_0 \cup \{\infty\}\). Define a point process on \((\mathbb{X}, \mathcal{X})\) to be a measurable map \(\eta : (\Omega, \mathcal{A}, \Bbb P) \to (\bar{M}(\mathbb{X}), \mathcal{M})\) from some probability measure space \((\Omega, \mathcal{A}, \Bbb P)\).</p>
+<p>A discrete-time stochastic process \(\{X_n\}_{n \geq 0}\) taking values in a countable state space \(S\) is a discrete, time-stationary, countable-state space Markov chain with initial distribution \(\mathbf{a}\) and transition probability matrix \(P\) if \(X_0 \sim \mathbf{a}\), and for all \(n \in \Bbb N\), \(i_0, i_1, \cdots, i_n \in S\),</p>
 
-<p>This looks different from what we were describing in the first paragraph but all we did was a currying trick; for any fixed measurable set \(B \subset \mathbb{X}\), denote by \(\eta(B)\) to be the random variable \((\Omega, \mathcal{A}, \Bbb P) \to \Bbb N_0 \cup \{\infty\}\), \(\omega \mapsto \eta(\omega)(B)\), which is the number of points of \(\eta\) in \(B\). The intensity measure on \((\mathbb{X}, \mathcal{X})\) is given by \(\lambda(B) := \Bbb E \eta(B)\). What this perspective allows us to see is that a point process can alternatively be described as a random counting measure on \((\mathbb{X}, \mathcal{X})\). Alternatively, one can unfurl the whole thing to a map \(\eta : \Omega \times \mathcal{X} \to \Bbb N_0 \cup \{\infty\}\), \((\omega, B) \mapsto \eta(\omega)(B)\). This is called the transition kernel of the process.</p>
+\[\Bbb P(X_0 = i_0, X_1 = i_1, \cdots, X_n = i_n) = a_{i_0} p_{i_0 i_1} p_{i_1 i_2} \cdots p_{i_{n-1} i_n}\]
 
-<p>A simple example of a point process is as follows. Let \(X_1, \cdots, X_n : (\Omega, \mathcal{A}, \Bbb P) \to (\mathbb{X}, \mathcal{X})\) be \(\mathbb{X}\)-valued random variables, or random points on \(\mathbb{X}\), which are independently distributed with the same law \(\mu\). Then define \(\eta := \delta_{X_1} + \cdots + \delta_{X_n}\) where \(\delta_x\) denotes the Dirac mass at \(x \in \mathbb{X}\). This is called the binomial process with sample size \(n\) and sampling distribution \(\mu\) on \(\mathbb{X}\), as</p>
+<p>Let us compute the distribution of \(X_n\) on \(S\) explicitly: For any \(i \in S\),</p>
 
-\[\displaystyle \Bbb P(\eta(B) = k) = \binom{n}{k} \mu(B)^k (1 - \mu(B))^{n-k}\]
+\[\displaystyle \begin{aligned}\Bbb P(X_n = i) &amp;= \sum_{i_0, \cdots, i_{n-1} \in S} \Bbb P(X_n = i, X_{n-1} = i_{n-1}, \cdots, X_0 = i_0) \\ &amp;= \sum_{i_0, \cdots, i_{n-1} \in S} a_{i_0} p_{i_0 i_1} \cdots p_{i_{n-2} i_{n-1}} p_{i_{n-1} i} = (\mathbf{a}^\mathsf{T} P^n)_i\end{aligned}\]
 
-<p>A point process \(\eta\) on \(\mathbb{X}\) is called proper if there exists \(\mathbb{X}\)-valued random variables \(X_1, X_2, \cdots\) and a \(\mathbb{N}_0 \cup \{\infty\}\)-valued random variable \(Z\) such that almost surely, \(\eta = \sum_{i = 1}^Z \delta_{X_i}\).</p>
+<p>Therefore, \(X_n \sim \mathbf{a}^\mathsf{T} P^n\). Note that therefore the distribution of the process \(\{X_n\}_{n \geq 0}\) depends linearly on the initial distribution \(\mathbf{a}\) on \(S\); to be precise let \(\mathscr{P}(S)\) denote the space of probability distributions on \(S\), then the transition matrix \(P\) acts on this space by multiplying by a row vector on the left: \(T : \mathscr{P}(S) \to \mathscr{P}(S)\), \(\mathbf{a} \mapsto \mathbf{a}^\mathsf{T} P\), which preserves convex combinations, and the result of iterating this operator \(n\) times is the same as running the Markov process for time \(n\), starting from the initial distribution \(\mathbf{a}\). Since the space of probability distributions on \(S\) is convex hull of the Dirac masses \(\delta_i\), \(i \in S\), it suffices to understand the process for these initial distributions. We get,</p>
 
-<p>A class of examples of central attention for us are Poisson processes. Let us begin by introducing such a process on the non-negative real line \([0, \infty)\) for ease of exposition.</p>
+\[\displaystyle T(\delta_i) = \sum_{j \in S} p_{i j} \delta_j\]
 
-<p>A countable collection of points on \([0, \infty)\) can be imagined as marking off the times - starting the clock at \(0\) - that certain random events of similar nature occur; for example, arrival time of buses in a bus-stop, or calls in a telephone exchange, or perhaps decay of a particle (we shall stick to the second analogy for its relative simplicity and antiquity). In such an experiment we have various arrival times \(0 = S_0 \leq S_1 \leq S_2 \leq S_3 \leq \cdots\) for the phone calls. Let us denote the consecutive differences \(X_i = S_i - S_{i-1}\), \(i \in \Bbb N\) to be the interarrival times between the \((i-1)\)-th and the \(i\)-th phonecalls. Motivated from statistical and physical models, we shall assume that the interarrival times are identically and independently distributed exponential variables, i.e., \(X_1, X_2, \cdots \stackrel{\mathrm{iid}}{\sim} \mathrm{Exp}(\alpha)\). This describes our point process completely; it is a random configuration of countably many points in \([0, \infty)\) including \(0\) such that the spacing between two consecutive points is exponential with parameter \(\alpha\). We call this the homogeneous Poisson point process \(\wp_\alpha\) on \([0, \infty)\) with intensity \(\alpha\).</p>
+<p>Thus, we abuse notation and write the map \(T : S \to \mathscr{P}(S)\). Note that for any \(i \in S\), \(T(i)\) is the law of the conditional distribution \(X_{n+1} \| X_n = i\) for any \(n \geq 0\). \(T\) is vaguely like a map \(T : S \to S\) determining a dynamical system on \(S\), but the dynamics is no longer deterministic; pushing a point \(i \in S\) forward by \(T\) does not give a point but a “probability cloud” \(T(i) \in \mathscr{P}(S)\) which associates to \(j \in S\) the probability \(p_{ij}\). I learnt this interpretation from Vadim Kaimanovich, and I find it to be an efficient way of thinking. This operator \(T\) is called a Markov kernel. We shall understand the iterates \(T^k\), \(k \geq 2\) to be determined by the rows of the \(k\)-step transition matrix \(P^k\).</p>
 
-<p>But we would like to put this in the context of our discussion earlier involving the kernel of a point process. So let us start off by denoting \(N_t = \max\{n \geq 0 : S_n \leq t\}\) to be the number of phonecalls that arrive upto time \(t\). This is the number of points of \(\wp_\alpha\) in \([0, t]\) in our language from earlier. Note that \(N_t\) is apriori a \(\Bbb N_0 \cup \{\infty\}\)-valued random variable for every \(t \geq 0\). Observe:</p>
+<p>One can recover the stochastic process \(\{X_n\}_{n \geq 0}\) on \(S\) from the Markov kernel as follows: Fix an initial distribution \(\mathbf{a}\) on \(S\) and define a probability measure \(\Bbb P_{\mathbf{a}}\) on \(S^{\Bbb N_0}\) by defining it on cylinder events in a natural way:</p>
 
-\[\displaystyle \Bbb P(N_t = n) = \Bbb P(S_n \leq t &lt; S_{n+1}) = \Bbb P(S_n \leq t) - \Bbb P(S_{n+1} \leq t)\]
+\[\displaystyle \Bbb P_{\mathbf{a}}(\{\omega \in S^{\Bbb N_0} : \omega_0 = s_0, \omega_1 = s_1, \cdots, \omega_k = s_k\}) = a_{s_0} T(s_0)(s_1) \cdots T(s_{k-1})(s_k)\]
 
-<p>Remember that \(S_m = X_1 + \cdots + X_m\) where \(X_i\) are i.i.d. exponential with parameter \(\alpha\). Thus, \(S_m \sim \mathrm{Gamma}(m, \alpha)\). Plugging the cdf of the Gamma distribution in the expression above, we obtain for any \(n \in \Bbb N_0\),</p>
+<p>One can think of the probability space \((S^{\Bbb{N}_0}, \mathscr{C}, \Bbb{P}_\mathbf{a} )\) as the background space of all sample paths the Markov chain can take, starting with initial distribution \(\mathbf{a}\) and transition matrix \(P\), with each path carrying their individual likelihoods. Finally, let \(\Sigma : S^{\Bbb N_0} \to S^{\Bbb N_0}\) be the right-shift operator, and define</p>
 
-\[\displaystyle \begin{aligned}\Bbb P(N_t = n) &amp;= \int_{0}^t \frac{\alpha^n}{(n-1)!} s^{n-1} e^{-\alpha s} ds - \int_{0}^t \frac{\alpha^{n+1}}{n!} s^n e^{-\alpha s} ds \\ &amp;= \frac{\alpha^n}{n!} e^{-\alpha t} t^n = \frac{(\alpha t)^n}{n!} e^{-\alpha t}\end{aligned}\]
+\[\displaystyle X_n := X_0 \circ \Sigma^{\circ n} : (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_{\mathbf{a}}) \to S\]
 
-<p>Using a simple application of integration by parts on the first integral, writing \(s^{n-1} ds = d(s^n)/n\). Thus, we obtain \(\Bbb P(N_t &lt; \infty) = \sum_{n \in \Bbb N_0} \Bbb P(N_t = n) = 1\), hence \(N_t\) can be treated as a \(\Bbb N_0\)-valued random variable, in which case \(N_t \sim \mathrm{Poi}(\alpha t)\) for all \(t &gt; 0\) by comparing pmf’s. In the case \(t = 0\), we simply have \(N_0 \equiv 0\).</p>
+<p>This gives a straightforward way of speaking of several notions in dynamical systems in the context of Markov chains. If \((X, T)\) is a dynamical system, \(A \subseteq X\) is a subset, we can speak of the hitting time function \(\tau_A : X \to \Bbb N \cup \{\infty\}\), defined by \(\tau_A(x) = \inf \{k \geq 0 : T^k(x) \in A\}\), to be the first time the forward-orbit of \(x\) goes inside \(A \subseteq X\) under iterates \(T\). Clearly, \(\tau_A(x) = 0\) if \(x \in A\) and \(A \subset X\) is forward-invariant, i.e., \(T(A) \subseteq A\) if and only if \(\tau_{X \setminus A}(x) = \infty\) for all \(x \in A\). In the context of a Markov chain, we define a random variable-valued hitting time  \(\tau_A\) for any subset \(A \subseteq S\) by</p>
 
-<p>Next, we would like to compute more generally the number of phone calls that arrive in a specific time-interval \(I \subset [0, \infty)\), that is to say, the number of points of the point process \(\wp_\alpha\) in \(I\). To proceed, fix \(t_0 &gt; 0\) and consider the interval \(I = [t_0,  t_0 + t]\). Then the number of interest is \(\widetilde{N}_t := N_{t_0 + t} - N_{t_0}\). Taking cue from the telephone exchange analogy, we set up the whole process again, but starting our clock at time \(t_0\). That is to say, suppose the telephone operator slept through their alarm and arrives at the telephone exchange office late. They hurriedly start jotting down the arrival times of the calls after time \(t_0\), which would then be \(t_0 \leq S_{N_{t_0}+1} \leq S_{N_{t_0}+2} \leq \cdots\). The relevant interarrival times are then given by \(\widetilde{X}_i = S_{N_{t_0} + i} - S_{N_{t_0} + i-1} = X_{N_{t_0} + i}\) for all \(i \geq 2\) and \(\widetilde{X}_1 = S_{N_{t_0} + 1} - t_0\). Define \(\widetilde{S}_n = \widetilde{X}_1 + \cdots + \widetilde{X}_n\) and \(\widetilde{S}_0 \equiv 0\). What we have done is simply the following: we have chopped off the original Poisson process on \([0, \infty)\) at time \(t_0\) and translated \([t_0, \infty)\) back to \([0, \infty)\) to define a new point process, by using the random configuration of countably many points that appear after \(t_0\). It turns out that this is also a Poisson process with intensity \(\alpha\)!</p>
+\[\displaystyle \tau_A(i) = \inf\{k \geq 0 : (X_k\|X_0 = i) \in A\}\]
 
-<p>To see this, all we have to do is to prove \(\widetilde{X}_1, \widetilde{X}_2, \widetilde{X}_3, \cdots \stackrel{\mathrm{iid}}{\sim} \mathrm{Exp}(\alpha)\). Observe,</p>
+<p>We shall say the state \(i \in S\) leads to the state \(j \in S\) if \(\Bbb P(\tau_j(i) &lt; \infty) &gt; 0\). It is easy to see this happens if and only if the set of sample paths in \(S^{\Bbb N_0}\) which reach \(j\) in some finite time has positive \(\Bbb P_i\)-probability, or equivalently \((P^n)_{ij} &gt; 0\) for some \(n \in \Bbb N_0\). This is a reflexive, transitive (since \(P^{n+m} = P^n P^m\)) relation on \(S\) but is not going to be symmetric in general. An easy example is the deterministically monotone Markov chain on \(\Bbb Z\) with kernel \(T : \Bbb Z \to \mathscr{P}(\Bbb Z)\) given by \(T(k) = \delta_{k+1}\), shifting mass one step to the right. Any state only leads to states to the right of it. So we can say that the states that \(i \in S\) leads to form the “forward-orbit” of \(i\) in this “fuzzy” dynamical system. A subset \(C \subset S\) is said to be closed if \(\Bbb P(\tau_{S \setminus C}(i) = \infty) = 1\) for all \(i \in C\), hence these are the forward-invariant subsets of the Markov chain.</p>
 
-\[\displaystyle \begin{aligned}&amp; \Bbb P(\widetilde{X}_1 &gt; x_1, \cdots, \widetilde{X}_k &gt; x_k, N_{t_0} = n) \\ &amp;= \Bbb P(S_{n+1} &gt; t_0 +  x_1, X_{n+2} &gt; x_2, \cdots, X_{n+k} &gt; x_k, S_n \leq t_0 &lt; S_{n+1}) \\ &amp;= \Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0 + x_1, X_{n+2} &gt; x_2, \cdots, X_{n+k} &gt; x_k) \\ &amp;= \Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0 + x_1) \Bbb P(X_{n+2} &gt; x_2, \cdots, X_{n+k} &gt; x_k) \end{aligned}\]
+<p>We can symmetrize the said relation to form an equivalence relation \(\sim\) on \(S\), by defining \(i \sim j\) iff \(i\) leads to \(j\) as well as \(j\) leads to \(i\), and in this case state \(i\) is said to communicate with state \(j\). The \(\sim\)-equivalence classes in \(S\) are called communication classes. States achievable in backward time are also achievable in forward time within a communication class. A Markov chain is said to be irreducible if the state space consists of only one communication class. In the measurable space of sample paths \((S^{\Bbb N_0}, \mathscr{C})\), the irreducibility hypothesis essentially says that the paths do not stay trapped in a tube \(A^{\Bbb N_0}\) forever, for some subset \(A \subset S\), which would be a proper communication class if this situation occurs. This vaguely suggests that running an irreducible Markov process from any point will initiate a dynamical system which is chaotic in some sense.</p>
 
-<p>where in the last equality we used \((S_n, S_{n+1}) \perp \!\!\! \perp (X_{n+2}, \cdots, X_{n+k})\). A long calculation involving the law of conditional probability ensues:</p>
+<p>Let us work towards making the last remark incredibly precise. Let \(S\) be a finite state space, \(P\) be a transition matrix on this state space. Recall that \(P : \mathscr{P}(S) \to \mathscr{P}(S)\) acts on the convex set of probability distributions on \(S\) by multiplication on the left, \(\mathbf{a} \mapsto \mathbf{a}^\mathsf{T} P\). Since \(S\) is a finite state space, \(\mathscr{P}(S)\) as a subset of \(\Bbb R^S\) has exactly \(S\)-many extreme points given by the Dirac masses at the points of \(S\), which makes it a simplex of dimension \(\|S\| - 1\). A simplex is a topological disk, and multiplying on the left by \(P\) gives a continuous self-map of this disk, which has to have a fixed point by Brouwer’s fixed point theorem.</p>
 
-\[\displaystyle \begin{aligned}\Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0 + x_1) &amp;= \Bbb P(S_n \leq t_0, X_{n+1} &gt; t_0 + x_1 - S_n) \\ &amp;= \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 + x_1 - u | S_n = u) f_{S_n}(u) du \\ &amp;= \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 + x_1 - u) f_{S_n}(u) du \\ &amp;= \int_0^{t_0} e^{-\alpha(t_0 + x_1 - u)} f_{S_n}(u) du \\ &amp; = e^{-\alpha x_1} \int_0^{t_0} e^{-\alpha(t_0 - u)} f_{S_n}(u) du \\ &amp;= \Bbb P(X_{n+1}&gt; x_1) \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 - u) f_{S_n}(u) du \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \int_0^{t_0} \Bbb P(X_{n+1} &gt; t_0 - u|S_n = u) f_{S_n}(u) du \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \Bbb P(S_n \leq t_0, X_{n+1} &gt; t_0 - S_n) \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \Bbb P(S_n \leq t_0, S_{n+1} &gt; t_0) \\ &amp;= \Bbb P(X_{n+1} &gt; x_1) \Bbb P(N_{t_0} = n)\end{aligned}\]
+<p>Thus, there exists a probability vector \(\mathbf{\pi}\) such that \(\mathbf{\pi}^\mathsf{T} P = \mathbf{\pi}^\mathsf{T}\); such a vector is called a stationary distribution for the Markov chain. If \(P\) is irreducible, there is in fact a unique stationary distribution: Observe that kernel of the matrix \(I - P\) is the space of harmonic functions on the weight graph on \(S\) determined by the Markov chain, that is, \(P f = f\) if and only if \(f(x) = \sum_{y \in S} P_{x, y} f(y)\) for all \(x \in S\). By irreducibility, the weighted graph is connected in the sense that, for any two states in \(S\), there is a path of positive weight connected them in the said graph. Since \(S\) is finite, such a function \(f\) must attain a minimum, which forces it to be constant everywhere by connectedness. This implies \(\dim \ker(I - P) = 1\), hence \(\dim \ker(I - P^\mathsf{T}) = 1\) as well. This shows kernel of \(I - P^\mathsf{T}\) is \(1\)-dimensional, which forces \(\pi\) to be the unique stationary distribution for the Markov chain.</p>
 
-<p>Substituting this back in the earlier equation, we obtain:</p>
+<p><b>Theorem</b>. Let \(S\) be a finite state space, and \(T : S \to \mathscr{P}(S)\) be the Markov kernel for an irreducible Markov chain on \(S\). Let \(\pi\) be the corresponding unique stationary distribution. Then,</p>
 
-\[\displaystyle \Bbb P(\widetilde{X}_1 \!&gt;\! x_1, \cdots, \widetilde{X}_k\! &gt;\! x_k, N_{t_0} \!=\! n) = \Bbb P(X_{n+1}\! &gt;\! x_1) \cdots \Bbb P(X_{n+k}\! &gt;\! x_k) \Bbb P(N_{t_0} \!=\! n)\]
+\[\Sigma : (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_\pi) \to (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_\pi)\]
 
-<p>This is of course expected, because the identity here expresses the fact that in probability the new Poisson process is obtained from shifting the old Poisson process back by time \(t_0\). Note that this not only proves that the variables \(\widetilde{X}_i\) are i.i.d. exponential with parameter \(\alpha\) (replace the variables \(X_{n+i}\) on the right hand side of the identity by the equally distributed exponential variables \(X_i\), and sum over \(n\)), but also that \((\widetilde{X}_1, \widetilde{X}_2, \cdots) \perp \!\!\!\perp N_{t_0}\). The new Poisson process has forgotten how many calls arrived before time \(t_0\). This is the most rudimentary form of Markov property of stochastic processes.</p>
+<p>is an ergodic transformation.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Observe now that \(\widetilde{N}_t = \max\{n \geq 0 : \widetilde{S}_n \leq t\}\) is just the number of phonecalls which arrived before time \(t\) in the new chopped off Poisson process with intensity \(\alpha\), so of course, \(\widetilde{N}_t \sim \mathrm{Poi}(\alpha t)\) as well. This proves that the number of points of \(\wp_\alpha\) in \(I \subset [0, \infty)\) follows the Poisson distribution with parameter $$\alpha</td>
-      <td>I</td>
-      <td>\(, i.e.,\)\wp_\alpha(I) \sim \mathrm{Poi}(\alpha</td>
-      <td>I</td>
-      <td>)\(. Therefore, we also have that the intensity measure induced by\)\rho_\alpha\(on\)[0, \infty)\(is the Lebesgue measure scaled by\)\alpha\(. The fact that\)N_t \perp !!! \perp N_{t + s} - N_t\(for any\)t, s \geq 0\(indicates in general that if\)0 \leq t_1 \leq t_2 \leq \cdots \leq t_k\(then\)N_{t_1}, N_{t_2 - t_1}, \cdots, N_{t_k - t_{k-1}}\(are independent random variables, which is to say, if\)I_1, I_2, \cdots, I_k \subset \Bbb R\(are pairwise disjoint intervals then\)\wp_\alpha(I_1), \cdots, \wp_\alpha(I_k)$$ are independent random variables.</td>
-    </tr>
-  </tbody>
-</table>
+<p><em>Proof</em>. First of all, \(\Sigma\) is easily checked to be measure preserving since \(\pi\) is a stationary measure. Suppose \(A \subset S^{\Bbb N_0}\) is a \(\Sigma\)-invariant subset, that is, \(\Sigma^{-1}(A) = A\). Consider the random variable \(Z : (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_\pi) \to \{0, 1\}\), \(Z = \mathbf{1}_A\). Define the random variables \(Z_k = \Bbb E[Z\|X_0, \cdots, X_k]\) for \(k \geq 0\). Clearly, \(\Bbb E[Z_{k+1}\|X_0, \cdots, X_k] = Z_k\) so \(\{Z_k\}_{k \geq 1}\) forms a discrete-time martingale. Moreover, this martingale is bounded since \(\Bbb E[\|Z_k\|] \leq \Bbb E[\|Z\|]\) for all \(k \geq 1\). Therefore, by Martingale Convergence Theorem, \(Z_k \to Z_\infty\) almost surely, where the only possibility is \(Z_\infty = \Bbb E[Z\|X_1, X_2, \cdots] = Z\) since the \(\sigma\)-algebra generated by \(X_1, X_2, \cdots\) is the full product \(\sigma\)-algebra on \(S^{\Bbb N_0}\), taking conditional expectation with respect to which returns the random variable itself.</p>
 
-<p>In general let \((\Bbb{X}, \mathcal{X})\) be a measurable space and \(\lambda\) be a \(\sigma\)-finite measure on \(\Bbb{X}\). We define a (inhomogeneous) Poisson point process \(\wp_\lambda\) with intensity measure \(\lambda\) to be a point process such that \(B \in \mathcal{X}\), \(\wp_\lambda(B) \sim \mathrm{Poi}(\lambda(B))\) and for every collection \(B_1, \cdots, B_n \in \mathcal{X}\) of pairwise disjoint sets, \(\wp_\lambda(B_1), \cdots, \wp_\lambda(B_n)\) are independent random variables.</p>
+<p>Note that by \(\Sigma\)-invariance of \(A\), \(Z \circ \Sigma^n = Z\) for all \(n \geq 1\). Thus,</p>
 
-<p>We have constructed such a process on \([0, \infty)\). It is worthwhile to note that in this case the full package of the Poisson process can be presented as just the stochastic process \(\{N_t\}_{t \in [0, \infty)}\) given by the number of phonecalls upto time \(t\), because of linearity of the underlying space; namely, \(\wp_\alpha([a, b]) = N_b - N_a\) for any interval \([a, b] \subset \Bbb R\), so it suffices to specify the variables \(N_t\) for all \(t \geq 0\) to recover the whole point process. \(\{N_t\}_{t \in [0, \infty)}\) is a continuous-time stochastic process with independent Poisson increments, which are precisely what the two properties in the definition of a general Poisson process above are trying to capture. In the next post we shall construct a Poisson process on any measurable space with a given \(\sigma\)-finite measure.</p>
+\[\begin{aligned}\displaystyle Z_k(\omega) &amp;= \Bbb E[Z\|X_0 = \omega_0, \cdots, X_k=\omega_k] \\ &amp;= \Bbb E[Z \circ \Sigma^k\|X_0=\omega_0, \cdots, X_k=\omega_k] \\ &amp;= \Bbb E[Z \circ \Sigma^k\|X_k=\omega_k] \\ &amp;= \Bbb E[Z\|X_0=\omega_k]\end{aligned}\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>Finally, let us close this conversation with a few words on the Markov property. We view the homogeneous Poisson process with intensity \(\alpha\) on \([0, \infty)\) as a random collection of countably many points on \([0, \infty)\) as before in the telephone exchange model. We claim that for any fixed \(n \geq 1\), the joint distribution $$(S_1, \cdots, S_n)</td>
-      <td>S_{n+1} = s\(of the first\)n\(points given the knowledge of the\)(n+1)\(-th point has the same distribution as the order statistics vector\)(U_{(1)}, \cdots, U_{(n)})\(of a sample\)U_1, \cdots, U_n \stackrel{\mathrm{iid}}{\sim} \mathrm{Unif}(0, s)\(of\)n$$ uniform points.</td>
-    </tr>
-  </tbody>
-</table>
-
-<p>To prove this, define a linear transformation \(T(x_1, \cdots, x_{n+1}) = (x_1, x_1+x_2, \cdots, x_1+\cdots+x_{n+1})\) for all \(\mathbf{x} \in (0, \infty)^{n+1}\). This has range \(\{\mathbf{s} \in \Bbb R^n : 0 &lt; s_1 &lt; \cdots &lt; s_{n+1}\}\) and is invertible on the range, with inverse given by \(T^{-1}(s_1, \cdots, s_{n+1}) = (s_1, s_2 - s_1, \cdots, s_{n+1} - s_n)\). Clearly \(\det(T) = 1\) as the matrix of \(T\) is upper triangular with \(1\)’s along the diagonal. By the change of density formula,</p>
-
-\[\displaystyle \begin{aligned}f_{S_1, \cdots, S_{n+1}}(s_1, s_2, \cdots, s_{n+1}) &amp; = f_{X_1, \cdots, X_{n+1}}(s_1, s_2 - s_1, \cdots, s_{n+1} - s_n) \\ &amp;= \lambda e^{-\lambda s_1} \lambda e^{-\lambda (s_2 - s_1)} \cdots \lambda e^{-\lambda (s_{n+1} - s_n)} \mathbf{1}_{(0 &lt; s_1 &lt; \cdots &lt; s_{n+1})} \\ &amp;= \lambda^{n+1}e^{-\lambda s_{n+1}} \mathbf{1}_{(0 &lt; s_1 &lt; \cdots &lt; s_{n+1})} \end{aligned}\]
-
-<table>
-  <tbody>
-    <tr>
-      <td>\(S_{n+1}\) is distributed as \(\text{Gamma}(n+1, \lambda)\), hence \(f_{S_{n+1}}(s) = \lambda^{n+1} s^n e^{-\lambda s}/n! \cdot \mathbf{1}_{(s &gt; 0)}\), so the conditional pdf of the conditional distribution $$(S_1, \cdots, S_n)</td>
-      <td>S_{n+1} = s$$ is given by</td>
-    </tr>
-  </tbody>
-</table>
-
-\[\displaystyle \begin{aligned} f_{S_1 \cdots S_n | S_{n+1}}(s_1, \cdots, s_n | s) = \frac{f_{S_1, \cdots, S_{n+1}}(s_1, \cdots, s_n, s)}{f_{S_{n+1}}(s)} &amp; = \frac{\lambda^{n+1} e^{-\lambda s}}{\lambda^{n+1}s^ne^{-\lambda s}/n!} \mathbf{1}_{(0&lt;s_1&lt;\cdots&lt;s_n&lt;s)} \\ &amp;= n! \left (\frac{1}{s}\right )^n \mathbf{1}_{0&lt;s_1&lt;\cdots&lt;s_n&lt;s} \end{aligned}\]
-
-<p>which is precisely the pdf of \((U_{(1)}, \cdots, U_{(n)})\), as promised. One way to interpret this is to say that the knowledge of the position of the \((n+1)\)-th point in the configuration gives no insight into the position of the points before, except their relative order, and we have already seen before that restarting the clock at time \(S_{n+1}\) completely reboots the Poisson process.</p>
+<p>For every \(\omega \in S^{\Bbb N_0}\). As \(Z_k \to Z\) almost surely, for \(\Bbb P_\pi\)-almost every \(\omega \in S^{\Bbb N_0}\) we get \(\Bbb E[Z\|X_0 = \omega_k] = Z(\omega)\). By irreducibility, for every state \(s \in S\), \(\Bbb P_\pi\)-almost every sample path visit \(s\) infinitely often. Thus, \(Z = \Bbb E[Z\|X_0 = s]\) almost surely for every state \(s \in S\). In particular, \(Z\) is a degenerate random variable, so \(\Bbb P_\pi(A)\) is either \(0\) or \(1\). This establishes ergodicity.</p>
 
       </div>
     
@@ -240,7 +209,7 @@
   
     <a href="/page/10/index.html"></a>
   
-<!-- <span class="page-number">Page 11 of 16</span> -->
+<!-- <span class="page-number">Page 11 of 17</span> -->
   
     <a href="/page/12/index.html"></a>
   
@@ -251,12 +220,12 @@
   
     <a class="fixed-bottom-btn" 
        href="/page/10/index.html">
-      &#171; Prev
+      &#171; Newer
     </a>
   
   
     <a class="fixed-bottom-btn" href="/page/12/index.html">
-      Next &#187;
+      Older &#187;
     </a>
   
 </div>

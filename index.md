@@ -39,12 +39,12 @@ pagination:
   {% if paginator.previous_page %}
     <a class="fixed-bottom-btn" 
        href="{% if paginator.previous_page == 1 %}{{ '/' | relative_url }}{% else %}{{ paginator.previous_page_path | relative_url }}{% endif %}">
-      &#171; Prev
+      &#171; Newer
     </a>
   {% endif %}
   {% if paginator.next_page %}
     <a class="fixed-bottom-btn" href="{{ paginator.next_page_path | relative_url }}">
-      Next &#187;
+      Older &#187;
     </a>
   {% endif %}
 </div>

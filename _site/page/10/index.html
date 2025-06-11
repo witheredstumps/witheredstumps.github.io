@@ -5,7 +5,7 @@
     <title>Home - page 10 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 10 of 16 for Home - page 10 | And Other Withered Stumps Of Time</title>
+<title>Page 10 of 17 for Home - page 10 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 10" />
 <meta property="og:locale" content="en_US" />
@@ -24,7 +24,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -33,7 +33,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -139,103 +142,108 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2020/11/02/markov-chains-i/">Markov Chains: I</a>
+          <a href="/2021/12/26/steenrod-squares/">Notes on Steenrod Squares</a>
         </h2>
         <div class="meta">
-          <span>November 02, 2020</span>
+          <span>December 26, 2021</span>
         </div>
         <hr>
-        <p>Broadly speaking, a discrete-time dynamical system is a “space” \(X\) along with a transformation \(T : X \to X\), in an appropriate category of “spaces” (topological spaces, measure spaces, …). I think of a discrete Markov chain as a discrete-time dynamical system where the transformation \(T\) behaves “randomly”. Before illustrating this in detail let me reproduce the precise definition as it appears at the end of Lec. 7 of the course notes here.</p>
+        <p>These are some roughly written notes I am preparing as I study Steenrod operations. I expect nothing new beyond what is in Hatcher Chapter 4.L will be said here, but I will mention other references if I use them. This post is not going to be part of a series, and will instead be updated as I progress and decide to write more.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>We shall say a discrete-time stochastic process \(\{X_n\}_{n \geq 0}\) takes values in a countable “state space” \(S\) if \(\mathrm{Range}(X_n) \subseteq S\) for all \(n \geq 0\) and \(S\) is countable. Without loss of generality, we can throw away the “irrelevant states” and let \(S = \bigcup_{n \geq 0} \mathrm{Range}(X_n)\).  We fix a probability distribution \(\mathbf{a} = (a_k : k \in S)\) on the state space, i.e., \(0 \leq a_k \leq 1\) for all \(k \in S\), such that \(\sum_{k \in S} a_k = 1\). Furthermor, let \(P = (p_{ij})_{i, j \in S}\) be a $$</td>
-      <td>S</td>
-      <td>\times</td>
-      <td>S</td>
-      <td>\(-dimensional matrix with elements indexed by\)S \times S\(, such that for all\)i, j \in S\(,\)0 \leq p_{ij} \leq 1\(and\)\sum_{j \in S} p_{ij} = 1\(for all\)i \in S$$.</td>
-    </tr>
-  </tbody>
-</table>
+<p>A cohomology operation of type \((G_1, G_2, m_1, m_2)\) is a natural transformation</p>
 
-<p>A discrete-time stochastic process \(\{X_n\}_{n \geq 0}\) taking values in a countable state space \(S\) is a discrete, time-stationary, countable-state space Markov chain with initial distribution \(\mathbf{a}\) and transition probability matrix \(P\) if \(X_0 \sim \mathbf{a}\), and for all \(n \in \Bbb N\), \(i_0, i_1, \cdots, i_n \in S\), \(\Bbb P(X_0 = i_0, X_1 = i_1, \cdots, X_n = i_n) = a_{i_0} p_{i_0 i_1} p_{i_1 i_2} \cdots p_{i_{n-1} i_n}\).</p>
+\[H^{m_1}(-; G_1) \to H^{m_2}(-; G_2)\]
 
-<p>Let us compute the distribution of \(X_n\) on \(S\) explicitly: For any \(i \in S\),</p>
+<p>where \(H^*\) denotes singular cohomology. In other words, they are homomorphisms</p>
 
-\[\displaystyle \begin{aligned}\Bbb P(X_n = i) &amp;= \sum_{i_0, \cdots, i_{n-1} \in S} \Bbb P(X_n = i, X_{n-1} = i_{n-1}, \cdots, X_0 = i_0) \\ &amp;= \sum_{i_0, \cdots, i_{n-1} \in S} a_{i_0} p_{i_0 i_1} \cdots p_{i_{n-2} i_{n-1}} p_{i_{n-1} i} = (\mathbf{a}^\mathsf{T} P^n)_i\end{aligned}\]
+\[\Phi_X : H^{m_1}(X; G_1) \to H^{m_2}(X; G_2)\]
 
-<p>Therefore, \(X_n \sim \mathbf{a}^\mathsf{T} P^n\). Note that therefore the distribution of the process \(\{X_n\}_{n \geq 0}\) depends linearly on the initial distribution \(\mathbf{a}\) on \(S\); to be precise let \(\mathscr{P}(S)\) denote the space of probability distributions on \(S\), then the transition matrix \(P\) acts on this space by multiplying by a row vector on the left: \(T : \mathscr{P}(S) \to \mathscr{P}(S)\), \(\mathbf{a} \mapsto \mathbf{a}^\mathsf{T} P\), which preserves convex combinations, and the result of iterating this operator \(n\) times is the same as running the Markov process for time \(n\), starting from the initial distribution \(\mathbf{a}\). Since the space of probability distributions on \(S\) is convex hull of the Dirac masses \(\delta_i\), \(i \in S\), it suffices to understand the process for these initial distributions. We get,</p>
+<p>such that for any map \(f : X \to Y\), \(f^* \Phi_Y(\alpha) = \Phi_X(f^* \alpha)\); we will mostly drop the reference to the space \(X\) and denote the natural transformation by \(\Phi\), as the space will be clear from context. One way to understand the motivation here is via the fact that singular cohomology is representable by Eilenberg-Maclane space \(K(G, n)\) (recall these are CW-complexes characterized uniquely upto homotopy equivalence by the property that all the homotopy groups vanish except the one in degree \(n\), and \(\pi_n \cong G\)), that is, \(H^n(X; G) = [X, K(G, n)]\) where \([A, B]\) denotes based homotopy classes of maps \(A \to B\). Therefore, invoking Yoneda’s lemma, we obtain that cohomology operations of type \((G_1, G_2, m_1, m_2)\) are classified by elements of \(H^{m_2}(K(G_1, m_1); G_2)\). As a corollary, nontrivial cohomology operations only exist when \(m_1 \leq m_2\). Moreover if \(m_1 = m_2\) then by Hurewicz’s theorem and universal coefficients theorem, we compute the cohomology group to be \(\mathrm{Hom}(G_1, G_2)\), which implies the only cohomology operations in this case are change-of-coefficients homomorphisms. First interesting examples of cohomology operations are \(H^k(X; \Bbb F_p) \to H^{kp}(X; \Bbb F_p)\) given by \(\alpha \mapsto \alpha^p\).</p>
 
-\[\displaystyle T(\delta_i) = \sum_{j \in S} p_{i j} \delta_j\]
+<p>In the case \(p = 2\), the cup-square modulo 2 is a useful cohomology operation and can be used to detect topology. For example, consider \(\Bbb{CP}^2\) and \(S^2 \vee S^4\). These spaces have the same cohomology groups by cellular homology. However, if \(\alpha \in H^2(\Bbb{CP}^2; \Bbb F_2)\) denotes the generator then \(\alpha^2 = 1\) but there is no degree \(2\) element in the cohomology ring of \(S^2 \vee S^4\) which squares to \(0\); incidentally this says the attaching map of the \(4\)-cell in \(\Bbb{CP}^2\), which is the Hopf map \(h : S^3 \cong \partial D^4 \to (\Bbb{CP}^2)^{(3)} = S^2\), is not nullhomotopic, implying \(\pi_3(S^2) \neq 0\). The major drawback with this operation, though, is that it is not stable under suspension. Indeed, the ring structure in \(H^*(\Sigma \Bbb{CP}^2; \Bbb F_2)\) is completely trivial, cup product of any pair of elements is \(0\). However, \(\Sigma \Bbb{CP}^2\) is not homotopy equivalent to \(\Sigma(S^2 \vee S^4) \simeq S^3 \vee S^5\). To prove something like this, we need to develop a stable generalization of the cup-square modulo 2 or the \(p\)-th power operation modulo \(p\) in general; these are exactly what Steenrod squares or Steenrod power operations are, respectively. Notice that as a corollary of this we end up proving that the attaching map of the \(5\)-cell in \(\Sigma \Bbb{CP}^2\), which is the suspension \(\Sigma h : S^4 \to S^3\) of the Hopf map is not nullhomotopic, which demonstrates \(\pi_4(S^3) \neq 0\). Indeed, we shall end up proving that the spaces are never homotopy equivalent even if they are suspended \(k\)-fold, which demonstrates the first stable stem \(\pi_1^s := \lim_k \pi_{k+1}(S^k) \neq 0\). (Actually, one can deduce this from just \(\pi_4(S^3) \neq 0\), by the sharp version of the Freudenthal suspension theorem specifying the stable range.)</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Thus, we abuse notation and write the map \(T : S \to \mathscr{P}(S)\). Note that for any \(i \in S\), \(T(i)\) is the law of the conditional distribution $$X_{n+1}</td>
-      <td>X_n = i\(for any\)n \geq 0\(.\)T\(is vaguely like a map\)T : S \to S\(determining a dynamical system on\)S\(, but the dynamics is no longer deterministic; pushing a point\)i \in S\(forward by\)T\(does not give a point but a "probability cloud"\)T(i) \in \mathscr{P}(S)\(which associates to\)j \in S\(the probability\)p_{ij}\(. I learnt this interpretation from Vadim Kaimanovich, and I find it to be an efficient way of thinking. This operator\)T\(is called a Markov kernel. We shall understand the iterates\)T^k\(,\)k \geq 2\(to be determined by the rows of the\)k\(-step transition matrix\)P^k$$.</td>
-    </tr>
-  </tbody>
-</table>
+<p>There are two cases to consider, \(p = 2\) and \(p\) an odd prime. In the former, we shall have the Steenrod square operations \(Sq^i : H^n(X; \Bbb F_2) \to H^{n+i}(X; \Bbb F_2)\) for every \(i \geq 0\). In the latter case, we shall have the Steenrod power operations \(P^i : H^n(X; \Bbb F_p) \to H^{n+2i(p-1)}(X; \Bbb F_p)\) for every \(i \geq 0\). These operations are characterized by the following axioms:</p>
 
-<p>One can recover the stochastic process \(\{X_n\}_{n \geq 0}\) on \(S\) from the Markov kernel as follows: Fix an initial distribution \(\mathbf{a}\) on \(S\) and define a probability measure \(\Bbb P_{\mathbf{a}}\) on \(S^{\Bbb N_0}\) by defining it on cylinder events in a natural way:</p>
+<ol>
+  <li>
+    <p>\(Sq^0 = \mathbf{1}, P^0 = \mathbf{1}\).</p>
+  </li>
+  <li>
+    <p>\(Sq^1 = \beta_2\) is the Bockstein homomorphism for the sequence \(0 \to \Bbb Z_2 \to \Bbb Z_4 \to \Bbb Z_2 \to 0\).</p>
+  </li>
+  <li>
+    <p>\(Sq^i a = a^2\) if \(i = \vert a\vert\), \(Sq^i a = 0\) if \(i &gt; \vert a\vert\), and likewise \(P^i a = a^p\) if \(2i = \vert a\vert\), \(P^i a = 0\) if \(2i &gt; \vert a\vert\).</p>
+  </li>
+  <li>
+    <p>\(Sq^i \sigma = \sigma Sq^i, P^i \sigma = \sigma P^i\), where \(\sigma : H^*(X) \to H^*(\Sigma X)\) is the suspension isomorphism.</p>
+  </li>
+  <li>
+    <p>Cartan’s formula: \(Sq^j(a \smile b) = \sum_i Sq^i a\smile Sq^{j-i} b\) and \(P^j(a \smile b) = \sum_i P^i a \smile P^{j-i} b\).</p>
+  </li>
+  <li>
+    <p>Adem relations regarding compositions of Steenrod squares or powers:</p>
+  </li>
+</ol>
 
-\[\displaystyle \Bbb P_{\mathbf{a}}(\{\omega \in S^{\Bbb N_0} : \omega_0 = s_0, \omega_1 = s_1, \cdots, \omega_k = s_k\}) = a_{s_0} T(s_0)(s_1) \cdots T(s_{k-1})(s_k)\]
+\[\displaystyle \begin{aligned}Sq^i Sq^j &amp;= \sum_k \binom{j-k-1}{i-2k} Sq^{i+j-k} Sq^k, \; i &lt; 2j \\ P^i P^j &amp;= \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk} P^{i+j-2k} P^k, \; i &lt; pj \\ P^i \beta_p P^j &amp;= \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk} \beta_p P^{i+j-k} P^k \\ &amp;- \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk-1} P^{i+j-k} \beta_p P^k, \; i \leq pj.\end{aligned}\]
 
-<p>One can think of the probability space \((S^{\Bbb{N}_0}, \mathscr{C}, \Bbb{P}_\mathbf{a} )\) as the background space of all sample paths the Markov chain can take, starting with initial distribution \(\mathbf{a}\) and transition matrix \(P\), with each path carrying their individual likelihoods. Finally, let \(\Sigma : S^{\Bbb N_0} \to S^{\Bbb N_0}\) be the right-shift operator, and define</p>
+<p>Define the totals \(Sq : H^*(X; \Bbb F_2) \to H^*(X; \Bbb F_2)\) and \(P : H^*(X; \Bbb F_p) \to H^*(X; \Bbb F_p)\) as</p>
 
-<p>\(\displaystyle X_n := X_0 \circ \Sigma^{\circ n} : (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_{\mathbf{a}}) \to S\).</p>
+\[\begin{align*} Sq &amp;= Sq^0 + Sq^1 + Sq^2 + \cdots \\ P &amp;= P^0 + P^1 + P^2 + \cdots\end{align*}\]
 
-<p>This gives a straightforward way of speaking of several notions in dynamical systems in the context of Markov chains. If \((X, T)\) is a dynamical system, \(A \subseteq X\) is a subset, we can speak of the hitting time function \(\tau_A : X \to \Bbb N \cup \{\infty\}\), defined by \(\tau_A(x) = \inf \{k \geq 0 : T^k(x) \in A\}\), to be the first time the forward-orbit of \(x\) goes inside \(A \subseteq X\) under iterates \(T\). Clearly, \(\tau_A(x) = 0\) if \(x \in A\) and \(A \subset X\) is forward-invariant, i.e., \(T(A) \subseteq A\) if and only if \(\tau_{X \setminus A}(x) = \infty\) for all \(x \in A\). In the context of a Markov chain, we define a random variable-valued hitting time  \(\tau_A\) for any subset \(A \subseteq S\) by</p>
+<p>Then Cartan’s formula is just stating \(Sq\) and \(P\) are ring endomorphisms. The relativized versions \(Sq : H^*(X, A; \Bbb F_2) \to H^*(X, A; \Bbb F_2)\) and \(P : H^*(X, A; \Bbb F_p) \to H^*(X, A; \Bbb F_p)\) of the operations can be constructed from the axioms via the natural isomorphism \(H^*(X, A) \cong H^*(X/A)\); for these we require the Cartan formula is true under relative cup product \(H^*(X, A) \times H^*(X, B) \to H^*(X, A \cup B)\). The axioms above are not independent in any sense. In fact, the rest of the axioms follow from the relativized versions of 1, 3 and 5 (see Epstein-Steenrod)</p>
 
-\[\displaystyle \tau_A(i) = \inf\{k \geq 0 : (X_k|X_0 = i) \in A\}\]
+<p>We begin with the construction of the Steenrod squares and power operations instead. The general idea is pretty geometric: consider the \(p\)-fold exterior cup product</p>
 
-<p>We shall say the state \(i \in S\) leads to the state \(j \in S\) if \(\Bbb P(\tau_j(i) &lt; \infty) &gt; 0\). It is easy to see this happens if and only if the set of sample paths in \(S^{\Bbb N_0}\) which reach \(j\) in some finite time has positive \(\Bbb P_i\)-probability, or equivalently \((P^n)_{ij} &gt; 0\) for some \(n \in \Bbb N_0\). This is a reflexive, transitive (since \(P^{n+m} = P^n P^m\)) relation on \(S\) but is not going to be symmetric in general. An easy example is the deterministically monotone Markov chain on \(\Bbb Z\) with kernel \(T : \Bbb Z \to \mathscr{P}(\Bbb Z)\) given by \(T(k) = \delta_{k+1}\), shifting mass one step to the right. Any state only leads to states to the right of it. So we can say that the states that \(i \in S\) leads to form the “forward-orbit” of \(i\) in this “fuzzy” dynamical system. A subset \(C \subset S\) is said to be closed if \(\Bbb P(\tau_{S \setminus C}(i) = \infty) = 1\) for all \(i \in C\), hence these are the forward-invariant subsets of the Markov chain.</p>
+\[H^*(X; \Bbb F_p)^{\otimes p} \to H^*(X^p; \Bbb F_p)\]
 
-<p>We can symmetrize the said relation to form an equivalence relation \(\sim\) on \(S\), by defining \(i \sim j\) iff \(i\) leads to \(j\) as well as \(j\) leads to \(i\), and in this case state \(i\) is said to communicate with state \(j\). The \(\sim\)-equivalence classes in \(S\) are called communication classes. States achievable in backward time are also achievable in forward time within a communication class. A Markov chain is said to be irreducible if the state space consists of only one communication class. In the measurable space of sample paths \((S^{\Bbb N_0}, \mathscr{C})\), the irreducibility hypothesis essentially says that the paths do not stay trapped in a tube \(A^{\Bbb N_0}\) forever, for some subset \(A \subset S\), which would be a proper communication class if this situation occurs. This vaguely suggests that running an irreducible Markov process from any point will initiate a dynamical system which is chaotic in some sense.</p>
+<p>Let \(\alpha \in H^n(X; \Bbb F_p)\) be an element, and consider its image under the map \(\alpha^{\otimes p}\). Appealing to the fact quoted in the first paragraph of this post, this is represented by a map \(f : X^p \to K(\Bbb Z/p, np)\). Note that \(\Bbb Z/p\Bbb Z\) acts on \(X^p\) by permuting the factors cyclically. Let us define</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Let us work towards making the last remark incredibly precise. Let \(S\) be a finite state space, \(P\) be a transition matrix on this state space. Recall that \(P : \mathscr{P}(S) \to \mathscr{P}(S)\) acts on the convex set of probability distributions on \(S\) by multiplication on the left, \(\mathbf{a} \mapsto \mathbf{a}^\mathsf{T} P\). Since \(S\) is a finite state space, \(\mathscr{P}(S)\) as a subset of \(\Bbb R^S\) has exactly \(S\)-many extreme points given by the Dirac masses at the points of \(S\), which makes it a simplex of dimension $$</td>
-      <td>S</td>
-      <td>- 1\(. A simplex is a topological disk, and multiplying on the left by\)P$$ gives a continuous self-map of this disk, which has to have a fixed point by Brouwer’s fixed point theorem.</td>
-    </tr>
-  </tbody>
-</table>
+\[\begin{gather*}T : X^p \to X^p \\ T(x_1, \cdots, x_p) = (x_p, x_1, \cdots, x_{p-1})\end{gather*}\]
 
-<p>Thus, there exists a probability vector \(\mathbf{\pi}\) such that \(\mathbf{\pi}^\mathsf{T} P = \mathbf{\pi}^\mathsf{T}\); such a vector is called a stationary distribution for the Markov chain. If \(P\) is irreducible, there is in fact a unique stationary distribution: Observe that kernel of the matrix \(I - P\) is the space of harmonic functions on the weight graph on \(S\) determined by the Markov chain, that is, \(P f = f\) if and only if \(f(x) = \sum_{y \in S} P_{x, y} f(y)\) for all \(x \in S\). By irreducibility, the weighted graph is connected in the sense that, for any two states in \(S\), there is a path of positive weight connected them in the said graph. Since \(S\) is finite, such a function \(f\) must attain a minimum, which forces it to be constant everywhere by connectedness. This implies \(\dim \ker(I - P) = 1\), hence \(\dim \ker(I - P^\mathsf{T}) = 1\) as well. This shows kernel of \(I - P^\mathsf{T}\) is \(1\)-dimensional, which forces \(\pi\) to be the unique stationary distribution for the Markov chain.</p>
+<p>Then $T$ generates the aforementioned cyclic action. The composition \(f \circ T : X^p \to K(\Bbb Z/p, np)\) is a new map but it is nonetheless homotopic to the older map \(f\) as they both represent the same element \(\alpha^{\otimes p} \in H^{np}(X^p; \Bbb F_p)\). The homotopy can be written as a map \(X^p \times [0, 1/p] \to K(\Bbb Z/p, np)\) (the odd choice \([0, 1/p]\) for the time-interval will be clear in a bit). One can argue the same for \(f \circ T\) and \(f \circ T^2\) and obtain a homotopy \(X^p \times [1/p, 2/p] \to K(\Bbb Z/p, np)\), and so on until we have come back full circles to \(f \circ T^{p-1}\) and \(f \circ T^p = f\). Paste these homotopies end-to-end to get a map</p>
 
-<p>Theorem: Let \(S\) be a finite state space, and \(T : S \to \mathscr{P}(S)\) be the Markov kernel for an irreducible Markov chain on \(S\). Let \(\pi\) be the corresponding unique stationary distribution. Then  \(\Sigma : (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_\pi) \to (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_\pi)\) is ergodic.</p>
+\[f_1 : X^p \times S^1 \to K(\Bbb Z/p, np)\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>First of all, \(\Sigma\) is easily checked to be measure preserving since \(\pi\) is a stationary measure. Suppose \(A \subset S^{\Bbb N_0}\) is a \(\Sigma\)-invariant subset, that is, \(\Sigma^{-1}(A) = A\). Consider the random variable \(Z : (S^{\Bbb N_0}, \mathscr{C}, \Bbb P_\pi) \to \{0, 1\}\), \(Z = \mathbf{1}_A\). Define the random variables $$Z_k = \Bbb E[Z</td>
-      <td>X_0, \cdots, X_k]\(for\)k \geq 0\(. Clearly,\)\Bbb E[Z_{k+1}</td>
-      <td>X_0, \cdots, X_k] = Z_k\(so\){Z_k}_{k \geq 1}\(forms a discrete-time martingale. Moreover, this martingale is bounded since\)\Bbb E[</td>
-      <td>Z_k</td>
-      <td>] \leq \Bbb E[</td>
-      <td>Z</td>
-      <td>]\(for all\)k \geq 1\(. Therefore, by Martingale Convergence Theorem,\)Z_k \to Z_\infty\(almost surely, where the only possibility is\)Z_\infty = \Bbb E[Z</td>
-      <td>X_1, X_2, \cdots] = Z\(since the\)\sigma\(-algebra generated by\)X_1, X_2, \cdots\(is the full product\)\sigma\(-algebra on\)S^{\Bbb N_0}$$, taking conditional expectation with respect to which returns the random variable itself.</td>
-    </tr>
-  </tbody>
-</table>
+<p>It turns out that one can choose all the earlier homotopies between \(f, f \circ T, f \circ T^2, \cdots\) carefully such that, by obstruction theory, \(f_1\) is nullhomotopic. Once that is established, consider the \(\Bbb Z/p\)-action on \(X^p \times S^1\) given by a diagonal action where the action on \(X^p\) is as before and on \(S^1\) is given by a \(2\pi/p\) rotation, permuting the arcs which were intervals of the earlier homotopies; these \(\Bbb Z/p\)-translates of \(f_1\) are also all nullhomotopic, and the nullhomotopies \(X^p \times D^2 \to K(\Bbb Z/p, np)\) glue up to a map</p>
 
-<p>Note that by \(\Sigma\)-invariance of \(A\), \(Z \circ \Sigma^n = Z\) for all \(n \geq 1\). Thus,</p>
+\[f_2 : X^p \times E_2 \to K(\Bbb Z/p, np),\]
 
-\[\begin{aligned}\displaystyle Z_k(\omega) &amp;= \Bbb E[Z|X_0 = \omega_0, \cdots, X_k=\omega_k] \\ &amp;= \Bbb E[Z \circ \Sigma^k|X_0=\omega_0, \cdots, X_k=\omega_k] \\ &amp;= \Bbb E[Z \circ \Sigma^k|X_k=\omega_k] \\ &amp;= \Bbb E[Z|X_0=\omega_k]\end{aligned}\]
+<p>where \(E_2\) is the complex given by attaching \(p\)-many \(2\)-cells to the circle, and it admits a \(\Bbb Z/p\)-action which simultaneously rotates the “equator” \(S^1\) by \(2\pi/p\) and cyclically permutes the \(2\)-cells. Inducting upward, one ends up with a map \(f_\infty : X^p \times E\Bbb Z/p \to K(\Bbb Z/p, np)\) where \(E\Bbb Z/p\) is a contractible complex on which \(\Bbb Z/p\) acts freely. Restrict this map on the first factor to the diagonal copy of \(X \subset X^p\), and mod out by the \(\Bbb Z/p\)-action to get a map \(X \times B\Bbb Z/p \to K(\Bbb Z/p, np)\). This represents an element in</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>For every \(\omega \in S^{\Bbb N_0}\). As \(Z_k \to Z\) almost surely, for \(\Bbb P_\pi\)-almost every \(\omega \in S^{\Bbb N_0}\) we get $$\Bbb E[Z</td>
-      <td>X_0 = \omega_k] = Z(\omega)\(. By irreducibility, for every state\)s \in S\(,\)\Bbb P_\pi\(-almost every sample path visit\)s\(infinitely often. Thus,\)Z = \Bbb E[Z</td>
-      <td>X_0 = s]\(almost surely for every state\)s \in S\(. In particular,\)Z\(is a degenerate random variable, so\)\Bbb P_\pi(A)\(is either\)0\(or\)1$$. This establishes ergodicity.</td>
-    </tr>
-  </tbody>
-</table>
+\[H^{*}(X \times B\Bbb Z/p; \Bbb F_p) \cong H^{*}(X; \Bbb F_p) \otimes \Lambda_{\Bbb F_p}^*[x] \otimes \Bbb F_p[y]\]
+
+<p>of degree \(np\), where \(\vert x\vert  = 1, \vert y\vert  = 2\). Therefore, the element can be written as</p>
+
+\[\sum_{0 \leq i \leq np} \omega_{(p-1)n-i} \otimes \theta_i(\alpha)\]
+
+<p>where \(\omega_{2j} = y^j, \omega_{2j+1} = x y^j\) and \(\theta_i(\alpha) \in H^{n+i}(X; \Bbb F_p)\). If \(p = 2\), the Steenrod squares will be \(Sq^i = \theta_i\) and if \(p\) is an odd prime the Steenrod powers will be \(P^i = \kappa_i \theta_{2i(p-1)}\) for certain appropriate normalizing factor \(\kappa_i\).</p>
+
+<p><em>Caveat</em>: Here we used the isomorphism</p>
+
+\[H^*(B\Bbb Z/p; \Bbb F_p) \cong \Lambda^*_{\Bbb F_p}[x] \otimes \Bbb F_p[y],\]
+
+<p>where \(\vert x\vert  = 1, \vert y\vert  = 2\). To demonstrate this, observe \(B\Bbb Z/p\) is an infinite dimensional lens space so has a single cell in every dimension; the integral cellular cochain complex has differentials alternating between \(0\) and multiplication by \(p\) whereas the mod \(p\) cellular cochain complex has no differentials. By naturality with respect to the change of coefficients homomorphism \(\Bbb Z \to \Bbb Z_p\), we see that the map from integral cohomology is surjective in even degrees and zero in odd degrees. Comparing the Bockstein sequences corresponding to the short exact sequences \(0 \to \Bbb Z \to \Bbb Z \to \Bbb Z_p \to 0\) and \(0 \to \Bbb Z_p \to \Bbb Z_{p^2} \to \Bbb Z_p \to 0\), we obtain that the Bockstein homomorphism</p>
+
+\[\beta_p : H^n(B\Bbb Z/p; \Bbb F_p) \to H^{n+1}(B\Bbb Z/p; \Bbb F_p)\]
+
+<p>is zero in even degrees and an isomorphism in odd degrees. Next, let \(y \in H^2(B \Bbb Z/p; \Bbb F_p)\) be pullback of the generator of \(H^2(\Bbb{CP}^\infty)\) under the fibration \(B\Bbb Z/p \to \Bbb{CP}^\infty\) induced from \(S^\infty \to \Bbb{CP}^\infty\) after quotienting by the \(\Bbb Z/p \subset U(1)\) action on the domain; this is simply an isomorphism in even degrees by the discussion above. Then by the fact that \(\beta_p\) is an isomorphism in degree \(1\), we find an element \(x \in H^1(B\Bbb Z/p; \Bbb F_p)\) such that \(\beta_p(x) = y\). By ring structure of the Bockstein, \(\beta(x y^k) = y^{k+1}\) are generators in even degrees, therefore \(xy^k\)’s must generate the odd degrees. This finishes the proof.</p>
+
+<p>Unfortunately, checking that these indeed satisfy the required properties is much harder than it sounds, for full details see Hatcher, Ch 4.L (I might add in more details here as I understand them on the way).</p>
+
+<p>We move on to some computations. To return to the earlier example, observe that for the generator \(\alpha \in H^2(\Bbb{CP}^2; \Bbb F_2)\), \(Sq^2 \alpha = \alpha^2 \neq 0\) and therefore by stabilit we must also have \(Sq^2 \sigma^k(\alpha) \neq 0\), where \(\sigma^k(\alpha) \in H^{2+k}(\Sigma^k \Bbb{CP}^2; \Bbb F_2)\) is the generator of the \(k\)-fold suspension. However, for</p>
+
+\[S^k(S^2 \vee S^4) \simeq S^{2+k} \vee S^{4+k},\]
+
+<p>all Steenrod squares simply vanish, since \(Sq^2\) of a class in \(H^*(S^{2+k})\) stays there by naturality with respect to the retract on that factor, and likewise for the other factor, but there’s no space in the cohomology of spheres for nontrivial cohomology operations. The argument goes through word-by-word with the mapping cone \(C(f)\) in place of \(\Bbb{CP}^2\), where \(f : S^{2n-1} \to S^n\) is a map of Hopf invariant \(1\). This shows the stable stem \(\pi_1^s, \pi_3^s, \pi_7^s\) are all nonzero, as they call contain the stable Hopf fibrations of appropriate degree, which by above are actually non-null.</p>
+
+<p>In fact, one can argue using these Hopf fibrations that \(\pi_2^s, \pi_6^s, \pi_{14}^s\) are nonzero as well: recall that there is a graded ring structure on \(\pi_*^s\) defined upto appropriately stabilizing by \((f, g) \mapsto \Sigma^* f \circ g\), the graded commutativity of this product upto stabilization can be seen by writing the suspension as smashing with the circle many times, and then permuting factors, which tells that the product is homotopic to \(\Sigma^* f \wedge \Sigma^* g\). The claim is that under this product, the squares of the Hopf fibrations are stably nonzero. Suppose \(h : S^{n+1} \to S^n\) is a suspension of the Hopf map, and let \(C_n\) denote the mapping cone. If \(\Sigma h \circ h : S^{n+2} \to S^n\) is nullhomotopic, consider the map \(S^{n+3} = D^{n+2} \cup_{S^{n+1}} D^{n+2} \to C_n\) defined on the equator by sending it to the \(n\)-skeleton by \((\Sigma h) \circ h\), on the top hemisphere by the nullhomotopy of \(\Sigma h \circ h\) and on the bottom hemisphere by \(C(\Sigma h) \circ h\). Attach a \(D^{n+4}\) to \(C_h\) along this map to obtain a cell complex \(X\). Then observe \(Sq^2 : H^n(X; \Bbb F_2) \to H^{n+2}(X; \Bbb F_2)\) is, by naturality applied to inclusion of the \((n+2)\)-skeleton, the same as \(Sq^2 : H^n(C_h; \Bbb F_2) \to H^{n+2}(C_h; \Bbb F_2)\) which is a suspension of the corresponding \(Sq^2\) on the mapping cone of the Hopf map, which is the Hopf invariant, \(1\). Thus,</p>
+
+\[Sq^2 : H^n(X; \Bbb F_2) \to H^{n+2}(X; \Bbb F_2)\]
+
+<p>is an isomorphism. Further, we obtain that \(Sq^2 : H^{n+2}(X; \Bbb F_2) \to H^{n+4}(X; \Bbb F_2)\) is the same, since by naturality applied to the quotient map \(X \to X/S^n\) which is an isomorphism above degree \(n\) by cellular homology, \(Sq^2 : H^{n+2}(C_{\Sigma^2 h}; \Bbb F_2) \to H^{n+4}(C_{\Sigma^2 h}; \Bbb F_2)\), once again an isomorphism. Thierefore \(Sq^2 Sq^2 : H^n \to H^{n+4}\) must be an isomorphism but by Adem relations \(Sq^2 Sq^2 = Sq^3 Sq^1 = 0\) as \(Sq^1 = 0\); there’s no \(H^{n+1}\) for it to be nonzero.</p>
+
+<p>(I will probably fill in something about the relation between Steenrod squares and Stiefel-Whitney classes, an analogous relation between Steenrod powers with Chern classes modulo \(p\) will be used in Seiberg-Witten Theory: Part 2. I might end up doing some exercises from Chapter 4.L and write the interesting solutions here, and there’s plenty of examples in Hatcher in any case. Recommendations on computations are welcome.)</p>
 
       </div>
     
@@ -246,7 +254,7 @@
   
     <a href="/page/9/index.html"></a>
   
-<!-- <span class="page-number">Page 10 of 16</span> -->
+<!-- <span class="page-number">Page 10 of 17</span> -->
   
     <a href="/page/11/index.html"></a>
   
@@ -257,12 +265,12 @@
   
     <a class="fixed-bottom-btn" 
        href="/page/9/index.html">
-      &#171; Prev
+      &#171; Newer
     </a>
   
   
     <a class="fixed-bottom-btn" href="/page/11/index.html">
-      Next &#187;
+      Older &#187;
     </a>
   
 </div>

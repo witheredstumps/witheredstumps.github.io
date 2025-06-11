@@ -7,6 +7,10 @@ body {
   background: #fff;
 }
 
+.content strong, .content b {
+  font-weight: bold; /* No font-family override */
+}
+
 /* --- Background pattern --- */
 .background-pattern {
   position: fixed;
@@ -317,4 +321,12 @@ a:focus {
 .fixed-bottom-btn:hover {
   background: #8a2d2d;
   color: #fff;
+}
+
+/* -- Bold fonts -- */
+
+.content b {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 0.88em;
 }

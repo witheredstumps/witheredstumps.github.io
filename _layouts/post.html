@@ -19,14 +19,14 @@ layout: default
 
 <!-- Fixed-position buttons for previous/next post -->
 <div class="bottom-btns-vertical visible">
-  {% if page.previous %}
-    <a class="fixed-bottom-btn" href="{{ page.previous.url | relative_url }}">
-      Older &#187;
-    </a>
-  {% endif %}
   {% if page.next %}
     <a class="fixed-bottom-btn" href="{{ page.next.url | relative_url }}">
       &#171; Newer
+    </a>
+  {% endif %}
+  {% if page.previous %}
+    <a class="fixed-bottom-btn" href="{{ page.previous.url | relative_url }}">
+      Older &#187;
     </a>
   {% endif %}
 </div>

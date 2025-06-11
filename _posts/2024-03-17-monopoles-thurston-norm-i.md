@@ -50,7 +50,7 @@ Here, $$\psi \otimes \psi^* \in S \otimes S^* = \mathrm{End}(S)$$ is a linear tr
 
 Notice that the equations above depend on the choice of a metric $$g$$ on the Riemannian manifold $$M$$. In our definition, we built the spin structure $$\mathfrak{s} = (S, \rho)$$ itself using the metric. But it is not difficult to check that any two such choices of metrics $$g_0, g_1$$ gives rise to isomorphic spin structures $$\mathfrak{s}_0, \mathfrak{s}_1$$. This is because the space of metrics is a cone in the space of quadratic differentials, hence contractible. Thus, we can join $$g_0, g_1$$ by a 1-parameter family of metrics $$g_t$$. This gives rise to a 1-parameter family of spin structures $$\mathfrak{s}_t$$ interpolating $$\mathfrak{s}_0, \mathfrak{s}_1$$. Therefore, the spinc structure depends only upto contractible choice on the space of Riemannian metrics. Consequently, the Chern class $$c_1(\mathfrak{s})$$ is certainly independent of the underlying metric. However, the Seiberg-Witten equations themselves depend on the metric, since the Dirac operator and the Clifford multiplication both depend on the metric.
 
-Definition. A cohomology class $$\alpha \in H^2(M; \Bbb R)$$ is a monopole class if there is a spinc structure $$\mathfrak{s} = (S, \rho)$$ such that $$c_1(\mathfrak{s}) = \alpha$$, and the corresponding Seiberg-Witten equations have an irreducible solution for all choices of Riemannian metrics.
+<b>Definition</b>. A cohomology class $$\alpha \in H^2(M; \Bbb R)$$ is a monopole class if there is a spinc structure $$\mathfrak{s} = (S, \rho)$$ such that $$c_1(\mathfrak{s}) = \alpha$$, and the corresponding Seiberg-Witten equations have an irreducible solution for all choices of Riemannian metrics.
 
 Observe that if $$c_1(\mathfrak{s}) \neq 0$$, then if a solution to the Seiberg-Witten equations exist, they are necessarily irreducible. Otherwise, $$(B, 0)$$ is a solution, hence $$F_{B^t} = 0$$, contradiction.
 
@@ -66,7 +66,7 @@ Therefore, by using the definition of adjoint, we get:
 
 $$\displaystyle 0 = \|\nabla^B \psi\|^2 + \frac12 \|\psi\|^4 + \frac14 s \|\psi\|^2$$
 
-Corollary. There are no irreducible solutions to the Seiberg-Witten equations for a metric $$g$$ on a three-manifold of non-negative scalar curvature $$s \geq 0$$. In particular, manifolds which admit a metric of non-negative scalar curvature do not possess any monopole classes. 
+<b>Corollary</b>. There are no irreducible solutions to the Seiberg-Witten equations for a metric $$g$$ on a three-manifold of non-negative scalar curvature $$s \geq 0$$. In particular, manifolds which admit a metric of non-negative scalar curvature do not possess any monopole classes. 
 
 Suppose the solution is irreducible. Let us integrate the above expression over the entire manifold. Ignoring the term involving the covariant derivative of $$\psi$$, we get 
 
@@ -86,9 +86,9 @@ $$\displaystyle \int \|F_{B^t}\|^2 = \int \|\psi\|^4 \leq \frac14 \int s^2$$
 
 Therefore, $$\|F_{B^t}\|_{L^2} \leq \|s\|_{L^2}/2$$, using $$L^2$$-norms. 
 
-Definition. Let $$(M, g)$$ be a Riemannian $$3$$-manifold. Recall a differential $$2$$-form $$\omega$$ on the manifold is harmonic if $$d\omega = d^*\omega = 0$$. Every cohomology class admits a unique harmonic representative in de Rham cohomology, by Hodge theory. We define the harmonic norm on $$H^2(M; \Bbb R)$$ by setting $$\|\alpha\|_{har, g}$$ to be the $$L^2$$-norm of the unique harmonic $$2$$-form representing the cohomology class $$\alpha$$. 
+<b>Definition</b>. Let $$(M, g)$$ be a Riemannian $$3$$-manifold. Recall a differential $$2$$-form $$\omega$$ on the manifold is harmonic if $$d\omega = d^*\omega = 0$$. Every cohomology class admits a unique harmonic representative in de Rham cohomology, by Hodge theory. We define the harmonic norm on $$H^2(M; \Bbb R)$$ by setting $$\|\alpha\|_{har, g}$$ to be the $$L^2$$-norm of the unique harmonic $$2$$-form representing the cohomology class $$\alpha$$. 
 
-Corollary. If $$\alpha \in H^2(M; \Bbb R)$$ is a monopole class, then for all metrics $$g$$ on $$M$$, 
+<b>Corollary</b>. If $$\alpha \in H^2(M; \Bbb R)$$ is a monopole class, then for all metrics $$g$$ on $$M$$, 
 
 $$\displaystyle \|\alpha\|_{har, g} \leq \frac{1}{4\pi} \cdot \|s\|_{L^2(M, g)}$$
 
@@ -96,19 +96,19 @@ This follows from what we derived as $$F_{B^t}$$ represents the class $$2\pi/i \
 
 Finally, we relate the harmonic norm with the Thurston norm for irreducible atoroidal manifolds. Since the Thurston norm is a norm defined on the second homology, we must first dualize it to a norm defined on cohomology. 
 
-Definition. Let $$M$$ be an oriented, closed, irreducible, atoroidal three-manifold with $$b_1(M) \neq 0$$. We define the dual Thurston norm by setting for any $$\alpha \in H^2(M; \Bbb R)$$,
+<b>Definition</b>. Let $$M$$ be an oriented, closed, irreducible, atoroidal three-manifold with $$b_1(M) \neq 0$$. We define the dual Thurston norm by setting for any $$\alpha \in H^2(M; \Bbb R)$$,
 
 $$\displaystyle \|\alpha\|_{Th} = \sup_{\Sigma} \frac{|\alpha[\Sigma]|}{-\chi(\Sigma)},$$
 
 where $$\Sigma$$ varies over all oriented embedded surfaces in $$M$$ of genus at least $$2$$.
 
-Proposition. The dual Thurston norm and the harmonic norm on an oriented, closed, irreducible, atoroidal three-manifold $$M$$, satisfy the following inequality:
+<b>Proposition</b>. The dual Thurston norm and the harmonic norm on an oriented, closed, irreducible, atoroidal three-manifold $$M$$, satisfy the following inequality:
 
 $$\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi\|\alpha\|_{har, g}}{\|s(g)\|_{L^2(M, g)}},$$
 
 where $$g$$ varies over all Riemannian metrics on $$M$$ and $$s(g)$$ denotes the scalar curvature of $$(M, g)$$.
 
-Proof. Let us start by fiddling around to see if we get an idea. Pick a metric $$g$$ on $$M$$ and let $$\Sigma$$ be an embedded oriented surface of genus at least $$2$$. Let $$\omega$$ be a $$2$$-form representing the class $$\alpha$$. Then, by the Gauss-Bonnet theorem, $$2\pi\chi(\Sigma)$$ is the integral of the curvature of $$\Sigma$$ with the induced metric from $$(M, g)$$. So,
+*Proof*. Let us start by fiddling around to see if we get an idea. Pick a metric $$g$$ on $$M$$ and let $$\Sigma$$ be an embedded oriented surface of genus at least $$2$$. Let $$\omega$$ be a $$2$$-form representing the class $$\alpha$$. Then, by the Gauss-Bonnet theorem, $$2\pi\chi(\Sigma)$$ is the integral of the curvature of $$\Sigma$$ with the induced metric from $$(M, g)$$. So,
 
 $$\displaystyle \frac{\alpha[\Sigma]}{-\chi(\Sigma)} = -\frac{2\pi\int_{\Sigma}\omega}{\int_{\Sigma} K d\mathrm{vol}_g}$$
 
@@ -132,13 +132,13 @@ $$\displaystyle \frac{\|\alpha\|_{har, g_r}}{\|s(g_r)\|_{L^2(M, g_r)}} \geq \fra
 
 as $$r \to \infty$$. This proves the required inequality. 
 
-Remark. As $$r \to \infty$$, the Riemannian manifolds $$(M, g_r)$$ exhibit a neck-stretching along the embedded surface $$\Sigma \subset M$$, and geometrically converges to a manifold with $$\Bbb H^2 \times \Bbb R$$ geometry. My guess is that if the above inequality is optimal, the equality is achieved in this limit.
+*Remark*. As $$r \to \infty$$, the Riemannian manifolds $$(M, g_r)$$ exhibit a neck-stretching along the embedded surface $$\Sigma \subset M$$, and geometrically converges to a manifold with $$\Bbb H^2 \times \Bbb R$$ geometry. My guess is that if the above inequality is optimal, the equality is achieved in this limit.
 
 We now tie everything together by the following theorem:
 
-Theorem. For a closed oriented irreducible atoroidal $$3$$-manifold (also known as a hyperbolic $$3$$-manifold), the monopole classes are contained in the dual Thurston norm-ball. 
+<b>Theorem</b>. For a closed oriented irreducible atoroidal $$3$$-manifold (also known as a hyperbolic $$3$$-manifold), the monopole classes are contained in the dual Thurston norm-ball. 
 
-Proof. Suppose $$\mathfrak{s}$$ is a spinc structure with $$\alpha = c_1(\mathfrak{s})$$ a monopole class. Let $$g$$ be an auxiliary Riemannian metric on $$M$$. Then combining the inequalities we have deduced above, we get 
+*Proof*. Suppose $$\mathfrak{s}$$ is a spinc structure with $$\alpha = c_1(\mathfrak{s})$$ a monopole class. Let $$g$$ be an auxiliary Riemannian metric on $$M$$. Then combining the inequalities we have deduced above, we get 
 
 $$\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \|\alpha\|_{har, g} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \frac{1}{4\pi} \cdot \|s(g)\|_{L^2(M, g)} = 1$$
 

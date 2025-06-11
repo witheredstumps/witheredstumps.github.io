@@ -23,7 +23,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -32,7 +32,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -147,6 +150,11 @@
       <li>
         <a href="/2021/12/07/monopoles-thurston-norm-i/"><em>Monopoles and Thurston norm: Part I</em></a>
         <span>(March 17, 2024)</span>
+      </li>
+    
+      <li>
+        <a href="/2024/03/13/segue-foliation/"><em>Segue: a bit about foliations</em></a>
+        <span>(March 13, 2024)</span>
       </li>
     
       <li>

@@ -22,7 +22,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -31,7 +31,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -133,12 +136,10 @@
 	<main>
   	
     	<div class="content">
-      	<h2 id="about">About</h2>
+      	<h2 id="about"><em>About</em></h2>
+<hr />
 
-<p>Welcome to “And Other Withered Stumps Of Time”.<br />
-This site is inspired by the aesthetic of witheredstumps.wordpress.com and powered by Jekyll on GitHub Pages.</p>
-
-<p>Feel free to edit this About page with your own content!</p>
+<p>Welcome. I talk about mathematics.</p>
 
     	</div>
   	

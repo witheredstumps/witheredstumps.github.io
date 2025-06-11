@@ -5,7 +5,7 @@
     <title>Home - page 7 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 7 of 16 for Home - page 7 | And Other Withered Stumps Of Time</title>
+<title>Page 7 of 17 for Home - page 7 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 7" />
 <meta property="og:locale" content="en_US" />
@@ -24,7 +24,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -33,7 +33,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -139,89 +142,33 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2022/01/03/sw-theory-iii/">Seiberg-Witten Theory: III</a>
+          <a href="/2022/03/19/sw-theory-iv/">Seiberg-Witten Theory: IV</a>
         </h2>
         <div class="meta">
-          <span>January 03, 2022</span>
+          <span>March 19, 2022</span>
         </div>
         <hr>
-        <p>I will begin by discussing a little bit about my limited understanding of the origin of the Dirac operator, readers are welcome to point out the many errors that will follow.</p>
+        <p>Let \(M\) be a closed oriented smooth \(4\)-manifold with a choice of a Riemannian metric \(g\), and a spinC-structure \(\mathfrak{s}\). The spinC-structure gives rise to a Clifford representation of the complexified tangent bundle \(\rho : T^{\Bbb C} M \to \mathrm{End}(S)\) on the complex spinor bundle \(S\) which is of rank \(4 = 2^{4/2}\), admitting a chiral decomposition \(S = S^- \oplus S^+\) and associated determinant line bundle \(L = \Lambda^2 S^+ \cong \Lambda^2 S^-\) whose 1st Chern class is the integral lift of the 2nd Stiefel-Whitney class of \(M\) coming from \(\mathfrak{s}\), as discussed in Part III. We choose a connection \(A\) on \(L\) which, combined with the LC connection on \((M, g)\), determines a spin connection on \(S\). Then there is an associated Dirac operator \(\slash \!\!\! \partial_A : \Gamma^{\pm}(S) \to \Gamma^{\mp}(S)\).</p>
 
-<p>A relativistic scalar field is a function \(\phi : \Bbb R^4 \to \Bbb C\) on space-time. The Lagrangian for a free scalar field of mass \(m &gt; 0\) is \(\mathcal{L} = (\eta^{\mu \nu} \partial_\mu \phi^* \partial_\nu \phi - m^2 \phi^*\phi)/2\) where \(\eta^{\mu \nu}\) denotes the Minkowski metric. This is supposed to mimic the Lagrangian for a simple harmonic oscillator, given as \(\mathcal{L} = (\dot{x}^2 - \omega^2 x^2)/2\); indeed, a common way to motivate the free scalar field is as a scaling limit of a lattice of harmonic oscillators across space-time, under the mesh of the lattice tending to \(0\). See here for an interesting discussion regarding the validity of such an interpretation. We compute the Euler-Lagrange equations:</p>
+<p>Moreover, we have the Hodge star operator \(\star : \Omega^2(M) \to \Omega^2(M)\) and we shall call the eigenspaces of \(\star\) of eigenvalues \(\pm 1\) as the self-dual and anti-self-dual \(2\)-forms, giving a decomposition \(\Omega^2 = \Omega^{2,+} \oplus \Omega^{2, -}\); we shall write \(\omega^+\) to mean the self-dual part of a \(2\)-form \(\omega\). The SD-ASD decomposition mirrors the chiral decomposition \(S = S^+ \oplus S^-\). More precisely, the connection between these is explained by the spin representation \(\rho : T^{\Bbb C} M \to \mathrm{End}(S) = S \otimes S\) which may be baked to a representation</p>
 
-\[\displaystyle \begin{aligned}\frac{\partial}{\partial x^\mu} \frac{\partial \mathcal{L}}{\partial \dot{\phi}_\mu} &amp;= \frac{\partial \mathcal{L}}{\partial \phi} \\ \frac{\partial}{\partial x^\mu} \frac{\partial \mathcal{L}}{\partial \dot{\phi}^*_\mu} &amp;= \frac{\partial \mathcal{L}}{\partial \phi^*}\end{aligned}\]
+\[\displaystyle \rho : \Omega^2(M) \otimes \Bbb C = \Lambda^2 T^*M \otimes \Bbb C \to S \otimes S\]
 
-<p>which gives \((\Box + m^2)\phi = 0\) and \((\Box + m^2)\phi^* = 0\) where \(\Box = \eta^{\mu\nu} \partial^2_{\mu\nu} = \partial^2_t - \partial^2_x - \partial^2_y - \partial^2_z\) is the d’Alembert operator; this is known as the Klein-Gordon equation. The drawback of the setup of free scalar fields is that there is no obvious quantum mechanical interpretation; indeed, observe that the Lagrangian as a function of the generalized coordinates \(\phi, \phi^*, \partial_\mu \phi, \partial_\mu \phi^*\) is invariant under Lorentz transformations as \(\eta^{\mu \nu}\) is Lorentz-invariant; Noether’s theorem then gives rise to a conserved quantity which may be checked to be the 4-vector \(j^\mu = \phi^* \partial_\mu \phi - \phi \partial_\mu \phi^*\). The conservation can be explicitly checked by verifying \(\eta^{\mu \mu} \partial_\mu j^\mu = 0\). This is the probability current density; in QM the corresponding quantity has \(j^0\) as the probability density, but in this setup \(j^0 = \phi^* \partial_t \phi - \phi \partial_t \phi^*\) can be negative, since the Klein-Gordon equation is a second order PDE so the initial conditions \(\psi, \partial_\mu \psi\) at \(t = 0\) can be chosen arbitrarily.</p>
+<p>by replacing wedge with Clifford multiplication wherever it appears. We obtain the decomposition \(S^+ \otimes S^- \cong \Omega^0 \oplus \Omega^{2,+}\), a mnemonic for which is that a left-handed and a right-handed spin-1/2 fermion can combine to give a spin 0 (which has a single state, so rank of \(\Omega^0\) is \(1\)) or a spin 1 (which has three states -1, 0, 1, so rank of \(\Omega^{2,+}\) is \(3\)) fermion; note that the projection to the first factor is simply taking trace. Whenever \(\psi\) is a positive chirality spinor (a section of \(S^+\)), we will write \((\psi \otimes \psi^\dagger)_0\) to mean the trace-0 part of the tensor, conceptualized as a self-dual 2-form.</p>
 
-<p>This is one of the reasons Dirac wanted to figure out a first order PDE as the equation of motion. So he started by writing \((i \gamma^\mu \partial_\mu - m) \phi = 0\) where \(\gamma^0, \gamma^1, \gamma^2, \gamma^3\) are arbitrary “constants”. The equation must be compatible with the Klein-Gordon equation for free scalar field, so by multiplying the above equation with its conjugate:</p>
+<p>Given all of this, we shall now write down the Seiberg-Witten equations. For a pair \((A, \psi) \in \mathcal{A}(L) \oplus \Gamma(S^+)\), these are given by</p>
 
-\[\displaystyle \begin{aligned}(i \gamma^\mu \partial_\mu + m)(i \gamma^\mu \partial_\mu - m) \phi &amp;= 0 \\ \implies (\gamma^{\mu} \gamma^{\nu} \partial^2_{\mu \nu} + m^2)\phi &amp;= 0\end{aligned}\]
+\[\displaystyle \slash \!\!\! \partial_A \psi = 0 \\ F_A^+ = (\psi \otimes \psi^\dagger)_0\]
 
-<p>Comparing with the Klein-Gordon equation, we obtain the relations \(\gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu = 2\eta^{\mu \nu}\). Astute readers will observe that these are exactly the Clifford relations where the underlying quadratic space is the Minkowski space \((\Bbb R^4, \eta^{\mu\nu})\), discussed in detail in the positive definite case in Part I and II. There is a completely analogous irreducible complex spinor representation of \(\mathrm{Cliff}_{1, 3}(\Bbb R)\) on \(S = \Bbb C^4\), for example using the gamma matrices</p>
+<p>The second equation is the quadratic part; observe both sides are \(i \Bbb R\)-valued self-dual \(2\)-forms on \(M\). We may perturb the SW equations by adding \(i \mu\) to the right hand side of the second equation, for a fixed self-dual \(2\)-form \(\mu\), which I expect is useful for transversality arguments later.</p>
 
-\[\displaystyle \begin{aligned}\gamma^0 &amp;= \begin{pmatrix}1 &amp; &amp; &amp; \\ &amp; 1 &amp; &amp; \\ &amp; &amp; -1 &amp; \\ &amp; &amp; &amp; -1\end{pmatrix}, \gamma^1 = \begin{pmatrix} &amp; &amp; &amp; 1 \\ &amp; &amp; 1 &amp; \\ &amp; -1 &amp; &amp; \\ -1 &amp; &amp; &amp; \end{pmatrix}, \\ \gamma^2 &amp;= \begin{pmatrix} &amp; &amp; &amp; i \\ &amp; &amp; i &amp; \\ &amp; -i &amp; &amp; \\ -i &amp; &amp; &amp; \end{pmatrix}, \gamma^3 = \begin{pmatrix} &amp; &amp; 1 &amp; \\ &amp; &amp; &amp; -1 \\ -1 &amp; &amp; &amp; \\ &amp; 1 &amp; &amp; \end{pmatrix}\end{aligned}\]
+<p>The natural gauge symmetries of these equations is recorded by the group \(\mathcal{G} = C^\infty(M, S^1)\). For \(g \in \mathcal{G}\), it acts on the complex vector bundle \(S^+\) by pointwise multiplication; thus the induced action on sections is \(\psi \mapsto g \psi\) and the induced action on the line bundle \(L\) is by \(g^2\) (see Part III); this implies the action by conjugation on the covariant derivative \(\nabla^A_L\) corresponding to the connection \(A\) is given as follows:</p>
 
-<p>The operator \(\slash \!\!\!\partial = \gamma^\mu \partial_\mu : C^\infty(\Bbb R^4) \otimes S \to C^\infty(\Bbb R^4) \otimes S\) is called the Dirac operator. Note that \(\slash\!\!\!\partial^2 = \Box\) is the square-root of the d’Alembertian. We can think of the domain and codomain \(C^\infty(\Bbb R^4) \otimes S \cong C^\infty(\Bbb R^4, S)\) as \(S\)-valued functions on spacetime or spinor fields. Thus, solutions to the Dirac operator are spinor fields \(\phi = (\phi^0, \phi^1, \phi^2, \phi^3) : \Bbb R^4 \to S\) and a basis of solutions can be extracted out: \(e^{-i m t} \mathbf{e}_1, e^{-i m t} \mathbf{e}_2, e^{i m t} \mathbf{e}_3, e^{i m t} \mathbf{e}_4\). These are independent of the spatial coordinates, so one can imagine these as the rest-solutions.</p>
+\[\displaystyle g^{-2} \nabla^A_L g^{2} = g^{-2} d g^{2} + g^{-2} A g^2 = -2g^{-1} dg + A\]
 
-<p>Let’s take some time to interpret what these four solutions mean. Observe that the complexified Lie algebra \(\mathfrak{spin}(1,3) \subset \mathrm{Cliff}(1, 3)\) sits inside the Clifford algebra spanned by the \(S_{ij} = \frac12 \gamma^i \gamma^j\) for \(i \neq j \in \{0, \cdots, 3\}\) which can be checked by exhibiting these as tangent vectors to an appropriate path starting at the identity, and observing that the dimension matches that of \(\Lambda^2 \Bbb R^4 \cong \mathfrak{so}(4)\) which is the same as \(\mathfrak{so}(1, 3)\) upon complexifying. The elements \(S_{01}, S_{02}, S_{03}\) are infinitisimal Lorentz boosts and \(S_{23}, S_{31}, S_{12}\) are the infinitisimal rotations, about the \(x, y, z\)-axes, respectively. Next, note that in the gamma matrix representation above, \(i S_{12}\) has eigenvectors \(\mathbf{e}_1, \mathbf{e}_3\) with eigenvalue \(1/2\) (“spin up” states) and eigenvectors \(\mathbf{e}_2, \mathbf{e}_4\) with eigenvalue \(-1/2\) (“spin down” states). What this says about the solutions above is that the first pair and the second pair of solutions are fields with different spins along the \(z\)-axis.</p>
+<p>Therefore, the induced action on connections is given by \(A \mapsto -2g^{-1} dg + A\). It is straightforward to check that SW-equations are invariant under the action of \(\mathcal{G}\); indeed \(\slash \!\!\! \partial_{g\cdot A} (g \cdot \psi) = \gamma^\mu ( g^{-1} \nabla^A_i g )g \psi = g^{-1} \gamma^\mu \nabla^A_i \psi\) and \(F_{g\cdot A}^+ = F_A^+\) as deforming the connection by a locally exact form \(-2g^{-1} dg = -2d\log(g)\) leaves the curvature invariant. The moduli space of solutions of the SW-equations, defined by the space of solutions modded out by the action of \(\mathcal{G}\) will be denoted as \(\mathcal{M}_{\mathfrak{s}, g, \mu}\).</p>
 
-<p>What does the fact that there are two pairs of spin up/down solutions mean? The point is the first pair solves for fermions at rest, whereas the second pair solves for antifermions at rest: mass is never negative, so \(e^{imt} = e^{-im(-t)}\) indicates that the time is negated, and moreover from the definition of relativistic 4-momentum, the energy \(E = -m\) is negated as well… that is, the second pair of solutions are predicting fields which quantize to particles travelling backward in time with negative energy. The Dirac equation, therefore, solves for massive fermionic/antifermionic spin-1/2 fields; whenever a massive fermionic particle appears in vacuum under a free field, they appear paired with an antifermion, and after generation of the pair they leave in opposite time-directions. Soon after Dirac posited this theoretical prediction of antiparticles, Carl D. Anderson experimentally verified the existence of positrons for which he was awarded the Nobel prize in the 30’s.</p>
-
-<p>Remark 1: One way to organize this is using the chirality operator \(\gamma^5 := i \gamma^0 \gamma^1 \gamma^2 \gamma^3\) which is the volume element in the Clifford algebra. Observe that in the Dirac representation, \(\gamma^5\) simply switches the first two coordinates with the last two, i.e., the fermionic solutions go the antifermionic solutions and vice versa, as \((\gamma^5)^2 = 1\). The eigenspaces of \(\gamma^5\) corresponding to the eigenvalues \(\pm 1\) gives a chiral decomposition \(S = S^+ \oplus S^-\) of the spinor representation, as discussed in Part I and II. Moreover, note \(\{\gamma^5, \gamma^\mu\} = 0\), so \(\gamma^5, \slash \!\!\! \partial\} = 0\). In particular, \(\slash \!\!\! \partial\) flips the eigenspaces of \(\gamma^5\), i.e., \(\slash \!\!\! \partial(S^{\pm}) = S^{\mp}\).</p>
-
-<p>As all good stories must come to an end, so will this one, and we shall move on to the most general context in which Dirac operator can be defined, a la Atiyah-Singer. Let \((M^n, g)\) be an even dimensional Riemannian manifold \(n = 2m\) with a spinC structure. It admits a complex spinor bundle \(S\) of rank \(2^m\) with spinor representation \(\rho : TM \to \mathrm{End}_{\Bbb C}(S)\) as described in Part II. Let \(\cdot\) denote the Clifford multiplication and \(\nabla\) denot the Levi-Civita connection on \((M, g)\).</p>
-
-<p>Definition. A spin connection on \(M\) is a unitary connection \(\nabla^s\) on \(S\) such that \(\nabla^s_X(Y \cdot s) = (\nabla_X Y) \cdot s + Y \cdot \nabla^s_X(s)\)</p>
-
-<p>A brief explanation is imperative here. Given a manifold \(M\), a connection \(\nabla\) is a differential operator which eats two tangent vector fields \(X, Y\) and spits out a new tangent vector field \(\nabla_X Y\) such that \(\nabla\) is bilinear in either variables when taken linear combination with real constant scalars, but behaves in the following way under multiplication by scalar fields: \(\nabla_{f X} Y = f \nabla_X Y\), and \(\nabla_X (fY) = X(f) Y + f \nabla_X Y\). Therefore, such operators are global analogue of the directional derivative operator in \(\Bbb R^n\). There are many choices for a connection in general, but if \((M, g)\) is Riemannian there is a unique such operator which satisfies (1) torsion-freeness, i.e., \(\nabla_X Y - \nabla_Y X = [X, Y]\) and (2) metric-compatibility, i.e., \(X g(Y, Z) = g(\nabla_X Y, Z) + g(Y, \nabla_X Z)\); this is called a Levi-Civita connection. The fundamental theorem of Riemannian geometry says that such a connection is uniquely determined by the metric \(g\); the torsion-freeness condition might seem technical and unintuitive, but turn that perspective around and think of it as the right condition that makes the existence of a “good” connection an overdetermined problem, which gives this uniqueness.</p>
-
-<p>An analogous story can be developed for a connection \(\nabla\) on a bundle \(E\) over \(M\), which eats a pair \((s, X)\) consisting of a section \(s \in \Gamma(M; E)\) (or an \(E\)-valued field) and a tangent vector field \(X\) on \(M\) and spits out a section \(\nabla_X(s) \in \Gamma(M; E)\) again. If \(E\) is a Hermitian bundle, then we can further demand an obvious metric-compatibility condition; we call such connections unitary. However, there is no analogue of the torsion-freeness condition as Lie brackets of \(E\)-valued fields are a nonsense concept, so there may be lots of unitary connections on a given bundle. We can measure the nonuniqueness explicitly; indeed, suppose \(\nabla, \nabla'\) are two different connections on \(E\). Then \(\nabla - \nabla'\) is an operator which is bilinear in both the tangent field variable and the \(E\)-field variable. Thus, for any tangent field \(X\) we can think of \(\nabla_X - \nabla'_X\) as an \(\mathrm{End}(E)\)-valued \(1\)-form on \(M\), i.e., \(\nabla - \nabla' \in \Omega^1(M; \mathrm{End}(E))\). This says that the space of connections \(\mathcal{A}_E\) on \(E\) is an affine space over the vector space \(\Omega^1(M; \mathrm{End}(E))\), in the sense that there is no preferred choice of origin. In local coordinates that trivialize the vector bundle, one can thus write any connection as \(\nabla = d + A\) where \(A\) is a matrix-valued \(1\)-form. Observe that the group \(\mathcal{G}_E := \mathrm{Aut}(E)\) of all self-automorphisms of the bundle (coordinate transformations of \(E\)-valued fields) acts on \(\mathcal{A}_E\) by conjugation \(A^g = dg A dg^{-1}\) (coordinate transformation acts on matrices by basechange); \(\mathcal{G}_E\) is called the gauge group and the space \(\mathcal{A}_E/\mathcal{G}_E\) is the moduli space of connections. This is a gigantic space; a better thing to do is to look at the moduli space of flat connections. More on this later.</p>
-
-<p>Footnote: In general, one can define a connection on a bundle with a specified “structure group” that is a Lie group. For example, it is \(\mathrm{GL}(n, \Bbb R)\) for a real bundle, \(\mathrm{GL}(n, \Bbb C)\) for a complex bundle, \(\mathrm{O}(n)\) and \(\mathrm{SO}(n)\) for a bundle with a fiberwise metric that is unoriented or oriented respectively, \(U(n)\) for a Hermitian bundle as above, and \(\mathrm{Spin}(n)\) or \(\mathrm{Spin}^{\Bbb C}(n)\) for a bundle with a real or complex spin structure. One can phrase these things better in terms of a “principal \(G\)-bundle”, and there is a dictionary between such objects and vector bundles with structure group in \(G\). In this case the connection is a \(\mathfrak{g}\)-valued object and the space of connections is an affine space over \(\Omega^1(M; \mathfrak{g})\), the space of \(\mathfrak{g}\)-valued \(1\)-forms on \(M\). A quick and clean introduction to these things is outside the scope of this post (but if you’re interested feel free to ask me!), and I’ll assume much of this below.</p>
-
-<p>A spin connection entangles the horizontal/tangent vector fields with the vertical/spinor fields using the spinor representation of the former on the latter. Loosely speaking, the tangent vectors act on the spinors by gamma matrices, so one expects that, simply, \(\nabla^s_\nu(\gamma^\mu \sigma) = \gamma^\mu \nabla^s_\nu(\sigma)\). However, the catch here is that the gamma matrices change point-to-point since they are parametrized by the manifold, and the rate of change of \(\gamma^\mu\) in the \(\nu\)-direction is exactly \(\Gamma^{\kappa}_{\mu \nu} \gamma^{\kappa}\). So, the corrected formula is \(\nabla^s_\nu(\gamma^\mu \sigma) =\gamma^\mu \nabla^s_\nu(\sigma)  + \Gamma^\kappa_{\mu \nu} \gamma^{\kappa} \sigma\). Here is one approach to construct the spin connection using principal bundles: the LC connection \(\nabla\) on \(TM\) can be thought as an \(\mathfrak{so}(n)\)-valued connection \(\omega\) on the frame bundle of \(M\). Out of this, we want a \(\mathfrak{spin}^{\Bbb C}(n)\)-valued connection on the spinC-frame bundle (see Part II) \(P\), at which point we can take the associated bundle \(P \times_{\rho_0} \Bbb C^{2^n}\) to recover the spinor bundle \(S\), and get an induced spin connection as well. To do this, observe \(\mathfrak{spin}^{\Bbb C}(n) \cong \mathfrak{so}(n) \oplus i\Bbb R\). We shall define \(\slash \!\!\! \omega: M \to \mathfrak{spin}^{\Bbb C}(n)\) by defining it to be \(\omega\) in the first component and something else in the other component; this something else will be an arbitrarily chosen connection \(A\) on a complex line bundle; so jointly we shall define \(\slash \!\!\! \omega = (\omega, A)\). To construct such things, observe that the 2:1 map inducing isomorphism of Lie algebras \(\mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n) \times S^1\) is \(\lambda q \mapsto (q, \lambda^2)\) where \(q\) denotes an even-degree monomial of unit norm and \(\lambda \in \Bbb C\) is a unit-norm complex scalar. The second projection is a character \(\mathrm{Spin}^{\Bbb C}(n) \to S^1\) given by \(\lambda^2\); using this we can obtain a complex line bundle \(\mathcal{L}\) out of a spinC structure as discussed in Part II. It follows from calculations in that post that then \(w_2(M) = c_1(\mathcal{L}) \pmod{2}\), so \(c_1(\mathcal{L})\) is the integral cohomology class lifting \(w_2(M)\); we take this to be our line bundle and choose a connection \(A\) on \(\mathcal{L}\). By construction, \(\tilde{\omega} = (\omega, A)\) defines a well-defined \(\mathfrak{spin}^{\Bbb C}(n)\)-valued connection on the spinor bundle, and therefore a spin connection on \(S\).</p>
-
-<p>Remark 2: This story becomes much easier in dimension \(4\), essentially because there is a better way to understand the associated line bundle \(\mathcal{L}\): it’s just \(\Lambda^{top} S^+\), the determinant line bundle of the spinors of positive chirality. The reason that this is specific to dimension \(4\) is the simple but extremely amusing fact that \(n = 2^{n/2}\) for some \(n &gt; 2\) (think of one side as the number of spacetime coordinates and the other side as the number of spinor coordinates) iff \(n = 4\). I will explain this detail in an upcoming follow-up.</p>
-
-<p>Remark 3: What this shows is that given a spinor bundle \(S\) on a Riemannian manifold \((M, g)\), the spin connection \(\nabla^s\) depends on a choice of a connection \(A\) on the associated complex line bundle \(\mathcal{L}\) given by only thinking about the complex scalar spinors. This will be important later on as we discuss the Seiberg-Witten equations.</p>
-
-<p>Nevertheless, now that we have a spinor bundle with a spin connection, we can write the Dirac operator, which is exactly the same expression as before, except we now use the spin connection and not the usual partial derivative:</p>
-
-<p>Definition. In a local orthonormal frame \((\mathbf{e}^1, \cdots, \mathbf{e}^n)\) the Dirac operator is defined by 
-\(\slash \!\!\! \partial_A = \gamma^\mu \nabla^s_\mu : \Gamma(M; S) \to \Gamma(M; S)\)
-where \(\gamma^\mu = \rho(\mathbf{e}^\mu)\) are images of the vectors under the spinor representation.</p>
-
-<p>There’s a more coordinate-free way to say it, which is \(\slash \!\!\! \partial_A\) is the composition of \(\nabla^s : \Gamma(M; S) \to \Gamma(M; S \otimes T^*M)\) followed by the isomorphism (Legendre transform) \(\Gamma(M; S \otimes T^*M) \to \Gamma(M; S \otimes TM)\) given by the Riemannian metric, further followed by \(\Gamma(M; S \otimes TM) \to \Gamma(M; S)\) which is pointwise Clifford multiplication. It’s easy to see that the above expression is what this evaluates to in coordinates. Observe that by following the same argument as Remark 1, with the volume form as the chirality operator, we obtain \(\slash \!\!\! \partial_A\) flips the decomposition \(S = S^+ \oplus S^-\) in the sense that \(\slash \!\!\! \partial_A(S^\pm) = S^\mp\). We denote \(\slash \!\!\! \partial_A^+ : \Gamma(M; S^+) \to \Gamma(M; S^-)\) and \(\slash \!\!\! \partial_A^- : \Gamma(M; S^-) \to \Gamma(M; S^+)\) to be the restrictions of \(\slash \!\!\! \partial_A\) to the positive and negative chirality spinors.</p>
-
-<p>We will show that \(\slash \!\!\! \partial_A\) is formally self-adjoint, equivalently, \(\slash \!\!\! \partial_A^+\) is formally adjoint to \(\slash \!\!\! \partial_A^-\). Suppose \(\sigma_1, \sigma_2 \in \Gamma_{supp}(M; S)\) be a pair of compactly supported sections of \(S\). Observe,</p>
-
-\[\displaystyle \begin{aligned}\langle \slash \!\!\! \partial_A \sigma_1, \sigma_2 \rangle &amp;= \langle \gamma^\mu \nabla^s_\mu \sigma_1, \sigma_2 \rangle \\ &amp;= \langle \nabla^s_\mu \sigma_1, \gamma^\mu \sigma_2 \rangle \\ &amp;= -\langle \nabla^s_\mu \sigma_1, \gamma^\mu \sigma_2 \rangle \\ &amp;= - \partial_\mu \langle \sigma_1, \gamma^\mu \sigma_2 \rangle - \langle \sigma_1, \sigma_2 \nabla^s_\mu \gamma^\mu \rangle + \langle \sigma_1, \slash \!\!\! \partial_\mu \sigma_2 \rangle \end{aligned}\]
-
-<p>Next, define a vector field \(X\) so that \(g(X, Y) = -\langle \sigma_1, \sigma_2 Y \rangle\) for all \(Y\). We compute the divergence:</p>
-
-\[\displaystyle \begin{aligned}\mathrm{div}(X) = -\langle \nabla^s_\mu X, \gamma^\mu \rangle &amp;= -\partial_\mu \langle X, \gamma^\mu \rangle - \langle X, \nabla^s_\mu \gamma^\mu \rangle \\ &amp;= - \partial_\mu \langle \sigma_1, \sigma_2 \gamma^\mu \rangle - \langle \sigma_1, \sigma_2 \nabla^s_\mu \gamma^\mu \rangle \end{aligned}\]
-
-<p>Combining, this shows \(\langle \slash \!\!\! \partial_A \sigma_1, \sigma_2 \rangle = \mathrm{div}(X) + \langle \sigma_1, \slash \!\!\! \partial_A \sigma_2 \rangle\). Integrating both sides over \(M\) and using divergence theorem, we obtain \(\slash \!\!\! \partial_A\) is self-adjoint with respect to the standard Hermitian inner product on compactly supported smooth sections of \(S\).</p>
-
-<p>In the relativistic, flat spacetime, we had \(\slash \!\!\! \partial^2 = \Box\) is the d’Alembertian. In the nonrelativistic flat case we get \(\slash \!\!\! \partial^2 = \Delta\) where the Laplacian \(\Delta = - \partial_{\mu \mu}^2\) has an unfortunate negative sign in front of it because of my sign conventions. However, if the spacetime has curvature, we choose coordinates such that \(\nabla^s_\mu \gamma^\nu(0) = 0\) and compute:</p>
-
-\[\displaystyle \begin{aligned} \slash \!\!\! \partial^2 = \gamma^\mu \nabla^s_\mu (\gamma^\nu \nabla^s_\nu) &amp;= \gamma^\mu \gamma^\nu \nabla^s_\mu \nabla^s_\nu \\ &amp;= - (\nabla^s_\mu)^2 + \frac12 \gamma^\mu \gamma^\nu F_{\mu \nu}\end{aligned}\]
-
-<p>Where \(F_{\mu \nu} = [\nabla^s_\mu, \nabla^s_\nu]\) is the curvature operator for the spin connection, and the first term is exactly the Laplacian. The connection \(1\)-form associated to the spin bundle is valued in \(\mathfrak{spin}^{\Bbb C}(n) \cong \mathfrak{so}(n) \oplus i \Bbb R\), so \(\slash \!\!\! \omega = \omega + A\), which means \(F = R + F^A\) where \(R\) is the Riemann curvature tensor of \((M, g)\) and \(F^A\) is the curvature of the associated complex line bundle. Remembering \(\mathfrak{so}(n) \subset \mathfrak{spin}^{\Bbb C}(n)\) is spanned by \(1/2 \gamma^{\mu}\gamma^{\nu}\), we compute:</p>
-
-\[\displaystyle \gamma^\mu \gamma^\nu R_{\mu \nu} = \frac14 R_{\mu \nu \sigma \rho} \gamma^\mu \gamma^\nu \gamma^\sigma \gamma^\rho\]
-
-<p>We fix \(\rho\) and sum over the rest of the indices first. The terms where \(\mu, \nu, \sigma\) add up to \(0\) by Bianchi’s identity, so the result is \(R_{\mu \nu \mu \rho} \gamma^\nu \gamma^\rho\), and the terms where \(\nu, \rho\) are distinct also sum up in pairs and cancel, leaving \(2 R_{\mu \nu \mu \nu} (\gamma^\nu)^2 = -2 R_{\mu \nu \mu \nu} = 2\ \mathrm{scal}\). This gives</p>
-
-\[\displaystyle \frac12 \gamma^\mu \gamma^\nu R_{\mu \nu} = \frac12 \cdot \frac14 \cdot 2 \ \mathrm{scal} = \frac{\mathrm{scal}}{4}\]
-
-<p>Combining everything, we obtain the Weitzenböck formula:</p>
-
-\[\displaystyle \slash \!\!\! \partial^2 \psi = \Delta \psi + \frac{\mathrm{scal}}{4} \psi + \frac{F^A}{2} \cdot \psi\]
-
-<p>where \(F^A \cdot \psi = 1/2 F^A_{\mu \nu} \gamma^\mu \gamma^\nu \psi\) is the curvature of the line bundle acting by Clifford multiplication on spinor fields.</p>
-
-<p>This concludes the basic discussion for the Dirac operator. Up next, we specialize to the case of dimension 4 and introduce the Seiberg-Witten equations.</p>
+<p>The main result which will be discussed in the course of time is that \(\mathcal{M}_{\mathfrak{s}, g, \mu}\) is a compact, smooth, oriented manifold of dimension \(-(2\chi(M) + 3\sigma(M))/4 + c_1(L)^2\) for a generic perturbation \(\mu\) when \(b_2^+ &gt; 1\). In the zero dimensional case, counting the signed connected components gives us the so-called Seiberg-Witten invariants of \(M\).</p>
 
       </div>
     
@@ -232,7 +179,7 @@ where \(\gamma^\mu = \rho(\mathbf{e}^\mu)\) are images of the vectors under the 
   
     <a href="/page/6/index.html"></a>
   
-<!-- <span class="page-number">Page 7 of 16</span> -->
+<!-- <span class="page-number">Page 7 of 17</span> -->
   
     <a href="/page/8/index.html"></a>
   
@@ -243,12 +190,12 @@ where \(\gamma^\mu = \rho(\mathbf{e}^\mu)\) are images of the vectors under the 
   
     <a class="fixed-bottom-btn" 
        href="/page/6/index.html">
-      &#171; Prev
+      &#171; Newer
     </a>
   
   
     <a class="fixed-bottom-btn" href="/page/8/index.html">
-      Next &#187;
+      Older &#187;
     </a>
   
 </div>

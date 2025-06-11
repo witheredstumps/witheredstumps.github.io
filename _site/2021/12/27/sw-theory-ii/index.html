@@ -23,7 +23,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -32,7 +32,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -148,7 +151,7 @@
 
 <p>Except, to construct the maximal isotropic, we needed an extra piece of data, a choice of an orthogonal almost-complex structure or a transformation \(J_p  : T_p M \to T_p M\) such that \(J_p^2 = -I\) and \(J_p\) is an isometry with respect to \(g_p\); the eigenspace corresponding to the eigenvalue \(i\) of \(J_p\) on \(T_p^{\Bbb C} M\) is the maximal isotropic. This extra piece of data is not just a random choice that we can make; to assemble everything to a bundle at the end, we need a smoothly varying family of almost-complex structures on each tangent space of \(M\), i.e., a metric-compatible, fiberwise almost complex structure \(J : TM \to TM\), \(J^2 = -I\). Existence of such a thing is not automatic, in fact they do not always exist. Kahler manifolds (eg, smooth zero loci of homogeneous equations treated as subsets of \(\Bbb{CP}^n\)) are examples of such things, in fact they are exactly the ones for which this \(J\) is integrable in the sense that it gives rise to complex coordinate charts on the manifold; integrability is a closed condition \(J\) (the Nijenhuis tensor vanishes) so certainly Kahler manifolds are a rarer class than we are looking for. So what exactly are the Riemannian manifolds \((M, g)\) which admit an orthogonal almost-complex structure? Define \(\omega(X, Y) = g(X, JY)\) and observe that \(\omega\) is a \(2\)-form on \(M\), and moreover \(\omega^m := \omega \wedge \cdots \wedge \omega\) is a nowhere vanishing volume form on \(M\). Thus, \(\omega\) is an almost-symplectic structure, the difference from an actual symplectic structure being again an integrability condition: \(d\omega = 0\) or closedness of \(\omega\). On the other hand if \(M\) was an almost-symplectic manifold, the form \(\omega\) assumed to have no apriori compatibility with \(g\), one could have constructed an orthogonal almost-complex structure by the polar decomposition formula: \(J = (\Omega^{\mathsf{T}} \Omega)^{-1/2}\Omega\) where \(\Omega\) denotes the matrix of the bilinear form \(\omega\) with respect to some \(g\)-orthonormal basis; these are the so-called \(\omega\)-compatible almost complex structures (particularly relevant when \(\omega\) is symplectic, in the theory of pseudoholomorphic curves). In any case, we see that the class of manifolds we are interested in is larger, even, than symplectic manifolds.</p>
 
-<p>Nonetheless, they are not abundant. The only spheres which admit an almost-complex structures are \(S^2\) and \(S^6\). Indeed, suppose \(TS^{2n}\) admits an almost complex structure \(J\). Then \(J \otimes \Bbb C\) gives an eigendecomposition of complex vector bundles \(T^{\Bbb C} S^{2n} = E \oplus \overline{E}\) where \(E = TS^{2n}\) with the complex structure \(J\), and \(\overline{E}\) is the conjugate. We compute the Chern class \(c_n\) of either side; note that \(c_n(T^{\Bbb C} S^{2n}) = 0\) by complex stable triviality of the complexified tangent bundle of the sphere, and \(c_n(E \oplus \overline{E}) = c_n(E) + c_n(\overline{E})\). If \(n\) was even, this would be \(2c_n(E) = 2\chi(S^{2n})[S^{2n}] = 4[S^{2n}]\), which gives the required contradiction. Note that the argument here is really a Pontryagin class argument, \(p_k(S^{4k}) = c_{2k}(T^{\Bbb C} S^{4k})\). Indeed, if \(k = 1\), then \(p_1(S^4) = 0\) can be seen using geometric, since by Chern-Weil theory \(p_1(M) = 1/(8\pi^2) \int_M \mathrm{tr}(\Omega^2)\) where \(\Omega\) is the curvature \(2\)-form of some chosen Riemannian metric on \(M\). If \(M\), like the sphere, admits a metric of constant curvature \(K\), then \(\Omega_{ij} = K d\omega^i \wedge d\omega^j\) which implies \(\Omega^2\) has no diagonal terms and so the \(1\)st Pontryagin form itself is zero. In the case \(n\) is odd, the above procedure gives no contradiction as \(c_n(\overline{E}) = -c_n(E)\); we can instead argue by Chern classes modulo \(p\) for some odd prime \(p\): from here, we see if \(n - p + 1 &gt; 0\), the universal Chern classes modulo \(p\), \(c_n \pmod{p}\) can be written as a polynomial in \(c_1 \pmod{p}, \cdots, c_{n-1} \pmod{p}\) and the first Steenrod power \(P^1(c_{n-p+1} \pmod{p})\). Specializing to \(TS^{2n}\) we get that since \(c_i = 0\) for all \(i &lt; n\), \(c_n(TS^{2n}) = 2[S^{2n}] \pmod{p} = 0\), which would be a contradiction. For this, we require an odd prime \(p\) such that \(p &lt; n - 1\), that is, \(n &gt; 4\). This leaves the cases \(n = 1, 2, 3, 4\) and \(n = 2, 4\) are eliminated by the earlier argument with the Pontryagin class. Thus, \(n = 1, 3\) are the only possibilities and these in fact do admit almost complex structure; whether \(S^6\) admits an integrable almost complex structure is still an open problem.</p>
+<p>Nonetheless, they are not abundant. The only spheres which admit an almost-complex structures are \(S^2\) and \(S^6\). Indeed, suppose \(TS^{2n}\) admits an almost complex structure \(J\). Then \(J \otimes \Bbb C\) gives an eigendecomposition of complex vector bundles \(T^{\Bbb C} S^{2n} = E \oplus \overline{E}\) where \(E = TS^{2n}\) with the complex structure \(J\), and \(\overline{E}\) is the conjugate. We compute the Chern class \(c_n\) of either side; note that \(c_n(T^{\Bbb C} S^{2n}) = 0\) by complex stable triviality of the complexified tangent bundle of the sphere, and \(c_n(E \oplus \overline{E}) = c_n(E) + c_n(\overline{E})\). If \(n\) was even, this would be \(2c_n(E) = 2\chi(S^{2n})[S^{2n}] = 4[S^{2n}]\), which gives the required contradiction. Note that the argument here is really a Pontryagin class argument, \(p_k(S^{4k}) = c_{2k}(T^{\Bbb C} S^{4k})\). Indeed, if \(k = 1\), then \(p_1(S^4) = 0\) can be seen geometrically, since by Chern-Weil theory \(p_1(M) = 1/(8\pi^2) \int_M \mathrm{tr}(\Omega^2)\) where \(\Omega\) is the curvature \(2\)-form of some chosen Riemannian metric on \(M\). If \(M\), like the sphere, admits a metric of constant curvature \(K\), then \(\Omega_{ij} = K d\omega^i \wedge d\omega^j\) which implies \(\Omega^2\) has no diagonal terms and so the \(1\)st Pontryagin form itself is zero. In the case \(n\) is odd, the above procedure gives no contradiction as \(c_n(\overline{E}) = -c_n(E)\); we can instead argue by Chern classes modulo \(p\) for some odd prime \(p\): from here, we see if \(n - p + 1 &gt; 0\), the universal Chern classes modulo \(p\), \(c_n \pmod{p}\) can be written as a polynomial in \(c_1 \pmod{p}, \cdots, c_{n-1} \pmod{p}\) and the first Steenrod power \(P^1(c_{n-p+1} \pmod{p})\). Specializing to \(TS^{2n}\) we get that since \(c_i = 0\) for all \(i &lt; n\), \(c_n(TS^{2n}) = 2[S^{2n}] \pmod{p} = 0\), which would be a contradiction. For this, we require an odd prime \(p\) such that \(p &lt; n - 1\), that is, \(n &gt; 4\). This leaves the cases \(n = 1, 2, 3, 4\) and \(n = 2, 4\) are eliminated by the earlier argument with the Pontryagin class. Thus, \(n = 1, 3\) are the only possibilities and these in fact do admit almost complex structure; whether \(S^6\) admits an integrable almost complex structure is still an open problem.</p>
 
 <p>Here’s the punchline. You do not actually need an almost complex structure to get a spinor bundle, all you need is a much weaker spinc structure. My understanding is that the story of spin geometry begins with trying to “soften” almost complex geometry; almost complex structures are rare, so we would like to enlarge the tangent bundle to the “spinor bundle” where almost complex structures are abundant.</p>
 
@@ -210,27 +213,59 @@
 
 <p>Let me discuss the real spin structure. Recall \(\mathrm{Spin}(n)\) is the universal double cover of \(\mathrm{SO}(n)\). For any nice topological group \(G\) the universal cover can be written as follows:</p>
 
-\[\widetilde{G} = \{\gamma \in \mathrm{Maps}([0, 1], G) : f(0) = e\}/\sim\]
+\[\widetilde{G} = \{\gamma \in \mathrm{Maps}([0, 1], G) : \gamma(0) = e\}/\sim\]
 
-<p>where \(\sim\) denotes homotopy relative to the basepoint \(0\). The covering projection \(\widetilde{G} \to G\) is \(\gamma \mapsto \gamma(1)\). Now, there is a group structure on \(\widetilde{G}\) which is given by \((\alpha \beta)(t) = \alpha(t) \beta(t)\) and this is the one which lifts the group structure on \(G\). However, it is equivalent to the group structure given by \(\alpha * (\alpha(1)\beta)\) where \(*\) denotes path concatenation, as can be seen by hand. Specialize to the case \(G = \mathrm{SO}(n)\), which tells you elements of \(\mathrm{Spin}(n)\) are paths in \(\mathrm{SO}(n)\) starting at the identity, with multiplication of two such paths given by translating the initial point to the endpoint of the other, and the concatenation.</p>
+<p>where \(\sim\) denotes homotopy relative to the basepoint \(0\). The covering projection \(\widetilde{G} \to G\) is \(\gamma \mapsto \gamma(1)\). Now, there is a group structure on \(\widetilde{G}\) which is given by \((\alpha \beta)(t) = \alpha(t) \beta(t)\) and this is the one which lifts the group structure on \(G\). However, it is equivalent to the group structure given by \(\alpha * (\alpha(1)\beta)\) where \(*\) denotes path concatenation, as can be seen by hand. Specialize to the case \(G = \mathrm{SO}(n)\), which tells you elements of \(\mathrm{Spin}(n)\) are paths in \(\mathrm{SO}(n)\) starting at the identity, with multiplication of two such paths given by translating the initial point to the endpoint of the other, and then concatenating.</p>
 
 <p>To visualize this with \(n = 3\), consider the following artifice. Consider a sphere \(S^2 \subset \Bbb R^3\) with an infinite strip (or a framed, proper ray) attached to it, which has red markings by arrows pointing up:</p>
 
+<div class="figure-row">
+    <img src="/assets/images/belt-trick-1.webp" height="50%" width="50%" />
+</div>
+
 <p>\(\mathrm{SO}(3)\) acts on the sphere by rotating it, but when we physically carry out a rotation we will have to follow a path of rotations starting at the identity and leading to the required rotation; the purpose of the strip is to keep track of this path “in space” rather than “in time”. For example, this is the effect of rotating the sphere by \(2\pi\) around the blue axis, which is the identity operation but as the strip tells you, that path you traced out is a nontrivial loop in \(\mathrm{SO}(3)\).</p>
+
+<div class="figure-row">
+    <img src="/assets/images/belt-trick-2.webp" height="55%" width="55%" />
+</div>
 
 <p>Indeed, try to unravel the strip out by moving it to one side as it was before, and one ends up with the following configuration:</p>
 
-<p>We see one of the red arrows pointing down, in other words a full twist in the strip. If we do it again, we might see either two full twists or none, depending on how we unravel the strip and bring it to one side - I encourage carrying this out by cutting out some paper strips. Therefore, it makes sense to count the number of twists on the strip modulo 2, i.e., the strip can have only two states, an “up” state and a “down” state, corresponding to any state of the sphere. This is exactly how elements of \(\mathrm{Spin}(3)\) look like. This description of the spin group is not new; it is called the Dirac’s belt/plate trick. An elaborate animation can be found here where many such strips or belts are emerging out of the object that is exhibiting rotation.</p>
+<div class="figure-row">
+    <img src="/assets/images/belt-trick-3.webp" height="55%" width="55%" />
+</div>
+
+<p>We see one of the red arrows pointing down, in other words a full twist in the strip. If we do it again, we might see either two full twists or none, depending on how we unravel the strip and bring it to one side - I encourage carrying this out by cutting out some paper strips. Therefore, it makes sense to count the number of twists on the strip modulo 2, i.e., the strip can have only two states, an “up” state and a “down” state, corresponding to any state of the sphere. This is exactly how elements of \(\mathrm{Spin}(3)\) look like. This description of the spin group is not new; it is called the Dirac’s belt/plate trick. An elaborate animation can be found <a href="https://upload.wikimedia.org/wikipedia/commons/f/f7/Anti-Twister.gif">here</a> where many such strips or belts are emerging out of the object that is exhibiting rotation.</p>
 
 <p>I think of a spin structure on a manifold \(M\) as a collection of such strips or framed proper rays from infinity attached to each unit tangent sphere so that the manifold looks like a marionette, and the associated “spin field” is the signed count of the number of full-twists or the up/down states along the strings. Probably not very useful, but sort of pleasant.</p>
 
 <p>Finally, let us get to exactly what kind of topological obstructions there are for a spin or spinc structure on a manifold to exist. Off the top of my head, here is a way to do this by throwing the kitchen sink at it: the frame bundle of \(M\) is classified by a map \(M \to B\mathrm{SO}(n)\), and the question of admitting a spin or spinc structure is the same question as lifting this to a map \(\psi : M \to B\mathrm{Spin}(n)\) or \(M \to B\mathrm{Spin}^{\Bbb C}(n)\) respectively. In the first case, there is a fibration sequence \(\mathrm{SO}(n) \to \mathrm{Spin}(n) \to B\Bbb Z/2\) where the last map classifies the first map, which is a double covering. By delooping everything, we get a fibration sequence \(B\mathrm{SO}(n) \to B\mathrm{Spin}(n) \to B^2\Bbb Z/2\). Thus, the question of lifting a map from \(M\) to the middle term to a map into the fiber is equivalent to the question of whether the composition \(M \to B^2 \Bbb Z/2\) to the base is nullhomotopic. This is classified by an element of \(H^2(M; \Bbb Z/2)\); moreover it follows that this element lies in the image of the homomorphism \(\psi^* : H^2(B\mathrm{SO}(n); \Bbb Z/2) \to H^2(M; \Bbb Z/2)\). As explained in this post, the cohomology ring \(H^*(B\mathrm{SO}(n); \Bbb F_2) = \Bbb F_2[w_1, w_2, \cdots, w_n]\) is generated by universal Stiefel-Whitney classes, hence the unique nonzero element in degree \(2\) is \(w_2\). Thus, the class in \(H^2(M; \Bbb Z/2)\) is the second Stiefel-Whitney class \(w_2(M)\). In the second case, there is a fibration sequence \(\mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n) \to BU(1)\) which one can deloop as before and argue that the relevant obstruction for lifting \(\psi\) to \(M \to B\mathrm{Spin}^{\Bbb C}(n)\) lies in \(H^3(M; \Bbb Z)\). Apparently, the class here is the “3rd integral Stiefel-Whitney class” \(W_3 := \beta w_2\), where \(\beta : H^2(-; \Bbb F_2) \to H^3(-; \Bbb Z)\) is the integral Bockstein in degree \(2\), which looks intuitive enough but I haven’t worked out precisely why. Moreover, it might be worth phrasing all of this in terms of explicit cocycles than abstract obstruction theory.</p>
 
-<p>Edit: I have figured out why the obstruction class is \(W_3 = \beta w_2\). There is a short exact sequence \(0 \to \Bbb Z/2 \to \mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n) \times \mathrm{U}(1) \to 0\) which is classified by an element of \(H^2(\mathrm{SO}(n) \times \mathrm{U}(1); \Bbb Z/2) \cong H^2(\mathrm{SO}(n); \Bbb Z/2) \oplus H^2(\mathrm{U}(1); \Bbb Z/2)\) whose projection to the first factor classifies \(0 \to \Bbb Z/2 \to \mathrm{Spin}(n) \stackrel{\mathrm{ad}}{\to} \mathrm{SO}(n) \to 0\) obtained from the above short exact sequence by “forgetting the complex scalars” and the projection to the second factor classifies \(0 \to \Bbb Z/2 \to U(1) \stackrel{\times 2}{\to} U(1)\) obtained from the same short exact sequence by “forgetting the orthogonal matrices”. Therefore, the pertaining element of \(H^2(\mathrm{SO}(n); \Bbb Z/2)\) is \(w_2\) and let us call the element in \(H^2(U(1); \Bbb Z/2)\) as \(\alpha\). Thus, the classifying element is \(w_1 + \alpha\). Extending the short exact sequence to a fiber long exact sequence by delooping and dualizing gives for any \(X\) a short exact sequence</p>
+<p>Edit: I have figured out why the obstruction class is \(W_3 = \beta w_2\). There is a short exact sequence</p>
+
+\[0 \to \Bbb Z/2 \to \mathrm{Spin}^{\Bbb C}(n) \to \mathrm{SO}(n) \times \mathrm{U}(1) \to 0\]
+
+<p>which is classified by an element of \(H^2(\mathrm{SO}(n) \times \mathrm{U}(1); \Bbb Z/2) \cong H^2(\mathrm{SO}(n); \Bbb Z/2) \oplus H^2(\mathrm{U}(1); \Bbb Z/2)\) whose projection to the first factor classifies the short exact sequence</p>
+
+\[0 \to \Bbb Z/2 \to \mathrm{Spin}(n) \stackrel{\mathrm{ad}}{\to} \mathrm{SO}(n) \to 0\]
+
+<p>obtained from the above short exact sequence by “forgetting the complex scalars” and the projection to the second factor classifies the short exact sequence</p>
+
+\[0 \to \Bbb Z/2 \to U(1) \stackrel{\times 2}{\to} U(1)\]
+
+<p>obtained from the same short exact sequence by “forgetting the orthogonal matrices”. Therefore, the pertaining element of \(H^2(\mathrm{SO}(n); \Bbb Z/2)\) is \(w_2\) and let us call the element in \(H^2(U(1); \Bbb Z/2)\) as \(\alpha\). Thus, the classifying element is \(w_1 + \alpha\). Extending the short exact sequence to a fiber long exact sequence by delooping and dualizing gives for any \(X\) a short exact sequence</p>
 
 \[\displaystyle [X, B\mathrm{Spin}^{\Bbb C}(n)] \to [X, B\mathrm{SO}(n)] \oplus [X, B\mathrm{U}(1)] \to [X, B^2 \Bbb Z/2] \cong H^2(X; \Bbb Z/2)\]
 
-<p>where the last map is, treating \([X, BG]\) as the group of isomorphism classes of principal \(G\)-bundles, \((E, F) \mapsto w_2(E) + \alpha(F) \pmod{2}\). Thus, \(E\) is a spinc-bundle if and only if \((E, E)\) maps to \(0\) if and only if \(w_2(E) = \alpha(E) \pmod{2}\). Observe this condition is equivalent to demanding that \(\alpha(E)\) is an integral lift in \(H^2(X; \Bbb Z)\) of \(w_2(E) \in H^2(X; \Bbb Z/2)\). Thus, \(\beta w_2(E) = 0 \in H^3(X; \Bbb Z)\) by construction of Bockstein. In fact, once \(E\) has a spinc-structure then one focus on the complex scalars in the structure group and immediately turn it into a complex bundle, and \(c_1(E) = \alpha(E)\) is exactly its first Chern class.</p>
+<p>where the last map is, treating \([X, BG]\) as the group of isomorphism classes of principal \(G\)-bundles,</p>
+
+\[(E, F) \mapsto w_2(E) + \alpha(F) \pmod{2}\]
+
+<p>Thus, \(E\) is a spinc-bundle if and only if \((E, E)\) maps to \(0\) if and only if</p>
+
+\[w_2(E) = \alpha(E) \pmod{2}\]
+
+<p>Observe this condition is equivalent to demanding that \(\alpha(E)\) is an integral lift in \(H^2(X; \Bbb Z)\) of \(w_2(E) \in H^2(X; \Bbb Z/2)\). Thus, \(\beta w_2(E) = 0 \in H^3(X; \Bbb Z)\) by construction of Bockstein. In fact, once \(E\) has a spinc-structure then one focus on the complex scalars in the structure group and immediately turn it into a complex bundle, and \(c_1(E) = \alpha(E)\) is exactly its first Chern class.</p>
 
 <p>In either case, it is evident from this that the existence of spin or spinc structures is much easier than almost complex structures; to start, all spheres have them! Every oriented \(3\)-manifold admits a spin structure because they are parallelizable, so all the pertaining characteristic classes vanish. Apparently, it is true that any oriented \(4\)-manifold admits a spinc structure.</p>
 
@@ -242,13 +277,13 @@
 <!-- Fixed-position buttons for previous/next post -->
 <div class="bottom-btns-vertical visible">
   
-    <a class="fixed-bottom-btn" href="/2021/12/26/steenrod-squares/">
-      Older &#187;
+    <a class="fixed-bottom-btn" href="/2022/01/03/sw-theory-iii/">
+      &#171; Newer
     </a>
   
   
-    <a class="fixed-bottom-btn" href="/2022/01/03/sw-theory-iii/">
-      &#171; Newer
+    <a class="fixed-bottom-btn" href="/2021/12/26/steenrod-squares/">
+      Older &#187;
     </a>
   
 </div>

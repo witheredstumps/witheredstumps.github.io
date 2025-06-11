@@ -23,7 +23,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -32,7 +32,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -146,13 +149,19 @@
         <hr>
         <p>The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai.</p>
 
-<p>Theorem. Let \(\mathcal{F}\) be a co-orientable codimension one foliation of an oriented closed smooth \(n\)-manifold \(M\). Then the following are equivalent:</p>
+<p><b>Theorem</b>. Let \(\mathcal{F}\) be a co-orientable codimension one foliation of an oriented closed smooth \(n\)-manifold \(M\). Then the following are equivalent:</p>
 
-<p>\(\mathcal{F}\) is taut,</p>
-
-<p>There is a positive volume form on \(M\) and a volume-preserving flow on \(M\) transverse to \(\mathcal{F}\),</p>
-
-<p>There is a Riemannian metric on \(M\) such that the leaves are locally area-minimizing.</p>
+<ol>
+  <li>
+    <p>\(\mathcal{F}\) is taut,</p>
+  </li>
+  <li>
+    <p>There is a positive volume form on \(M\) and a volume-preserving flow on \(M\) transverse to \(\mathcal{F}\),</p>
+  </li>
+  <li>
+    <p>There is a Riemannian metric on \(M\) such that the leaves are locally area-minimizing.</p>
+  </li>
+</ol>
 
 <p>Proof. Suppose \(\mathcal{F}\) is taut. Then for any \(p \in M\), we can find an embedded loop \(\phi : S^1 \to M\) transverse to \(\mathcal{F}\) passing through \(p\). Take a slight thickening to \(\phi : S^1 \times D^{n-1} \to M\). We arrange \(\phi\) by a small homotopy so that \(\phi^{-1}(\mathcal{F})\) is the natural product foliation on \(S^1 \times D^{n-1}\) by \(\{pt\} \times D^{n-1}\). Since \(M\) is compact, we may cover it by finitely many such embedded tori \(\phi_i : S^1 \times D^{n-1} \to M\). Let \(\theta_i\) denote a \((n-1)\)-form on \(S^1 \times D^{n-1}\) which on the leaves \(\{pt\} \times D^{n-1}\) restrict to a positive volume form on the interior of the disk and vanishes near the boundary \(\{pt\} \times \partial D^{n-1}\). Define:</p>
 
@@ -164,7 +173,7 @@
 
 <p>Therefore, \(X\) is a volume-preserving flow transverse to \(\mathcal{F}\). This proves (1) implies (2).</p>
 
-<p>Suppose we have a positive volume form \(\omega\) on \(M\) and a volume-preserving flow \(X\) transverse to \(\mathcal{F}\). Let \(\theta = i_X \omega\), which must be a positive volume form on the leaves of \(\mathcal{F}\). Let \(K = \ker(\theta)\), so \(TM = T\mathcal{F} \oplus K\). Define a Riemannian metric on \(M\) by \(g = g_l \oplus g_k\) where \(g_l\) is a metric on the distribution \(T\mathcal{F}\) so that \(\theta\) is the Riemannian volume form on the leaves of \(\mathcal{F}\) with respect to \(g_l\), and \(g_k\) is a positive definite metric on \(K\).</p>
+<p>Suppose we have a positive volume form \(\omega\) on \(M\) and a volume-preserving flow \(X\) transverse to \(\mathcal{F}\). Let \(\theta = i_X \omega\), which must be a positive volume form on the leaves of \(\mathcal{F}\). Let \(K = \ker(\theta)\), so that we have \(TM = T\mathcal{F} \oplus K\). Define a Riemannian metric on \(M\) by \(g = g_l \oplus g_k\) where \(g_l\) is a metric on the distribution \(T\mathcal{F}\) so that \(\theta\) is the Riemannian volume form on the leaves of \(\mathcal{F}\) with respect to \(g_l\), and \(g_k\) is a positive definite metric on \(K\).</p>
 
 <p>The important property that \(\theta\) has is as follows. Clearly, for any orthonormal \((n-1)\)-frame in \(T \mathcal{F}\), \(\theta\) evaluates to \(1\) on it. For an orthonormal \((n-1)\)-frame in \(TM\), \(\theta\) completely ignores the components of all the vectors in the direction of \(K\). Therefore, it evaluates to at most \(1\) on such a frame, with equality only if the frame is tangential to the leaves of \(\mathcal{F}\). One says \(\theta\) is a calibration for the leaves of \(\mathcal{F}\). Let \(L\) be a leaf of \(\mathcal{F}\). For any compact codimension zero submanifold-with-boundary \((\Omega, \partial \Omega) \subset L\) and a perturbed copy of it \(\Omega' \subset M\) with \(\partial \Omega = \partial \Omega'\) representing \([\Omega] \subset H_2(M, \partial \Omega; \Bbb R)\), we must have the following:</p>
 
@@ -180,68 +189,35 @@
 
 <p>As an interesting application, we have the following theorem of Novikov and Rosenberg. I have attached a link to a proof I had written a while ago, which is lacking in detail but I feel gets the main ideas across. The main technical tool involves the theorem of Rummler and Sullivan above, together with a compactness theorem for minimal surfaces due to Choi-Schoen.</p>
 
-<p>Theorem. Let \(M^3\) be a closed oriented three-manifold. Let \(\mathcal{F}\) be a taut foliation of \(M^3\). Then the leaves of \(\mathcal{F}\) are \(\pi_1\)-injective subsurfaces of \(M\). Moreover, any closed transversal to \(\mathcal{F}\) is nontrivial in \(\pi_1\).</p>
+<p><b>Theorem</b>. Let \(M^3\) be a closed oriented three-manifold. Let \(\mathcal{F}\) be a taut foliation of \(M^3\). Then the leaves of \(\mathcal{F}\) are \(\pi_1\)-injective subsurfaces of \(M\). Moreover, any closed transversal to \(\mathcal{F}\) is nontrivial in \(\pi_1\).</p>
 
-<p>Proof. See here. The argument for closed transversals is completely analogous: we assume it is nullhomologous, therefore bounds a disk in the three-manifold by Dehn’s lemma. But then the same argument shows the disk can be homotoped rel boundary to lie entirely on a leaf, which is a contradiction.</p>
+<p><em>Proof</em>. See <a href="/assets/docs/taut_leaf_incomp.pdf">here</a>. The argument for closed transversals is completely analogous: we assume it is nullhomologous, therefore bounds a disk in the three-manifold by Dehn’s lemma. But then the same argument shows the disk can be homotoped rel boundary to lie entirely on a leaf, which is a contradiction.</p>
 
 <p>We end this topic by discussing a combinatorial version of the Sullivan-Rummler theorem. First, we introduce some terminology. A normal arc in a 2-simplex is a properly embedded arc intersecting a pair of distinct edges. A normal disk in a 3-simplex is a properly embedded disk whose boundary consists of either 3 or 4 properly embedded arcs in the respective 2-faces they are contained in.</p>
 
-<p>Definition. Let \(M\) be a three-manifold with a triangulation \(\tau\). A normal surface is a surface \(S \subset M\) such that \(S\) intersects each three-simplex in \(M\) in a normal disk. A foliation \(\mathcal{F}\) on \(M\) is said to be in normal form \(\mathcal{F}\) is transverse to the 1- and 2-simplices, distinct vertices lie in distinct leaves, and for each leaf \(L\) and a three-simplex \(\Delta \subset \tau\), each non-point component of \(L \cap \Delta\) is a normal disk.</p>
+<p><b>Definition</b>. Let \(M\) be a three-manifold with a triangulation \(\tau\). A normal surface is a surface \(S \subset M\) such that \(S\) intersects each three-simplex in \(M\) in a normal disk. A foliation \(\mathcal{F}\) on \(M\) is said to be in normal form \(\mathcal{F}\) is transverse to the 1- and 2-simplices, distinct vertices lie in distinct leaves, and for each leaf \(L\) and a three-simplex \(\Delta \subset \tau\), each non-point component of \(L \cap \Delta\) is a normal disk.</p>
 
-<p>Proposition. Let \(M\) be a three-manifold, and \(\mathcal{F}\) be a codimension one foliation. There exists a smooth triangulation \(\tau\) of \(M\) with respect to which \(\mathcal{F}\) is in normal form.</p>
+<p><b>Proposition</b>. Let \(M\) be a three-manifold, and \(\mathcal{F}\) be a codimension one foliation. There exists a smooth triangulation \(\tau\) of \(M\) with respect to which \(\mathcal{F}\) is in normal form.</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>Proof. Find a smooth triangulation, and then subdivide until all the three-simplices get inside foliated charts. Applying transversality, we may assume for every three-simplex \(\Delta \subset \tau\), \(\mathcal{F}\) is transverse to the 1- and 2-faces of \(\Delta\) except at some isolated points of Morse tangencies. The picture for $$\mathcal{F}</td>
-      <td>\Delta\(in the coordinates given by the foliated chart is that of a curvilinear simplex sitting inside\)\Bbb R^3\(, getting scanned by affine linear hyperplanes\)z = \mathrm{const.}\(, and the 1- and 2-faces are Morse with respect to the\)z\(-height. It's obvious how to subdivide the simplex further to achieve normal form: add faces parallel to the level set of the\)z$$-heights at all critical values, and then tilt the new faces a little to make it transverse to the level sets except at the vertices.</td>
-    </tr>
-  </tbody>
-</table>
+<p><em>Proof</em>. Find a smooth triangulation, and then subdivide until all the three-simplices get inside foliated charts. Applying transversality, we may assume for every three-simplex \(\Delta \subset \tau\), \(\mathcal{F}\) is transverse to the 1- and 2-faces of \(\Delta\) except at some isolated points of Morse tangencies. The picture for \(\mathcal{F}\vert\Delta\) in the coordinates given by the foliated chart is that of a curvilinear simplex sitting inside \(\Bbb R^3\), getting scanned by affine linear hyperplanes \(z = \mathrm{const.}\), and the 1- and 2-faces are Morse with respect to the \(z\)-height. It’s obvious how to subdivide the simplex further to achieve normal form: add faces parallel to the level set of the \(z\)-heights at all critical values, and then tilt the new faces a little to make it transverse to the level sets except at the vertices.</p>
 
-<p>Definition. A combinatorial volume preserving flow \((\phi, \tau)\) on a three-manifold \(M\) consists of a triangulation \(\tau\) and an assignment of positive integral weights \(\phi(e)\) as well as orientation to each edge \(e \subset \tau^{(1)}\), such that at each vertex, the conservation of mass property is satisfied: sum of incoming weights is equal to sum of outgoing weights.</p>
+<p><b>Definition</b>. A combinatorial volume preserving flow \((\phi, \tau)\) on a three-manifold \(M\) consists of a triangulation \(\tau\) and an assignment of positive integral weights \(\phi(e)\) as well as orientation to each edge \(e \subset \tau^{(1)}\), such that at each vertex, the conservation of mass property is satisfied: sum of incoming weights is equal to sum of outgoing weights.</p>
 
 <p>A codimension one co-oriented foliation in normal positive with a triangulation induces a natural orientation on each of the 1-skeleton: for any three-simplex, the co-orientation induces a linear ordering on the vertices of the simplex where \(v &lt; w\) if there is an edge from \(v\) to \(w\) pointing in the same direction as the co-orienting vector for the leaves transverse to that edge.</p>
 
-<p>Proposition. (Gabai) Let \(\mathcal{F}\) be a co-oriented codimension-one foliation on a closed oriented three-manifold \(M\). \(\mathcal{F}\) is taut if and only if there is a combinatorial volume preserving flow \((\phi, \tau)\) compatible with \(\mathcal{F}\).</p>
+<p><b>Proposition</b>. (Gabai) Let \(\mathcal{F}\) be a co-oriented codimension-one foliation on a closed oriented three-manifold \(M\). \(\mathcal{F}\) is taut if and only if there is a combinatorial volume preserving flow \((\phi, \tau)\) compatible with \(\mathcal{F}\).</p>
 
-<p>Proof. Suppose \(\mathcal{F}\) is taut, and \(\tau\) be a smooth triangulation with respect to which it is in normal form. The tautness of \(\mathcal{F}\) guarantees that the induced directed graph structure on \(\tau^{(1)}\) gives a recurrent graph, i.e., any vertex can be joined with any vertex by a piecewise linear directed arc. This is because we may take a smooth positively oriented arc in \(M\) joining them so that it is transverse to the foliation, by tautness, after which we can simplicially approximate the arc. Thus, for every edge \(e \subset \tau^{(1)}\), there is a piecewise linear directed loop \(\gamma_e \subset \tau^{(1)}\) containing \(e\). Let \(\mathcal{C} := \{\gamma_e\}\) denote a finite collection of such loops, one for each edge \(e \subset \tau^{(1)}\). We define \(\phi(e)\) to be the number of times \(\mathcal{C}\) crosses \(e\) counted with multiplicity. Then \(\phi\) clearly satisfies conservation of mass, therefore \((\phi, \tau)\) is a combinatorial volume preserving flow. The converse is easy.</p>
+<p><em>Proof</em>. Suppose \(\mathcal{F}\) is taut, and \(\tau\) be a smooth triangulation with respect to which it is in normal form. The tautness of \(\mathcal{F}\) guarantees that the induced directed graph structure on \(\tau^{(1)}\) gives a recurrent graph, i.e., any vertex can be joined with any vertex by a piecewise linear directed arc. This is because we may take a smooth positively oriented arc in \(M\) joining them so that it is transverse to the foliation, by tautness, after which we can simplicially approximate the arc. Thus, for every edge \(e \subset \tau^{(1)}\), there is a piecewise linear directed loop \(\gamma_e \subset \tau^{(1)}\) containing \(e\). Let \(\mathcal{C} := \{\gamma_e\}\) denote a finite collection of such loops, one for each edge \(e \subset \tau^{(1)}\). We define \(\phi(e)\) to be the number of times \(\mathcal{C}\) crosses \(e\) counted with multiplicity. Then \(\phi\) clearly satisfies conservation of mass, therefore \((\phi, \tau)\) is a combinatorial volume preserving flow. The converse is easy.</p>
 
-<p>Definition. For a combinatorial volume preserving flow \((\phi, \tau)\) on \(M\) and a normal surface \(S \subset M\), we define the weight of \(S\) (to be thought as ``combinatorial area”) as</p>
+<p><b>Definition</b>. For a combinatorial volume preserving flow \((\phi, \tau)\) on \(M\) and a normal surface \(S \subset M\), we define the weight of \(S\) (to be thought as ``combinatorial area”) as</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$\displaystyle w(S) = \sum_e \phi(e)</td>
-      <td>e \cap S</td>
-      <td>$</td>
-    </tr>
-  </tbody>
-</table>
+\[\displaystyle w(S) = \sum_e \phi(e) |e \cap S|\]
 
-<table>
-  <tbody>
-    <tr>
-      <td>where $</td>
-      <td>e \cap S</td>
-      <td>$ denotes the cardinality of the set of intersections of $S$ with $e$.</td>
-    </tr>
-  </tbody>
-</table>
+<p>where $\vert e \cap S \vert $ denotes the cardinality of the set of intersections of $S$ with $e$.</p>
 
 <p>Let $\mathcal{F}$ be a taut foliation with a combinatorial volume preserving flow $(\phi, \tau)$. For any leaf $L \subset \mathcal{F}$, let $S \subset L$ be a compact normal subsurface. Let $R \subset M$ be another normal surface with $\partial S = \partial R$ representing $[S] \in H_2(M, \partial S; \Bbb Z)$. Then,</p>
 
-<table>
-  <tbody>
-    <tr>
-      <td>$\displaystyle \begin{aligned} w(R) = \sum_e \phi(e)</td>
-      <td>e \cap R</td>
-      <td>\geq \sum_e \phi(e) \langle e, R \rangle&amp; = \sum_e \phi(e) \langle e, S \rangle \ &amp;= \sum_e \phi(e)</td>
-      <td>e \cap S</td>
-      <td>\ &amp;= w(S)\end{aligned}$</td>
-    </tr>
-  </tbody>
-</table>
+\[\displaystyle \begin{aligned} w(R) = \sum_e \phi(e) |e \cap R| \geq \sum_e \phi(e) \langle e, R \rangle&amp; = \sum_e \phi(e) \langle e, S \rangle \\ &amp;= \sum_e \phi(e) |e \cap S| \\ &amp;= w(S)\end{aligned}\]
 
 <p>where $\langle e, R \rangle$ denotes the algebraic intersection number i.e., the signed intersection count. The first inequality is true as clearly the unsigned count is more than the signed count, the subsequent equality is true as $R, S$ represent the same relative homology class and the final equality is true as $S$ intersects all the edges $e$ positively by definition of the orientation of $\tau^{(1)}$ induced from the co-orientation of the leaves.</p>
 
@@ -254,7 +230,7 @@
 
 <div class="pagination" style="text-align:center;">
   
-<!-- <span class="page-number">Page 1 of 16</span> -->
+<!-- <span class="page-number">Page 1 of 17</span> -->
   
     <a href="/page/2/index.html"></a>
   
@@ -265,7 +241,7 @@
   
   
     <a class="fixed-bottom-btn" href="/page/2/index.html">
-      Next &#187;
+      Older &#187;
     </a>
   
 </div>
