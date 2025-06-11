@@ -347,4 +347,13 @@ a:focus {
   font-size: 0.88em;
 }
 
+/* -- */
+
+.sidebar-toggle-container {
+  pointer-events: none;
+}
+.sidebar, .sidebar-toggle {
+  pointer-events: auto;
+}
+
 
