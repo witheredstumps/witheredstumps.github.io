@@ -272,6 +272,14 @@ mjx-container {
   line-height: 1.2;
 }
 
+mjx-container[display="true"] {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    white-space: nowrap !important;
+    max-width: 100%;
+    display: block !important;
+}
+
 /* --- hyperlinks --- */
 
 a {
