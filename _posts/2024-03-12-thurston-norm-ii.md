@@ -10,7 +10,7 @@ tags:
 permalink: "/2024/03/12/thurston-norm-ii/"
 ---
 
-Theorem. (Thurston) Suppose $$(M, \partial M)$$ is a compact oriented $$3$$-manifold-with-boundary, and every embedded surface representing a nonzero homology class has negative Euler characteristic. Then the Thurston norm-ball of $$(M, \partial M)$$ is a finite-sided convex polyhedron.
+<b>Theorem</b>. (Thurston) Suppose $$(M, \partial M)$$ is a compact oriented $$3$$-manifold-with-boundary, and every embedded surface representing a nonzero homology class has negative Euler characteristic. Then the Thurston norm-ball of $$(M, \partial M)$$ is a finite-sided convex polyhedron.
 
 The hypothesis of the theorem implies the Thurston norm is in fact a norm, as opposed to a semi-norm. Note that this is satisfied, for instance, if $$M$$ is a hyperbolic $$3$$-manifold with boundary. The theorem will follow from the following lemma about normed spaces, with $$V = H_2(M, \partial M; \Bbb R)$$ as the vector space and $$\Lambda$$ as the integral lattice given by image of the change of coefficients homomorphism from the integral cohomology.
 

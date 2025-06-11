@@ -7,10 +7,6 @@ body {
   background: #fff;
 }
 
-.content strong, .content b {
-  font-weight: bold; /* No font-family override */
-}
-
 /* --- Background pattern --- */
 .background-pattern {
   position: fixed;
@@ -330,3 +326,11 @@ a:focus {
   font-weight: bold;
   font-size: 0.88em;
 }
+
+.post-content b, .post-content strong {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 0.88em;
+}
+
+

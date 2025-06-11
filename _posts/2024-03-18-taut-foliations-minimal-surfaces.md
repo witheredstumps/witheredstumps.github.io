@@ -21,7 +21,7 @@ The goal of this post is to prove the following theorem of Hansklaus Rummler and
 
 3. There is a Riemannian metric on $$M$$ such that the leaves are locally area-minimizing.
 
-Proof. Suppose $$\mathcal{F}$$ is taut. Then for any $$p \in M$$, we can find an embedded loop $$\phi : S^1 \to M$$ transverse to $$\mathcal{F}$$ passing through $$p$$. Take a slight thickening to $$\phi : S^1 \times D^{n-1} \to M$$. We arrange $$\phi$$ by a small homotopy so that $$\phi^{-1}(\mathcal{F})$$ is the natural product foliation on $$S^1 \times D^{n-1}$$ by $$\{pt\} \times D^{n-1}$$. Since $$M$$ is compact, we may cover it by finitely many such embedded tori $$\phi_i : S^1 \times D^{n-1} \to M$$. Let $$\theta_i$$ denote a $$(n-1)$$-form on $$S^1 \times D^{n-1}$$ which on the leaves $$\{pt\} \times D^{n-1}$$ restrict to a positive volume form on the interior of the disk and vanishes near the boundary $$\{pt\} \times \partial D^{n-1}$$. Define:
+*Proof*. Suppose $$\mathcal{F}$$ is taut. Then for any $$p \in M$$, we can find an embedded loop $$\phi : S^1 \to M$$ transverse to $$\mathcal{F}$$ passing through $$p$$. Take a slight thickening to $$\phi : S^1 \times D^{n-1} \to M$$. We arrange $$\phi$$ by a small homotopy so that $$\phi^{-1}(\mathcal{F})$$ is the natural product foliation on $$S^1 \times D^{n-1}$$ by $$\{pt\} \times D^{n-1}$$. Since $$M$$ is compact, we may cover it by finitely many such embedded tori $$\phi_i : S^1 \times D^{n-1} \to M$$. Let $$\theta_i$$ denote a $$(n-1)$$-form on $$S^1 \times D^{n-1}$$ which on the leaves $$\{pt\} \times D^{n-1}$$ restrict to a positive volume form on the interior of the disk and vanishes near the boundary $$\{pt\} \times \partial D^{n-1}$$. Define:
 
 $$\displaystyle \theta_{\mathcal{F}} = \sum_i (\phi_i)_* \theta_i$$
 
