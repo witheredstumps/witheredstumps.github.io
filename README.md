@@ -1,1 +1,1 @@
-A math blog active at witheredstumps.github.io.
+Repository for a math blog, active at witheredstumps.github.io.
