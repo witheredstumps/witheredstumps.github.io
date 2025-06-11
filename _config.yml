@@ -1,5 +1,5 @@
 title: And Other Withered Stumps Of Time
-description: "A Jekyll blog inspired by witheredstumps.wordpress.com"
+description: "A math blog."
 # theme: minima
 plugins:
   - jekyll-feed
