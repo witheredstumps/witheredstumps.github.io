@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Thurston norm: Part II | And Other Withered Stumps Of Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Thurston norm: Part II | And Other Withered Stumps Of Time</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Thurston norm: Part II" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Theorem. (Thurston) Suppose \((M, \partial M)\) is a compact oriented \(3\)-manifold-with-boundary, and every embedded surface representing a nonzero homology class has negative Euler characteristic. Then the Thurston norm-ball of \((M, \partial M)\) is a finite-sided convex polyhedron." />
+<meta property="og:description" content="Theorem. (Thurston) Suppose \((M, \partial M)\) is a compact oriented \(3\)-manifold-with-boundary, and every embedded surface representing a nonzero homology class has negative Euler characteristic. Then the Thurston norm-ball of \((M, \partial M)\) is a finite-sided convex polyhedron." />
+<link rel="canonical" href="http://localhost:4000/2024/03/12/thurston-norm-ii/" />
+<meta property="og:url" content="http://localhost:4000/2024/03/12/thurston-norm-ii/" />
+<meta property="og:site_name" content="And Other Withered Stumps Of Time" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2024-03-12T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Thurston norm: Part II" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-12T00:00:00+05:30","datePublished":"2024-03-12T00:00:00+05:30","description":"Theorem. (Thurston) Suppose \\((M, \\partial M)\\) is a compact oriented \\(3\\)-manifold-with-boundary, and every embedded surface representing a nonzero homology class has negative Euler characteristic. Then the Thurston norm-ball of \\((M, \\partial M)\\) is a finite-sided convex polyhedron.","headline":"Thurston norm: Part II","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/03/12/thurston-norm-ii/"},"url":"http://localhost:4000/2024/03/12/thurston-norm-ii/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Fonts: Original + Sidebar style -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+	<!-- include lunar.js -->
+	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <!-- Sidebar and toggle button container -->
+    <div class="sidebar-toggle-container">
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar header with search bar -->
+        <nav>
+          <a href="/" >Home</a>
+          <a href="/about/" >About</a>
+        </nav>              
+        <!-- Archive section (label and dropdown) -->
+        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
+  <option value="#">Archive</option>
+  
+  
+    
+    
+      <option value="/2024/03/">
+        March 2024
+      </option>
+    
+      <option value="/2024/02/">
+        February 2024
+      </option>
+    
+  
+    
+    
+      <option value="/2022/05/">
+        May 2022
+      </option>
+    
+      <option value="/2022/03/">
+        March 2022
+      </option>
+    
+      <option value="/2022/01/">
+        January 2022
+      </option>
+    
+  
+    
+    
+      <option value="/2021/12/">
+        December 2021
+      </option>
+    
+  
+    
+    
+      <option value="/2020/11/">
+        November 2020
+      </option>
+    
+      <option value="/2020/09/">
+        September 2020
+      </option>
+    
+      <option value="/2020/06/">
+        June 2020
+      </option>
+    
+      <option value="/2020/05/">
+        May 2020
+      </option>
+    
+      <option value="/2020/04/">
+        April 2020
+      </option>
+    
+      <option value="/2020/03/">
+        March 2020
+      </option>
+    
+  
+</select>
+        <div class="sidebar-footer"> 
+<form class="sidebar-search-form" onsubmit="return false;">
+  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
+  <div id="autocomplete-results" class="autocomplete-results"></div>
+</form>
+        </div>
+      </aside>
+      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
+      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+    </div>
+    <!-- Backdrop for overlay effect -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
+    <!-- Main Content (not shifted) -->
+    <div class="main-content">
+      <header>
+        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      </header>
+	<main>
+  	
+    	<div class="content">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title" style="font-style: italic;">
+          Thurston norm: Part II
+        </h2>
+      <div class="post-meta">
+          <span>March 12, 2024</span>
+        </div>
+        <hr>
+    </header>
+    <p>Theorem. (Thurston) Suppose \((M, \partial M)\) is a compact oriented \(3\)-manifold-with-boundary, and every embedded surface representing a nonzero homology class has negative Euler characteristic. Then the Thurston norm-ball of \((M, \partial M)\) is a finite-sided convex polyhedron.</p>
+
+<p>The hypothesis of the theorem implies the Thurston norm is in fact a norm, as opposed to a semi-norm. Note that this is satisfied, for instance, if \(M\) is a hyperbolic \(3\)-manifold with boundary. The theorem will follow from the following lemma about normed spaces, with \(V = H_2(M, \partial M; \Bbb R)\) as the vector space and \(\Lambda\) as the integral lattice given by image of the change of coefficients homomorphism from the integral cohomology.</p>
+
+<p><b>Lemma</b>. Let \(V\) is a finite-dimensional real vector space and \(\Lambda \subset V\) is an integer lattice. Let \(\\| \cdot\\|\) be a norm on \(V\) and suppose \(\\| \cdot\\|\) takes integer values on \(\Lambda\). Then the unit ball in \((V, \\| \cdot\\| )\) is a finite-sided convex polyhedron.</p>
+
+<p><em>Proof</em>.  For ease of discussion, suppose \(V = \Bbb R^3\) and \(\Lambda = \Bbb Z^3\). Whenever \(\alpha, \beta, \gamma\) are an integral basis of \(\Bbb R^3\), there is a unique linear functional \(L_{\alpha, \beta, \gamma}\) on \(\Bbb R^3\) with integer coefficients such that its values at \(\alpha, \beta, \gamma\) are \(\\| \alpha\\| , \\| \beta\\| , \\| \gamma\\|\), respectively. Let \(\mathbf{e}_i, 1 \leq i \leq 3\) denote the standard integral basis of \(\Bbb Z^3\). Let us denote \(L_n := L_{\mathbf{e}_1, \mathbf{e}_2, \mathbf{e}_3 + n \mathbf{e}_1}\). We observe:</p>
+
+\[\displaystyle L_n(\mathbf{e}_3) = L_n(\mathbf{e}_3 + n \mathbf{e}_1) - n L_n(\mathbf{e}_1) = \\| \mathbf{e}_3 + n \mathbf{e}_1\\|  - n \\| \mathbf{e}_1\\| ,\]
+
+<p>which is non-increasing in \(n\), by the triangle inequality. But as this value is integral, we conclude \(L_n(\mathbf{e}_3)\) must be eventually constant. Therefore, for some sufficiently large \(n\), \(L_n(\mathbf{e}_3) = L_{n+1}(\mathbf{e}_3)\), which translates to:</p>
+
+\[\\| \mathbf{e}_3 + n \mathbf{e}_1\\|  + \\| \mathbf{e}_1\\|  = \\| (\mathbf{e}_3 + n \mathbf{e}_1) + \mathbf{e}_1\\|\]
+
+<p>Now, it is a property of any norm \(\| \cdot\|\) on a vector space \(V\) that if \(x, y \in V\) are two points such that one has \(\| x + y\|  = \| x\|  + \| y\|\), then \(\| \cdot\|\) is a linear function on the entire Euclidean line segment connecting \(x, y\). This can be checked by the following tricky triangle inequality argument: suppose \(t \in [0, 1]\), then</p>
+
+\[\displaystyle \begin{aligned}\| x + y\|  = \| x + ty + (1 - t)y\|  \leq \| x + ty\|  + (1-t)\| y\|  &amp;\leq \| x\|  + t\| y\|  +(1-t)\| y\|  \\ &amp;= \| x\|  + \| y\| \end{aligned}\]
+
+<p>By hypothesis the first and last terms in the above chain of inequalities are equal, which means all the intermediate inequalities must be equality. Therefore, \(\| x + ty\|  = \| x\|  + t\| y\|\), as desired. As a corollary of this, we obtain \(\\| \cdot\\|\) is linear along the Euclidean segment connecting \(\mathbf{e}_3 + n \mathbf{e}_1\) and \(\mathbf{e}_1\). Therefore, \(\\| \cdot\\|\) agrees with \(L_n\) along this segment. Now, consider the linear function \(L_{m, n} := L_{\mathbf{e}_1, \mathbf{e}_2 + m \mathbf{e}_1, \mathbf{e}_3 + n \mathbf{e}_1}\). Notice \(L_{m, n}\) agrees with \(L_n\) on \(\mathbf{e}_3\), and by an analogous argument as earlier, \(L_{m, n}(\mathbf{e}_2)\) is eventually constant for large enough values of \(m\). Therefore, for some sufficiently large \(m\), \(L_{m, n}(\mathbf{e}_2) = L_{m+1,n}(\mathbf{e}_2)\) and so \(\\| \cdot\\|\) agrees with \(L_{m, n}\) on the Euclidean segment connecting \(\mathbf{e}_2 + m \mathbf{e}_1\) and \(\mathbf{e}_1\). Finally, consider</p>
+
+\[\displaystyle L_{m, n, p} = L_{\mathbf{e}_1, \mathbf{e}_2 + m \mathbf{e}_1 + p(\mathbf{e}_3 + n \mathbf{e_1}) + p \mathbf{e}_1, \mathbf{e}_3 + n \mathbf{e}_1}\]
+
+<p>Let us write \(\alpha = \mathbf{e}_1\), \(\beta = \mathbf{e}_2 + m\mathbf{e}_1\) and \(\gamma = \mathbf{e}_3 + n\mathbf{e}_1\) for brevity. Mutatis mutandis, we conclude that \(L_{m, n, p}\) agrees with \(L_{m, n, p+1}\) for large enough values of \(p\). Consequently, for a sufficiently large value of \(p\), we must have \(\displaystyle L_{m, n, p}(\beta) = L_{m, n, p+1}(\beta)\). Simplifying, we get</p>
+
+\[\\| \beta+ p \gamma + p \alpha\\|  + \\| \gamma + \alpha\\|  = \\| \beta + (p+1)\gamma + (p+1)\alpha\\|\]
+
+<p>But observe \(\\| \gamma + \alpha\\|  = \\| \mathbf{e}_3 + (n+1)\mathbf{e}_1\\|  = \\| \gamma\\|  + \\| \alpha\\|\). Using this, we deduce,</p>
+
+\[\\| \beta+ p \gamma + p \alpha\\|  + \\| \gamma\\|  + \\| \alpha\\|  = \\| (\beta + p\gamma + p\alpha) + \gamma + \alpha\\|\]
+
+<p>For any triple of vectors \(x, y, z\) in a normed vector space \((V, \| \cdot\| )\), if \(\| x +y+z\|  = \| x\| +\| y\| +\| z\|\) holds, then \(\| \cdot\|\) is in fact linear on the entire simplex spanned by \(x, y, z\). This follows from an analogous argument as in the segment case: for all \(t, s \in [0, 1]\),</p>
+
+\[\displaystyle \begin{aligned}\| x + y + z\|  &amp;= \| x + ty + sz + (1 - t)y + (1-s)z\|   \\ &amp;\leq \| x + ty + sz\|  + (1-t)\| y\|  + (1-s)\| z\|  \\&amp;= \| x\|  + \| y\|  + \| z\| \end{aligned}\]
+
+<p>By hypothesis, all the inequalities above are equalities. Applying this with</p>
+
+\[x = \beta+p\gamma+p\alpha, y = \gamma, z = \alpha,\]
+
+<p>we see \(L_{m, n, p}\) agrees with \(\\| \cdot\\|\) on the entire simplex spanned by these vectors. Therefore, the hyperplane \(\{L_{m, n, p} = 1\}\) defines a facet of the unit norm ball, by convexity of the ball. Notice that \(L_{m, n, p}\) is an integral linear functional, and norm of \(L_{m, n, p}\) with respect to \(\\| \cdot\\|\) is \(1\) as it is tangential to the unit norm ball, and the rest of the ball lies on the half-space \(L_{m, n, p} \leq 1\). Varying \(\mathbf{e}_i\), \(1 \leq i \leq 3\) over all integral bases of \(\Bbb Z^3\) by an action of \(\mathrm{SL}_3(\Bbb Z)\), we see that that the vectors \(\beta + p\gamma+p\alpha\), \(\gamma\) and \(\alpha\) can define all projectively rational simplices in \(\Bbb{RP}^2\). Therefore, the unit norm ball of \(\\| \cdot\\|\) is intersection of half-spaces defined by integral linear functionals of norm \(1\). Since the dual norm ball is compact, we conclude the norm ball must be a finite intersection of half-space defined by integral linear functionals. This concludes the proof.</p>
+
+<p>As a consequence, we give a solution to the exercise at the end of the previous post. Let \(L \subset S^3\) be the Whitehead link, and \(\alpha, \beta\) be the generators of \(H_2(S^3 \setminus \nu(L), \partial \nu(L); \Bbb Z)\) as before. We wish to find a norm-minimizing representative of \(5 \alpha + 3 \beta\). Recall we proved,</p>
+
+\[\\| \alpha\\|  = \\| \beta\\|  = \\| (\alpha + \beta)/2\\|  = 1,\]
+
+<p>where \(\alpha + \beta\) has norm \(2\) because this is the homology class of the Seifert surface of the Whitehead link, which is genus \(1\) and therefore Euler characteristic \(2 - 2 \cdot 1 - 2 = -2\) (as there are two components). By the Theorem above, we conclude that the entire segment connecting \(\alpha, \beta\) in the real homology vector space must be contained in the unit sphere of the Thurston norm. Hence, the convex combination \(5/8 \cdot \alpha + 3/8 \cdot \beta\) must have norm \(1\). Thus, \(\\| 5 \alpha + 3 \beta\\|  = 8\).</p>
+
+<p>To find a minimizing representative, we simply consider \(5\) parallel copies of the surface \(\alpha\), and \(3\) parallel copies of the surface \(\beta\). A pair of surfaces chosen from each intersect in a properly embedded arc (connecting a pair of points in the two components of \(L\)). We take the oriented sum of the surfaces, by cutting both along the arc and pasting criss-cross so that orientations are preserved. Doing this for all arcs in the intersection resolves the singularities. This is the desired norm-minimizer, as can be checked by computing the Euler characteristic.</p>
+
+  </article>
+</div>
+
+<!-- Fixed-position buttons for previous/next post -->
+<div class="bottom-btns-vertical visible">
+  
+    <a class="fixed-bottom-btn" href="/2024/03/13/segue-foliation/">
+      &#171; Newer
+    </a>
+  
+  
+    <a class="fixed-bottom-btn" href="/2024/02/28/thurston-norm-i/">
+      Older &#187;
+    </a>
+  
+</div>
+
+<!-- Arrow key navigation for previous/next post -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2024/02/28/thurston-norm-i/";
+  var nextUrl = "/2024/03/13/segue-foliation/";
+  document.addEventListener('keydown', function(event) {
+    // Left arrow (37) or 'A'
+    if ((event.key === "ArrowLeft" || event.key === "a" || event.key === "A") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Right arrow (39) or 'D'
+    if ((event.key === "ArrowRight" || event.key === "d" || event.key === "D") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+  });
+});
+</script>
+
+<!-- Keyboard navigation hint popup -->
+<style>
+.keyboard-nav-popup {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.97);
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.keyboard-nav-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.keyboard-nav-popup kbd {
+  background: #222;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid #555;
+}
+</style>
+<div class="keyboard-nav-popup" id="keyboardNavPopup">
+  Navigate posts with <kbd>←</kbd> or <kbd>A</kbd> &nbsp; / &nbsp; <kbd>→</kbd> or <kbd>D</kbd>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2024/02/28/thurston-norm-i/";
+  var nextUrl = "/2024/03/13/segue-foliation/";
+  var popup = document.getElementById('keyboardNavPopup');
+
+  // Show popup for 3 seconds on load
+  if (popup) {
+    popup.classList.add('visible');
+    setTimeout(function() {
+      popup.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show popup for 1 seconds on keypress (if not already visible)
+  function showPopupOnKey() {
+    if (!popup.classList.contains('visible')) {
+      popup.classList.add('visible');
+      setTimeout(function() {
+        popup.classList.remove('visible');
+      }, 1000);
+    }
+  }
+
+  document.addEventListener('keydown', function(event) {
+    // Left arrow or 'A'
+    if ((event.key === "ArrowLeft" || event.key.toLowerCase() === "a") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+    // Right arrow or 'D'
+    if ((event.key === "ArrowRight" || event.key.toLowerCase() === "d") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Show popup again on any navigation key
+    if (
+      (event.key === "ArrowLeft" && nextUrl) ||
+      (event.key.toLowerCase() === "a" && nextUrl) ||
+      (event.key === "ArrowRight" && prevUrl) ||
+      (event.key.toLowerCase() === "d" && prevUrl)
+    ) {
+      showPopupOnKey();
+    }
+  });
+});
+</script>
+  	
+	</main>
+    </div>
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+          backdrop.style.display = 'block';
+          // Move the toggle button with the sidebar
+          sidebarToggle.classList.add('open');
+        } else {
+          backdrop.style.display = 'none';
+          sidebarToggle.classList.remove('open');
+        }
+      }
+      function closeSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('open');
+        backdrop.style.display = 'none';
+      }
+      // Optional: close sidebar with Esc key
+      document.addEventListener('keydown', function(e){
+        if (e.key === "Escape") closeSidebar();
+      });
+    </script>
+<script src="/assets/js/lunr-autocomplete.js"></script>
+  </body>
+</html>

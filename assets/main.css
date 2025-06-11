@@ -7,6 +7,10 @@ body {
   background: #fff;
 }
 
+.content strong, .content b {
+  font-weight: bold; /* No font-family override */
+}
+
 /* --- Background pattern --- */
 .background-pattern {
   position: fixed;
@@ -255,6 +259,16 @@ main {
   display: block;
 }
 
+.figure-row figure {
+  margin: 0 1em;
+  text-align: center;
+}
+.figure-row figcaption {
+  font-size: 0.95em;
+  color: #666;
+  margin-top: 0.4em;
+}
+
 /* --- mathjax --- */
 
 mjx-container {
@@ -307,4 +321,12 @@ a:focus {
 .fixed-bottom-btn:hover {
   background: #8a2d2d;
   color: #fff;
+}
+
+/* -- Bold fonts -- */
+
+.content b {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 0.88em;
 }

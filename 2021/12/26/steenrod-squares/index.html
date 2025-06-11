@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Notes on Steenrod Squares | And Other Withered Stumps Of Time</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>Notes on Steenrod Squares | And Other Withered Stumps Of Time</title>
+<meta name="generator" content="Jekyll v4.4.1" />
+<meta property="og:title" content="Notes on Steenrod Squares" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="These are some roughly written notes I am preparing as I study Steenrod operations. I expect nothing new beyond what is in Hatcher Chapter 4.L will be said here, but I will mention other references if I use them. This post is not going to be part of a series, and will instead be updated as I progress and decide to write more." />
+<meta property="og:description" content="These are some roughly written notes I am preparing as I study Steenrod operations. I expect nothing new beyond what is in Hatcher Chapter 4.L will be said here, but I will mention other references if I use them. This post is not going to be part of a series, and will instead be updated as I progress and decide to write more." />
+<link rel="canonical" href="http://localhost:4000/2021/12/26/steenrod-squares/" />
+<meta property="og:url" content="http://localhost:4000/2021/12/26/steenrod-squares/" />
+<meta property="og:site_name" content="And Other Withered Stumps Of Time" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-26T00:00:00+05:30" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Notes on Steenrod Squares" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-12-26T00:00:00+05:30","datePublished":"2021-12-26T00:00:00+05:30","description":"These are some roughly written notes I am preparing as I study Steenrod operations. I expect nothing new beyond what is in Hatcher Chapter 4.L will be said here, but I will mention other references if I use them. This post is not going to be part of a series, and will instead be updated as I progress and decide to write more.","headline":"Notes on Steenrod Squares","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/12/26/steenrod-squares/"},"url":"http://localhost:4000/2021/12/26/steenrod-squares/"}</script>
+<!-- End Jekyll SEO tag -->
+
+    <!-- Fonts: Original + Sidebar style -->
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/main.css">
+	<!-- include lunar.js -->
+	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
+    <!-- MathJax -->
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [['$', '$'], ['\\(', '\\)']],
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
+        }
+      };
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+  <body>
+    <div class="background-pattern"></div>
+    <!-- Sidebar and toggle button container -->
+    <div class="sidebar-toggle-container">
+      <aside class="sidebar" id="sidebar">
+        <!-- Sidebar header with search bar -->
+        <nav>
+          <a href="/" >Home</a>
+          <a href="/about/" >About</a>
+        </nav>              
+        <!-- Archive section (label and dropdown) -->
+        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
+  <option value="#">Archive</option>
+  
+  
+    
+    
+      <option value="/2024/03/">
+        March 2024
+      </option>
+    
+      <option value="/2024/02/">
+        February 2024
+      </option>
+    
+  
+    
+    
+      <option value="/2022/05/">
+        May 2022
+      </option>
+    
+      <option value="/2022/03/">
+        March 2022
+      </option>
+    
+      <option value="/2022/01/">
+        January 2022
+      </option>
+    
+  
+    
+    
+      <option value="/2021/12/">
+        December 2021
+      </option>
+    
+  
+    
+    
+      <option value="/2020/11/">
+        November 2020
+      </option>
+    
+      <option value="/2020/09/">
+        September 2020
+      </option>
+    
+      <option value="/2020/06/">
+        June 2020
+      </option>
+    
+      <option value="/2020/05/">
+        May 2020
+      </option>
+    
+      <option value="/2020/04/">
+        April 2020
+      </option>
+    
+      <option value="/2020/03/">
+        March 2020
+      </option>
+    
+  
+</select>
+        <div class="sidebar-footer"> 
+<form class="sidebar-search-form" onsubmit="return false;">
+  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
+  <div id="autocomplete-results" class="autocomplete-results"></div>
+</form>
+        </div>
+      </aside>
+      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
+      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
+    </div>
+    <!-- Backdrop for overlay effect -->
+    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
+    <!-- Main Content (not shifted) -->
+    <div class="main-content">
+      <header>
+        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      </header>
+	<main>
+  	
+    	<div class="content">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title" style="font-style: italic;">
+          Notes on Steenrod Squares
+        </h2>
+      <div class="post-meta">
+          <span>December 26, 2021</span>
+        </div>
+        <hr>
+    </header>
+    <p>These are some roughly written notes I am preparing as I study Steenrod operations. I expect nothing new beyond what is in Hatcher Chapter 4.L will be said here, but I will mention other references if I use them. This post is not going to be part of a series, and will instead be updated as I progress and decide to write more.</p>
+
+<p>A cohomology operation of type \((G_1, G_2, m_1, m_2)\) is a natural transformation</p>
+
+\[H^{m_1}(-; G_1) \to H^{m_2}(-; G_2)\]
+
+<p>where \(H^*\) denotes singular cohomology. In other words, they are homomorphisms</p>
+
+\[\Phi_X : H^{m_1}(X; G_1) \to H^{m_2}(X; G_2)\]
+
+<p>such that for any map \(f : X \to Y\), \(f^* \Phi_Y(\alpha) = \Phi_X(f^* \alpha)\); we will mostly drop the reference to the space \(X\) and denote the natural transformation by \(\Phi\), as the space will be clear from context. One way to understand the motivation here is via the fact that singular cohomology is representable by Eilenberg-Maclane space \(K(G, n)\) (recall these are CW-complexes characterized uniquely upto homotopy equivalence by the property that all the homotopy groups vanish except the one in degree \(n\), and \(\pi_n \cong G\)), that is, \(H^n(X; G) = [X, K(G, n)]\) where \([A, B]\) denotes based homotopy classes of maps \(A \to B\). Therefore, invoking Yoneda’s lemma, we obtain that cohomology operations of type \((G_1, G_2, m_1, m_2)\) are classified by elements of \(H^{m_2}(K(G_1, m_1); G_2)\). As a corollary, nontrivial cohomology operations only exist when \(m_1 \leq m_2\). Moreover if \(m_1 = m_2\) then by Hurewicz’s theorem and universal coefficients theorem, we compute the cohomology group to be \(\mathrm{Hom}(G_1, G_2)\), which implies the only cohomology operations in this case are change-of-coefficients homomorphisms. First interesting examples of cohomology operations are \(H^k(X; \Bbb F_p) \to H^{kp}(X; \Bbb F_p)\) given by \(\alpha \mapsto \alpha^p\).</p>
+
+<p>In the case \(p = 2\), the cup-square modulo 2 is a useful cohomology operation and can be used to detect topology. For example, consider \(\Bbb{CP}^2\) and \(S^2 \vee S^4\). These spaces have the same cohomology groups by cellular homology. However, if \(\alpha \in H^2(\Bbb{CP}^2; \Bbb F_2)\) denotes the generator then \(\alpha^2 = 1\) but there is no degree \(2\) element in the cohomology ring of \(S^2 \vee S^4\) which squares to \(0\); incidentally this says the attaching map of the \(4\)-cell in \(\Bbb{CP}^2\), which is the Hopf map \(h : S^3 \cong \partial D^4 \to (\Bbb{CP}^2)^{(3)} = S^2\), is not nullhomotopic, implying \(\pi_3(S^2) \neq 0\). The major drawback with this operation, though, is that it is not stable under suspension. Indeed, the ring structure in \(H^*(\Sigma \Bbb{CP}^2; \Bbb F_2)\) is completely trivial, cup product of any pair of elements is \(0\). However, \(\Sigma \Bbb{CP}^2\) is not homotopy equivalent to \(\Sigma(S^2 \vee S^4) \simeq S^3 \vee S^5\). To prove something like this, we need to develop a stable generalization of the cup-square modulo 2 or the \(p\)-th power operation modulo \(p\) in general; these are exactly what Steenrod squares or Steenrod power operations are, respectively. Notice that as a corollary of this we end up proving that the attaching map of the \(5\)-cell in \(\Sigma \Bbb{CP}^2\), which is the suspension \(\Sigma h : S^4 \to S^3\) of the Hopf map is not nullhomotopic, which demonstrates \(\pi_4(S^3) \neq 0\). Indeed, we shall end up proving that the spaces are never homotopy equivalent even if they are suspended \(k\)-fold, which demonstrates the first stable stem \(\pi_1^s := \lim_k \pi_{k+1}(S^k) \neq 0\). (Actually, one can deduce this from just \(\pi_4(S^3) \neq 0\), by the sharp version of the Freudenthal suspension theorem specifying the stable range.)</p>
+
+<p>There are two cases to consider, \(p = 2\) and \(p\) an odd prime. In the former, we shall have the Steenrod square operations \(Sq^i : H^n(X; \Bbb F_2) \to H^{n+i}(X; \Bbb F_2)\) for every \(i \geq 0\). In the latter case, we shall have the Steenrod power operations \(P^i : H^n(X; \Bbb F_p) \to H^{n+2i(p-1)}(X; \Bbb F_p)\) for every \(i \geq 0\). These operations are characterized by the following axioms:</p>
+
+<ol>
+  <li>
+    <p>\(Sq^0 = \mathbf{1}, P^0 = \mathbf{1}\).</p>
+  </li>
+  <li>
+    <p>\(Sq^1 = \beta_2\) is the Bockstein homomorphism for the sequence \(0 \to \Bbb Z_2 \to \Bbb Z_4 \to \Bbb Z_2 \to 0\).</p>
+  </li>
+  <li>
+    <p>\(Sq^i a = a^2\) if \(i = \vert a\vert\), \(Sq^i a = 0\) if \(i &gt; \vert a\vert\), and likewise \(P^i a = a^p\) if \(2i = \vert a\vert\), \(P^i a = 0\) if \(2i &gt; \vert a\vert\).</p>
+  </li>
+  <li>
+    <p>\(Sq^i \sigma = \sigma Sq^i, P^i \sigma = \sigma P^i\), where \(\sigma : H^*(X) \to H^*(\Sigma X)\) is the suspension isomorphism.</p>
+  </li>
+  <li>
+    <p>Cartan’s formula: \(Sq^j(a \smile b) = \sum_i Sq^i a\smile Sq^{j-i} b\) and \(P^j(a \smile b) = \sum_i P^i a \smile P^{j-i} b\).</p>
+  </li>
+  <li>
+    <p>Adem relations regarding compositions of Steenrod squares or powers:</p>
+  </li>
+</ol>
+
+\[\displaystyle \begin{aligned}Sq^i Sq^j &amp;= \sum_k \binom{j-k-1}{i-2k} Sq^{i+j-k} Sq^k, \; i &lt; 2j \\ P^i P^j &amp;= \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk} P^{i+j-2k} P^k, \; i &lt; pj \\ P^i \beta_p P^j &amp;= \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk} \beta_p P^{i+j-k} P^k \\ &amp;- \sum_k (-1)^{i+k} \binom{(p-1)(j-k)-1}{i-pk-1} P^{i+j-k} \beta_p P^k, \; i \leq pj.\end{aligned}\]
+
+<p>Define the totals \(Sq : H^*(X; \Bbb F_2) \to H^*(X; \Bbb F_2)\) and \(P : H^*(X; \Bbb F_p) \to H^*(X; \Bbb F_p)\) as</p>
+
+\[\begin{align*} Sq &amp;= Sq^0 + Sq^1 + Sq^2 + \cdots \\ P &amp;= P^0 + P^1 + P^2 + \cdots\end{align*}\]
+
+<p>Then Cartan’s formula is just stating \(Sq\) and \(P\) are ring endomorphisms. The relativized versions \(Sq : H^*(X, A; \Bbb F_2) \to H^*(X, A; \Bbb F_2)\) and \(P : H^*(X, A; \Bbb F_p) \to H^*(X, A; \Bbb F_p)\) of the operations can be constructed from the axioms via the natural isomorphism \(H^*(X, A) \cong H^*(X/A)\); for these we require the Cartan formula is true under relative cup product \(H^*(X, A) \times H^*(X, B) \to H^*(X, A \cup B)\). The axioms above are not independent in any sense. In fact, the rest of the axioms follow from the relativized versions of 1, 3 and 5 (see Epstein-Steenrod)</p>
+
+<p>We begin with the construction of the Steenrod squares and power operations instead. The general idea is pretty geometric: consider the \(p\)-fold exterior cup product</p>
+
+\[H^*(X; \Bbb F_p)^{\otimes p} \to H^*(X^p; \Bbb F_p)\]
+
+<p>Let \(\alpha \in H^n(X; \Bbb F_p)\) be an element, and consider its image under the map \(\alpha^{\otimes p}\). Appealing to the fact quoted in the first paragraph of this post, this is represented by a map \(f : X^p \to K(\Bbb Z/p, np)\). Note that \(\Bbb Z/p\Bbb Z\) acts on \(X^p\) by permuting the factors cyclically. Let us define</p>
+
+\[\begin{gather*}T : X^p \to X^p \\ T(x_1, \cdots, x_p) = (x_p, x_1, \cdots, x_{p-1})\end{gather*}\]
+
+<p>Then $T$ generates the aforementioned cyclic action. The composition \(f \circ T : X^p \to K(\Bbb Z/p, np)\) is a new map but it is nonetheless homotopic to the older map \(f\) as they both represent the same element \(\alpha^{\otimes p} \in H^{np}(X^p; \Bbb F_p)\). The homotopy can be written as a map \(X^p \times [0, 1/p] \to K(\Bbb Z/p, np)\) (the odd choice \([0, 1/p]\) for the time-interval will be clear in a bit). One can argue the same for \(f \circ T\) and \(f \circ T^2\) and obtain a homotopy \(X^p \times [1/p, 2/p] \to K(\Bbb Z/p, np)\), and so on until we have come back full circles to \(f \circ T^{p-1}\) and \(f \circ T^p = f\). Paste these homotopies end-to-end to get a map</p>
+
+\[f_1 : X^p \times S^1 \to K(\Bbb Z/p, np)\]
+
+<p>It turns out that one can choose all the earlier homotopies between \(f, f \circ T, f \circ T^2, \cdots\) carefully such that, by obstruction theory, \(f_1\) is nullhomotopic. Once that is established, consider the \(\Bbb Z/p\)-action on \(X^p \times S^1\) given by a diagonal action where the action on \(X^p\) is as before and on \(S^1\) is given by a \(2\pi/p\) rotation, permuting the arcs which were intervals of the earlier homotopies; these \(\Bbb Z/p\)-translates of \(f_1\) are also all nullhomotopic, and the nullhomotopies \(X^p \times D^2 \to K(\Bbb Z/p, np)\) glue up to a map</p>
+
+\[f_2 : X^p \times E_2 \to K(\Bbb Z/p, np),\]
+
+<p>where \(E_2\) is the complex given by attaching \(p\)-many \(2\)-cells to the circle, and it admits a \(\Bbb Z/p\)-action which simultaneously rotates the “equator” \(S^1\) by \(2\pi/p\) and cyclically permutes the \(2\)-cells. Inducting upward, one ends up with a map \(f_\infty : X^p \times E\Bbb Z/p \to K(\Bbb Z/p, np)\) where \(E\Bbb Z/p\) is a contractible complex on which \(\Bbb Z/p\) acts freely. Restrict this map on the first factor to the diagonal copy of \(X \subset X^p\), and mod out by the \(\Bbb Z/p\)-action to get a map \(X \times B\Bbb Z/p \to K(\Bbb Z/p, np)\). This represents an element in</p>
+
+\[H^{*}(X \times B\Bbb Z/p; \Bbb F_p) \cong H^{*}(X; \Bbb F_p) \otimes \Lambda_{\Bbb F_p}^*[x] \otimes \Bbb F_p[y]\]
+
+<p>of degree \(np\), where \(\vert x\vert  = 1, \vert y\vert  = 2\). Therefore, the element can be written as</p>
+
+\[\sum_{0 \leq i \leq np} \omega_{(p-1)n-i} \otimes \theta_i(\alpha)\]
+
+<p>where \(\omega_{2j} = y^j, \omega_{2j+1} = x y^j\) and \(\theta_i(\alpha) \in H^{n+i}(X; \Bbb F_p)\). If \(p = 2\), the Steenrod squares will be \(Sq^i = \theta_i\) and if \(p\) is an odd prime the Steenrod powers will be \(P^i = \kappa_i \theta_{2i(p-1)}\) for certain appropriate normalizing factor \(\kappa_i\).</p>
+
+<p><em>Caveat</em>: Here we used the isomorphism</p>
+
+\[H^*(B\Bbb Z/p; \Bbb F_p) \cong \Lambda^*_{\Bbb F_p}[x] \otimes \Bbb F_p[y],\]
+
+<p>where \(\vert x\vert  = 1, \vert y\vert  = 2\). To demonstrate this, observe \(B\Bbb Z/p\) is an infinite dimensional lens space so has a single cell in every dimension; the integral cellular cochain complex has differentials alternating between \(0\) and multiplication by \(p\) whereas the mod \(p\) cellular cochain complex has no differentials. By naturality with respect to the change of coefficients homomorphism \(\Bbb Z \to \Bbb Z_p\), we see that the map from integral cohomology is surjective in even degrees and zero in odd degrees. Comparing the Bockstein sequences corresponding to the short exact sequences \(0 \to \Bbb Z \to \Bbb Z \to \Bbb Z_p \to 0\) and \(0 \to \Bbb Z_p \to \Bbb Z_{p^2} \to \Bbb Z_p \to 0\), we obtain that the Bockstein homomorphism</p>
+
+\[\beta_p : H^n(B\Bbb Z/p; \Bbb F_p) \to H^{n+1}(B\Bbb Z/p; \Bbb F_p)\]
+
+<p>is zero in even degrees and an isomorphism in odd degrees. Next, let \(y \in H^2(B \Bbb Z/p; \Bbb F_p)\) be pullback of the generator of \(H^2(\Bbb{CP}^\infty)\) under the fibration \(B\Bbb Z/p \to \Bbb{CP}^\infty\) induced from \(S^\infty \to \Bbb{CP}^\infty\) after quotienting by the \(\Bbb Z/p \subset U(1)\) action on the domain; this is simply an isomorphism in even degrees by the discussion above. Then by the fact that \(\beta_p\) is an isomorphism in degree \(1\), we find an element \(x \in H^1(B\Bbb Z/p; \Bbb F_p)\) such that \(\beta_p(x) = y\). By ring structure of the Bockstein, \(\beta(x y^k) = y^{k+1}\) are generators in even degrees, therefore \(xy^k\)’s must generate the odd degrees. This finishes the proof.</p>
+
+<p>Unfortunately, checking that these indeed satisfy the required properties is much harder than it sounds, for full details see Hatcher, Ch 4.L (I might add in more details here as I understand them on the way).</p>
+
+<p>We move on to some computations. To return to the earlier example, observe that for the generator \(\alpha \in H^2(\Bbb{CP}^2; \Bbb F_2)\), \(Sq^2 \alpha = \alpha^2 \neq 0\) and therefore by stabilit we must also have \(Sq^2 \sigma^k(\alpha) \neq 0\), where \(\sigma^k(\alpha) \in H^{2+k}(\Sigma^k \Bbb{CP}^2; \Bbb F_2)\) is the generator of the \(k\)-fold suspension. However, for</p>
+
+\[S^k(S^2 \vee S^4) \simeq S^{2+k} \vee S^{4+k},\]
+
+<p>all Steenrod squares simply vanish, since \(Sq^2\) of a class in \(H^*(S^{2+k})\) stays there by naturality with respect to the retract on that factor, and likewise for the other factor, but there’s no space in the cohomology of spheres for nontrivial cohomology operations. The argument goes through word-by-word with the mapping cone \(C(f)\) in place of \(\Bbb{CP}^2\), where \(f : S^{2n-1} \to S^n\) is a map of Hopf invariant \(1\). This shows the stable stem \(\pi_1^s, \pi_3^s, \pi_7^s\) are all nonzero, as they call contain the stable Hopf fibrations of appropriate degree, which by above are actually non-null.</p>
+
+<p>In fact, one can argue using these Hopf fibrations that \(\pi_2^s, \pi_6^s, \pi_{14}^s\) are nonzero as well: recall that there is a graded ring structure on \(\pi_*^s\) defined upto appropriately stabilizing by \((f, g) \mapsto \Sigma^* f \circ g\), the graded commutativity of this product upto stabilization can be seen by writing the suspension as smashing with the circle many times, and then permuting factors, which tells that the product is homotopic to \(\Sigma^* f \wedge \Sigma^* g\). The claim is that under this product, the squares of the Hopf fibrations are stably nonzero. Suppose \(h : S^{n+1} \to S^n\) is a suspension of the Hopf map, and let \(C_n\) denote the mapping cone. If \(\Sigma h \circ h : S^{n+2} \to S^n\) is nullhomotopic, consider the map \(S^{n+3} = D^{n+2} \cup_{S^{n+1}} D^{n+2} \to C_n\) defined on the equator by sending it to the \(n\)-skeleton by \((\Sigma h) \circ h\), on the top hemisphere by the nullhomotopy of \(\Sigma h \circ h\) and on the bottom hemisphere by \(C(\Sigma h) \circ h\). Attach a \(D^{n+4}\) to \(C_h\) along this map to obtain a cell complex \(X\). Then observe \(Sq^2 : H^n(X; \Bbb F_2) \to H^{n+2}(X; \Bbb F_2)\) is, by naturality applied to inclusion of the \((n+2)\)-skeleton, the same as \(Sq^2 : H^n(C_h; \Bbb F_2) \to H^{n+2}(C_h; \Bbb F_2)\) which is a suspension of the corresponding \(Sq^2\) on the mapping cone of the Hopf map, which is the Hopf invariant, \(1\). Thus,</p>
+
+\[Sq^2 : H^n(X; \Bbb F_2) \to H^{n+2}(X; \Bbb F_2)\]
+
+<p>is an isomorphism. Further, we obtain that \(Sq^2 : H^{n+2}(X; \Bbb F_2) \to H^{n+4}(X; \Bbb F_2)\) is the same, since by naturality applied to the quotient map \(X \to X/S^n\) which is an isomorphism above degree \(n\) by cellular homology, \(Sq^2 : H^{n+2}(C_{\Sigma^2 h}; \Bbb F_2) \to H^{n+4}(C_{\Sigma^2 h}; \Bbb F_2)\), once again an isomorphism. Thierefore \(Sq^2 Sq^2 : H^n \to H^{n+4}\) must be an isomorphism but by Adem relations \(Sq^2 Sq^2 = Sq^3 Sq^1 = 0\) as \(Sq^1 = 0\); there’s no \(H^{n+1}\) for it to be nonzero.</p>
+
+<p>(I will probably fill in something about the relation between Steenrod squares and Stiefel-Whitney classes, an analogous relation between Steenrod powers with Chern classes modulo \(p\) will be used in Seiberg-Witten Theory: Part 2. I might end up doing some exercises from Chapter 4.L and write the interesting solutions here, and there’s plenty of examples in Hatcher in any case. Recommendations on computations are welcome.)</p>
+
+  </article>
+</div>
+
+<!-- Fixed-position buttons for previous/next post -->
+<div class="bottom-btns-vertical visible">
+  
+    <a class="fixed-bottom-btn" href="/2021/12/27/sw-theory-ii/">
+      &#171; Newer
+    </a>
+  
+  
+    <a class="fixed-bottom-btn" href="/2020/11/02/markov-chains-i/">
+      Older &#187;
+    </a>
+  
+</div>
+
+<!-- Arrow key navigation for previous/next post -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2020/11/02/markov-chains-i/";
+  var nextUrl = "/2021/12/27/sw-theory-ii/";
+  document.addEventListener('keydown', function(event) {
+    // Left arrow (37) or 'A'
+    if ((event.key === "ArrowLeft" || event.key === "a" || event.key === "A") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Right arrow (39) or 'D'
+    if ((event.key === "ArrowRight" || event.key === "d" || event.key === "D") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+  });
+});
+</script>
+
+<!-- Keyboard navigation hint popup -->
+<style>
+.keyboard-nav-popup {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.97);
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.keyboard-nav-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.keyboard-nav-popup kbd {
+  background: #222;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid #555;
+}
+</style>
+<div class="keyboard-nav-popup" id="keyboardNavPopup">
+  Navigate posts with <kbd>←</kbd> or <kbd>A</kbd> &nbsp; / &nbsp; <kbd>→</kbd> or <kbd>D</kbd>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2020/11/02/markov-chains-i/";
+  var nextUrl = "/2021/12/27/sw-theory-ii/";
+  var popup = document.getElementById('keyboardNavPopup');
+
+  // Show popup for 3 seconds on load
+  if (popup) {
+    popup.classList.add('visible');
+    setTimeout(function() {
+      popup.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show popup for 1 seconds on keypress (if not already visible)
+  function showPopupOnKey() {
+    if (!popup.classList.contains('visible')) {
+      popup.classList.add('visible');
+      setTimeout(function() {
+        popup.classList.remove('visible');
+      }, 1000);
+    }
+  }
+
+  document.addEventListener('keydown', function(event) {
+    // Left arrow or 'A'
+    if ((event.key === "ArrowLeft" || event.key.toLowerCase() === "a") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+    // Right arrow or 'D'
+    if ((event.key === "ArrowRight" || event.key.toLowerCase() === "d") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Show popup again on any navigation key
+    if (
+      (event.key === "ArrowLeft" && nextUrl) ||
+      (event.key.toLowerCase() === "a" && nextUrl) ||
+      (event.key === "ArrowRight" && prevUrl) ||
+      (event.key.toLowerCase() === "d" && prevUrl)
+    ) {
+      showPopupOnKey();
+    }
+  });
+});
+</script>
+  	
+	</main>
+    </div>
+    <script>
+      function toggleSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        sidebar.classList.toggle('open');
+        if (sidebar.classList.contains('open')) {
+          backdrop.style.display = 'block';
+          // Move the toggle button with the sidebar
+          sidebarToggle.classList.add('open');
+        } else {
+          backdrop.style.display = 'none';
+          sidebarToggle.classList.remove('open');
+        }
+      }
+      function closeSidebar() {
+        var sidebar = document.getElementById('sidebar');
+        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
+        var backdrop = document.getElementById('sidebar-backdrop');
+        sidebar.classList.remove('open');
+        sidebarToggle.classList.remove('open');
+        backdrop.style.display = 'none';
+      }
+      // Optional: close sidebar with Esc key
+      document.addEventListener('keydown', function(e){
+        if (e.key === "Escape") closeSidebar();
+      });
+    </script>
+<script src="/assets/js/lunr-autocomplete.js"></script>
+  </body>
+</html>

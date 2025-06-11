@@ -5,7 +5,7 @@
     <title>Home - page 2 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 2 of 2 for Home - page 2 | And Other Withered Stumps Of Time</title>
+<title>Page 2 of 17 for Home - page 2 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 2" />
 <meta property="og:locale" content="en_US" />
@@ -16,6 +16,7 @@
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
 <meta property="og:type" content="website" />
 <link rel="prev" href="http://localhost:4000/index.html" />
+<link rel="next" href="http://localhost:4000/page/3/index.html" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Home - page 2" />
 <script type="application/ld+json">
@@ -23,7 +24,7 @@
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Playfair+Display:ital,wght@1,400&family=Noto+Serif:ital,wght@0,400;1,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
 	<!-- include lunar.js -->
 	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
@@ -32,7 +33,10 @@
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
-          displayMath: [['$$', '$$'], ['\\[', '\\]']]
+          displayMath: [['$$', '$$'], ['\\[', '\\]']],
+	  macros: {
+	    slash: ['\\not{#1}', 1]
+		}
         }
       };
     </script>
@@ -54,6 +58,55 @@
   
   
     
+    
+      <option value="/2024/03/">
+        March 2024
+      </option>
+    
+      <option value="/2024/02/">
+        February 2024
+      </option>
+    
+  
+    
+    
+      <option value="/2022/05/">
+        May 2022
+      </option>
+    
+      <option value="/2022/03/">
+        March 2022
+      </option>
+    
+      <option value="/2022/01/">
+        January 2022
+      </option>
+    
+  
+    
+    
+      <option value="/2021/12/">
+        December 2021
+      </option>
+    
+  
+    
+    
+      <option value="/2020/11/">
+        November 2020
+      </option>
+    
+      <option value="/2020/09/">
+        September 2020
+      </option>
+    
+      <option value="/2020/06/">
+        June 2020
+      </option>
+    
+      <option value="/2020/05/">
+        May 2020
+      </option>
     
       <option value="/2020/04/">
         April 2020
@@ -89,83 +142,143 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2020/03/27/jacobi-fields-part-i/">Jacobi fields: Part I</a>
+          <a href="/2021/12/07/monopoles-thurston-norm-i/">Monopoles and Thurston norm: Part I</a>
         </h2>
         <div class="meta">
-          <span>March 27, 2020</span>
+          <span>March 17, 2024</span>
         </div>
         <hr>
-        <p>In the subsequent series of posts I would like to talk about certain comparison theorems in Riemannian geometry while learning them. I have a very rough sketch of what I would like to do, but it seemed like an enticing idea to start writing my thoughts down somewhere. I will start by introducing Jacobi fields in this post, which will be used crucially when discussing comparison theorems and what they are. While writing this I have used do Carmo, “Riemannian Geometry” and Milnor, “Morse Theory” as references and inspiration, and strongly recommend looking through both for more detail and perspective.</p>
+        <p>A couple years ago I started writing a series of posts on Seiberg-Witten invariants which I never ended up finishing (which can be found here). To tie up with what I am learning now, I’ll write some notes on the 1997 paper ``Scalar curvature and the Thurston norm” by Kronheimer and Mrowka, which exhibits an interesting connection between Seiberg-Witten theory and the Thurston norm.</p>
 
-<p>Let \((M, g)\) be a Riemannian manifold and \(\nabla\) the unique torsion-free metric connection on the manifold. Given a path \(\gamma : [a, b] \to M\) starting at \(\gamma(a) = p\), a variation of \(\gamma\) is defined to be a smooth map \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\) such that \(V(0, t) = \gamma(t)\) and \(V(s, a) = p\) for all \(t \in [a, b]\) and \(s \in (-\varepsilon, \varepsilon)\). We shall define \(\gamma_s : [a, b] \to M\) by \(\gamma_s(t) = V(s, t)\), and think of the variation as a smooth family \(\{\gamma_s\}_{s \in (-\varepsilon, \varepsilon)}\) of curves starting at \(p\), passing through \(\gamma\).</p>
+<p>Let us begin by recalling basic terminology. Let $M$ be an oriented closed three-manifold, equipped with a Riemannian metric $g$. A spinc (stylized  spinC ) structure on $M$ is a unitary rank $2$ vector bundle $S \to M$ together with a ``Clifford multiplication” \(\rho : TM \to \mathrm{End}(S)\) satisfying the following property: given any oriented orthonormal frame \(\{e_1, e_2, e_3\}\) at a point \(p \in M\), the following properties are true for all \(i, j\):</p>
 
-<p>To any variation \(V\) of \(\gamma\) we can associate a vector field \(X\) defined along \(\gamma\) by \(X(t) = \partial_s \gamma_s(t) \vert_{s = 0}\); observe that \(X(a) = 0\). Conversely, given a vector field \(X\) defined along \(\gamma\) such that \(X(a) = 0\), the map \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\) defined by \(V(s, t) = \exp_{\gamma(t)}(s X(t))\)  defines a variation of \(\gamma\). Therefore such vector fields effectively carry informations about infinitisimal variations of \(\gamma\) and we shall call them variation fields along \(\gamma\).</p>
+\[\displaystyle \begin{aligned}\rho(e_i)\rho(e_j) + \rho(e_j)\rho(e_i) &amp;= 2\delta_{ij}I \\ \rho(e_i)^\star &amp;= -\rho(e_i) \\ \rho(e_1)\rho(e_2)\rho(e_k) &amp;= I\end{aligned}\]
 
-<p>We will be particularly interested in variations of geodesics on \((M, g)\). To wit, suppose \(\gamma\) is a geodesic on the manifold with \(\gamma'(0) = v\), and \(V\) is a variation of \(\gamma\) through geodesics, i.e., \(\gamma_s\) are geodesics for all \(s \in (-\varepsilon, \varepsilon)\). Let \(X\) be the variation field corresponding to \(V\). Then we observe that</p>
+<p>It can be checked that these conditions are independent of the choice of the oriented orthonormal frame. Therefore, \(\rho\) is an orientation-preserving isometric isomorphism from \(TM\) onto the subbundle of \(\mathrm{End}(S)\) denoted as \(\mathfrak{su}(S)\), consisting of traceless anti-hermitian endomorphisms, equipped with the inner product \(\mathrm{tr}(a^\star b)/2\). Any three-manifold admits a spinc structure: it is a standard fact that the tangent bundle of a three-manifold is trivial, so we define \(S = M \times \Bbb C^2\) and let \(\rho(e_i) = \sigma_i\) be the Pauli matrices, where \(\{e_1, e_2, e_3\}\) is a global orthonormal frame on \(M\). The set of spinc structures is naturally an affine space over \(H^2(M; \Bbb Z)\) for the following reason: given any class \(\alpha\) in the second cohomology group, it corresponds naturally to a complex line bundle \(L\) over \(M\) so that \(c_1(L) = \alpha\). For any spinc structure \(\mathfrak{s} = (S, \rho)\), we may form a new spinc structure \((S \otimes L, \rho \otimes 1_L)\), denoted \(\mathfrak{s} + \alpha\). In fact, it is not too difficult to see that any two spinc structures differ by an element of the second integral cohomology group.</p>
 
-\[\displaystyle 0 = \nabla_X \nabla_{\gamma'} \gamma' = \nabla_{\gamma'} \nabla_X \gamma' + \nabla_{[X, \gamma']} \gamma' + R(X, \gamma') \gamma'\]
+<p>Given a spinc structure \((S, \rho)\), a spinc connection is a metric connection \(B\) on \(S\) such that \(\rho\) is \(B\)-parallel, i.e., \(\nabla^B \rho = 0\). In other words, for all vector fields \(X, Y\) and section \(\psi\) of \(S\),</p>
 
-<p>But \(X = V_* \partial_s \vert_{s = 0}\), and \(\gamma' = V_* \partial_t \vert_{s = 0}\), therefore \([X, \gamma'] = V_* [\partial_s, \partial_t]\vert_{s = 0} = 0\). Also observe that \(\nabla_X \gamma' = \nabla_{\gamma'} X + [X, \gamma'] =  \nabla_{\gamma'} X\) by previous line. Plugging these in above, we obtain</p>
+\[\nabla^B_X (\rho(Y)\psi) = \rho(\nabla_X Y)\psi + \rho(Y) \nabla^B_X \psi,\]
 
-\[\displaystyle \nabla_{\gamma'}^2 X + R(X, \gamma') \gamma' = 0\]
+<p>where \(\nabla_X Y\) is the Levi-Civita connection on \(M\). In the example \(S = M \times \Bbb C^2\) described above, we can explicitly solve for a spin connection as follows: write \(\nabla^B_X \psi = d \psi(X) + B(X) \psi\) where \(d\psi(X)\) is the directional derivative of the section \(\psi\) of \(S\) treated as a function to \(\Bbb C^2\), and \(B\) is a \(\mathfrak{u}(2)\)-valued \(1\)-form on \(M\). Then the parallelity condition above gives \([B(X), \rho(Y)] = \rho(\nabla_X Y)\). We may plug in \(X, Y\) from the oriented orthonormal basis \(\{e_1, e_2, e_3\}\) to write the trace-free part of \(B(e_i)\) completely in terms of the Pauli matrices and the Christoffel symbols. (Someone please do this computation and tell me the answer; I’ll make infinite sign errors if I try). The space of spinc connections on \((S, \rho)\) is likewise an affine space over \(\Omega^1(M; i\Bbb R)\). Indeed, for any spinc connection \(B\) and an imaginary-valued 1-form \(b\), we may form a new spinc connection \(B + b \otimes 1_S\), and any two spinc connections differ by such a 1-form. Let us call the sections of \(S\) as spinors.</p>
 
-<p>This is known as the Jacobi equation, and is a second order linear ordinary differential equation. Suppose \(X\) is an arbitrary solution to the above equation with \(X(0) = 0\) and \((\nabla_{\gamma'} X)(0) = w\) for some \(w \in T_p M\).  Observe that the variation field \(J(t) = (d\exp_p)_{tv}(tw)\) along \(\gamma\) satisfies \(J(0) = 0\) and</p>
+<p>Since \(S\) is a unitary bundle of rank \(2\), its second exterior power \(L = \Lambda^2 S\) is a line bundle with a \(\mathfrak{u}(1) (= i\mathbb{R})\)-connection induced from \(B\), which we will call \(B^t\). Indeed, \(B^t\) is the trace of the \(\mathfrak{u}(2)\)-valued form \(B\) (since the derivative of determinant is trace). Since we saw in the previous paragraph that the trace-free part of \(B^t\) is completely determined by the Levi-Civita connection on \(M\), we conclude: a spinc connection \(B\) on a fixed Riemannian manifold is entirely determined by a \(i\mathbb{R}\)-valued \(1\)-form \(B^t\). We shall denote \(F_{B^t} = dB^t\) to be the curvature of this connection on the determinant line bundle. Note that the corresponding cohomology class</p>
 
-\[\displaystyle \nabla_{\gamma'} J = \nabla_{\gamma'} t (d\exp_p)_{tv}(w) = (d\exp_p)_{tv}(w) + t \nabla_{\gamma'} (d\exp_p)_{tv}(w)\]
+\[\displaystyle \left [\frac{i}{2\pi} \cdot F_{B^t} \right ] \in H^2(M; \Bbb R)\]
 
-<p>hence at \(t= 0\), we obtain \((\nabla_{\gamma'} J)(0) = (d\exp_p)_0(w) = w\) since \((d\exp_p)_0 = \text{Id}\). Consider now the variation \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\), defined by \(V(s, t) = \exp_p(t(v + sw))\). Then observe that \(J(t) = \partial_s V(s, t)\vert_{s = 0} = (d\exp_p)_{tv}(tv)\) for all \(t \in [a, b]\) and \(J(0) = 0\), hence \(J\) is the variation field for \(V\). Since \(V(s, \cdot)\) is a geodesic for all \(s \in (-\varepsilon, \varepsilon)\), we conclude \(V\) is a variation of \(\gamma\) through geodesics hence \(J\) is a solution to the Jacobi equation with the same initial conditions as \(X\), and thus \(X = J\) by uniqueness of solutions to ODEs.</p>
+<p>is precisely the 1st Chern class of \(\Lambda^2 S\). We call it the Chern class of the spinc structure, and denote it by \(c_1(\mathfrak{s})\).</p>
 
-<p>This proves that solutions of the Jacobi equation \(\nabla_{\gamma'}^2 X + R(X, \gamma')\gamma' = 0\) are exactly variation fields along \(\gamma\) corresponding to variations through geodesics. Such variation fields are thus called Jacobi fields. By uniqueness and existence theorem of ODEs, there is a unique Jacobi field \(J\) along \(\gamma\) with initial conditions \(J(0)\) and \((\nabla_{\gamma'} J)(0)\) specified, and moreover since the ODE in question is linear, we conclude that there are \(2n\) linearly independent Jacobi fields along \(\gamma\), where \(n = \dim M\), corresponding to the \(n\) independent degrees of freedom for both the initial conditions. In particular the space of Jacobi fields along \(\gamma\) is finite-dimensional. There is a trivial Jacobi field along \(\gamma\) given simply by scaling the tangent field: \(t \gamma'\). We usually consider the Jacobi fields normal to \(\gamma\) thereof.</p>
+<p>Given a spinc connection, we may form the Dirac operator on spinors, which is a linear first order partial differential operator, as follows (the definition is basis-independent):</p>
 
-<p>Here is a way to put the variational perspective to context. Consider two points \(p, q \in M\) and denote by \(\Omega_{p, q}\) to be the space of all \(C^\infty\)-paths between \(p\) and \(q\) in \(M\). We equip it with the Whitney topology, but we can keep that detail in the background for now. From the variational perspective we saw earlier, for any \(\gamma \in \Omega_{p, q}\), a path in \(\Omega_{p, q}\) through \(\gamma\) is a variation \(V : (-\varepsilon, \varepsilon) \times [a, b] \to M\) such that \(V(0, \cdot) = \gamma\), \(V(s, a) = p\) and \(V(s, b) = q\) for all \(s \in (-\varepsilon, \varepsilon)\); note that here we fix both endpoints during the variation. To be precise, if we define \(\gamma_s(.) = V(s, .)\) as earlier, then \(s \mapsto \gamma_s\) is the desired path through \(\gamma_0 = \gamma\). If there is any truth to the world, the tangent vector at time \(s = 0\) of this path will be the variation field \(X = \partial_s \gamma_s \vert_{s = 0}\). By completely analogous arguments as earlier, we will see such variation fields \(X\) along \(\gamma\) are exactly the ones for which \(X(p) = X(q) = 0\). Thus we imagine \(\Omega_{p, q}\) as an “infinite-dimensional manifold” and define \(T_{\gamma} \Omega_{p, q}\) to be the space of all variation fields along \(\gamma\) vanishing at the endpoints.</p>
+\[\displaystyle D_B : \Gamma(S) \to \Gamma(S),\; D_B\psi = \sum_{i = 1}^3 \rho(e_i)\nabla^B_{e_i} \psi\]
 
-<p>There is a completely variational definition of geodesics using the energy functional, defined as a function \(\mathcal{E} : \Omega_{p, q} \to \Bbb{R}\) by</p>
+<p>As a final observation, note that the Clifford multiplication \(\rho\) can be extended to be defined on cotangent vectors by setting \(\rho(e^i) = \rho(e_i)\) where \(e^i\) is the dual covector to \(e_i\). We can extend it to all forms by the rule</p>
 
-\[\displaystyle \mathcal{E}(\gamma) = \int_{\gamma} \vert\gamma'\vert^2 = \int_a^b \vert\gamma'(t)\vert^2 dt\]
+\[\displaystyle \rho(\alpha \wedge \beta) = \frac12 \left ( \rho(\alpha)\rho(\beta)+ (-1)^{|\alpha||\beta|} \rho(\beta)\rho(\alpha) \right )\]
 
-<p>Note that we can take directional derivative of \(\mathcal{E}\) on \(\Omega_{p, q}\) using our dictionary now; for any variation \(X \in T_{\gamma} \Omega_{p, q}\), define \(d\mathcal{E}(\gamma)(X) = \partial_s \mathcal{E}(\gamma_s)\) where \(\{\gamma_s\}\) is a variation of \(\gamma\) with tangent vector \(X\) at \(\gamma\). Of course, one would have to check if this is a well-defined notion, which follows from the following calculations. I will abuse notation and denote \(V_* \partial_s\), \(V_* \partial_t\) as simply \(\partial_s\), \(\partial_t\).</p>
+<p>We may also define it for differential forms valued in complex coefficients, by letting \(\rho\) simply commute with complex multiplication. Now that that’s all done, let us recall the Seiberg-Witten equations on 3-manifolds.</p>
 
-\[\displaystyle \begin{aligned}d\mathcal{E}(\gamma)(X) &amp;= 2 \int_a^b g(\nabla_{\partial_s} \partial_t \gamma_s, \partial_t\gamma_s) dt \\&amp;= 2 \int_a^b g(\nabla_{\partial_t} \partial_s \gamma_s, \partial_t \gamma_s) dt \\ &amp;= 2\int_a^b \partial_t g(\partial_s \gamma_s, \partial_t \gamma_s) dt - 2\int_a^b g(\partial_s \gamma_s, \nabla_{\partial_t} \partial_t \gamma_s) dt \\ &amp;= - 2\int_\gamma g(X, \nabla_{\gamma'} \gamma')\end{aligned}\]
+<p>Let \(M\) be a three manifold with a spinc structure \(\mathfrak{s} = (S, \rho)\). The Seiberg-Witten equations or monopole equations for a pair \((B, \psi)\) consisting of a spinc connection and a spinor are:</p>
 
-<p>The last equation following because we evaluate the expression at \(s = 0\). The last expression does not depend on the choice of the variation \(\{\gamma_s\}\) but only on the tangent vector at \(s = 0\) given by the variation field \(X\). This is known as the first variation formula.</p>
+\[\displaystyle \begin{aligned}\frac{1}{2} \cdot \rho(F_{B^t}) &amp;= \left (\psi \otimes \psi^\star\right)_0 \\ D_B \psi &amp;= 0 \end{aligned}\]
 
-<p>Immediate consequence of this formula is that \(d\mathcal{E}(\gamma)(X) = 0\) for all \(X \in T_\gamma \Omega_{p, q}\) if and only if \(\gamma\) is a geodesic. Therefore, geodesics in \(\Omega_{p, q}\) are critical points of the energy functional. This is already a very attractive result, but we can do better. We can also try to define the Hessian of \(\mathcal{E}\) in the obvious way: Suppose \(X, Y \in T_{\gamma} \Omega_{p, q}\) are two variation fields, and define</p>
+<p>Here, \(\psi \otimes \psi^* \in S \otimes S^* = \mathrm{End}(S)\) is a linear transformation, and \((-)_0\) denotes the traceless part of it. One says a solution \((B, \psi)\) is gauge-equivalent to another solution \((B', \psi')\) if there is a function \(u : M \to S^1\) such that \(B' = B - u^{-1} du \otimes 1_S\) and \(\psi' = u \psi\). One tries to solve the monopole equations upto gauge equivalence. Observe that for any solution \((B, \psi)\), the cohomology class of \(F_{B^t}\) is unchanged under gauge equivalence. We call a solution reducible if \(\psi = 0\), which forces \(B^t\) to be flat by the first equation.</p>
 
-\[\displaystyle V : (-\varepsilon, \varepsilon) \times (-\varepsilon, \varepsilon) \times [a, b] \to M\]
+<p>Notice that the equations above depend on the choice of a metric \(g\) on the Riemannian manifold \(M\). In our definition, we built the spin structure \(\mathfrak{s} = (S, \rho)\) itself using the metric. But it is not difficult to check that any two such choices of metrics \(g_0, g_1\) gives rise to isomorphic spin structures \(\mathfrak{s}_0, \mathfrak{s}_1\). This is because the space of metrics is a cone in the space of quadratic differentials, hence contractible. Thus, we can join \(g_0, g_1\) by a 1-parameter family of metrics \(g_t\). This gives rise to a 1-parameter family of spin structures \(\mathfrak{s}_t\) interpolating \(\mathfrak{s}_0, \mathfrak{s}_1\). Therefore, the spinc structure depends only upto contractible choice on the space of Riemannian metrics. Consequently, the Chern class \(c_1(\mathfrak{s})\) is certainly independent of the underlying metric. However, the Seiberg-Witten equations themselves depend on the metric, since the Dirac operator and the Clifford multiplication both depend on the metric.</p>
 
-<p>to be a two-parameter variation of \(\gamma\) such that \(\partial_r V \vert_{(u, s) = (0, 0)} = X\) and \(\partial_s V\vert_{(u, s) = (0, 0)} = Y\). We would visualize \(V\) as small patch of a surface on \(\Omega_{p, q} M\) passing through \(\gamma\) with tangent vectors \(X\) and \(Y\) at \(\gamma\). Then define \(h \mathcal{E}(\gamma)(X, Y) = \partial_u \partial_s \mathcal{E}(\gamma_{u, s})\) where \(\gamma_{u, s}(\cdot) = V(u, s, \cdot)\). We do some nasty calculations, remembering the formula for the Riemann curvature tensor</p>
+<p><b>Definition</b>. A cohomology class \(\alpha \in H^2(M; \Bbb R)\) is a monopole class if there is a spinc structure \(\mathfrak{s} = (S, \rho)\) such that \(c_1(\mathfrak{s}) = \alpha\), and the corresponding Seiberg-Witten equations have an irreducible solution for all choices of Riemannian metrics.</p>
 
-\[R(U, V)W = \nabla_U \nabla_V W - \nabla_V \nabla_U W - \nabla_{[U, V]} W,\]
+<p>Observe that if \(c_1(\mathfrak{s}) \neq 0\), then if a solution to the Seiberg-Witten equations exist, they are necessarily irreducible. Otherwise, \((B, 0)\) is a solution, hence \(F_{B^t} = 0\), contradiction.</p>
 
-<p>repeatedly using symmetry and fundamental theorem of calculus whenever possible:</p>
+<p>Suppose \((B, \psi)\) is an irreducible solution for the Seiberg-Witten equations with respect to some Riemannian metric \(g\) on \(M\). The linear part of the Seiberg-Witten equation tells us \(D_B \psi = 0\) (i.e., \(\psi\) is a harmonic spinor). We use the Weitzenbock-Lichnerowicz formula to deduce:</p>
 
-\[\displaystyle \begin{aligned}  h \mathcal{E}(\gamma)(X, Y) &amp;= 2\int_a^b g(\nabla_{\partial_u} \nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(\nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \nabla_{\partial_u} \partial_t \gamma_{u, s}(t)) dt  \\ &amp;= 2\int_a^b g(\nabla_{\partial_u} \nabla_{\partial_t} \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(\nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \nabla_{\partial_u} \partial_t \gamma_{u, s}(t)) dt  \\ &amp;=2\int_a^b g(\nabla_{\partial_t} \nabla_{\partial_u} \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(R(\partial_u, \partial_t) \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u,s}(t)) dt \\ &amp;~~~~+   2\int_a^b g(\nabla_{\partial_s} \partial_t \gamma_{u, s}(t), \nabla_{\partial_u} \partial_t \gamma_{u, s}(t)) dt \\ &amp;= -2\int_a^b g(\nabla_{\partial_u} \partial_s \gamma_{u, s}(t), \nabla_{\partial_t} \partial_t \gamma_{u, s}(t)) dt + 2\int_a^b g(R(\partial_u, \partial_t) \partial_s \gamma_{u, s}(t), \partial_t \gamma_{u,s}(t)) dt \\ &amp;~~~~+ 2\int_a^b g(\nabla_{\partial_t} \partial_s \gamma_{u, s}(t), \nabla_{\partial_t} \partial_u \gamma_{u, s}(t)) dt\end{aligned}\]
+\[\displaystyle 0 = D_B^\star D_B \psi = (\nabla^B)^\star \nabla^B \psi + \frac12 \rho(F_{B^t}) \psi + \frac14 s \psi,\]
 
-<p>If \(\gamma\) is a geodesic, the first integral vanishes since \(\nabla_{\partial_t} \partial_t = 0\). As we are evaluating the expressions at \((u, s) = (0, 0)\), we obtain the final formula as:</p>
+<p>where \(s\) denotes the scalar curvature of \((M, g)\). The nonlinear part of the Seiberg-Witten equations imply the second term in the above is \((\psi \otimes \psi^*)_0 \psi\). We take inner product (wrt \(g\)) of the entire expression with \(\psi\). Let us compute \(\langle (\psi \otimes \psi^*)_0 \psi, \psi \rangle\). It is good to think of \(\psi\) as simply a column vector, and \(\psi \otimes \psi^*\) as simply the \(2 \times 2\) matrix \(\psi \psi^*\) where \(\psi^*\) is the conjugate-transposed row vector. Then:</p>
 
-\[\displaystyle h\mathcal{E}(\gamma)(X, Y) = 2\int_\gamma \left (g(R(X, \gamma')Y, \gamma') + g(\nabla_{\gamma'} X, \nabla_{\gamma'} Y)\right )\]
+\[\displaystyle  \begin{aligned} \langle (\psi \otimes \psi^*)_0 \psi, \psi \rangle &amp;= \langle (\psi \psi^* - \mathrm{tr}(\psi \psi^*)/2)\psi,  \psi \rangle \\ &amp;= \langle \psi \psi^* \psi,\psi \rangle - \frac12 \mathrm{tr}(\psi \psi^*) \langle \psi, \psi \rangle \\ &amp;= \|\psi\|^4 - \frac12 \|\psi\|^4 \\ &amp;= \frac12 \|\psi\|^4 \end{aligned}\]
 
-<p>This is known as the second variation formula, and we get independence of \(h\mathcal{E}(\gamma)(X, Y)\) on the choice of the two-parameter variation \(V\) with tangents \(X, Y \in T_\gamma \Omega_{p, q}\) from here.  Using the identity \(g(R(U, V)Z, W) = g(R(Z, W), U, V)\), we obtain symmetry \(h\mathcal{E}(\gamma)(X, Y) = h\mathcal{E}(\gamma)(Y, X)\) of the Hessian, which is also clear from the definition by commutativity of partials. Observe that \(h\mathcal{E}(\gamma)\) only has these nice properties if \(\gamma\) is a geodesic, i.e., a critical point of \(\mathcal{E}\), which is of course not unexpected since that is how the Hessian behaves in the finite dimensional case as well.</p>
+<p>Therefore, by using the definition of adjoint, we get:</p>
 
-<p>We can rewrite the above formula by an application of the fundamental theorem of calculus and the identity \(g(R(U, V)W, Z) = -g(R(U, V)Z, W)\) as follows:</p>
+\[\displaystyle 0 = \|\nabla^B \psi\|^2 + \frac12 \|\psi\|^4 + \frac14 s \|\psi\|^2\]
 
-\[\displaystyle \begin{aligned}h\mathcal{E}(\gamma)(X, Y) &amp;= - 2 \int_\gamma \left ( g(R(X, \gamma')\gamma', Y) + g(\nabla_{\gamma'}^2 X, Y) \right ) \\ &amp;= -2 \int_\gamma g(\nabla_{\gamma'}^2 X+ R(X, \gamma')\gamma', Y)\end{aligned}\]
+<p><b>Corollary</b>. There are no irreducible solutions to the Seiberg-Witten equations for a metric \(g\) on a three-manifold of non-negative scalar curvature \(s \geq 0\). In particular, manifolds which admit a metric of non-negative scalar curvature do not possess any monopole classes.</p>
 
-<p>And therefore we obtain that \(X \in T_{\gamma}\Omega_{p, q}\) is a Jacobi field along \(\gamma\) if and only if \(h\mathcal{E}(\gamma)(X, Y) = 0\) for all variation fields \(Y \in T_{\gamma}\Omega_{p, q}\). Thus the subspace of Jacobi fields on \(\gamma\) vanishing at the endpoints is the kernel \(\ker h\mathcal{E}(\gamma)\) of the Hessian of the energy functional.</p>
+<p>Suppose the solution is irreducible. Let us integrate the above expression over the entire manifold. Ignoring the term involving the covariant derivative of \(\psi\), we get</p>
 
-<p>Actually occurrences of such Jacobi fields are rather rare, and can only be seen for some very special pair of points \(p, q\) on \(M\), called conjugate points, and they are usually said to be conjugate to each other with reference to the geodesic \(\gamma \in \Omega_{p, q}\) along which a Jacobi field vanishing at the endpoints exist. If \(p, q\) are a pair of points conjugate along \(\gamma\), we define multiplicity of the conjugate pair (or that of \(p\) with respect to \(q\), or vice versa) to be the dimension of \(\ker h\mathcal{E}(\gamma)\). Recall from earlier computations that there are \(n\) linearly independent Jacobi fields along \(\gamma\) which vanish at \(p\), and one of them is the redundant scaled tangent vector field \(t \gamma'(t)\) since it does not vanish for \(t = b\).  Thus, we have the bound on multiplicity of any pair of conjugate points</p>
+\[\displaystyle \int \frac12 \|\psi\|^4 + \frac14 \int s \|\psi\|^2 \leq 0\]
 
-\[\displaystyle \dim \ker h\mathcal{E}(\gamma) \leq n-1\]
+<p>Therefore,</p>
 
-<p>(The equality is achieved, for example, in case of \(M = S^n\).) So the variations of the geodesic \(\gamma\) through geodesics inside \(\Omega_{p, q}\) “trace out” a finite-dimensional critical submanifold of \(\mathcal{E}\) the tangent space of which witnesses the degeneracy of the Hessian of \(\mathcal{E}\). This essentially describes \(\mathcal{E} : \Omega_{p, q} \to \Bbb{R}\) as a Morse function on an infinite-dimensional manifold, where since the domain is so huge we cannot expect to have isolated nondegenerate critical points, but our best bet is to have finite dimensional critical submanifolds and Hessian to have finite nullity. This is explored in detail in Milnor, and maybe we’ll discuss this in a future post.</p>
+\[\displaystyle \begin{aligned}\int \|\psi\|^4 \leq \frac12 \int (-s) \cdot \|\psi\|^2 &amp;\leq \frac12 \left (\int s^2 \right)^{1/2} \left (\int \|\psi\|^4 \right )^{1/2} \\ \implies \int \|\psi\|^4 &amp;\leq \frac14 \int s^2\end{aligned}\]
 
-<p>As a final note on this, observe that if \(\gamma : [0, c] \to M\) is a geodesic passing through \(\gamma(0) = p\), then \(q = \gamma(t_0)\) is conjugate to \(p\) along \(\gamma\) if and only if \(t_0 \gamma'(0)\) is a critical point of the exponential map \(\exp_p : T_p M \dashrightarrow M\). This follows directly from the definitions, since the Jacobi field \(J\) witnessing the conjugacy can be written as \(J(t) = d(\exp_p)_{tv}(tw)\) where \(v = \gamma'(0)\) and \(w \in T_p M = T_0 T_p M\) is some vector. Since \(J(t_0) = 0\), we obtain that \(w \in  \ker d(\exp_p)_{t_0v}\). Therefore in fact \(\dim \ker d(\exp_p)_{t_0 v}\) is the multiplicity of the conjugate point \(q\) of \(p\). This proves that for any point \(p\), the set of points on \(M\) conjugate to \(p\) along some geodesic is the set of critical values of \(\exp_p\) which is a measure zero subset of \(M\) by Sard’s theorem; this justifies our rareness comment from earlier. This subset is called the conjugate locus of \(p\) in \(M\); it is closely related to an even more complicated subset of \(M\) known as the cut locus of \(p\), both of which, to my understanding, are witnesses of how badly the collection of geodesics emanating from \(p\) fails to be a foliation.</p>
+<p>where we use that \(\psi\) is not identically zero, by irreducibility. By the nonlinear part of the Seiberg-Witten equations, we have that the norm of \(\rho(F_{B^t})/2\) is equal to the norm of \((\psi \psi^*)_0\), which we compute:</p>
 
-<p>As a closing remark, let’s try to sketch where to go from here. The Jacobi equation is useful in describing how far nearby geodesics starting at the same point diverge with respect to time. For example, let \(M\) be a Riemannian \(2\)-manifold with constant Gaussian curvature \(K\), and suppose \(J\) is a normal Jacobi field along an arclength-parametrized geodesic \(\gamma: [0, c] \to M\). Let \(\mathbf{e}\) be a parallel unit normal field along \(\gamma\). Then \(J(t) = f(t) \mathbf{e}(t)\) for all \(t \in [0, c]\) where \(f(t)\) is the length of the Jacobi field at time \(t\). From the Jacobi equations we obtain</p>
+\[\displaystyle \begin{aligned} \|(\psi \psi^*)_0\|^2 &amp;= \frac12 \mathrm{tr} \left ( (\psi \psi^*)_0 \cdot (\psi \psi^*)_0^* \right ) \\ &amp;= \frac12 \mathrm{tr}\left (\psi \psi^* - \frac12 \|\psi\|^2 \cdot 1_S \right )^2 \\ &amp;= \frac12 \left ( \|\psi\|^4 - \frac12 \|\psi\|^4 - \frac12 \|\psi\|^4 + \frac14 \|\psi\|^4 \right ) \\ &amp;= \frac14 \|\psi\|^4 \end{aligned}\]
 
-\[\displaystyle \begin{aligned} 0 = g(\nabla_{\gamma'}^2 J + R(J, \gamma')\gamma', \mathbf{e}) &amp;= g(\nabla_{\gamma'}^2 f \mathbf{e}, \mathbf{e}) + g(R(f \mathbf{e}, \gamma')\gamma', \mathbf{e}) \\ &amp;= f'' + K f \end{aligned}\]
+<p>Thus, \(\|(\psi \psi^*)_0\| = \|\psi\|^2/2\). Remember that \(\rho\) preserves norms, so we get norm of \(F_{B^t}\) with respect to \(g\) (or the inner product induced on the space of 2-forms thereof) is the same as \(\|\psi\|^2\). Therefore,</p>
 
-<p>Where \(K = g(R(\mathbf{e}, \gamma')\gamma', \mathbf{e})\) is the sectional curvature along \(\gamma\). Thus, we obtain the familiar second order differential equation \(f'' + K f = 0\) whose solutions are trigonometric if \(K &gt; 0\), linear if \(K = 0\) and exponential if \(K &lt; 0\). Since length of the Jacobi field controls deviations of nearby geodesics, we obtain from this that geodesics starting at a common point tend to converge if \(K &gt; 0\), diverge linearly if \(K = 0\) and diverge exponentially if \(K &lt; 0\). Contrast these to the model spaces of constant curvature \(+1\) (\(S^2\)), \(0\) (\(\Bbb R^2\)) and \(-1\) (\(\Bbb H^2\)), where we know this occurs. This is the “comparison philosophy”; to understand how curvature controls rate of divergence of geodesics, and to compare this rate in spaces of different curvatures. We shall talk about this in detail in the next few posts.</p>
+\[\displaystyle \int \|F_{B^t}\|^2 = \int \|\psi\|^4 \leq \frac14 \int s^2\]
+
+<p>Therefore, \(\|F_{B^t}\|_{L^2} \leq \|s\|_{L^2}/2\), using \(L^2\)-norms.</p>
+
+<p><b>Definition</b>. Let \((M, g)\) be a Riemannian \(3\)-manifold. Recall a differential \(2\)-form \(\omega\) on the manifold is harmonic if \(d\omega = d^*\omega = 0\). Every cohomology class admits a unique harmonic representative in de Rham cohomology, by Hodge theory. We define the harmonic norm on \(H^2(M; \Bbb R)\) by setting \(\|\alpha\|_{har, g}\) to be the \(L^2\)-norm of the unique harmonic \(2\)-form representing the cohomology class \(\alpha\).</p>
+
+<p><b>Corollary</b>. If \(\alpha \in H^2(M; \Bbb R)\) is a monopole class, then for all metrics \(g\) on \(M\),</p>
+
+\[\displaystyle \|\alpha\|_{har, g} \leq \frac{1}{4\pi} \cdot \|s\|_{L^2(M, g)}\]
+
+<p>This follows from what we derived as \(F_{B^t}\) represents the class \(2\pi/i \cdot \alpha\), where \(\alpha = c_1(\mathfrak{s})\) is the Chern classes associated to the spin structure we started with, and the harmonic form minimizes the \(L^2\)-norm in a given cohomology class.</p>
+
+<p>Finally, we relate the harmonic norm with the Thurston norm for irreducible atoroidal manifolds. Since the Thurston norm is a norm defined on the second homology, we must first dualize it to a norm defined on cohomology.</p>
+
+<p><b>Definition</b>. Let \(M\) be an oriented, closed, irreducible, atoroidal three-manifold with \(b_1(M) \neq 0\). We define the dual Thurston norm by setting for any \(\alpha \in H^2(M; \Bbb R)\),</p>
+
+\[\displaystyle \|\alpha\|_{Th} = \sup_{\Sigma} \frac{|\alpha[\Sigma]|}{-\chi(\Sigma)},\]
+
+<p>where \(\Sigma\) varies over all oriented embedded surfaces in \(M\) of genus at least \(2\).</p>
+
+<p><b>Proposition</b>. The dual Thurston norm and the harmonic norm on an oriented, closed, irreducible, atoroidal three-manifold \(M\), satisfy the following inequality:</p>
+
+\[\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi\|\alpha\|_{har, g}}{\|s(g)\|_{L^2(M, g)}},\]
+
+<p>where \(g\) varies over all Riemannian metrics on \(M\) and \(s(g)\) denotes the scalar curvature of \((M, g)\).</p>
+
+<p><em>Proof</em>. Let us start by fiddling around to see if we get an idea. Pick a metric \(g\) on \(M\) and let \(\Sigma\) be an embedded oriented surface of genus at least \(2\). Let \(\omega\) be a \(2\)-form representing the class \(\alpha\). Then, by the Gauss-Bonnet theorem, \(2\pi\chi(\Sigma)\) is the integral of the curvature of \(\Sigma\) with the induced metric from \((M, g)\). So,</p>
+
+\[\displaystyle \frac{\alpha[\Sigma]}{-\chi(\Sigma)} = -\frac{2\pi\int_{\Sigma}\omega}{\int_{\Sigma} K d\mathrm{vol}_g}\]
+
+<p>The numerator is bounded by the metric norm on \(\omega\) (which can be bounded by the harmonic norm) times the volume of \(\Sigma\), and the denominator is bounded by the \(L^2\)-norm of (half the) scalar curvature attained on \(\Sigma\) times the volume of \(\Sigma\). It seems we are awfully close, but \(a \leq b, c \leq d\) does not mean \(a/c \leq b/d\).</p>
+
+<p>The shortcoming of this approach is that we are only focusing on the scalar curvature attained along \(\Sigma\). We must pick metrics \(g\) such that the semi-local geometry around \(\Sigma\) dominates in \(M\). Let \(g_1\) be a metric on \(M\) such that some neighborhood of \(\Sigma\) in \(M\) is isometric to \(\Sigma \times [0, 1]\) with the product metric \(dt^2 + h\), where \((\Sigma, h)\) is a hyperbolic surface of unit area. Let \(g_r\) be a radial rescaling so that in that neighborhood we have \(g_r = r^2 dt^2 + h\) and \(g_r = g_1\) outside a slightly larger neighborhood. Then the same neighborhood with the metric \(g_r\) is isometric to the product \(\Sigma \times [0, r]\). Therefore, the \(L^2\)-norm of the scalar curvature is:</p>
+
+\[\displaystyle \begin{aligned} \int s(g_r)^2 \, d\mathrm{vol}_{g_r} &amp;= \int_{\Sigma \times [0, r]} s(g_r)^2 \, d\mathrm{vol}_{g_r} + \int_{M \setminus \Sigma \times [0, 1]} s(g_1)^2 \, d\mathrm{vol}_{g_1} \\ &amp;= (-4\pi\chi(\Sigma))^2 r + C \end{aligned}\]
+
+<p>since \(s(g_r) = 4\pi\chi(\Sigma)\) on \(\Sigma \times [0, r]\) and \(d\mathrm{vol}_{g_r} = r \, dt\,  d\mathrm{vol}_h\), and \(C\) is a constant independent of \(r\). Observe also that if \(\omega\) is any \(2\)-form representing the cohomology class \(\alpha\),</p>
+
+\[\displaystyle \begin{aligned} |\alpha[\Sigma]|^2 \leq \left | \int_{\Sigma} \omega \right |^2 \leq \left ( \int_{\Sigma} \|\omega\|_h d\mathrm{vol}_h \right )^2 \leq \|\omega\|_{L^2(\Sigma, h)} ^2 \mathrm{Area}(\Sigma)^2 &amp;= \|\omega\|_{L^2(\Sigma, h)}^2 \\ &amp; \leq r^{-2} \|\omega\|_{L^2(M,g_r)}^2 \end{aligned}\]
+
+<p>Therefore, we have the following equations:</p>
+
+\[\displaystyle \begin{aligned} \|s(g_r)\|_{L^2(M, g_r)} &amp;= -4\pi \chi(\Sigma) r + C' \\ \|\alpha\|_{har, g_r} &amp;\geq r |\alpha[\Sigma]|\end{aligned}\]
+
+<p>where \(C'\) is a constant independent of \(r\). Dividing the second by the first, one obtains:</p>
+
+\[\displaystyle \frac{\|\alpha\|_{har, g_r}}{\|s(g_r)\|_{L^2(M, g_r)}} \geq \frac{r |\alpha[\Sigma]|}{ -4\pi \chi(\Sigma) r + C'} \to \|\alpha\|_{Th}\]
+
+<p>as \(r \to \infty\). This proves the required inequality.</p>
+
+<p><em>Remark</em>. As \(r \to \infty\), the Riemannian manifolds \((M, g_r)\) exhibit a neck-stretching along the embedded surface \(\Sigma \subset M\), and geometrically converges to a manifold with \(\Bbb H^2 \times \Bbb R\) geometry. My guess is that if the above inequality is optimal, the equality is achieved in this limit.</p>
+
+<p>We now tie everything together by the following theorem:</p>
+
+<p><b>Theorem</b>. For a closed oriented irreducible atoroidal \(3\)-manifold (also known as a hyperbolic \(3\)-manifold), the monopole classes are contained in the dual Thurston norm-ball.</p>
+
+<p><em>Proof</em>. Suppose \(\mathfrak{s}\) is a spinc structure with \(\alpha = c_1(\mathfrak{s})\) a monopole class. Let \(g\) be an auxiliary Riemannian metric on \(M\). Then combining the inequalities we have deduced above, we get</p>
+
+\[\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \|\alpha\|_{har, g} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \frac{1}{4\pi} \cdot \|s(g)\|_{L^2(M, g)} = 1\]
+
+<p>In the follow-up to this post, we will prove the converse direction. Before going there, we need to make a detour from this detour to talk about taut foliations in relation to Thurston norm, and Gabai’s theorem on existence of such.</p>
 
       </div>
     
@@ -176,7 +289,9 @@
   
     <a href="/index.html"></a>
   
-<!-- <span class="page-number">Page 2 of 2</span> -->
+<!-- <span class="page-number">Page 2 of 17</span> -->
+  
+    <a href="/page/3/index.html"></a>
   
 </div>
 
@@ -185,9 +300,13 @@
   
     <a class="fixed-bottom-btn" 
        href="/">
-      &#171; Prev
+      &#171; Newer
     </a>
   
+  
+    <a class="fixed-bottom-btn" href="/page/3/index.html">
+      Older &#187;
+    </a>
   
 </div>
 
