@@ -67,7 +67,7 @@ A codimension one co-oriented foliation in normal positive with a triangulation 
 
 *Proof*. Suppose $$\mathcal{F}$$ is taut, and $$\tau$$ be a smooth triangulation with respect to which it is in normal form. The tautness of $$\mathcal{F}$$ guarantees that the induced directed graph structure on $$\tau^{(1)}$$ gives a recurrent graph, i.e., any vertex can be joined with any vertex by a piecewise linear directed arc. This is because we may take a smooth positively oriented arc in $$M$$ joining them so that it is transverse to the foliation, by tautness, after which we can simplicially approximate the arc. Thus, for every edge $$e \subset \tau^{(1)}$$, there is a piecewise linear directed loop $$\gamma_e \subset \tau^{(1)}$$ containing $$e$$. Let $$\mathcal{C} := \{\gamma_e\}$$ denote a finite collection of such loops, one for each edge $$e \subset \tau^{(1)}$$. We define $$\phi(e)$$ to be the number of times $$\mathcal{C}$$ crosses $$e$$ counted with multiplicity. Then $$\phi$$ clearly satisfies conservation of mass, therefore $$(\phi, \tau)$$ is a combinatorial volume preserving flow. The converse is easy.
 
-<b>Definition</b>. For a combinatorial volume preserving flow $$(\phi, \tau)$$ on $$M$$ and a normal surface $$S \subset M$$, we define the weight of $$S$$ (to be thought as ``combinatorial area") as 
+<b>Definition</b>. For a combinatorial volume preserving flow $$(\phi, \tau)$$ on $$M$$ and a normal surface $$S \subset M$$, we define the weight of $$S$$ (to be thought as "combinatorial area") as 
 
 $$\displaystyle w(S) = \sum_e \phi(e) |e \cap S|$$
 
