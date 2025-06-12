@@ -11,15 +11,13 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai." />
 <meta property="og:description" content="The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai." />
-<link rel="canonical" href="http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/" />
-<meta property="og:url" content="http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/" />
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-18T00:00:00+05:30" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Taut foliations and minimal surfaces" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T00:00:00+05:30","datePublished":"2024-03-18T00:00:00+05:30","description":"The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai.","headline":"Taut foliations and minimal surfaces","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/"},"url":"http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T00:00:00+05:30","datePublished":"2024-03-18T00:00:00+05:30","description":"The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai.","headline":"Taut foliations and minimal surfaces","mainEntityOfPage":{"@type":"WebPage","@id":"/2024/03/18/taut-foliations-minimal-surfaces/"},"url":"/2024/03/18/taut-foliations-minimal-surfaces/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -209,7 +207,7 @@
 
 <p><em>Proof</em>. Suppose \(\mathcal{F}\) is taut, and \(\tau\) be a smooth triangulation with respect to which it is in normal form. The tautness of \(\mathcal{F}\) guarantees that the induced directed graph structure on \(\tau^{(1)}\) gives a recurrent graph, i.e., any vertex can be joined with any vertex by a piecewise linear directed arc. This is because we may take a smooth positively oriented arc in \(M\) joining them so that it is transverse to the foliation, by tautness, after which we can simplicially approximate the arc. Thus, for every edge \(e \subset \tau^{(1)}\), there is a piecewise linear directed loop \(\gamma_e \subset \tau^{(1)}\) containing \(e\). Let \(\mathcal{C} := \{\gamma_e\}\) denote a finite collection of such loops, one for each edge \(e \subset \tau^{(1)}\). We define \(\phi(e)\) to be the number of times \(\mathcal{C}\) crosses \(e\) counted with multiplicity. Then \(\phi\) clearly satisfies conservation of mass, therefore \((\phi, \tau)\) is a combinatorial volume preserving flow. The converse is easy.</p>
 
-<p><b>Definition</b>. For a combinatorial volume preserving flow \((\phi, \tau)\) on \(M\) and a normal surface \(S \subset M\), we define the weight of \(S\) (to be thought as ``combinatorial area”) as</p>
+<p><b>Definition</b>. For a combinatorial volume preserving flow \((\phi, \tau)\) on \(M\) and a normal surface \(S \subset M\), we define the weight of \(S\) (to be thought as “combinatorial area”) as</p>
 
 \[\displaystyle w(S) = \sum_e \phi(e) |e \cap S|\]
 
