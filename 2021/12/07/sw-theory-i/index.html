@@ -2,25 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Home - page 11 | And Other Withered Stumps Of Time</title>
+    <title>Seiberg-Witten Theory: I | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 11 of 18 for Home - page 11 | And Other Withered Stumps Of Time</title>
+<title>Seiberg-Witten Theory: I | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Home - page 11" />
+<meta property="og:title" content="Seiberg-Witten Theory: I" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="A math blog." />
-<meta property="og:description" content="A math blog." />
-<link rel="canonical" href="http://localhost:4000/page/11/" />
-<meta property="og:url" content="http://localhost:4000/page/11/" />
+<meta name="description" content="This series of posts will be a documentation of my attempts to understand Seiberg-Witten theory. This particular post will focus on the linear algebra foundations: Clifford algebras and the spinor representation. I am using Marcolli’s Seiberg-Witten Gauge Theory, Nicolaescu’s Notes on Seiberg-Witten Theory and Salamon’s Spin Geometry and Seiberg-Witten Invariants as the main sources to learn. Apologies for errors, and comments are welcome." />
+<meta property="og:description" content="This series of posts will be a documentation of my attempts to understand Seiberg-Witten theory. This particular post will focus on the linear algebra foundations: Clifford algebras and the spinor representation. I am using Marcolli’s Seiberg-Witten Gauge Theory, Nicolaescu’s Notes on Seiberg-Witten Theory and Salamon’s Spin Geometry and Seiberg-Witten Invariants as the main sources to learn. Apologies for errors, and comments are welcome." />
+<link rel="canonical" href="http://localhost:4000/2021/12/07/sw-theory-i/" />
+<meta property="og:url" content="http://localhost:4000/2021/12/07/sw-theory-i/" />
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
-<meta property="og:type" content="website" />
-<link rel="prev" href="http://localhost:4000/page/10/index.html" />
-<link rel="next" href="http://localhost:4000/page/12/index.html" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-07T00:00:00+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Home - page 11" />
+<meta property="twitter:title" content="Seiberg-Witten Theory: I" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"A math blog.","headline":"Home - page 11","url":"http://localhost:4000/page/11/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-12-07T00:00:00+05:30","datePublished":"2021-12-07T00:00:00+05:30","description":"This series of posts will be a documentation of my attempts to understand Seiberg-Witten theory. This particular post will focus on the linear algebra foundations: Clifford algebras and the spinor representation. I am using Marcolli’s Seiberg-Witten Gauge Theory, Nicolaescu’s Notes on Seiberg-Witten Theory and Salamon’s Spin Geometry and Seiberg-Witten Invariants as the main sources to learn. Apologies for errors, and comments are welcome.","headline":"Seiberg-Witten Theory: I","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/12/07/sw-theory-i/"},"url":"http://localhost:4000/2021/12/07/sw-theory-i/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -137,18 +136,18 @@
       </header>
 	<main>
   	
-    	<div id="posts-list">
-  
-    
-      <div class="post-content post-item">
-        <h2 style="font-style: italic;">
-          <a href="/2021/12/07/sw-theory-i/">Seiberg-Witten Theory: I</a>
+    	<div class="content">
+  <article class="post">
+    <header class="post-header">
+      <h2 class="post-title" style="font-style: italic;">
+          Seiberg-Witten Theory: I
         </h2>
-        <div class="meta">
+      <div class="post-meta">
           <span>December 07, 2021</span>
         </div>
         <hr>
-        <p>This series of posts will be a documentation of my attempts to understand Seiberg-Witten theory. This particular post will focus on the linear algebra foundations: Clifford algebras and the spinor representation. I am using Marcolli’s Seiberg-Witten Gauge Theory, Nicolaescu’s Notes on Seiberg-Witten Theory and Salamon’s Spin Geometry and Seiberg-Witten Invariants as the main sources to learn. Apologies for errors, and comments are welcome.</p>
+    </header>
+    <p>This series of posts will be a documentation of my attempts to understand Seiberg-Witten theory. This particular post will focus on the linear algebra foundations: Clifford algebras and the spinor representation. I am using Marcolli’s Seiberg-Witten Gauge Theory, Nicolaescu’s Notes on Seiberg-Witten Theory and Salamon’s Spin Geometry and Seiberg-Witten Invariants as the main sources to learn. Apologies for errors, and comments are welcome.</p>
 
 <p>The real Clifford algebra on \(n\) generators and \(+_n\) signature \(\mathrm{Cliff}_{n, 0}\) is the algebra generated by \(n\) symbols \(e_1, \cdots, e_n\) satisfying the anticommutation relations \(\{e_i, e_j\} = e_i e_j + e_j e_i = -2 \delta_{ij}\). This is closely related to the exterior algebra on \(n\) generators \(\Lambda_n\) generated by \(n\) symbols \(e_1, \cdots, e_n\) satisfying the anticommutation relations \(\{e_i, e_j\} = e_i \wedge e_j + e_j \wedge e_i = 0\), except in the former we have the identities \(e_i^2 = -1\) for all \(1 \leq i \leq n\); indeed they are isomorphic as graded vector spaces with basis consisting of monomials on \(e_1, \cdots, e_n\) with degree of each \(e_i\) either \(0\) or \(1\). In particular, \(\dim \mathrm{Cliff}_{n, 0} = \dim \Lambda_n = 2^n\)</p>
 
@@ -177,54 +176,122 @@ v \cdot (w_1 \wedge \cdots \wedge w_k) = v \wedge w_1 \wedge \cdots \wedge w_k \
 
 <p>Eventually we shall discuss the notion of a spinor bundle \(S\) on a Riemannian manifold \((M, g)\) of dimension \(2m\), which shall be a module over the Clifford algebra bundle \(\mathrm{Cliff}(TM)\) of rank \(2^m\). The main subtlety is that even though this looks like the above construction parametrized over a manifold \(M\), a spinor bundle need not always exist; existence of such a thing is equivalent to the more familiar notion of existence of a spinc structure on \(M\). This will be discussed in detail in a future post. Up next, some discussions regarding the \(\mathrm{Spin}(n)\) and \(\mathrm{Spin}^{\Bbb C}(n)\) groups.</p>
 
-      </div>
-    
-  
+  </article>
 </div>
 
-<div class="pagination" style="text-align:center;">
+<!-- Fixed-position buttons for previous/next post -->
+<div class="bottom-btns-vertical visible">
   
-    <a href="/page/10/index.html"></a>
-  
-<!-- <span class="page-number">Page 11 of 18</span> -->
-  
-    <a href="/page/12/index.html"></a>
-  
-</div>
-
-<!-- Fixed-position buttons -->
-<div class="bottom-btns-vertical" id="bottomNavBtns">
-  
-    <a class="fixed-bottom-btn" 
-       href="/page/10/index.html">
+    <a class="fixed-bottom-btn" href="/2021/12/26/steenrod-squares/">
       &#171; Newer
     </a>
   
   
-    <a class="fixed-bottom-btn" href="/page/12/index.html">
+    <a class="fixed-bottom-btn" href="/2020/11/02/markov-chains-i/">
       Older &#187;
     </a>
   
 </div>
 
+<!-- Arrow key navigation for previous/next post -->
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  var navBtns = document.getElementById('bottomNavBtns');
-  function checkScroll() {
-    var scrollPosition = window.scrollY + window.innerHeight;
-    var totalHeight = document.body.offsetHeight;
-    // Show when scrolled past 50% of the page
-    if (scrollPosition / totalHeight >= 0.25) {
-      navBtns.classList.add('visible');
-    } else {
-      navBtns.classList.remove('visible');
+  var prevUrl = "/2020/11/02/markov-chains-i/";
+  var nextUrl = "/2021/12/26/steenrod-squares/";
+  document.addEventListener('keydown', function(event) {
+    // Left arrow (37) or 'A'
+    if ((event.key === "ArrowLeft" || event.key === "a" || event.key === "A") && prevUrl) {
+      window.location.href = prevUrl;
     }
-  }
-  window.addEventListener('scroll', checkScroll);
-  checkScroll();
+    // Right arrow (39) or 'D'
+    if ((event.key === "ArrowRight" || event.key === "d" || event.key === "D") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+  });
 });
 </script>
 
+<!-- Keyboard navigation hint popup -->
+<style>
+.keyboard-nav-popup {
+  position: fixed;
+  top: 0em;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(40, 40, 40, 0.97);
+  color: #fff;
+  padding: 0.75em 1.5em;
+  border-radius: 2em;
+  font-size: 1em;
+  box-shadow: 0 0 12px 0 rgba(0,0,0,0.3);
+  z-index: 9999;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s;
+}
+.keyboard-nav-popup.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+.keyboard-nav-popup kbd {
+  background: #222;
+  border-radius: 4px;
+  padding: 0.1em 0.5em;
+  margin: 0 0.2em;
+  font-family: inherit;
+  font-size: 1em;
+  border: 1px solid #555;
+}
+</style>
+<div class="keyboard-nav-popup" id="keyboardNavPopup">
+  Navigate posts with <kbd>←</kbd> or <kbd>A</kbd> &nbsp; / &nbsp; <kbd>→</kbd> or <kbd>D</kbd>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var prevUrl = "/2020/11/02/markov-chains-i/";
+  var nextUrl = "/2021/12/26/steenrod-squares/";
+  var popup = document.getElementById('keyboardNavPopup');
+
+  // Show popup for 3 seconds on load
+  if (popup) {
+    popup.classList.add('visible');
+    setTimeout(function() {
+      popup.classList.remove('visible');
+    }, 3000);
+  }
+
+  // Show popup for 1 seconds on keypress (if not already visible)
+  function showPopupOnKey() {
+    if (!popup.classList.contains('visible')) {
+      popup.classList.add('visible');
+      setTimeout(function() {
+        popup.classList.remove('visible');
+      }, 1000);
+    }
+  }
+
+  document.addEventListener('keydown', function(event) {
+    // Left arrow or 'A'
+    if ((event.key === "ArrowLeft" || event.key.toLowerCase() === "a") && nextUrl) {
+      window.location.href = nextUrl;
+    }
+    // Right arrow or 'D'
+    if ((event.key === "ArrowRight" || event.key.toLowerCase() === "d") && prevUrl) {
+      window.location.href = prevUrl;
+    }
+    // Show popup again on any navigation key
+    if (
+      (event.key === "ArrowLeft" && nextUrl) ||
+      (event.key.toLowerCase() === "a" && nextUrl) ||
+      (event.key === "ArrowRight" && prevUrl) ||
+      (event.key.toLowerCase() === "d" && prevUrl)
+    ) {
+      showPopupOnKey();
+    }
+  });
+});
+</script>
   	
 	</main>
     </div>
