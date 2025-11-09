@@ -5,20 +5,22 @@
     <title>Home - page 16 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 16 of 17 for Home - page 16 | And Other Withered Stumps Of Time</title>
+<title>Page 16 of 18 for Home - page 16 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 16" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="A math blog." />
 <meta property="og:description" content="A math blog." />
+<link rel="canonical" href="http://localhost:4000/page/16/" />
+<meta property="og:url" content="http://localhost:4000/page/16/" />
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
 <meta property="og:type" content="website" />
-<link rel="prev" href="/page/15/index.html" />
-<link rel="next" href="/page/17/index.html" />
+<link rel="prev" href="http://localhost:4000/page/15/index.html" />
+<link rel="next" href="http://localhost:4000/page/17/index.html" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Home - page 16" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"A math blog.","headline":"Home - page 16","url":"/page/16/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"A math blog.","headline":"Home - page 16","url":"http://localhost:4000/page/16/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -140,140 +142,149 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2020/04/02/model-geometries/">Model geometries</a>
+          <a href="/2020/04/20/hilberts-theorem/">Hilbert&rsquo;s theorem and curiosities</a>
         </h2>
         <div class="meta">
-          <span>April 02, 2020</span>
+          <span>April 20, 2020</span>
         </div>
         <hr>
-        <p>I will use this post to record some properties and calculations in the model surface \(M_K\) of constant curvature \(K\). I have used Chapter 2 of Thurston’s “The Geometry and Topology of 3-Manifolds” as a reference while writing this. It is recommended for readers to skip all the junk I have written below and directly read that chapter. I found Chapter 4.5 of Christian Bär’s lecture notes on differential geometry to be helpful while studying hyperbolic trigonometry, and I have tried to emulate the exposition at the end.</p>
+        <p>The contents of this post emerged in the process of preparing and presenting a mini-course titled “Curvature: Geometry, Topology and Combinatorics” in an online math camp for high school students called  <a href="https://sites.google.com/view/monsoon-math/">Monsoon Math Camp</a>. I acknowledge the community and in particular the students for prompting me to think about these questions.</p>
 
-<p>The model surface of constant curvature \(K\) is the sphere \(S^2_R\) of radius \(R = 1/\sqrt{K}\) if \(K &gt; 0\), the Euclidean plane \(\Bbb R^2\) if \(K = 0\), and the hyperbolic plane \(\Bbb H^2_R\) of “imaginary radius” \(R = 1/\sqrt{-K}\) if \(K &lt; 0\). We can define these spaces in a unified manner as follows: Let \(\epsilon_K\) denote the sign of \(K\), which is \(1\) if \(K &gt; 0\), \(-1\) if \(K &lt; 0\) and \(0\) if \(K = 0\). We shall equip the Euclidean space \(\Bbb R^3\) with the following bilinear form:</p>
+<p>It is a classical theorem of Hilbert that there is no smooth isometric immersion of the hyperbolic plane \(\Bbb H^2\) in \(\Bbb R^3\). I will begin with a proof of this fact, as outlined in do Carmo, “Differential Geometry of Curves and Surfaces”.</p>
 
-\[\displaystyle \langle \mathbf{x}, \mathbf{y} \rangle_K = \epsilon_K x_1 y_1 + x_2 y_2 + x_3 y_3\]
+<p>Suppose \(M \subset \Bbb R^3\) is an everywhere negatively curved surface. Then for any point \(x \in M\), \(M\) must “look like” a saddle around \(x\), with \(x\) being the saddle point, so one would imagine \(T_x M\) intersects \(M\) in a pair of lines, as in a saddle. These lines are called the asymptotic directions of \(M\) at \(x\). More precisely, observe that if \(\Bbb{II}\) is the second fundamental form on \(M\), \(\Bbb{II}_x\) is a nondegenerate indefinite symmetric bilinear form on \(T_x M\) since if \(v, w \in T_x M\) is a pair of principal directions, \(\Bbb{II}_x(v, v) &gt; 0\) and \(\Bbb{II}_x(w, w) &lt; 0\). Thus \(\Bbb{II}_x\) has nontrivial kernel on \(T_x M\), which is a 1-dimensional cone, i.e., a pair of lines on \(T_x M\). The pair of lines vary continuously with \(x\), so we can choose a local parametrization</p>
 
-<p>This is of course not an inner product space if \(K \leq 0\). Such a pair of vector space and simply a bilinear form is often called a <a href="https://en.wikipedia.org/wiki/Quadratic_form#Quadratic_spaces">quadratic space</a>. The corresponding quadratic form will be denoted by \(Q_K(\mathbf{x}) = \epsilon_K x_1^2 + x_2^2 + x_3^2\); we can recover the bilinear form from the quadratic form using the polarization identity, so these really carry the same information about the quadratic space. Note that our quadratic space \((\Bbb R^3, \langle \cdot, \cdot \rangle_K)\) is the usual inner product space \(\Bbb R^3\) if \(K &gt; 0\), a degenerate quadratic space \(\Bbb R \times \Bbb R^2\) degenerate along the first coordinate and usual Euclidean inner product space on the second coordinate if \(K = 0\) and the (1+2)-dimensional <a href="https://en.wikipedia.org/wiki/Minkowski_space">Minkowski spacetime</a> \(\Bbb R^{1, 2}\) if \(K &lt; 0\), where \(x_1\) is the <em>timelike coordinate</em> and \(x_2, x_3\) are the <em>spacelike coordinates</em>.</p>
+\[\begin{align*}\mathbf{x} : U \subset \Bbb R^2 &amp;\to M \\
+(u, v) &amp;\mapsto \mathbf{x}(u, v)
+\end{align*}\]
 
-<p>If \(K &gt; 0\), we consider the sphere of radius \(R = 1/\sqrt{K}\) inside this quadratic space, given by</p>
+<p>such that \(\mathbf{x}_u\) and \(\mathbf{x}_v\) are the asymptotic directions throughout the local patch \(\mathbf{x}(U) \subset M\), i.e., \(\Bbb{II}(\mathbf{x}_u, \mathbf{x}_u) = \Bbb{II}(\mathbf{x}_v, \mathbf{x}_v) = 0\). Denote the metric and the second fundamental form with respect to these coordinates as</p>
 
-\[\displaystyle S_R(K) = \{\mathbf{x} \in \Bbb R^3 : Q_K(\mathbf{x}) = R^2\} = \{\mathbf{x} \in \Bbb R^3 : x_1^2 + x_2^2 + x_3^2 = 1/K\}\]
+\[\begin{align*}ds^2 &amp;= E du^2 + 2F du dv + G dv^2 \\ 
+\Bbb{II} &amp;= e du^2 + 2f du dv + g dv^2,
+\end{align*}\]
 
-<p>We equip the tangent spaces of \(S_R(K)\) with the metric \(\langle \cdot, \cdot \rangle_K\). Since in the case of \(K &gt; 0\) the bilinear form is positive definite, this is indeed a Riemannian metric without further thought. The resulting space is the sphere \(S^2_R\) of radius \(R = 1/\sqrt{K}\).</p>
+<p>as is convention. Note that \(e = f = 0\) since the coordinate directions are asymptotic.</p>
 
-<p>If \(K &lt; 0\), consider the sphere of radius \(R = i/\sqrt{-K}\)(!) inside the quadratic space. The difference in notation will be explained below.</p>
+<p>Suppose moreover that \(M\) is constant curvature \(K &lt; 0\). Then the surface normal \(\mathbf{n}\) is parallel to \(\mathbf{x}_{uv}\) throughout \(\mathbf{x}(U) \subset M\). This can be seen by the following sequence of computations: By definition of Gaussian curvature, \(\mathbf{n}_u \times \mathbf{n}_v = K \mathbf{x}_u \times \mathbf{x}_v\). We write the area element as \(A = \|\mathbf{x}_u \times \mathbf{x}_v\|\), so that \(\mathbf{x}_u \times \mathbf{x}_v = A \mathbf{n}\). Noting the identity \((\mathbf{n} \times \mathbf{n}_v)_u - (\mathbf{n} \times \mathbf{n}_u)_v = 2 \mathbf{n}_u \times \mathbf{n}_v\) we proceed to calculate:</p>
 
-\[\displaystyle S^{\pm}_R(K) = \{\mathbf{x} \in \Bbb R^3 : Q_K(\mathbf{x}) = R^2\} = \{\mathbf{x} \in \Bbb R^3 : -x_1^2 + x_2^2 + x_3^2 = 1/K\}\]
+\[\displaystyle \begin{aligned} \mathbf{n} \times \mathbf{n}_u = \frac1{A} (\mathbf{x}_u \times \mathbf{x}_v) \times \mathbf{n}_u &amp;= \frac1{A} \left ( (\mathbf{x}_u \cdot \mathbf{n}_u) \mathbf{x}_v - (\mathbf{x}_v \cdot \mathbf{n}_u) \mathbf{x}_u \right ) \\&amp; = \frac1{A} (e \mathbf{x}_v - f \mathbf{x}_u) = -\frac{f}{A} \mathbf{x}_u \end{aligned}\]
 
-<p>In the Euclidean world, \(S^{\pm}_R(K)\) is a hyperboloid of two sheets in \(\Bbb R^3\). We consider the sheet \(S_R(K) = S^{\pm}_R(K) \cap \{x_1 &gt; 0\}\) which lies in the “future” (interpreting \(x_1\) as the timelike coordinate) and equip the tangent spaces of \(S_R(K)\) with the bilinear form \(\langle \cdot, \cdot \rangle_K\). There is a precise way to talk about future and past in the Minkowski spacetime: the kernel of the bilinear form is given by</p>
+\[\displaystyle \begin{aligned} \mathbf{n} \times \mathbf{n}_v = \frac1{A} (\mathbf{x}_u \times \mathbf{x}_v) \times \mathbf{n}_v &amp;= \frac1{A} \left ( (\mathbf{x}_u \cdot \mathbf{n}_v) \mathbf{x}_v - (\mathbf{x}_v \cdot \mathbf{n}_v) \mathbf{x}_u \right ) \\&amp; = \frac1{A} (f \mathbf{x}_v - g \mathbf{x}_u) = \frac{f}{A} \mathbf{x}_v \end{aligned}\]
 
-\[\{Q_K(\mathbf{x}) = 0\} = \{\mathbf{x} \in \Bbb R^3 : x_2^2 + x_3^2 = x_1^2\}\]
+<p>We know \(K = \det{\Bbb{II}}/A^2 = -f^2/A^2\), so that \(f/A = \sqrt{-K}\). Plugging everything in, we get \(\displaystyle 2\sqrt{-K} \mathbf{x}_{uv} = 2\mathbf{n}_u \times \mathbf{n}_v = 2K A \mathbf{n}\) which shows \(\mathbf{n} \parallel \mathbf{x}_{uv}\) as desired.</p>
 
-<p>which is a cone in \(\Bbb R^3\). This is called the <em>light cone</em>, which consists of all the vectors in the direction of light emanating from the event \(\mathbf{0} = (0, 0, 0)\) in the space \(\{0\} \times \Bbb R^2\) at the time-slice \(x_1 = 0\). It was pointed out to me that the intuitive reason that the direction of light should be orthogonal to itself is because such directions are the only things which are coordinate-invariant (which, if there is any truth to the world, light trajectories must be); under any linear change of coordinates of spacetime, the light cone remains invariant. The future and past of the event \(\mathbf{0}\) is everything on and in the light cone, given by \(Q_K(\mathbf{x}) &lt; 0\); intuitively this is because any point \(\mathbf{p}\) in the future or past of \(\mathbf{0}\) in the spacetime must be able to causally affect \(\mathbf{0}\), in the sense that, if it is in the past, one must be able to send a signal at most at the speed of light from \(\mathbf{p}\) that will reach \(\mathbf{0}\) eventually as time evolves in the positive direction, or if it is in the future, one must be able to send a signal at most at the speed of light from \(\mathbf{0}\) which will reach \(\mathbf{p}\) eventually, vice versa. Such trajectories must be trapped inside the light cone, essentially because their speed is bounded by the speed of light. Thus we declare future of \(\mathbf{0}\) to be anything in or on the positive half of the light cone and the past to be anything in or on the negative half of the light cone. It is worth mentioning on the side that vectors \(\mathbf{x}\) for which \(Q_K(\mathbf{x}) &gt; 0\) are called <em>spacelike</em>, essentially because restricted to the space at time-slice \(x_0 = 0\), \(\langle \cdot, \cdot \rangle_K\) is the completely familiar Euclidean inner product, which is positive definite. Therefore whenever a vector has a spacelike coordinates dominating the timelike coordinate, the bilinear form will be positive definite on it, and thus it is called spacelike. The spacelike vectors consists of the exterior component of the light cone.</p>
+<p>From the above we obtain \(E_v = 2\mathbf{x}_{uv} \cdot \mathbf{x}_u = 0\) and \(G_u = 2\mathbf{x}_{uv} \cdot \mathbf{x}_v = 0\). Thus, \(E = E(u)\) is a pure function of \(u\) and \(G = G(v)\) is a pure function of \(v\) respectively, and we can thus reparametrize the coordinates \(u, v\) separately so that \(E = 1\) and \(G = 1\), i.e., the coordinate curves are arclength parametrized. Thus in particular the rectangles formed by the coordinate curves \(\mathbf{x}(I) \subset M\), where \(I = [s_1, s_2] \times [t_1, t_2] \subset U\), be geometric parallelograms, i.e., have opposite sides of equal lengths. Moreover, \(F = \mathbf{x}_u \cdot \mathbf{x}_v = \cos(\theta)\) where \(\theta \in (0, \pi)\) is the angle between the coordinate directions. Thus the metric on the surface is:</p>
 
-<p>But this was a long digression. The point I wanted to make was that the hyperboloid \(S_R^{\pm}(K)\) is defined by the equation \(Q_K(\mathbf{x}) = R^2 = -1/K\), which is negative, therefore is contained in the light cone. The surface \(S_R(K)\) is the future half of this hyperboloid. Note that the restrictions of the bilinear form \(\langle \cdot, \cdot \rangle_K\) to the tangent spaces of \(S_R(K)\) are nondegenerate, since the tangent vectors to the future sheet of the hyperboloid are spacelike! It is possible to see this by observing that the light cone is asymptotic to the hyperboloid. Therefore in particular \(\langle \cdot, \cdot \rangle_K\) is positive definite on the tangent spaces of \(S_R(K)\), making it a Riemannian 2-manifold. It is possible to describe an isometry \(S_R(K) \to \Bbb H^2_R\) to the Poincare disk model by projecting \(S_R(K)\) to the disk \(\Bbb D_R \subset \{0\} \times \Bbb R^2\) of radius \(R = 1/\sqrt{-K}\), radially along lines through \((-1/\sqrt{-K}, 0, 0)\). A formula as such is</p>
+\[ds^2 = du^2 + 2\cos(\theta) dudv + dv^2\]
 
-\[\displaystyle (x_1, x_2, x_3) \mapsto \left (\frac{x_2}{1 + \sqrt{1 - K(x_2^2+x_3^2)}}, \frac{x_3}{1+\sqrt{1 - K(x_2^2+x_3^2)}} \right )\]
+<p>We change coordinates by \(u = x + y\) and \(v = x - y\) to diagonalize the metric as</p>
 
-<p>Note how this is completely analogous to the the formula for the stereographic projection of \(S^2 \setminus \{\mathbf{N}\}\) to \(\Bbb R^2\). We shall chase the metric on \(S_R(K)\) to a metric on \(\Bbb D_R\) and show that it is indeed the Poincare metric. Let us write coordinates on \(\mathbb{R}^{1, 2}\) as \((t, \mathbf{x})\) for readability and suggestiveness, where \(t\) denotes the timelike coordinate and \(\mathbf{x} = (x_1, x_2)\) are the spacelike coordinates. We write the map above as \(\phi : S_R(K) \to \Bbb H^2\), \(\phi(t, \mathbf{x}) = \mathbf{x}/(1 + t \sqrt{-K})\). Then the Jacobian matrix of this map evaluated at \(p = (t, \mathbf{x})\) is given by</p>
+\[ds^2 = 4 \cos^2(\theta/2) dx^2 + 4 \sin^2(\theta/2) dy^2\]
 
-\[\displaystyle D\phi(p) = \begin{pmatrix} -x_1\sqrt{-K}/(1 + t\sqrt{-K})^2 &amp; 1/(1+t\sqrt{-K}) &amp; 0 \\ -x_2\sqrt{-K}/(1 + t\sqrt{-K})^2 &amp; 0 &amp; 1/(1 + t\sqrt{-K}) \end{pmatrix}\]
+<p>For diagonalized metrics it is easy to compute curvature using the Gauss-Codazzi equations:</p>
 
-<p>Let \(v = (s_1, \mathbf{v}), w = (s_2, \mathbf{w}) \in T_p S_R(K)\) be two tangent vectors on \(S_R(K)\) at \(p\). From the Jacobian formula, we see</p>
+\[\displaystyle K = -\frac{1}{2\sqrt{EG}} \left ( \left ( \frac{E_y}{\sqrt{EG}} \right )_y + \left ( \frac{G_x}{\sqrt{EG}} \right )_x \right )\]
 
-\[\displaystyle \begin{aligned} D\phi(p)(v) &amp;= - \sqrt{-K} \frac{s_1 \mathbf{x} }{(1 + t \sqrt{-K})^2} + \frac{\mathbf{v}}{1 + t\sqrt{-K}} \\ D\phi(p)(w) &amp;= - \sqrt{-K} \frac{s_2 \mathbf{x}}{(1 + t\sqrt{-K})^2} + \frac{\mathbf{w}}{1 + t\sqrt{-K}} \end{aligned}\]
+<p>Plugging \(E_y = -2\sin(\theta)\theta_y\), \(G_x = 2\sin(\theta)\theta_x\) and \(\sqrt{EG} = 2\sin(\theta)\) in above, we get</p>
 
-<p>We can relate our bilinear form with the spacelike Euclidean dot product as:</p>
+\[\displaystyle K = -\frac{\theta_{xx} - \theta_{yy}}{4\sin(\theta)} = -\frac{\theta_{uv}}{\sin(\theta)}\]
 
-\[\langle (t, \mathbf{a}), (s, \mathbf{b}) \rangle_K = - ts + \mathbf{a} \cdot \mathbf{b}\]
+<p>So this special coordinate patch \(\mathbf{x} : U \to \mathbf{x}(U) \subset M\) on the constant negative curvature surface \(M\), known in literature as a  <em>Tchebyshef net</em>, can be imagined as a fishnet pattern over the surface made by two sets of arclength parametrized coordinate curves, where each individual cell is a geometric parallelogram with internal angle \(\theta\) varying cellwise according to the partial differential equation</p>
 
-<p>So using the fact that \(p = (t, \mathbf{x})\) is a norm \(i/\sqrt{-K}\) vector, and \(v, w\) are tangential to \(S_R(K)\) at \(p\), we obtain \(\mathbf{x} \cdot \mathbf{x} = t^2 + K^{-1}\), \(\mathbf{v} \cdot \mathbf{x} = s_1 t\) and \(\mathbf{w} \cdot \mathbf{x} = s_2 t\). With these identities in mind, we shall take the Euclidean dot product of the vectors \(D\phi(p)(v)\) and \(D\phi(p)(w)\) in \(\Bbb R^2\):</p>
+\[\theta_{uv} + K \sin(\theta) = 0\]
 
-\[\displaystyle \begin{aligned}D\phi(p)(v) \cdot D\phi(p)(w) &amp;= -K \frac{s_1 s_2 \mathbf{x} \cdot \mathbf{x}}{(1 + t\sqrt{-K})^4} - \sqrt{-K} \frac{s_1 \mathbf{x} \cdot \mathbf{w} + s_2 \mathbf{x} \cdot \mathbf{v}}{(1 + t\sqrt{-K})^3} + \frac{\mathbf{v} \cdot \mathbf{w}}{(1 + t\sqrt{-K})^2} \\ &amp;= -K \frac{s_1 s_2 (t^2 + K^{-1}) }{(1 + t\sqrt{-K})^4} - \sqrt{-K} \frac{2 s_1 s_2 t}{(1 + t\sqrt{-K})^3} + \frac{\mathbf{v} \cdot \mathbf{w}}{(1 + t\sqrt{-K})^2} \\ &amp;= \frac{-s_1 s_2 + \mathbf{v} \cdot \mathbf{w}}{(1 + t\sqrt{-K})^2} = \frac{\langle v, w \rangle_K}{(1 + t\sqrt{-K})^2}\end{aligned}\]
-
-<p>Now note that</p>
-
-\[\displaystyle \|\phi(p)\|^2 = \frac{\|\mathbf{x}\|^2}{(1 + \sqrt{-K} t)^2} = \frac{t^2 + K^{-1}}{(1 + t\sqrt{-K})^2} = -\frac{1}{K} \frac{t \sqrt{-K} - 1}{t \sqrt{-K} + 1}\]
-
-<p>So \(1 + K \|\phi(p)\|^2 = 2/(1 + t \sqrt{-K})\), and we therefore we can replace the factor of \((1 + t \sqrt{-K})^2\) appearing above by \(4/(1 + K\|\phi(p)\|)^2\). Putting it all together,</p>
-
-\[\displaystyle \langle v, w \rangle_K = 4 \frac{D\phi(p)(v) \cdot D\phi(p)(w)}{(1 + K\|\phi(p)\|)^2} = \phi^* \left ( 4 \frac{dx^2 + dy^2}{(1 + K(x^2 + y^2))^2} \right ) = \phi^* \omega_{P}\]
-
-<p>Where \(\omega_P\) is exactly the <a href="https://en.wikipedia.org/wiki/Poincar%C3%A9_metric#Metric_and_volume_element_on_the_Poincar%C3%A9_disk">Poincare metric</a> on \(\Bbb D_R\) in the disk model of \(\Bbb H^2_K\). It is worth noting that \(\omega_P\) is a pointwise multiple of the Euclidean metric on the disk, therefore hyperbolic angles drawn on the disk are the same as Euclidean angles, since scaling in the metric does not change measurements of angles. Such equivalences of metrics are called conformal equivalences; we just proved that the stereographic projection of the hyperboloid model to the disk is conformal, much like the stereographic projection of the sphere to the plane. In fact, if one computes the pullback of the spherical metric on \(S^2_K\) to \(\Bbb R^2\) under the stereographic projection, one would obtain a metric identical to \(\omega_P\) except with \(K\) positive (Compute it!). This implies for a flat creature who does not have access to the third dimension, spherical geometry is as unnatural as hyperbolic geometry!</p>
-
-<p>The isometry group of the Riemannian manifold \(S_R(K)\) is the isotropy group \(O_K\) of the quadratic form \(Q_K\), consisting of all matrices in \(\mathrm{GL}_3(\Bbb R)\) preserving the bilinear form \(\langle \cdot, \cdot \rangle_K\), with a mild modification for \(K &lt; 0\) to throw away the isometries which switch the two sheets of the hyperboloid \(S_R^{\pm}(K)\), i.e, only consider the causal orientation preserving isometries. In case of \(K &gt; 0\), this is the orthogonal group \(O(3)\) and for \(K &lt; 0\), this is the orthochronous Lorentz group \(O^+(1, 2)\). The spatial orientation preserving subgroup is denoted as \(SO(1, 2)\), and the elements of this group are <em>Lorentz transformations</em> of the (1+2)-dimensional spacetime. These are generated by spatial rotations, given by</p>
-
-\[\displaystyle R_\theta = \begin{pmatrix} 1 &amp; 0 &amp; 0 \\ 0 &amp; \cos(\theta) &amp; \sin(\theta) \\ 0 &amp; -\sin(\theta) &amp; \cos(\theta) \end{pmatrix}\]
-
-<p>and the so-called <em>Lorentz boosts</em> along various axis. For example, a Lorentz boost along the respective two spatial axes are given by</p>
-
-\[\displaystyle L^1_\zeta = \begin{pmatrix} \cosh(\zeta) &amp; \sinh(\zeta) &amp; 0 \\ \sinh(\zeta) &amp; \cosh(\zeta) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}, \;\;\; L^2_\zeta = \begin{pmatrix}\cosh(\zeta) &amp; 0 &amp; \sinh(\zeta) \\ 0 &amp; 1 &amp; 0 \\ \sinh(\zeta) &amp; 0 &amp; \cosh(\zeta) \end{pmatrix}\]
-
-<p>It can be easily checked that the isometry group of \(S_K(R)\) acts transitively on \(S_K(R)\), and the stabilizer subroup of a point is isomorphic to \(O(2)\) regardless of \(K\) (to see this in \(\Bbb H^2_K\), find a convenient point, eg, the vertex of the hyperboloid and observe that all the stabilizing elements are spatial rotations). This proves that the model geometries \(M_K\) are symmetric spaces: if \(K &gt; 0\) it is \(O(3)/O(2)\), if \(K &lt; 0\) it is \(O^+(1, 2)/O(2)\).</p>
-
-<p>Let us try to understand the geodesics of \(\Bbb H^2_K\) using this information. For any 2-dimensional subspace \(H \subset \Bbb R^2\) such that \(H\) intersects the positive sheet of the hyperboloid \(S_R^{\pm}(K)\), the bilinear form \(\langle \cdot, \cdot \rangle_K\) restricts to a nondegenerate form on \(H\) that makes it a <a href="https://en.wikipedia.org/wiki/Isotropic_quadratic_form#Hyperbolic_plane">hyperbolic quadratic plane</a>, as pictorially evident by seeing that the kernel of the restricted form is union of two lines in \(H\), obtained from intersecting \(H\) with the light cone. Choose an orthonormal basis \(\{v_1, v_2\}\) in \(H\) with respect to this form, and extend it to an orthonormal basis \(\{v_1, v_2, v_3\}\) of \(\Bbb R^{1, 2}\). Let \(A = (v_1, v_2, v_3)\); then \(A \in O^+(1, 2)\) such that \(A\mathbf{e}_i = v_i\) for \(1 \leq i \leq 3\). Therefore \(A\) takes the span of \(\mathbf{e}_1, \mathbf{e}_2\), i.e., the plane \(x_3 = 0\) to the plane \(H\). Observe that the the matrix \(B = \mathrm{diag}(1, 1, -1)\) is an element of \(O^+(1, 2)\) which reflects along the plane \(x_3 = 0\); the timelike direction is not affected in this process so it is safely an orthochronous Lorentz transformation. Finally consider the element \(ABA^{-1} \in O^+(1, 2)\), and observe that this fixes \(H\) since \(B\) fixes \(x_3 = 0\). Thus, \(ABA^{-1}\) is an isometric involution of \(S_R(K)\) fixing the curve \(H \cap S_R(K)\). Hence, it must be a geodesic of \(S_R(K)\). Moreover these are all the geodesics of \(S_R(K)\), since through any point with a given tangent vector, one can draw a 2-dimensional section of the hyperboloid passing through that point, tangential to the vector. This is analogous to the situation for \(K &gt; 0\) where the geodesics on the sphere \(S^2_R\) are given by slicing it by a plane through the origin, which traces out a great circle on the sphere.</p>
-
-<p>We can write down explicit formulas for geodesics on \(S_R(K)\). Namely, if \(\gamma : \Bbb R \to S_R(K)\) is an arclength parametrized geodesic passing through \(\gamma(0) = (1/\sqrt{-K}, 0, 0)\), it must be of the form</p>
-
-\[\displaystyle \gamma(t) = \frac{1}{\sqrt{-K}} \left ( \cosh(t \sqrt{-K}), \sinh(t \sqrt{-K}) \cos(\theta), \sinh(t \sqrt{-K}) \sin(\theta) \right )\]
-
-<p>To see this, observe \(\langle \gamma, \gamma \rangle_K = R^2\), so \(\gamma\) lies on \(S_R(K)\), and \(\langle \gamma', \gamma' \rangle_K = 1\) which implies \(\gamma\) is arclength parametrized. \(\gamma\) clearly lies on the plane spanned by \((1/\sqrt{-K}, 0, 0)\) and \((0, \cos(\theta), \sin(\theta))\), so it must be a geodesic, as required. Note the similarity with formulas for arclength parametrized geodesics on \(S_R(K) \cong S^2_R\) for \(K &gt; 0\) passing through \((1/\sqrt{K}, 0, 0)\), which can be written down by simply replacing the hyperbolic trigonometric functions with usual trigonometric functions:</p>
-
-\[\displaystyle \gamma(t) = \frac{1}{\sqrt{K}} \left ( \cos(t \sqrt{K}), \sin(t \sqrt{K}) \cos(\theta), \sin(t \sqrt{K}) \sin(\theta) \right )\]
-
-<p>This describes the geodesics of \(\Bbb H_K^2\) in the hyperboloid model completely. If we project to the unit disk conformally, we obtain that the geodesics in the disk model are exactly diameters as well as semicircular arcs which hit the boundary circle perpendicularly, as illustrated in the following picture:</p>
+<p>Intuitively, (I think) the formula for the curvature can be justified as follows: \(K\) is equal to the limit of the holonomy angle when parallel transporting over a loop divided by area bounded by the loop, as the loop shrinks to the constant loop. We start with a node of the Tchebyshef net, and an asymptotic direction, and parallel transport it over a cell of area \(\sin(\theta) st\) in the fishnet. The asymptotic curves in the saddle are geodesics as they are straightlines, and since \(M\) locally looks like the saddle we can assume upto first order that the asymptotic curves are geodesics. Then the holonomy upon parallel translating over the coordinate cube is \(-\theta_{uv} s t\) upto second order, hence in the limit \(K = -\theta_{uv}/\sin(\theta)\), as we computed.</p>
 
 <div class="figure-row">
-<img src="/assets/images/hyperboloid-projection-1.png" height="250" width="250" />
+    <img src="/assets/images/fishnet.gif" height="40%" width="40%" />
 </div>
 
-<p>Here on the left we have an illustration of a geodesic tessellation of \(\Bbb H_K^2\) in Poincare disk model, and on the right is “Circle Limit III” by Escher, who mistakenly thought that the white lines are geodesics, but in fact they meet the boundary circle in somewhere close to 80 degrees, as Coxeter found out:</p>
+<p>Assume now that \(M\) is complete, and extend this to a global parametrization \(\mathbf{x} : \Bbb R^2 \dashrightarrow M\) by setting \(\mathbf{x}(0, 0) = p\) and defining \(\mathbf{x}(s, t)\) to be the point reached by running along the first coordinate asymptotic curve for time \(s\) and then the second coordinate asymptotic curve for time \(t\). Let the domain of the parametrization be \(E = \{(s, t) \in \Bbb R^2 : \mathbf{x}(s, t) \text{ is well-defined}\}\). If \((s_0, t_0) \in E\) we can lay a Tchebyshef net at \(\mathbf{x}(s_0, t_0)\) which would match \(\mathbf{x}\) in the intersection of the domain of definition, essentially by uniqueness of solutions to ODEs. Thus \(\mathbf{x}\) would be defined in a neighborhood of \((s_0, t_0)\) as well, hence \((s_0, t_0) \in E\) is an interior point. If \((s_\infty, t_\infty) \in E\) is a limit point, we can take a sequence \(\{(s_n, t_n)\}\) in \(E\) converging to \((s_\infty, t_\infty)\), so that \(q_n = \mathbf{x}(s_n, t_n)\) is a Cauchy sequence on \(M\) since coordinate distances are Euclidean by arclength parametrization of the coordinate curves; hence by metric completeness of \(M\) converges to some point \(q\) and we define \(\mathbf{x}(s_\infty, t_\infty) = q\). Thus, \((s_\infty, t_\infty) \in E\). These show that \(E \subset \Bbb R^2\) is a nonempty clopen subset, hence \(E = \Bbb R^2\) and thus \(\mathbf{x}\) is globally well-defined. It is clear that \(\mathbf{x}\) is a local diffeomorphism, since \(\mathbf{x}_u\) and \(\mathbf{x}_v\) are the two independent coordinate directions at every point.</p>
+
+<p>Let \(\Omega \subset M\) be the image of \(\mathbf{x}\), which must be an open subset as \(\mathbf{x} : \Bbb R^2 \to M\) is a local diffeomorphism. Choose a point \(p \in \partial \Omega\) and lay a Tchebyshef net around \(p\). This will intersect \(\Omega\) and thus we shall find a point \(q \in \Omega\) whose asymptotic curve intersects that of \(p\), which is impossible since asymptotic curves emanating from \(\Omega\) stays inside \(\Omega\). Thus \(\Omega = M\) and \(\mathbf{x}\) is therefore surjective. It’s a little more fidgety to argue \(M\) is simply connected, \(\mathbf{x}\) is injective: do Carmo gives a fidgety argument for this, but let me attempt at a cleaner approach. The fiberwise nondegenerate symmetric indefinite billinear form \(\Bbb{II}\) reduced the structure group of the tangent bundle \(TM\) to \(O(1, 1)\). Therefore we have a corresponding classifying map \(M \to BO(1, 1)\); but since \(\pi_1(M) = 0\), this map lifts to the universal cover \(\widetilde{BO(1, 1)} = BSO^+(1, 1)\). This implies we can upgrade the “cone field” on \(M\) given by \(\ker \Bbb{II}\) to a pair of well-defined global null vector fields \(X, Y\) on \(M\). Since \(\mathbf{x}_u = X\) and \(\mathbf{x}_v = Y\), we obtain by existence and uniqueness of ODEs that two independent family of strands of the fishnet given by \(\mathbf{x}\) do not self-intersect, and every pair of independent strands intersect at a unique point. This therefore implies \(\mathbf{x}\) is injective. We needed simple connectedness of \(M\) crucially in the argument, because in general it is possible that an asymptotic curve intersects itself in a general surface of negative curvature immersed in \(\Bbb R^3\).</p>
+
+<p>As a small detour at this point, observe that a Tchebyshef net is completely determined by the data of the fishnet angles, \(\theta : \Omega \subset \Bbb R^2 \to \Bbb R\) satisfying the PDE \(\theta_{uv} = - K \sin(\theta)\) relative to the geometric restriction \(0 &lt; \theta &lt; \pi\). This PDE is known as the  <em>sine-Gordon equation</em>, and Hilbert’s theorem is the statement that there are no regular global solutions to this equation with the restriction \(0 &lt; \theta &lt; \pi\). The name derives from the fact that if we write the equation in space-time coordinates \(x = u + v\), \(t = u - v\) it transforms into \(\square \theta - K \sin(\theta) = 0\) where \(\square \theta = \theta_{tt} - \theta_{xx}\) is the d’Alembert operator with speed of light assumed to be \(1\), which in the low-amplitude case has first order approximation to a linear wave equation-type PDE \((\square - K)\theta = 0\) known as the  <em>Klein-Gordon equation</em>. This is of course all reminiscent of 1-dimensional story with the simple harmonic oscillator, although I am not sure of what the precise physical meaning of this is. The sine-Gordon equation belongs to a class of nonlinear PDEs arising from physics known as  <em>soliton equations</em>  whose solutions are solitary waves \(u(x, t) = f(x - ct)\) with \(f\) rapidly decaying at infinity, which are called the  <em>soliton solutions</em>  and there exists a nonlinear superposition law of waves which gives rise to solutions asymptotic to sum of solitary waves \(\sum_{i = 1}^n f_i(x - c_i t)\) as \(t \to -\infty\) and \(\sum_{i = 1}^n f_i(x - c_i t + \phi_i)\) as \(t \to \infty\), which is to be interpreted as \(n\) solitary waves coming togather, interacting in a nonlinear fashion in a compact interval of time, and then dissipating off to infinity with no change in shape or velocities but individual phase shifts \(\phi_i\). Let us try to exhibit this phenomenon for the sine-Gordon equations in space-time coordinates with curvature \(K = -1\): plug \(\theta(x, t) = f(x - ct)\) as the soliton ansatz in \(\square \theta + \sin(\theta) = 0\) to obtain the ODE \((1 - c^2) f'' = \sin(f)\) where the rapid decay condition of the soliton is to be interpreted as \(\vert f(u)\vert, \vert f'(u)\vert \to 0\) as \(u \to \pm \infty\). Using this, we solve \(f(u) = 4 \arctan \exp(\pm \gamma (u - \phi))\) where \(\phi\) is the “phase” of the soliton and \(\gamma = 1/\sqrt{1 - c^2}\) is the “Lorentz factor” of the soliton with velocity \(c\). The solution with the positive sign in the argument is called a  <em>kink</em>  and the one with the negative sign is called an  <em>antikink</em>. The 1-parameter surfaces of constant curvature \(-1\) corresponding to these solutions is the Dini family of pseudospheres</p>
 
 <div class="figure-row">
-    <img src="/assets/images/hyperbolic-tiling.svg" height="200" width="200" />
-    <img src="/assets/images/circle-limit.jpg" height="200" width="200" />
+    <img src="/assets/images/dini1.png" width="70%" height="70%" />
 </div>
 
-<!-- <img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Hyperbolic_tiling_6_5_2_8.svg" height="200" width="200"/><img src="https://upload.wikimedia.org/wikipedia/en/thumb/5/55/Escher_Circle_Limit_III.jpg/290px-Escher_Circle_Limit_III.jpg" height="200" width="200"/> -->
+<p>I used  <a href="http://3d-xplormath.org/">3D-XplorMath</a>  to plot this image, and I really recommend downloading it and try to play with pseudospherical surfaces there. There is an animation option which can be used to see the family of surfaces as \(c\) varies. One can observe the “hump” along the curve of singularities on the surface to be propagating like a wave along the axis of the pseudospheres, reminiscent of a corkscrew. At some intermediate stage, the curve of singularities limit from a spiral to a circle, and at that moment the Dini surface is the plain vanilla pseudosphere that we all know and adore. I wanted to talk a bit more about how one obtains multisoliton solutions to the sine-Gordon equation using Bäcklund transforms but I realize I don’t understand it adequately enough myself to explain it in a concise manner. Instead, I will refer the reader to the excellent exposition “Geometry of Solitons” by Terng and Uhlenbeck for further information on soliton equations and how sine-Gordon is an example of such. Here is a picture of a surface of constant curvature -1 obtained from a 2-soliton formed by colliding a kink and an anti-kink:</p>
 
-<p>Earlier we found that if \(M\) is a Riemannian 2-manifold of constant Gaussian curvature \(K\), then for any geodesic \(\gamma : [0, c] \to M\) with initial point \(\gamma(0) = p\) and a normal Jacobi field \(J\) along \(\gamma\), its length \(f(t) = \|J(t)\|\) must satisfy the second order linear differential equation \(f'' + K f = 0\). Solving with initial conditions \(J(0) = 0\) and \(J'(0) = \mathbf{e}_p\) we obtain</p>
+<div class="figure-row">
+    <img src="/assets/images/dini2.webp" height="70%" width="70%" />
+</div>
 
-\[\displaystyle \begin{aligned} J(t) &amp;= \frac{\sin(t \sqrt{K})}{\sqrt{K}} \mathbf{e} \;\; \text{if} \;\; K &gt; 0 \\ J(t) &amp;= t \mathbf{e} \;\; \text{if} \;\; K = 0 \\ J(t) &amp;= \frac{\sinh(t \sqrt{-K})}{\sqrt{-K}} \mathbf{e} \;\; \text{if} \;\; K &lt; 0\end{aligned}\]
+<p>We now proceed to prove Hilbert’s theorem. Suppose \(M \subset \Bbb R^3\) is a smoothly isometrically immersed copy of \(\Bbb H^2\), so by above we obtain a global Tchebyshef net \(\mathbf{x} : \Bbb R^2 \to M\) which is a bijective local diffeomorphism, hence a diffeomorphism as \(M\) is simply connected, and since \(K \equiv -1\), we have \(\theta_{uv} = \sin(\theta)\). Choose any coordinate rectangle \(I = [s_1, t_1] \times [s_2, t_2] \subset \Bbb R^2\). Then the area of \(\mathbf{x}(I) \subset M\) can be computed as:</p>
 
-<p>Thus, in positive curvature, nearby geodesics starting at a common point “tend to” behave periodically, by diverging off, then coming back and converging to a point, and so forth. Similarly, in negative curvature, nearby geodesics starting at a common point “tend to” diverge from each other at an exponential rate. In zero curvature, nearby geodesics starting at a common point “tend to” grow linearly far apart. But the Jacobi field computation can only tell us about these tendencies as such; whether or not these actually happen is unclear. We shall show by some spherical and hyperbolic trigonometry that these do in fact happen in case of the model surface \(M_K\) of constant curvature \(K\).</p>
+\[\displaystyle \begin{aligned} \int_I A du dv &amp;= \int_I \sin(\theta) du dv = \int_I \theta_{uv} du dv \\ &amp; = \theta_{11} - \theta_{12} + \theta_{22} - \theta_{21} \\ &amp;= (\alpha_{11} + \alpha_{12} + \alpha_{21} + \alpha_{22}) - 2\pi &lt; 2\pi \end{aligned}\]
 
-<p>Suppose we have a geodesic triangle \(\Delta = [P,Q,R]\) in \(M_K\) with vertices \(P, Q, R\), geodesic \(PQ, PR, QR\) of length \(a, b, c\) and angles opposite to the sides \(\alpha, \beta, \gamma\) respectively. For \(K = 0\), we have a convenient formula for \(c\) in terms of \(a, b\) and \(\gamma\), obtained using familiar trigonomentry, \(c^2 = a^2 + b^2 + 2ab\cos(\gamma)\). Imagine changing the triangle \(\Delta\) by fixing the vertex \(P\), but varying the sides \(a, b\) and the angle \(\gamma\). The formula gives an understanding on the change in \(c\) that comes from such maneuvers. Importantly, if \(a = b = T\), then \(c\) is proportional to \(T\), with the proportionality constant depending on the angle \(\gamma\) between the sides. This implies that in the flat plane, two geodesics starting at a point and run until time \(T\) will be a constant multiple of \(T\) apart. We would like to do similar calculations for \(K \neq 0\), but we would need to develop a theory of trigonometry in non-planar geometries to accomplish this, which we do in the next paragraph.</p>
+<p>Where \(\theta_{ij}\) are the fishnet angles and \(\alpha_{ij}\) are the interior angles at the vertices \(\mathbf{x}(s_i, t_j)\) of the geometric rectangle \(\mathbf{x}(I)\), where the last inequality is just a consequence of the fact that \(\alpha_{ij} &lt; \pi\). Taking the rectangles \(I = [-n, n]^2\) and letting \(n \to \infty\) shows that \(M\) has finite volume, bounded by \(2\pi\), which is a contradiction since \(\Bbb H^2\) is an infinite volume Riemannian surface. This also proves nonimmersability of any complete constant negative curvature surface in \(\Bbb R^3\), since we can compose the immersion with the exponential map \(\exp_p : T_p M \to M\) to get an immersion of \(T_p M\) with a metric of constant negative curvature \(K &lt; 0\), and the metric can be scaled so that \(K \equiv -1\), in which case by Cartan’s theorem (known as Minding’s theorem for surfaces) \(T_p M\) is isometric to \(\Bbb H^2\), reducing it to Hilbert’s theorem.</p>
 
-<p>Motivated from the mysterious apparitions in earlier computations, define trigonometric functions in the model geometry of constant curvature \(K \neq 0\) by</p>
+<p>As a remark, observe that throughout we did not quite require smoothness of the immersion since to do these curvature arguments we just need \(C^2\)-regularity. Thus, Hilbert’s theorem in fact proves there is no \(C^2\)-regular immersion of \(\Bbb H^2\) in \(\Bbb R^3\). There are however many such \(C^1\)-regular embeddings. To construct one we shall use the  <em>Nash-Kuiper \(h\)-principle</em>. Call a smooth map \(f : (M, g) \to (N, h)\) of Riemannian manifolds a  <em>short map</em>  if \(f^* g &lt; h\) in the sense of quadratic forms, i.e, \(\|f_* v\|_h &lt; \|v\|_g\) for any \(v \in TM\).</p>
 
-\[\displaystyle \begin{gather*} \sin_K(x) = \frac{\sin(x\sqrt{K})}{\sqrt{K}} \;\; \text{if} \; K &gt; 0 \;\; \text{and} \;\; \frac{\sinh(x \sqrt{-K})}{\sqrt{-K}} \;\; \text{if} \;\; K &lt; 0 \\ \cos_K(x) = \frac{\cos(x\sqrt{K})}{\sqrt{K}} \;\; \text{if} \;\; K &gt; 0 \;\; \text{and} \;\; \frac{\cosh(x \sqrt{-K})}{\sqrt{-K}} \;\; \text{if} \;\; K &lt; 0\end{gather*}\]
+<p><strong>Theorem</strong>  (Nash-Kuiper): Let \((M^m, g)\) be a Riemannian manifold, and \(g_{\mathrm{Euc}}\) be the Euclidean metric on \(\Bbb R^n\) where \(m &lt; n\). For any short immersion \(f : M \to \Bbb R^n\) and any \(\varepsilon &gt; 0\) there exists \(C^1\)-regular isometric immersion \(f_1 : M \to \Bbb R^n\) such that \(\|f_1 - f\|_{C^0} &lt; \varepsilon\), and \(f_1\) can be chosen to be an embedding if \(f\) is an embedding.</p>
 
-<p>Observe the trigonometric identity \(\cos_K^2(x) + \epsilon_K \sin_K^2(x) = 1/\vert K\vert\). In the earlier setup of the triangle \(\Delta = [P, Q, R]\) in \(M_K\), we can arrange \(P = (1/\sqrt{\vert K \vert}, 0, 0)\) by applying an isometry, and moreover we can do a (spatial, in case of \(K &lt; 0\)) rotation so that \(Q\) is in the \(xy\)-plane. Then the whole geodesic \(PQ\) must lie in the \(xy\)-plane, implying \(Q = (\cos_K(a), \sin_K(a), 0)\). Define</p>
+<p>One model for the hyperbolic plane is the Beltrami-Klein disk model, which is the unit disk \(\Bbb D \subset \Bbb R^2\) equipped with the metric</p>
 
-\[\displaystyle \mathbf{M} = \begin{pmatrix} \sqrt{\vert K \vert} \cos_K(a) &amp; \epsilon_K \sqrt{|K|} \sin_K(a) &amp; 0 \\ \sqrt{|K|} \sin_K(a) &amp; - \sqrt{|K|} \cos_K(a) &amp; 0 \\ 0 &amp; 0 &amp; 1 \end{pmatrix}\]
+\[\displaystyle ds^2 = \frac{dx^2 + dy^2}{1 - x^2 - y^2} + \frac{(xdx + ydy)^2}{(1 - x^2 - y^2)^2}\]
 
-<p>\(\mathbf{M}\) is an orthogonal transformation if \(K &gt; 0\) and composition of a Lorentz boost with a reflection along the \(xz\)-plane if \(K &lt; 0\). Then we obtain a new geodesic triangle \(\mathbf{M} (\Delta) = [\mathbf{M}P, \mathbf{M}Q, \mathbf{M}R]\); but observe that \(\mathbf{M} P = Q\) and \(\mathbf{M} Q = P\). Let \(R' = \mathbf{M} R\)</p>
+<p>This can be obtained from the hyperboloid model discussed in the previous post, by stereographically projecting to a disk tangent to the vertex of the hyperboloid as opposed to an equatorial disk as in the Poincare disk model.</p>
 
-<p>Since \(PR\) makes an angle of \(\gamma\) with \(PQ\) in \(\Delta\), the plane that cuts out \(PR\) from \(M_K\) must make an angle of \(\gamma\) with the \(xz\)-plane. Therefore \(R = (\cos_K(b), \sin_K(b) \cos(\gamma), \sin_K(b) \sin(\gamma))\). On the other hand, \(PR'\) makes the same angle with \(PQ\) in \(\mathbf{M}(\Delta)\) as \(QR\) and \(QP\) in \(\Delta\), which is \(\beta\). Thus, \(R' = (\cos_K(c), \sin_K(c) \cos(\beta), \sin_K(c) \sin(\beta))\). Writing \(\mathbf{M} R = R'\) in coordinates,</p>
+<div class="figure-row">
+    <img src="/assets/images/hyperboloid-projection-2.webp" height="50%" width="50%" />
+</div>
 
-\[\displaystyle \begin{pmatrix} \sqrt{|K|} \cos_K(a) &amp; \epsilon_K \sqrt{|K|} \sin_K(a) &amp; 0 \\ \sqrt{|K|} \sin_K(a) &amp; - \sqrt{|K|} \cos_K(a) &amp; 0 \\ 0 &amp; 0 &amp; 1\end{pmatrix} \begin{pmatrix} \cos_K(b) \\ \sin_K(b) \cos(\gamma) \\ \sin_K(b) \sin(\gamma) \end{pmatrix} = \begin{pmatrix}\cos_K(c) \\ \cos_K(c) \sin(\beta) \\ \sin_K(c) \sin(\beta)\end{pmatrix}\]
+<p>Then the canonical inclusion \(\Bbb D \to \Bbb R^3\) is a short embedding, hence can be \(C^0\)-perturbed to a \(C^1\)-regular isometric embedding of \(\Bbb H^2\) in \(\Bbb R^3\). One can in fact do better (thanks to Mike Miller for asking the question): in the hyperboloid model, we parametrize the hyperboloid</p>
 
-<p>Computing out the identity obtained from the first entry, we get:</p>
+\[H = \{(t, x, y) \in \Bbb R^{1, 2} : -t^2 + x^2 + y^2 = -1\}\]
 
-\[\displaystyle \cos_K(c) = \sqrt{|K|} \cos_K(a) \cos_K(b) + \epsilon_K \sqrt{|K|} \sin_K(a) \sin_K(b) \cos(\gamma)\]
+<p>by \(\Psi : \Bbb R^2 \to H\), \(\Psi(\phi, \theta) = (\cosh(\phi), \sinh(\phi)\cos(\theta), \sinh(\phi)\sin(\theta))\). Recall the metric on \(H\) is simply the Minkowski metric \(ds^2 = -dt^2 + dx^2 + dy^2\), and we can verify that \(\Psi^*(ds^2) = d\phi^2 + \sinh^2(\phi)d\theta^2\) which is a metric away from the line \(\phi = 0\) along which it is degenerate because \(\Psi\) has degenerate Jacobian along that line. We can fix this by setting \(\phi = x\) and \(\theta = \coth(x) y\) so that we have a well-defined metric \(g = dx^2 + \cosh^2(x) dy^2\) on \(\Bbb R^2\) with constant negative curvature \(-1\) which models the hyperbolic plane. Let \(f : (\Bbb R^2, g) \to (\Bbb R^3, g_{\text{Euc}})\), \(f(x, y, z) = (x/2, y/2)\). Then</p>
 
-<p>This is the <em>cosine formula for sides</em> of a triangle. Written explicitly,</p>
+\[f^* g_{\text{Euc}} = (dx^2 + dy^2)/4 &lt; dx^2 + \cosh^2(x) dy^2 = g,\]
 
-\[\displaystyle \begin{aligned}\cos(c\sqrt{K}) &amp;= \cos(a\sqrt{K}) \cos(b\sqrt{K}) + \sin(a\sqrt{K}) \sin(b\sqrt{K}) \cos(\gamma) \;\; \text{if} \;\; K &gt; 0 \\
-\cosh(c\sqrt{-K}) &amp;= \cosh(a\sqrt{-K}) \cosh(b\sqrt{-K}) - \sinh(a\sqrt{-K}) \sinh(b\sqrt{-K}) \cos(\gamma) \;\; \text{if} \;\; K &lt; 0\end{aligned}\]
+<p>hence \(f\) is a short embedding. By the Nash-Kuiper h-principle we can find a \(C^1\)-regular isometric embedding \(f_1 : (\Bbb R^2, g) \to \Bbb R^3\) which is \(C^0\)-close to \(f\), and thus as \(f\) is proper so is \(f_1\). We have found a proper \(C^1\)-regular isometric embedding of \(\Bbb H^2\) in \(\Bbb R^3\). The first embedding is a wild \(C^0\)-small perturbation of the Klein disk model, which essentially looks like a fractal-like ball of fuzz in space, almost like a hyperbolic crochet, with the ideal boundary \(\partial \Bbb{H}^2\) curled up into a wild continuum(?). On the other hand, the second example wrinkles more and more as we go towards infinity, to accommodate the exponential distance between points farther away from the origin.</p>
 
-<p>Set \(a = b = T\) and \(\gamma\) be constant. We get</p>
+<div class="figure-row">
+    <img src="/assets/images/hyperbolic-crochet.jpg" height="60%" width="60%" />
+</div>
 
-\[\begin{aligned}\cos(c \sqrt{K}) &amp;= 1 - \sin^2(T \sqrt{K}) (1 - \cos \gamma) \;\; \text{if} \;\; K &gt; 0 \\
-\cosh(c\sqrt{-K}) &amp;= 1 + \sinh^2(T\sqrt{-K})(1 - \cos \gamma) \;\; \text{if}\;\; K &lt; 0\end{aligned}\]
+<p>At least two students of the said camp asked me if \(\Bbb H^2\) smoothly isometrically embeds in \(\Bbb R^n\) for some \(n &gt; 3\). A non-explicit answer is given once again by Nash, which states that if \((M, g)\) is an arbitrary Riemannian \(n\)-manifold then there is a \(C^\infty\)-regular isometric embedding in \(\Bbb R^{n(n+1)(3n+11)/2}\). Plugging the numbers we find \(\Bbb H^2\) admits a smooth isometric embedding in \(\Bbb R^{51}\). This seems like a dauntingly high dimension, so an interesting question might be what the minimal dimension is. David Brander’s thesis, “Isometric Embeddings between Space Forms” includes a result of Danilo Blanuša which states \(\Bbb H^2\) admits a smooth isometric embedding in \(\Bbb R^6\). It’s a very clever construction which emphasizes a key idea in the easy half of Nash-Kuiper theorem (a topic for another day!), I think, so I will try to write down an expository of the proof.</p>
 
-<p>We inspect the cases \(K = 1\) (red curve) and \(K = -1\) (blue curve) in this <a href="https://www.desmos.com/calculator/jcvrkjfbie">Desmos snippet</a>. Use the slider to change the value of \(0 \leq \gamma \leq \pi\). We see the value of \(c\) behaves periodically with respect to time \(T\) if curvature is positive, and exponentially grows with respect to time \(T\) if curvature is negative. This is the desired global result that we wanted to see.</p>
+<p>We model \(\Bbb H^2\) by \((\Bbb R^2, g = dx^2 + \cosh^2(x) dy^2)\) as before. Our goal is to find an embedding \(f : \Bbb R^2 \to \Bbb R^6\) such that \(f^* g_{\mathrm{Euc}} = g\). Before stating the key lemma we go off on a tangent to make the following observation: Suppose \(\eta : \Bbb R \to \Bbb R\) is a \(C^\infty\)-function with bounded derivative. Consider the function \(F : \Bbb R^2 \to \Bbb R^2\),</p>
 
-<p>I shall stop here for now but I might keep adding new stuff as I stumble across them later on. I’ll make a note of them whenever I do. Up next, more Jacobi fields.</p>
+\[\displaystyle F(x, y) = \left (\eta(x) \frac{\cos(cy)}{c}, \eta(x) \frac{\sin(cy)}{c} \right )\]
+
+<p>The function \(F\) essentially wraps the plane about itself so that the lines \(x = \mathrm{const}\) are mapped to circles of radius \(\eta(x)/c\) traversed in speed \(c\). It is an easy computation that</p>
+
+\[\displaystyle F^*(dx^2 + dy^2) = \frac{\eta'(x)^2}{c^2} dx^2 + \eta(x)^2 dy^2\]
+
+<p>If we let \(c \to \infty\), the angular coordinate is traversed so fast the radial direction contributes very little to the metric, and \(F^*(dx^2 + dy^2)\) becomes an arbitrarily good approximation of the quadratic differential \(\eta(x)^2 dy^2\). In fact, the bounded derivative hypothesis can be dealt away with by compromising more dimensions. Namely, let \(\psi = (\psi_1, \psi_2) : \Bbb R \to S^1\) be a smooth function such that \(\psi_i^{(k)}\) vanishes at the points congruent to \(i \pmod{2}\) for all \(k \geq 0\). Define \(F : \Bbb R^2 \to \Bbb R^4\) by</p>
+
+\[\displaystyle F(x, y) = \left ( \eta \psi_1 \frac{\cos(c_1 y)}{c_1}, \eta \psi_1 \frac{\sin(c_1 y)}{c_1}, \eta \psi_2 \frac{\cos(c_2 y)}{c_2}, \eta \psi_2 \frac{\cos(c_2 y)}{c_2} \right )\]
+
+<p>Where \(c_i\) are  <em>piecewise-constant</em>  functions, with jump discontinuities at the set of points congruent to \(i \pmod{2}\). Using \(\psi_1^2 + \psi_2^2 = 1\), we compute that</p>
+
+\[\displaystyle F^*(dx_1^2 + dx_2^2 + dx_3^2 + dx_4^2) = \left [ \left ( \frac{(\eta \psi_1)'}{c_1} \right )^2 + \left ( \frac{(\eta \psi_2)'}{c_2} \right )^2 \right ] dx^2 + \eta(x)^2 dy^2\]
+
+<p>We can now choose \(c_1, c_2\) appropriately large on each interval of continuity so that \(F^* g_{\mathrm{Euc}}\) is again an arbitrarily good approximation of \(\eta(x)^2 dy^2\). More precisely, we have \(F^* g_{\mathrm{Euc}} = \epsilon^2 dx^2 + \eta^2 dy^2\) where \(\epsilon = \epsilon(x)\) is small in \(C^0\)-norm. This trick crops up in the Nash-Kuiper theorem to “approximately immerse” a Riemannian manifold in a Euclidean space. I plan to discuss this in more detail elsewhere.</p>
+
+<p>Consider the map \(f : \Bbb R^2 \to \Bbb R^6\), given by</p>
+
+\[f(x, y) = \left (\int_0^x \sqrt{1 - \epsilon(t)^2} dt, y, F(x, y) \right)\]
+
+<p>Then \(f\) is \(C^0\)-close to the parametrization of the graph of \(F\) which is an embedding, and by stability of embedings, we conclude \(f\) must be an embedding as well. Observe</p>
+
+\[f^*(g_\mathrm{Euc}) = (1 - \epsilon(x)^2) dx^2 + dy^2 + F^*(g_\mathrm{Euc}) = dx^2 + (1 + \eta(x)^2) dy^2\]
+
+<p>Plugging \(\eta(x) = \sinh(x)\) gives the required \(C^\infty\)-regular isometric embedding \(f : \Bbb H^2 \to \Bbb R^6\). Note also since the graph of \(F\) is properly embedded in \(\Bbb R^6\) and \(f\) is \(C^0\)-close to the graph, it is also a proper embedding. We can also use the approximation result on \(\eta(x) = \cosh(x)\) and let \(f : \Bbb R^2 \to \Bbb R^5\),</p>
+
+\[f(x, y) = \left (\int_0^x \sqrt{1 - \epsilon(t)^2} dt, F(x, y) \right),\]
+
+<p>forgetting the middle component. Then \(f^*(g_\mathrm{Euc}) = dx^2 + \eta^2(x) dy^2 = g\), so \(f\) is a \(C^\infty\)-isometric immersion of \(\Bbb H^2\) in \(\Bbb R^5\).</p>
+
+<p>Whether the hyperbolic plane admits a \(C^k\)-isometric immersion in \(\Bbb R^4\) for \(k \geq 2\) is unknown, see Chapter 3.2 of Gromov, “Partial Differential Relations”.</p>
 
       </div>
     
@@ -284,7 +295,7 @@
   
     <a href="/page/15/index.html"></a>
   
-<!-- <span class="page-number">Page 16 of 17</span> -->
+<!-- <span class="page-number">Page 16 of 18</span> -->
   
     <a href="/page/17/index.html"></a>
   
