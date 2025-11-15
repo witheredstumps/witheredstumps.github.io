@@ -196,7 +196,9 @@
 
 \[\displaystyle A \to X \to X/A \to \Sigma A \to \Sigma X \to \Sigma(X/A) \to \Sigma^2A \to \cdots\]
 
-<p>where \(\Sigma\) denotes the reduced suspension. The only map in the above chain of arrows that is not immediately clear is \(X/A \to \Sigma A\). To define this, observe that \(X/A \simeq X \cup_A CA\) where \(CA\) denotes the cone over \(A\). Then, quotienting by \(X\), we obtain a map \(\displaystyle X/A \simeq X \cup_A CA \to (X \cup_A CA)/X \cong CA/A \simeq \Sigma A\)</p>
+<p>where \(\Sigma\) denotes the reduced suspension. The only map in the above chain of arrows that is not immediately clear is \(X/A \to \Sigma A\). To define this, observe that \(X/A \simeq X \cup_A CA\) where \(CA\) denotes the cone over \(A\). Then, quotienting by \(X\), we obtain a map</p>
+
+\[\displaystyle X/A \simeq X \cup_A CA \to (X \cup_A CA)/X \cong CA/A \simeq \Sigma A\]
 
 <p>Using this, we obtain a complex of groups</p>
 
@@ -210,7 +212,7 @@
 
 <p>Hence, we obtain as a corollary that \(\{\widetilde{\mathrm{K}}^{-n} : n \geq 0\}\) is a generalized (reduced) cohomology theory.</p>
 
-<p><strong>Definition.</strong> An \(\Omega\)-spectrum \(E\) is a collection of based spaces \(\{E_n : n \in \mathbf{Z}\}\) along with a collection of homotopy equivalences \(\varepsilon_n : E_n \to \Omega E_{n+1}\) for each \(n \in \mathbf{Z}\).</p>
+<p><b>Definition.</b> An \(\Omega\)-spectrum \(E\) is a collection of based spaces \(\{E_n : n \in \mathbf{Z}\}\) along with a collection of homotopy equivalences \(\varepsilon_n : E_n \to \Omega E_{n+1}\) for each \(n \in \mathbf{Z}\).</p>
 
 <p>For any \(\Omega\)-spectrum \(E\), the collection of functors on based spaces</p>
 
@@ -226,13 +228,13 @@
 
 <p>where \(k \gg n\) is very large. Note that the right hand side is in fact independent of the choice of a large enough \(k\), because \(E_k \simeq \Omega E_{k+1}\). Consequently,</p>
 
-\[\displaystyle E^n(pt) = \varinjlim_k \pi_{-n+k}(E_k) = \pi_{-n}(E)\]
+\[\displaystyle E^n(pt) = \varinjlim_k ~ \pi_{-n+k}(E_k) = \pi_{-n}(E)\]
 
 <p>It is an easy corollary of the Brown representability theorem (see Chapter 7.7. in Spanier’s “Algebraic Topology”) that <em>any</em> generalized (reduced) cohomology theory is representable by an \(\Omega\)-spectrum. Therefore, \(K\)-theory must also correspond to an \(\Omega\)-spectrum. Indeed, it is not difficult to derive what it will be explicitly in this case. We proceed to do so now.</p>
 
 <p>As is used countless times throughout so far, any vector bundle \(E \to X\) of rank \(k\) over a field \(\mathbf{k}\) (\(= \mathbf{R}\) or \(\mathbf{C}\)) can be embedded in a trivial bundle \(\varepsilon^n \to X\) of rank \(n \gg k\). Corresponding to this embedding, there is a “fiber Gauss map” \(\varphi : X \to \mathrm{Gr}(k, \mathbf{k}^n)\) to the Grassmannian of \(k\)-dimensional planes in \(\mathbf{k}^n\). Namely, for any \(x \in X\), the fiber \(E_x\) sits inside the fiber \(\mathbf{k}^n\) of \(\varepsilon^n\) over \(x\), as a linear subspace. We define \(\varphi(x)\) to be the point in the Grassmannian corresponding to \(E_x \subset \mathbf{k}^n\). Let</p>
 
-\[\displaystyle \mathrm{Gr}(k, \mathbf{k}^\infty) := \varinjlim_n \mathrm{Gr}(k, \mathbf{k}^n),\]
+\[\displaystyle \mathrm{Gr}(k, \mathbf{k}^\infty) := \varinjlim_n~ \mathrm{Gr}(k, \mathbf{k}^n),\]
 
 <p>where the maps \(\mathrm{Gr}(k, \mathbf{k}^n) \to \mathrm{Gr}(k, \mathbf{k}^{n+1})\) are induced by the coordinate inclusion \(\mathbf{k}^n \to \mathbf{k}^{n+1}\). Then, the homotopy class of the map \(\varphi : X \to \mathrm{Gr}(k, \mathbf{k}^\infty)\) is independent of the choice of any embedding of \(E\) in a trivial bundle. In fact, the isomorphism class of \(E\) is completely determined by the homotopy class of the map \(\varphi\). Indeed, there is a tautological vector bundle of rank \(k\) over \(\mathrm{Gr}(k, \mathbf{k}^\infty)\), given by</p>
 
@@ -242,7 +244,7 @@
 
 \[\displaystyle \begin{align*}
 \mathrm{Gr}(k, \mathbf{R}^\infty) &amp;\cong \frac{V_k(\mathbf{R}^\infty)}{O(k)}, &amp;
-\mathrm{Gr}(k, \mathbf{R}^\infty) \cong \frac{V_k(\mathbf{C}^\infty)}{U(k)}
+\mathrm{Gr}(k, \mathbf{C}^\infty) \cong \frac{V_k(\mathbf{C}^\infty)}{U(k)}
 \end{align*}\]
 
 <p>Since \(V_k(\mathbf{k}^\infty)\) is contractible, and the quotient of contractible space with a free action of a topological space \(G\) is the classifying space \(BG\), we get \(\mathrm{Gr}(k, \mathbf{R}^\infty) \cong BO(k)\) and \(\mathrm{Gr}(k, \mathbf{C}^\infty) \cong BU(k)\). In conclusion, we get that isomorphism classes of rank real (resp. complex) \(k\) vector bundles over \(X\) are in 1–1 correspondence with homotopy classes of maps from \(X\) to \(BO(k)\) (resp. \(BU(k)\)). To get rid of the dependence on \(k\), let us define</p>
@@ -344,7 +346,15 @@ d_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, g_i g_{i+1}, g_{i+2}, \cdot
 s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
 \end{align*}\]
 
-<p>The classifying space of \(G\) can then be modelled by the geometric realization of the nerve, i.e. \(BG \simeq \vert N(\mathbf{B} G)\vert\). Note that \(BG\) has a rogue \(0\)-simplex \(e^0\), corresponding to the empty tuple of composable morphisms. This seems like a stupid thing to have but is very important for \(BG\) to be a based space.</p>
+<table>
+  <tbody>
+    <tr>
+      <td>The classifying space of \(G\) can then be modelled by the geometric realization of the nerve, i.e. $$BG \simeq</td>
+      <td>N(\mathbf{B} G)</td>
+      <td>\(. Note that\)BG\(has a rogue\)0\(-simplex\)e^0\(, corresponding to the empty tuple of composable morphisms. This seems like a stupid thing to have but is very important for\)BG$$ to be a based space.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Clearly, this construction is (bi)functorial and hence applying it to \(\psi\) gives rise to a map \(B\psi : BO \times BO \to BO\). Note that \(B\psi\) sends \((e^0 \times BO) \cup (BO \times e^0)\) to \(e^0\). Therefore, the map descends to the smash product. We now include the factor \(\mathbf{Z}\):</p>
 
@@ -354,7 +364,7 @@ s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
 
 \[\displaystyle \mu : \mathrm{KO}_n \wedge \mathrm{KO}_m = \Omega^n(\mathrm{KO}_0) \wedge \Omega^m(\mathrm{KO}_0) \to \Omega^{m+n}(\mathrm{KO}_0 \wedge \mathrm{KO}_0) \xrightarrow{\Omega^{m+n}\Phi} \Omega^{m+n}(\mathrm{KO}_0) = \mathrm{KO}_{m+n}\]
 
-<p>Here, we use that if \(X, Y\) are two based spaces and \(S^n \to X, S^m \to Y\) are two based maps corresponding to points in \(\Omega^n X\) and \(\Omega^m X\), we may smash them together to obtain a map \(S^{m+n} = S^m \wedge S^n \to X \wedge Y\), giving an element of \(\Omega^{m+n}(X \wedge Y)\). This says \(\mathrm{KO}\) (and, by a similar argument, \(\mathrm{KU}\)) admits the structure of a ring spectrum (see Chapter III.4 in Adams’ blue book). This implies \(\pi_*(\mathrm{KO})\) and \(\pi_*(\mathrm{KU})\) admits the structure of a graded ring.</p>
+<p>Here, we use that if \(X, Y\) are two based spaces and \(S^n \to X, S^m \to Y\) are two based maps corresponding to points in \(\Omega^n X\) and \(\Omega^m X\), we may smash them together to obtain a map \(S^{m+n} = S^m \wedge S^n \to X \wedge Y\), giving an element of \(\Omega^{m+n}(X \wedge Y)\). This says \(\mathrm{KO}\) (and, by a similar argument, \(\mathrm{KU}\)) admits the structure of a <em>ring spectrum</em> (see Chapter III.4 in Adams’ blue book). This implies \(\pi_*(\mathrm{KO})\) and \(\pi_*(\mathrm{KU})\) admits the structure of a graded ring.</p>
 
 <p>A more general version of the Bott periodicity theorem pins down what these graded rings are explicitly:</p>
 
@@ -370,6 +380,41 @@ s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
 \mathrm{KO}^{-n}(X) &amp;\to \mathrm{KO}^{-n-8}(X), &amp;z&amp;\mapsto z \otimes x\\
 \mathrm{KU}^{-n}(X) &amp;\to \mathrm{KU}^{-n-2}(X), &amp;z&amp;\mapsto z \otimes \xi
 \end{align*}\]
+
+<p>We move on to discuss orientability and Thom isomorphism. It is nice to do this at some level of generality. Suppose \(\pi : V \to X\) is a real vector bundle of rank \(k\) over a space \(X\), and let \(E = \{E_n : n \in \mathbf{Z}\}\) be an \(\Omega\)-spectrum with a ring structure. Then \(E\) gives rise to a multiplicative generalized cohomology theory \(E^*\). We shall say the vector bundle \((V, X, \pi)\) has a fiberwise \(E\)-orientation if there exists a choice of element \(u_x \in E^k(V_x, V_x \setminus 0_x)\) for every \(x \in X\) and fiber \(V_x\) over \(x\), such that for any two points \(x, y \in X\) and any trivializing open set \(U \subset X\) containing \(x\) and \(y\), the composition of the excision isomorphisms</p>
+
+\[\displaystyle E^k(V_x, V_x \setminus 0_x) \xleftarrow{\cong} E^k(V_U, V_U \setminus 0_U) \xrightarrow{\cong} E^k(V_y, V_y \setminus 0_y),\]
+
+<p>takes \(u_x\) to \(u_y\). In that case, the classes \(\{u_x\}\) patch together to a well-defined class \(u \in E^k(V, V \setminus 0_X)\) that we call the <em>Thom class</em> of the vector bundle \(V\). Note that \((V, V \setminus 0_X)\) deformation retracts to the good pair \((\mathbb{D}(V), \mathbb{S}(V))\) given by the unit disk and sphere bundles of \(V\), respectively. Thus, \(u\) defines an element of</p>
+
+\[\displaystyle E^k(V, V \setminus 0_X) \cong E^k(\mathbb{D}(V), \mathbb{S}(V)) = \widetilde{E}^k(Th(V)),\]
+
+<p>where \(Th(V) = \mathbb{D}(V)/\mathbb{S}(V)\) is the Thom space of \(V\). Consider the homomorphism</p>
+
+\[\displaystyle \Phi : E^n(X) \to E^{n+k}(V, V \setminus 0_X) \cong \widetilde{E}^{n+k}(Th(V))\]
+
+<p>given by \(\Phi(z) = \pi^*z \smile u\), where \(\smile\) denotes the (relative) product structure on the cohomology theory \(E^*\). We claim that \(\Phi\) is an isomorphism for all \(n\). We effectively repeat the same proof as the usual Thom isomorphism theorem. Note that as \(E^*\) is a generalized cohomology theory, it satisfies the Mayer-Vietoris sequence (it’s a nice exercise to derive Mayer-Vietoris from the axioms). For any subset \(U \subset X\), let the restriction of \(V\) to \(U\) be denoted \(V_U := \pi^{-1}(U)\). Let the zero section of \(V\) over \(U\) be denoted as \(0_U \subset V_U\). For convenience let us denote \(\dot{V}_U := V \setminus 0_U\). Let</p>
+
+\[\Phi_U : E^n(U) \to E^{n+k}(V_U, V_U \setminus 0_U)\]
+
+<p>denote the Thom homomorphism restricted to the bundle \(V_U\) over \(U\). Suppose the Thom isomorphism theorem holds for two open sets \(U_1, U_2 \subset X\) and for the intersection \(U_1 \cap U_2\). We show it holds for \(U_1 \cup U_2\). Let us denote \(V_1 := V_{U_1}\), \(V_2 := V_{U_2}\), \(V_\cap := V_{U_1 \cap U_2}\) and \(V_\cup := V_{U_1 \cup U_2}\). By naturality of the Mayer-Vietoris sequence and multiplicativity, we have a commutative diagram:</p>
+
+\[\displaystyle
+\begin{CD}
+\widetilde{E}^{n+k}(V_\cup, \dot{V}_\cup) @&gt;&gt;&gt; \widetilde{E}^{n+k}(V_1, \dot{V}_1) \oplus \widetilde{E}^{n+k}(V_2, \dot{V}_2) @&gt;&gt;&gt; \widetilde{E}^{n+k}(V_\cap, \dot{V}_\cap)\\
+ @A{\Phi_{\cup}}AA @A{\Phi_1\oplus \Phi_2}AA @A{\Phi_\cap}AA \\
+E^n(U_\cup) @&gt;&gt;&gt; E^n(U_1) \oplus E^n(U_2) @&gt;&gt;&gt; E^n(U_\cap)
+\end{CD}\]
+
+<p>By hypothesis, the second and third vertical arrows are isomorphisms. Extending both rows of Mayer-Vietoris sequences two steps to the left and using the five-lemma shows the first arrow is also an isomorphism, as desired. The result then boils down to a local computation where \(U\) is a contractible open subset of \(X\). Upto homotopy, we may take \(U = pt\). Then,</p>
+
+\[\displaystyle \Phi_{pt} : \widetilde{E}^n(S^0) \cong E^n(pt) \to E^{n+k}(V_x, V_x \setminus 0_x) \cong \widetilde{E}^{n+k}(S^k)\]
+
+<p>given by \(\Phi_{pt}(z) = z \smile u_x\), is simply the suspension isomorphism. This proves the result.</p>
+
+<p>Therefore, the Thom isomorphism theorem in \(E^*\)-cohomology is applicable whenever the bundle is \(E\)-orientable. Therefore, it is natural to ask the question: when does a vector bundle \(V\) over \(X\) admit a \(\mathrm{KO}\)- or \(\mathrm{KU}\)-orientation?</p>
+
+<p><b>Proposition.</b> A real vector bundle \(\pi : V \to X\) of rank \(k\) admits a \(\mathrm{KO}\)-orientation if and only if \(V\) is spin, and a \(\mathrm{KU}\)-orientation if and only if \(V\) is spinc.</p>
 
   </article>
 </div>
