@@ -263,8 +263,8 @@
 <p>given by \(\mathrm{rk}(E)_x = \mathrm{rk}(E_x)\), and extending in the obvious way to virtual bundles. Note that this is a surjective homomorphism, and there is an obvious splitting given by considering trivial bundle of specified rank over each connected components of \(X\). Hence, \(\mathrm{K}(X) \cong [X, \mathbf{Z}] \oplus \ker(\mathrm{rk})\). I claim that the discussion above implies that \(\ker(\mathrm{rk})\) is isomorphic to \([X, BO]\) in the real case, and \([X, BU]\) in the complex case. To this end, note that any map from \(X\) to \(BO\) (resp. \(BU\)) determines a real (resp. complex) vector bundle \(E\) over \(X\). We consider the union of trivial bundles over each connected component \(X_\alpha \subset X\) with rank \(\mathrm{rk}(x_\alpha)\) for some \(x_\alpha \in X_\alpha\). Let us denote the resulting bundle as \(\varepsilon^{\mathrm{rk}(E)}\). Then \([E] - [\varepsilon^{\mathrm{rk}(E)}]\) determines an element of \(\ker(\mathrm{rk})\). It is easily checked that this establishes a 1–1 correspondence. Putting it all together, we obtain</p>
 
 \[\displaystyle \begin{align*}
-\mathrm{KO}(X) &amp;\cong [X, BO] \times [X, \mathbf{Z}] \cong [X, BO \times \mathbf{Z}],\\
- \mathrm{KU}(X) &amp;\cong [X, BU] \times [X, \mathbf{Z}] \cong [X, BU \times \mathbf{Z}]
+\mathrm(X) &amp;\cong [X, BO] \times [X, \mathbf{Z}] \cong [X, BO \times \mathbf{Z}],\\
+ \mathrm(X) &amp;\cong [X, BU] \times [X, \mathbf{Z}] \cong [X, BU \times \mathbf{Z}]
 \end{align*}\]
 
 <p>Choose a basepoint \(o\) on \(BO\) (resp. \(BU\)) and fix them forever. Then \(\{0\} \times \{o\}\) is a basepoint for \(\mathbf{Z} \times BO\) (resp. \(\mathbf{Z} \times BU\)). If \((X, pt)\) is a based space, then the reduced theories are given by the based homotopy classes of maps:</p>
@@ -331,6 +331,53 @@
 \[\mu : \mathrm{K}^{-i}(X) \otimes \mathrm{K}^{-j}(Y) \to \mathrm{K}^{-(i+j)}(X \times Y),\]
 
 <p>since \(X^+ \wedge Y^+ \cong X \times Y\). In particular, this implies \(\mathrm{K}^*(pt)\) is a graded ring and for any unbased space \(X\), \(\mathrm{K}^*(X)\) is a graded \(\mathrm{K}^*(pt)\)-module.</p>
+
+<p>We have seen that \(\mathrm{K}^*(pt)\) are homotopy groups of the \(K\)-theory spectrum. The ring structure can be explicitly described as follows. Let us specialize to real \(K\)-theory. Note that \(\mathrm{KO}_0 = BO \times \mathbf{Z}\). There is a map \(\psi: \displaystyle O(m) \times O(n) \to O(mn)\) given by \(\psi(A, B) = A \otimes B\), where \(A \otimes B\) is the \(mn \times mn\) matrix given by taking tensor product of the two matrices \(A\) and \(B\). Taking a colimit as \(m, n \to \infty\), one obtains a map</p>
+
+\[\displaystyle \psi : O \times O \to O\]
+
+<p>Recall that for any group \(G\), there is an explicit model of \(BG\) known as the <em>bar construction</em>, given as follows. Consider the category \(\mathbf{B} G\) with a single object \(G\) and arrows given by self-loops indexed by elements of the group \(g \in G\), composition given by multiplication. We may then form the simplicial nerve \(N(\mathbf{B} G)\) of the category, whose \(k\)-simplices are \(k\)-tuples of composable morphisms. In this case, that just means that a \(k\)-simplex is a tuple \((g_1, \cdots, g_k)\). The face maps \(d_i : N(\mathbf{B} G)_k \to N(\mathbf{B} G)_{k-1}\) and degeneracy maps \(s_i : N(\mathbf{B} G)_k \to N(\mathbf{B} G)_{k+1}\) are given by composing at the \(i\)-th place and inserting the identity morphism (element) at the \(i\)-th place, respectively:</p>
+
+\[\displaystyle 
+\begin{align*}
+d_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, g_i g_{i+1}, g_{i+2}, \cdots, g_k) \\
+s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
+\end{align*}\]
+
+<table>
+  <tbody>
+    <tr>
+      <td>The classifying space of \(G\) can then be modelled by the geometric realization of the nerve, i.e. $$BG \simeq</td>
+      <td>N(\mathbf{B} G)</td>
+      <td>\(. Note that\)BG\(has a rogue\)0\(-simplex\)e^0\(, corresponding to the empty tuple of composable morphisms. This seems like a stupid thing to have but is very important for\)BG$$ to be a based space.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Clearly, this construction is (bi)functorial and hence applying it to \(\psi\) gives rise to a map \(B\psi : BO \times BO \to BO\). Note that \(B\psi\) sends \((e^0 \times BO) \cup (BO \times e^0)\) to \(e^0\). Therefore, the map descends to the smash product. We now include the factor \(\mathbf{Z}\):</p>
+
+\[\displaystyle \Phi : (BO \times \mathbf{Z}) \times (BO \times \mathbf{Z}) \to (BO \times \mathbf{Z}) \wedge (BO \times \mathbf{Z}) \to BO \times \mathbf{Z}\]
+
+<p>Given by \(\Phi((x, m), (y, b)) = (B\psi(x, y), mn)\). The extra factor of \(\mathbf{Z}\) does not cause issues with the smashing, because \(0\) is an absorbing element in integers under multiplication, so that indeed \((BO \times \mathbf{Z}) \times \{e^0, 0\}\) and \(\{e^0, 0\} \times (BO \times \mathbf{Z})\) are sent to \(\{e^0, 0\}\) and the map factors through the smash product. We may now define</p>
+
+\[\displaystyle \mu : \mathrm{KO}_n \wedge \mathrm{KO}_m = \Omega^n(\mathrm{KO}_0) \wedge \Omega^m(\mathrm{KO}_0) \to \Omega^{m+n}(\mathrm{KO}_0 \wedge \mathrm{KO}_0) \xrightarrow{\Omega^{m+n}\Phi} \Omega^{m+n}(\mathrm{KO}_0) = \mathrm{KO}_{m+n}\]
+
+<p>Here, we use that if \(X, Y\) are two based spaces and \(S^n \to X, S^m \to Y\) are two based maps corresponding to points in \(\Omega^n X\) and \(\Omega^m X\), we may smash them together to obtain a map \(S^{m+n} = S^m \wedge S^n \to X \wedge Y\), giving an element of \(\Omega^{m+n}(X \wedge Y)\). This says \(\mathrm{KO}\) (and, by a similar argument, \(\mathrm{KU}\)) admits the structure of a ring spectrum (see Chapter III.4 in Adams’ blue book). This implies \(\pi_*(\mathrm{KO})\) and \(\pi_*(\mathrm{KU})\) admits the structure of a graded ring.</p>
+
+<p>A more general version of the Bott periodicity theorem pins down what these graded rings are explicitly:</p>
+
+\[\displaystyle 
+\begin{align*}\pi_*(\mathrm{KO}) &amp;\cong \frac{\mathbf{Z}[\eta, x, y]}{\langle 2\eta, \eta^3, \eta y, y^2 - 4x \rangle}, &amp;\vert \eta \vert &amp;= 1, \vert y \vert = 4, \vert x \vert = 8 \\
+\pi_*(\mathrm{KU}) &amp;\cong \mathbf{Z}[\xi], &amp;\vert \xi \vert &amp;= 2
+\end{align*}\]
+
+<p>Recall that we concluded \(\mathrm{KO}^*(X)\) (resp. \(\mathrm{KU}^*(X)\)) is a module over \(\pi_*(\mathrm{KO})\) (resp. \(\pi_*\mathrm{KU}\)). In fact, the Bott periodicity isomorphisms are given by the module multiplication:</p>
+
+\[\displaystyle
+\begin{align*}
+\mathrm{KO}^{-n}(X) &amp;\to \mathrm{KO}^{-n-8}(X), &amp;z&amp;\mapsto z \otimes x\\
+\mathrm{KU}^{-n}(X) &amp;\to \mathrm{KU}^{-n-2}(X), &amp;z&amp;\mapsto z \otimes \xi
+\end{align*}\]
 
   </article>
 </div>
