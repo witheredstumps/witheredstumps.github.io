@@ -6,8 +6,9 @@ pagination:
 ---
 
 <div id="posts-list">
-  {% if paginator.posts %}
-    {% for post in paginator.posts %}
+{% if paginator.posts %}
+  {% for post in paginator.posts %}
+    {% unless post.hidden %}
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
           <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
@@ -18,10 +19,11 @@ pagination:
         <hr>
         {{ post.content }}
       </div>
-    {% endfor %}
-  {% else %}
-    <p>No posts found.</p>
-  {% endif %}
+    {% endunless %}
+  {% endfor %}
+{% else %}
+  <p>No posts found.</p>
+{% endif %}
 </div>
 
 <div class="pagination" style="text-align:center;">
