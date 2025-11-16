@@ -2,12 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <title>Introduction to K-theory | And Other Withered Stumps Of Time</title>
+    <title>Notes on K-theory: Part I | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Introduction to K-theory | And Other Withered Stumps Of Time</title>
+<title>Notes on K-theory: Part I | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
-<meta property="og:title" content="Introduction to K-theory" />
+<meta property="og:title" content="Notes on K-theory: Part I" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Broadly, \(K\)-theory of a space \(X\) studies vector bundles over \(X\). The two main flavors of \(K\)-theory are \(KO\)-theory and \(KU\)-theory, corresponding to real and complex vector bundles, respectively. We shall denote both theories as \(K\), and make the distinction whenever necessary for exposition. Throughout the post, all spaces will be ‘nice’ (for instance, CW-complexes) and all pairs of spaces will be ‘nice’ (for instance, a CW-pair)." />
 <meta property="og:description" content="Broadly, \(K\)-theory of a space \(X\) studies vector bundles over \(X\). The two main flavors of \(K\)-theory are \(KO\)-theory and \(KU\)-theory, corresponding to real and complex vector bundles, respectively. We shall denote both theories as \(K\), and make the distinction whenever necessary for exposition. Throughout the post, all spaces will be ‘nice’ (for instance, CW-complexes) and all pairs of spaces will be ‘nice’ (for instance, a CW-pair)." />
@@ -15,9 +15,9 @@
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2025-11-15T00:00:00+05:30" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Introduction to K-theory" />
+<meta property="twitter:title" content="Notes on K-theory: Part I" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-15T00:00:00+05:30","datePublished":"2025-11-15T00:00:00+05:30","description":"Broadly, \\(K\\)-theory of a space \\(X\\) studies vector bundles over \\(X\\). The two main flavors of \\(K\\)-theory are \\(KO\\)-theory and \\(KU\\)-theory, corresponding to real and complex vector bundles, respectively. We shall denote both theories as \\(K\\), and make the distinction whenever necessary for exposition. Throughout the post, all spaces will be ‘nice’ (for instance, CW-complexes) and all pairs of spaces will be ‘nice’ (for instance, a CW-pair).","headline":"Introduction to K-theory","mainEntityOfPage":{"@type":"WebPage","@id":"/2025/11/15/introduction-k-theory/"},"url":"/2025/11/15/introduction-k-theory/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2025-11-15T00:00:00+05:30","datePublished":"2025-11-15T00:00:00+05:30","description":"Broadly, \\(K\\)-theory of a space \\(X\\) studies vector bundles over \\(X\\). The two main flavors of \\(K\\)-theory are \\(KO\\)-theory and \\(KU\\)-theory, corresponding to real and complex vector bundles, respectively. We shall denote both theories as \\(K\\), and make the distinction whenever necessary for exposition. Throughout the post, all spaces will be ‘nice’ (for instance, CW-complexes) and all pairs of spaces will be ‘nice’ (for instance, a CW-pair).","headline":"Notes on K-theory: Part I","mainEntityOfPage":{"@type":"WebPage","@id":"/2025/11/15/k-theory-i/"},"url":"/2025/11/15/k-theory-i/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -145,7 +145,7 @@
   <article class="post">
     <header class="post-header">
       <h2 class="post-title" style="font-style: italic;">
-          Introduction to K-theory
+          Notes on K-theory: Part I
         </h2>
       <div class="post-meta">
           <span>November 15, 2025</span>
@@ -346,7 +346,7 @@ d_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, g_i g_{i+1}, g_{i+2}, \cdot
 s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
 \end{align*}\]
 
-<p>The classifying space of \(G\) can then be modelled by the geometric realization of the nerve, i.e. \(BG \simeq \vert N(\mathbf{B} G)\vert\). Note that \(BG\) has a rogue \(0\)-simplex \(e^0\), corresponding to the empty tuple of composable morphisms. This seems like a stupid thing to have but is very important for \(BG\) to be a based space.</p>
+<p>The classifying space of \(G\) can then be modelled by the geometric realization of the nerve, i.e. \(BG \simeq \vert N(\mathbf{B} G) \vert\). Note that \(BG\) has a rogue \(0\)-simplex \(e^0\), corresponding to the empty tuple of composable morphisms. This seems unnecessary, but is in fact quite important for \(BG\) to be a based space.</p>
 
 <p>Clearly, this construction is (bi)functorial and hence applying it to \(\psi\) gives rise to a map \(B\psi : BO \times BO \to BO\). Note that \(B\psi\) sends \((e^0 \times BO) \cup (BO \times e^0)\) to \(e^0\). Therefore, the map descends to the smash product. We now include the factor \(\mathbf{Z}\):</p>
 
@@ -373,7 +373,15 @@ s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
 \mathrm{KU}^{-n}(X) &amp;\to \mathrm{KU}^{-n-2}(X), &amp;z&amp;\mapsto z \otimes \xi
 \end{align*}\]
 
-<p>We move on to discuss orientability and Thom isomorphism. It is nice to do this at some level of generality. Suppose \(\pi : V \to X\) is a real vector bundle of rank \(k\) over a space \(X\), and let \(E = \{E_n : n \in \mathbf{Z}\}\) be an \(\Omega\)-spectrum with a ring structure. Then \(E\) gives rise to a multiplicative generalized cohomology theory \(E^*\). We shall say the vector bundle \((V, X, \pi)\) has a fiberwise \(E\)-orientation if there exists a choice of element \(u_x \in E^k(V_x, V_x \setminus 0_x)\) for every \(x \in X\) and fiber \(V_x\) over \(x\), such that for any two points \(x, y \in X\) and any trivializing open set \(U \subset X\) containing \(x\) and \(y\), the composition of the excision isomorphisms</p>
+<p>We move on to discuss orientability and Thom isomorphism. We do this in some generality. Let \(E = \{E_n : n \in \mathbf{Z}\}\) be an \(\Omega\)-spectrum with a ring structure. In other words, there is a multiplication \(\mu : E \wedge E \to E\) and a map \(1 : S^0 \to E\) where \(S^0 = \{S^n : n \in \mathbf{Z}_{\geq 0}\}\) is the sphere spectrum (which is not an \(\Omega\)-spectrum), such that \(\mu\) is associative and \(1\) is the multiplicative unit “upto homotopy”. The data of the multiplicative unit is the same as choice of a distinguished element \(1 \in E^0(pt)\).  The details, especially regarding an appropriate definition for smash product of spectra, is tricky: a smash product of two spectra is naturally a bi-spectrum, not a spectrum. One needs to reindex by choosing an appropriate totally ordered subset of \(\mathbf{N} \times \mathbf{N}\) and demonstrate independence “upto homotopy”. For details, see Chapter III.4 in Adams’ blue book.</p>
+
+<p>In any case, \(E\) gives rise to a multiplicative generalized cohomology theory \(E^*\). Let \(V\) be a real vector space of rank \(k\), and \(0 \in V\) be the zero element. Then,</p>
+
+\[\displaystyle E^k(V, V \setminus 0) \cong \widetilde{E}^k(S^k) \cong \widetilde{E}^0(S^0) \cong E^0(pt)\]
+
+<p>We say an \(E\)-orientation on the vector space \(V\) is choice of a <em>generator</em> of \(u \in E^k(V, V \setminus 0)\), by which we mean \(u\) is the iterated suspension of an element of the form \(\varepsilon \cdot 1\) where \(\varepsilon\) is a unit (i.e. invertible) in \(E^0(pt)\) and \(1 \in E^0(pt)\) is the distinguished element mentioned before.</p>
+
+<p>Suppose \(\pi : V \to X\) is a real vector bundle of rank \(k\) over a space \(X\). We shall say the vector bundle \((V, X, \pi)\) has a fiberwise \(E\)-orientation if there exists a choice of a generator \(u_x \in E^k(V_x, V_x \setminus 0_x)\) for every \(x \in X\) and fiber \(V_x\) over \(x\), such that for any two points \(x, y \in X\) and any trivializing open set \(U \subset X\) containing \(x\) and \(y\), the composition of the excision isomorphisms</p>
 
 \[\displaystyle E^k(V_x, V_x \setminus 0_x) \xleftarrow{\cong} E^k(V_U, V_U \setminus 0_U) \xrightarrow{\cong} E^k(V_y, V_y \setminus 0_y),\]
 
@@ -393,7 +401,7 @@ s_i (g_1, \cdots, g_k) &amp;= (g_1, \cdots, g_{i-1}, 1, g_{i+1}, \cdots, g_k)
 
 \[\displaystyle
 \begin{CD}
-\widetilde{E}^{n+k}(V_\cup, \dot{V}_\cup) @&gt;&gt;&gt; \widetilde{E}^{n+k}(V_1, \dot{V}_1) \oplus \widetilde{E}^{n+k}(V_2, \dot{V}_2) @&gt;&gt;&gt; \widetilde{E}^{n+k}(V_\cap, \dot{V}_\cap)\\
+E^{n+k}(V_\cup, \dot{V}_\cup) @&gt;&gt;&gt; E^{n+k}(V_1, \dot{V}_1) \oplus E^{n+k}(V_2, \dot{V}_2) @&gt;&gt;&gt; E^{n+k}(V_\cap, \dot{V}_\cap)\\
  @A{\Phi_{\cup}}AA @A{\Phi_1\oplus \Phi_2}AA @A{\Phi_\cap}AA \\
 E^n(U_\cup) @&gt;&gt;&gt; E^n(U_1) \oplus E^n(U_2) @&gt;&gt;&gt; E^n(U_\cap)
 \end{CD}\]
@@ -407,6 +415,8 @@ E^n(U_\cup) @&gt;&gt;&gt; E^n(U_1) \oplus E^n(U_2) @&gt;&gt;&gt; E^n(U_\cap)
 <p>Therefore, the Thom isomorphism theorem in \(E^*\)-cohomology is applicable whenever the bundle is \(E\)-orientable. Therefore, it is natural to ask the question: when does a vector bundle \(V\) over \(X\) admit a \(\mathrm{KO}\)- or \(\mathrm{KU}\)-orientation?</p>
 
 <p><b>Proposition.</b> A real vector bundle \(\pi : V \to X\) of rank \(k\) admits a \(\mathrm{KO}\)-orientation if and only if \(V\) is spin, and a \(\mathrm{KU}\)-orientation if and only if \(V\) is spinc.</p>
+
+<p>We shall prove this in a later post.</p>
 
   </article>
 </div>
