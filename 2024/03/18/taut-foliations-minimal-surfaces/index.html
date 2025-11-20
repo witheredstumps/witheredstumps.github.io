@@ -11,13 +11,15 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai." />
 <meta property="og:description" content="The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai." />
+<link rel="canonical" href="http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/" />
+<meta property="og:url" content="http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/" />
 <meta property="og:site_name" content="And Other Withered Stumps Of Time" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2024-03-18T00:00:00+05:30" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Taut foliations and minimal surfaces" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T00:00:00+05:30","datePublished":"2024-03-18T00:00:00+05:30","description":"The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai.","headline":"Taut foliations and minimal surfaces","mainEntityOfPage":{"@type":"WebPage","@id":"/2024/03/18/taut-foliations-minimal-surfaces/"},"url":"/2024/03/18/taut-foliations-minimal-surfaces/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2024-03-18T00:00:00+05:30","datePublished":"2024-03-18T00:00:00+05:30","description":"The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai.","headline":"Taut foliations and minimal surfaces","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/"},"url":"http://localhost:4000/2024/03/18/taut-foliations-minimal-surfaces/"}</script>
 <!-- End Jekyll SEO tag -->
 
     <!-- Fonts: Original + Sidebar style -->
@@ -53,13 +55,6 @@
         <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
   <option value="#">Archive</option>
   
-  
-    
-    
-      <option value="/2025/11/">
-        November 2025
-      </option>
-    
   
     
     
@@ -234,10 +229,6 @@
 <!-- Fixed-position buttons for previous/next post -->
 <div class="bottom-btns-vertical visible">
   
-    <a class="fixed-bottom-btn" href="/2025/11/15/k-theory-i/">
-      &#171; Newer
-    </a>
-  
   
     <a class="fixed-bottom-btn" href="/2021/12/07/monopoles-thurston-norm-i/">
       Older &#187;
@@ -249,7 +240,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var prevUrl = "/2021/12/07/monopoles-thurston-norm-i/";
-  var nextUrl = "/2025/11/15/k-theory-i/";
+  var nextUrl = null;
   document.addEventListener('keydown', function(event) {
     // Left arrow (37) or 'A'
     if ((event.key === "ArrowLeft" || event.key === "a" || event.key === "A") && prevUrl) {
@@ -302,7 +293,7 @@ document.addEventListener('DOMContentLoaded', function() {
 <script>
 document.addEventListener('DOMContentLoaded', function() {
   var prevUrl = "/2021/12/07/monopoles-thurston-norm-i/";
-  var nextUrl = "/2025/11/15/k-theory-i/";
+  var nextUrl = null;
   var popup = document.getElementById('keyboardNavPopup');
 
   // Show popup for 3 seconds on load
