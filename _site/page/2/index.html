@@ -5,7 +5,7 @@
     <title>Home - page 2 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 2 of 19 for Home - page 2 | And Other Withered Stumps Of Time</title>
+<title>Page 2 of 18 for Home - page 2 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 2" />
 <meta property="og:locale" content="en_US" />
@@ -54,13 +54,6 @@
         <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
   <option value="#">Archive</option>
   
-  
-    
-    
-      <option value="/2025/11/">
-        November 2025
-      </option>
-    
   
     
     
@@ -148,87 +141,143 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2024/03/18/taut-foliations-minimal-surfaces/">Taut foliations and minimal surfaces</a>
+          <a href="/2021/12/07/monopoles-thurston-norm-i/">Monopoles and Thurston norm: Part I</a>
         </h2>
         <div class="meta">
-          <span>March 18, 2024</span>
+          <span>March 17, 2024</span>
         </div>
         <hr>
-        <p>The goal of this post is to prove the following theorem of Hansklaus Rummler and Dennis Sullivan. The references I used are “Foliations and the Geometry of 3-Manifolds” by Danny Calegari and “Combinatorial volume preserving flows and taut foliations” by David Gabai.</p>
+        <p>A couple years ago I started writing a series of posts on Seiberg-Witten invariants which I never ended up finishing (which can be found here). To tie up with what I am learning now, I’ll write some notes on the 1997 paper ``Scalar curvature and the Thurston norm” by Kronheimer and Mrowka, which exhibits an interesting connection between Seiberg-Witten theory and the Thurston norm.</p>
 
-<p><b>Theorem</b>. Let \(\mathcal{F}\) be a co-orientable codimension one foliation of an oriented closed smooth \(n\)-manifold \(M\). Then the following are equivalent:</p>
+<p>Let us begin by recalling basic terminology. Let $M$ be an oriented closed three-manifold, equipped with a Riemannian metric $g$. A spinc (stylized  spinC ) structure on $M$ is a unitary rank $2$ vector bundle $S \to M$ together with a ``Clifford multiplication” \(\rho : TM \to \mathrm{End}(S)\) satisfying the following property: given any oriented orthonormal frame \(\{e_1, e_2, e_3\}\) at a point \(p \in M\), the following properties are true for all \(i, j\):</p>
 
-<ol>
-  <li>
-    <p>\(\mathcal{F}\) is taut,</p>
-  </li>
-  <li>
-    <p>There is a positive volume form on \(M\) and a volume-preserving flow on \(M\) transverse to \(\mathcal{F}\),</p>
-  </li>
-  <li>
-    <p>There is a Riemannian metric on \(M\) such that the leaves are locally area-minimizing.</p>
-  </li>
-</ol>
+\[\displaystyle \begin{aligned}\rho(e_i)\rho(e_j) + \rho(e_j)\rho(e_i) &amp;= 2\delta_{ij}I \\ \rho(e_i)^\star &amp;= -\rho(e_i) \\ \rho(e_1)\rho(e_2)\rho(e_k) &amp;= I\end{aligned}\]
 
-<p><em>Proof</em>. Suppose \(\mathcal{F}\) is taut. Then for any \(p \in M\), we can find an embedded loop \(\phi : S^1 \to M\) transverse to \(\mathcal{F}\) passing through \(p\). Take a slight thickening to \(\phi : S^1 \times D^{n-1} \to M\). We arrange \(\phi\) by a small homotopy so that \(\phi^{-1}(\mathcal{F})\) is the natural product foliation on \(S^1 \times D^{n-1}\) by \(\{pt\} \times D^{n-1}\). Since \(M\) is compact, we may cover it by finitely many such embedded tori \(\phi_i : S^1 \times D^{n-1} \to M\). Let \(\theta_i\) denote a \((n-1)\)-form on \(S^1 \times D^{n-1}\) which on the leaves \(\{pt\} \times D^{n-1}\) restrict to a positive volume form on the interior of the disk and vanishes near the boundary \(\{pt\} \times \partial D^{n-1}\). Define:</p>
+<p>It can be checked that these conditions are independent of the choice of the oriented orthonormal frame. Therefore, \(\rho\) is an orientation-preserving isometric isomorphism from \(TM\) onto the subbundle of \(\mathrm{End}(S)\) denoted as \(\mathfrak{su}(S)\), consisting of traceless anti-hermitian endomorphisms, equipped with the inner product \(\mathrm{tr}(a^\star b)/2\). Any three-manifold admits a spinc structure: it is a standard fact that the tangent bundle of a three-manifold is trivial, so we define \(S = M \times \Bbb C^2\) and let \(\rho(e_i) = \sigma_i\) be the Pauli matrices, where \(\{e_1, e_2, e_3\}\) is a global orthonormal frame on \(M\). The set of spinc structures is naturally an affine space over \(H^2(M; \Bbb Z)\) for the following reason: given any class \(\alpha\) in the second cohomology group, it corresponds naturally to a complex line bundle \(L\) over \(M\) so that \(c_1(L) = \alpha\). For any spinc structure \(\mathfrak{s} = (S, \rho)\), we may form a new spinc structure \((S \otimes L, \rho \otimes 1_L)\), denoted \(\mathfrak{s} + \alpha\). In fact, it is not too difficult to see that any two spinc structures differ by an element of the second integral cohomology group.</p>
 
-\[\displaystyle \theta_{\mathcal{F}} = \sum_i (\phi_i)_* \theta_i\]
+<p>Given a spinc structure \((S, \rho)\), a spinc connection is a metric connection \(B\) on \(S\) such that \(\rho\) is \(B\)-parallel, i.e., \(\nabla^B \rho = 0\). In other words, for all vector fields \(X, Y\) and section \(\psi\) of \(S\),</p>
 
-<p>By construction, \(\theta_{\mathcal{F}}\) is a leafwise positive volume form on \(M\). Let \(\alpha\) be the \(1\)-form on \(M\) such that \(\ker \alpha = T\mathcal{F}\) is the distribution given by tangent spaces to the leaves of the foliation. Define \(\omega = \alpha \wedge \theta_{\mathcal{F}}\). Let \(X\) be the unique vector field such that \(\theta_{\mathcal{F}}(X) = 0\) and \(\alpha(X) = 1\). Then,</p>
+\[\nabla^B_X (\rho(Y)\psi) = \rho(\nabla_X Y)\psi + \rho(Y) \nabla^B_X \psi,\]
 
-\[\mathcal{L}_X \omega = i_X d\omega + di_X \omega = d i_X \omega = d\theta_{\mathcal{F}} = 0\]
+<p>where \(\nabla_X Y\) is the Levi-Civita connection on \(M\). In the example \(S = M \times \Bbb C^2\) described above, we can explicitly solve for a spin connection as follows: write \(\nabla^B_X \psi = d \psi(X) + B(X) \psi\) where \(d\psi(X)\) is the directional derivative of the section \(\psi\) of \(S\) treated as a function to \(\Bbb C^2\), and \(B\) is a \(\mathfrak{u}(2)\)-valued \(1\)-form on \(M\). Then the parallelity condition above gives \([B(X), \rho(Y)] = \rho(\nabla_X Y)\). We may plug in \(X, Y\) from the oriented orthonormal basis \(\{e_1, e_2, e_3\}\) to write the trace-free part of \(B(e_i)\) completely in terms of the Pauli matrices and the Christoffel symbols. (Someone please do this computation and tell me the answer; I’ll make infinite sign errors if I try). The space of spinc connections on \((S, \rho)\) is likewise an affine space over \(\Omega^1(M; i\Bbb R)\). Indeed, for any spinc connection \(B\) and an imaginary-valued 1-form \(b\), we may form a new spinc connection \(B + b \otimes 1_S\), and any two spinc connections differ by such a 1-form. Let us call the sections of \(S\) as spinors.</p>
 
-<p>Therefore, \(X\) is a volume-preserving flow transverse to \(\mathcal{F}\). This proves (1) implies (2).</p>
+<p>Since \(S\) is a unitary bundle of rank \(2\), its second exterior power \(L = \Lambda^2 S\) is a line bundle with a \(\mathfrak{u}(1) (= i\mathbb{R})\)-connection induced from \(B\), which we will call \(B^t\). Indeed, \(B^t\) is the trace of the \(\mathfrak{u}(2)\)-valued form \(B\) (since the derivative of determinant is trace). Since we saw in the previous paragraph that the trace-free part of \(B^t\) is completely determined by the Levi-Civita connection on \(M\), we conclude: a spinc connection \(B\) on a fixed Riemannian manifold is entirely determined by a \(i\mathbb{R}\)-valued \(1\)-form \(B^t\). We shall denote \(F_{B^t} = dB^t\) to be the curvature of this connection on the determinant line bundle. Note that the corresponding cohomology class</p>
 
-<p>Suppose we have a positive volume form \(\omega\) on \(M\) and a volume-preserving flow \(X\) transverse to \(\mathcal{F}\). Let \(\theta = i_X \omega\), which must be a positive volume form on the leaves of \(\mathcal{F}\). Let \(K = \ker(\theta)\), so that we have \(TM = T\mathcal{F} \oplus K\). Define a Riemannian metric on \(M\) by \(g = g_l \oplus g_k\) where \(g_l\) is a metric on the distribution \(T\mathcal{F}\) so that \(\theta\) is the Riemannian volume form on the leaves of \(\mathcal{F}\) with respect to \(g_l\), and \(g_k\) is a positive definite metric on \(K\).</p>
+\[\displaystyle \left [\frac{i}{2\pi} \cdot F_{B^t} \right ] \in H^2(M; \Bbb R)\]
 
-<p>The important property that \(\theta\) has is as follows. Clearly, for any orthonormal \((n-1)\)-frame in \(T \mathcal{F}\), \(\theta\) evaluates to \(1\) on it. For an orthonormal \((n-1)\)-frame in \(TM\), \(\theta\) completely ignores the components of all the vectors in the direction of \(K\). Therefore, it evaluates to at most \(1\) on such a frame, with equality only if the frame is tangential to the leaves of \(\mathcal{F}\). One says \(\theta\) is a calibration for the leaves of \(\mathcal{F}\). Let \(L\) be a leaf of \(\mathcal{F}\). For any compact codimension zero submanifold-with-boundary \((\Omega, \partial \Omega) \subset L\) and a perturbed copy of it \(\Omega' \subset M\) with \(\partial \Omega = \partial \Omega'\) representing \([\Omega] \subset H_2(M, \partial \Omega; \Bbb R)\), we must have the following:</p>
+<p>is precisely the 1st Chern class of \(\Lambda^2 S\). We call it the Chern class of the spinc structure, and denote it by \(c_1(\mathfrak{s})\).</p>
 
-\[\displaystyle \mathrm{vol}_g(\Omega) = \int_{\Omega} \theta = \int_{\Omega'} \theta \leq \int_{\Omega'} \mathrm{vol}_g = \mathrm{vol}_g(\Omega')\]
+<p>Given a spinc connection, we may form the Dirac operator on spinors, which is a linear first order partial differential operator, as follows (the definition is basis-independent):</p>
 
-<p>where the inequality above is true by the calibration property. Consequently, the leaves of \(L\) are locally area-minimizing with respect to the metric \(g\), i.e., they are minimal hypersurfaces. This proves (2) implies (3).</p>
+\[\displaystyle D_B : \Gamma(S) \to \Gamma(S),\; D_B\psi = \sum_{i = 1}^3 \rho(e_i)\nabla^B_{e_i} \psi\]
 
-<p>It remains to prove (3) implies (1). Given a Riemannian metric \(g\) such that each leaf of \(\mathcal{F}\) is locally area-minimizing, we may consider an \((n-1)\)-form \(\theta\) which restricts to the Riemannian volume form on each leaf. This is a calibration for all the leaves of \(\mathcal{F}\), as above. Suppose \(\mathcal{F}\) is not taut. Fix a transverse co-orientation of \(\mathcal{F}\). Let \(L \subset M\) be a leaf of \(\mathcal{F}\). Define the accessible set \(A(L)\) to be the set of points \(x \in M\) such that there is a positively directed arc transverse to \(\mathcal{F}\) from \(L\) to \(x\). Clearly, \(A(L)\) is open and  saturated by leaves of \(\mathcal{F}\), therefore the boundary \(\partial A(L)\) is also a (possibly empty) union of leaves. However, if \(A(L) = M\), then every leaf admits a positive transversal arc from \(L\) from both negative and positive sides, which we can combine to produce a transverse circle through every leaf, contradicting our hypothesis that \(\mathcal{F}\) is not taut. Thus, \(\partial A(L) \neq \emptyset\). Let \(L' \subset \partial A(L)\) be a leaf. We claim \(A(L)\) cannot accumulate to \(L'\) from the negative side. If it did, there would be a sequence \(x_n \in A(L)\) converging to \(x \in L\) from the negative side, hence there would be a positively directed arc from some \(x_n\) to \(L'\). But \(x_n \in A(L)\), so there is a positively directed arc from \(L\) to \(x_n\). Combining, we obtain a positively directed arc joining \(L\) and \(L'\), forcing \(L' \subset A(L)\), contradiction. Thus, \(\overline{A(L)}\) is a compact manifold with boundary a collection of compact leaves \(L_1, \cdots, L_n\) such that \(A(L)\) lies on the negative side of all of them. Therefore, the oriented disjoint union \(L_1 \sqcup \cdots \sqcup L_n\) is null-cobordant, hence \(\chi(L_1) + \cdots + \chi(L_n) = 0\). However, we then have</p>
+<p>As a final observation, note that the Clifford multiplication \(\rho\) can be extended to be defined on cotangent vectors by setting \(\rho(e^i) = \rho(e_i)\) where \(e^i\) is the dual covector to \(e_i\). We can extend it to all forms by the rule</p>
 
-\[\displaystyle 0 = \int_{L_1 \sqcup \cdots \sqcup L_n} \theta = \int_{L_1} \theta + \cdots + \int_{L_n} \theta = \mathrm{vol}(L_1) + \cdots + \mathrm{vol}(L_n),\]
+\[\displaystyle \rho(\alpha \wedge \beta) = \frac12 \left ( \rho(\alpha)\rho(\beta)+ (-1)^{|\alpha||\beta|} \rho(\beta)\rho(\alpha) \right )\]
 
-<p>contradiction. This concludes the proof of the theorem.</p>
+<p>We may also define it for differential forms valued in complex coefficients, by letting \(\rho\) simply commute with complex multiplication. Now that that’s all done, let us recall the Seiberg-Witten equations on 3-manifolds.</p>
 
-<p>As an interesting application, we have the following theorem of Novikov and Rosenberg. I have attached a link to a proof I had written a while ago, which is lacking in detail but I feel gets the main ideas across. The main technical tool involves the theorem of Rummler and Sullivan above, together with a compactness theorem for minimal surfaces due to Choi-Schoen.</p>
+<p>Let \(M\) be a three manifold with a spinc structure \(\mathfrak{s} = (S, \rho)\). The Seiberg-Witten equations or monopole equations for a pair \((B, \psi)\) consisting of a spinc connection and a spinor are:</p>
 
-<p><b>Theorem</b>. Let \(M^3\) be a closed oriented three-manifold. Let \(\mathcal{F}\) be a taut foliation of \(M^3\). Then the leaves of \(\mathcal{F}\) are \(\pi_1\)-injective subsurfaces of \(M\). Moreover, any closed transversal to \(\mathcal{F}\) is nontrivial in \(\pi_1\).</p>
+\[\displaystyle \begin{aligned}\frac{1}{2} \cdot \rho(F_{B^t}) &amp;= \left (\psi \otimes \psi^\star\right)_0 \\ D_B \psi &amp;= 0 \end{aligned}\]
 
-<p><em>Proof</em>. See <a href="/assets/docs/taut_leaf_incomp.pdf">here</a>. The argument for closed transversals is completely analogous: we assume it is nullhomologous, therefore bounds a disk in the three-manifold by Dehn’s lemma. But then the same argument shows the disk can be homotoped rel boundary to lie entirely on a leaf, which is a contradiction.</p>
+<p>Here, \(\psi \otimes \psi^* \in S \otimes S^* = \mathrm{End}(S)\) is a linear transformation, and \((-)_0\) denotes the traceless part of it. One says a solution \((B, \psi)\) is gauge-equivalent to another solution \((B', \psi')\) if there is a function \(u : M \to S^1\) such that \(B' = B - u^{-1} du \otimes 1_S\) and \(\psi' = u \psi\). One tries to solve the monopole equations upto gauge equivalence. Observe that for any solution \((B, \psi)\), the cohomology class of \(F_{B^t}\) is unchanged under gauge equivalence. We call a solution reducible if \(\psi = 0\), which forces \(B^t\) to be flat by the first equation.</p>
 
-<p>We end this topic by discussing a combinatorial version of the Sullivan-Rummler theorem. First, we introduce some terminology. A normal arc in a 2-simplex is a properly embedded arc intersecting a pair of distinct edges. A normal disk in a 3-simplex is a properly embedded disk whose boundary consists of either 3 or 4 properly embedded arcs in the respective 2-faces they are contained in.</p>
+<p>Notice that the equations above depend on the choice of a metric \(g\) on the Riemannian manifold \(M\). In our definition, we built the spin structure \(\mathfrak{s} = (S, \rho)\) itself using the metric. But it is not difficult to check that any two such choices of metrics \(g_0, g_1\) gives rise to isomorphic spin structures \(\mathfrak{s}_0, \mathfrak{s}_1\). This is because the space of metrics is a cone in the space of quadratic differentials, hence contractible. Thus, we can join \(g_0, g_1\) by a 1-parameter family of metrics \(g_t\). This gives rise to a 1-parameter family of spin structures \(\mathfrak{s}_t\) interpolating \(\mathfrak{s}_0, \mathfrak{s}_1\). Therefore, the spinc structure depends only upto contractible choice on the space of Riemannian metrics. Consequently, the Chern class \(c_1(\mathfrak{s})\) is certainly independent of the underlying metric. However, the Seiberg-Witten equations themselves depend on the metric, since the Dirac operator and the Clifford multiplication both depend on the metric.</p>
 
-<p><b>Definition</b>. Let \(M\) be a three-manifold with a triangulation \(\tau\). A normal surface is a surface \(S \subset M\) such that \(S\) intersects each three-simplex in \(M\) in a normal disk. A foliation \(\mathcal{F}\) on \(M\) is said to be in normal form \(\mathcal{F}\) is transverse to the 1- and 2-simplices, distinct vertices lie in distinct leaves, and for each leaf \(L\) and a three-simplex \(\Delta \subset \tau\), each non-point component of \(L \cap \Delta\) is a normal disk.</p>
+<p><b>Definition</b>. A cohomology class \(\alpha \in H^2(M; \Bbb R)\) is a monopole class if there is a spinc structure \(\mathfrak{s} = (S, \rho)\) such that \(c_1(\mathfrak{s}) = \alpha\), and the corresponding Seiberg-Witten equations have an irreducible solution for all choices of Riemannian metrics.</p>
 
-<p><b>Proposition</b>. Let \(M\) be a three-manifold, and \(\mathcal{F}\) be a codimension one foliation. There exists a smooth triangulation \(\tau\) of \(M\) with respect to which \(\mathcal{F}\) is in normal form.</p>
+<p>Observe that if \(c_1(\mathfrak{s}) \neq 0\), then if a solution to the Seiberg-Witten equations exist, they are necessarily irreducible. Otherwise, \((B, 0)\) is a solution, hence \(F_{B^t} = 0\), contradiction.</p>
 
-<p><em>Proof</em>. Find a smooth triangulation, and then subdivide until all the three-simplices get inside foliated charts. Applying transversality, we may assume for every three-simplex \(\Delta \subset \tau\), \(\mathcal{F}\) is transverse to the 1- and 2-faces of \(\Delta\) except at some isolated points of Morse tangencies. The picture for \(\mathcal{F}\vert\Delta\) in the coordinates given by the foliated chart is that of a curvilinear simplex sitting inside \(\Bbb R^3\), getting scanned by affine linear hyperplanes \(z = \mathrm{const.}\), and the 1- and 2-faces are Morse with respect to the \(z\)-height. It’s obvious how to subdivide the simplex further to achieve normal form: add faces parallel to the level set of the \(z\)-heights at all critical values, and then tilt the new faces a little to make it transverse to the level sets except at the vertices.</p>
+<p>Suppose \((B, \psi)\) is an irreducible solution for the Seiberg-Witten equations with respect to some Riemannian metric \(g\) on \(M\). The linear part of the Seiberg-Witten equation tells us \(D_B \psi = 0\) (i.e., \(\psi\) is a harmonic spinor). We use the Weitzenbock-Lichnerowicz formula to deduce:</p>
 
-<p><b>Definition</b>. A combinatorial volume preserving flow \((\phi, \tau)\) on a three-manifold \(M\) consists of a triangulation \(\tau\) and an assignment of positive integral weights \(\phi(e)\) as well as orientation to each edge \(e \subset \tau^{(1)}\), such that at each vertex, the conservation of mass property is satisfied: sum of incoming weights is equal to sum of outgoing weights.</p>
+\[\displaystyle 0 = D_B^\star D_B \psi = (\nabla^B)^\star \nabla^B \psi + \frac12 \rho(F_{B^t}) \psi + \frac14 s \psi,\]
 
-<p>A codimension one co-oriented foliation in normal positive with a triangulation induces a natural orientation on each of the 1-skeleton: for any three-simplex, the co-orientation induces a linear ordering on the vertices of the simplex where \(v &lt; w\) if there is an edge from \(v\) to \(w\) pointing in the same direction as the co-orienting vector for the leaves transverse to that edge.</p>
+<p>where \(s\) denotes the scalar curvature of \((M, g)\). The nonlinear part of the Seiberg-Witten equations imply the second term in the above is \((\psi \otimes \psi^*)_0 \psi\). We take inner product (wrt \(g\)) of the entire expression with \(\psi\). Let us compute \(\langle (\psi \otimes \psi^*)_0 \psi, \psi \rangle\). It is good to think of \(\psi\) as simply a column vector, and \(\psi \otimes \psi^*\) as simply the \(2 \times 2\) matrix \(\psi \psi^*\) where \(\psi^*\) is the conjugate-transposed row vector. Then:</p>
 
-<p><b>Proposition</b>. (Gabai) Let \(\mathcal{F}\) be a co-oriented codimension-one foliation on a closed oriented three-manifold \(M\). \(\mathcal{F}\) is taut if and only if there is a combinatorial volume preserving flow \((\phi, \tau)\) compatible with \(\mathcal{F}\).</p>
+\[\displaystyle  \begin{aligned} \langle (\psi \otimes \psi^*)_0 \psi, \psi \rangle &amp;= \langle (\psi \psi^* - \mathrm{tr}(\psi \psi^*)/2)\psi,  \psi \rangle \\ &amp;= \langle \psi \psi^* \psi,\psi \rangle - \frac12 \mathrm{tr}(\psi \psi^*) \langle \psi, \psi \rangle \\ &amp;= \|\psi\|^4 - \frac12 \|\psi\|^4 \\ &amp;= \frac12 \|\psi\|^4 \end{aligned}\]
 
-<p><em>Proof</em>. Suppose \(\mathcal{F}\) is taut, and \(\tau\) be a smooth triangulation with respect to which it is in normal form. The tautness of \(\mathcal{F}\) guarantees that the induced directed graph structure on \(\tau^{(1)}\) gives a recurrent graph, i.e., any vertex can be joined with any vertex by a piecewise linear directed arc. This is because we may take a smooth positively oriented arc in \(M\) joining them so that it is transverse to the foliation, by tautness, after which we can simplicially approximate the arc. Thus, for every edge \(e \subset \tau^{(1)}\), there is a piecewise linear directed loop \(\gamma_e \subset \tau^{(1)}\) containing \(e\). Let \(\mathcal{C} := \{\gamma_e\}\) denote a finite collection of such loops, one for each edge \(e \subset \tau^{(1)}\). We define \(\phi(e)\) to be the number of times \(\mathcal{C}\) crosses \(e\) counted with multiplicity. Then \(\phi\) clearly satisfies conservation of mass, therefore \((\phi, \tau)\) is a combinatorial volume preserving flow. The converse is easy.</p>
+<p>Therefore, by using the definition of adjoint, we get:</p>
 
-<p><b>Definition</b>. For a combinatorial volume preserving flow \((\phi, \tau)\) on \(M\) and a normal surface \(S \subset M\), we define the weight of \(S\) (to be thought as “combinatorial area”) as</p>
+\[\displaystyle 0 = \|\nabla^B \psi\|^2 + \frac12 \|\psi\|^4 + \frac14 s \|\psi\|^2\]
 
-\[\displaystyle w(S) = \sum_e \phi(e) |e \cap S|\]
+<p><b>Corollary</b>. There are no irreducible solutions to the Seiberg-Witten equations for a metric \(g\) on a three-manifold of non-negative scalar curvature \(s \geq 0\). In particular, manifolds which admit a metric of non-negative scalar curvature do not possess any monopole classes.</p>
 
-<p>where $\vert e \cap S \vert $ denotes the cardinality of the set of intersections of $S$ with $e$.</p>
+<p>Suppose the solution is irreducible. Let us integrate the above expression over the entire manifold. Ignoring the term involving the covariant derivative of \(\psi\), we get</p>
 
-<p>Let $\mathcal{F}$ be a taut foliation with a combinatorial volume preserving flow $(\phi, \tau)$. For any leaf $L \subset \mathcal{F}$, let $S \subset L$ be a compact normal subsurface. Let $R \subset M$ be another normal surface with $\partial S = \partial R$ representing $[S] \in H_2(M, \partial S; \Bbb Z)$. Then,</p>
+\[\displaystyle \int \frac12 \|\psi\|^4 + \frac14 \int s \|\psi\|^2 \leq 0\]
 
-\[\displaystyle \begin{aligned} w(R) = \sum_e \phi(e) |e \cap R| \geq \sum_e \phi(e) \langle e, R \rangle&amp; = \sum_e \phi(e) \langle e, S \rangle \\ &amp;= \sum_e \phi(e) |e \cap S| \\ &amp;= w(S)\end{aligned}\]
+<p>Therefore,</p>
 
-<p>where $\langle e, R \rangle$ denotes the algebraic intersection number i.e., the signed intersection count. The first inequality is true as clearly the unsigned count is more than the signed count, the subsequent equality is true as $R, S$ represent the same relative homology class and the final equality is true as $S$ intersects all the edges $e$ positively by definition of the orientation of $\tau^{(1)}$ induced from the co-orientation of the leaves.</p>
+\[\displaystyle \begin{aligned}\int \|\psi\|^4 \leq \frac12 \int (-s) \cdot \|\psi\|^2 &amp;\leq \frac12 \left (\int s^2 \right)^{1/2} \left (\int \|\psi\|^4 \right )^{1/2} \\ \implies \int \|\psi\|^4 &amp;\leq \frac14 \int s^2\end{aligned}\]
 
-<p>Therefore, the leaves of a taut foliation in normal form are combinatorial area minimizing.</p>
+<p>where we use that \(\psi\) is not identically zero, by irreducibility. By the nonlinear part of the Seiberg-Witten equations, we have that the norm of \(\rho(F_{B^t})/2\) is equal to the norm of \((\psi \psi^*)_0\), which we compute:</p>
+
+\[\displaystyle \begin{aligned} \|(\psi \psi^*)_0\|^2 &amp;= \frac12 \mathrm{tr} \left ( (\psi \psi^*)_0 \cdot (\psi \psi^*)_0^* \right ) \\ &amp;= \frac12 \mathrm{tr}\left (\psi \psi^* - \frac12 \|\psi\|^2 \cdot 1_S \right )^2 \\ &amp;= \frac12 \left ( \|\psi\|^4 - \frac12 \|\psi\|^4 - \frac12 \|\psi\|^4 + \frac14 \|\psi\|^4 \right ) \\ &amp;= \frac14 \|\psi\|^4 \end{aligned}\]
+
+<p>Thus, \(\|(\psi \psi^*)_0\| = \|\psi\|^2/2\). Remember that \(\rho\) preserves norms, so we get norm of \(F_{B^t}\) with respect to \(g\) (or the inner product induced on the space of 2-forms thereof) is the same as \(\|\psi\|^2\). Therefore,</p>
+
+\[\displaystyle \int \|F_{B^t}\|^2 = \int \|\psi\|^4 \leq \frac14 \int s^2\]
+
+<p>Therefore, \(\|F_{B^t}\|_{L^2} \leq \|s\|_{L^2}/2\), using \(L^2\)-norms.</p>
+
+<p><b>Definition</b>. Let \((M, g)\) be a Riemannian \(3\)-manifold. Recall a differential \(2\)-form \(\omega\) on the manifold is harmonic if \(d\omega = d^*\omega = 0\). Every cohomology class admits a unique harmonic representative in de Rham cohomology, by Hodge theory. We define the harmonic norm on \(H^2(M; \Bbb R)\) by setting \(\|\alpha\|_{har, g}\) to be the \(L^2\)-norm of the unique harmonic \(2\)-form representing the cohomology class \(\alpha\).</p>
+
+<p><b>Corollary</b>. If \(\alpha \in H^2(M; \Bbb R)\) is a monopole class, then for all metrics \(g\) on \(M\),</p>
+
+\[\displaystyle \|\alpha\|_{har, g} \leq \frac{1}{4\pi} \cdot \|s\|_{L^2(M, g)}\]
+
+<p>This follows from what we derived as \(F_{B^t}\) represents the class \(2\pi/i \cdot \alpha\), where \(\alpha = c_1(\mathfrak{s})\) is the Chern classes associated to the spin structure we started with, and the harmonic form minimizes the \(L^2\)-norm in a given cohomology class.</p>
+
+<p>Finally, we relate the harmonic norm with the Thurston norm for irreducible atoroidal manifolds. Since the Thurston norm is a norm defined on the second homology, we must first dualize it to a norm defined on cohomology.</p>
+
+<p><b>Definition</b>. Let \(M\) be an oriented, closed, irreducible, atoroidal three-manifold with \(b_1(M) \neq 0\). We define the dual Thurston norm by setting for any \(\alpha \in H^2(M; \Bbb R)\),</p>
+
+\[\displaystyle \|\alpha\|_{Th} = \sup_{\Sigma} \frac{|\alpha[\Sigma]|}{-\chi(\Sigma)},\]
+
+<p>where \(\Sigma\) varies over all oriented embedded surfaces in \(M\) of genus at least \(2\).</p>
+
+<p><b>Proposition</b>. The dual Thurston norm and the harmonic norm on an oriented, closed, irreducible, atoroidal three-manifold \(M\), satisfy the following inequality:</p>
+
+\[\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi\|\alpha\|_{har, g}}{\|s(g)\|_{L^2(M, g)}},\]
+
+<p>where \(g\) varies over all Riemannian metrics on \(M\) and \(s(g)\) denotes the scalar curvature of \((M, g)\).</p>
+
+<p><em>Proof</em>. Let us start by fiddling around to see if we get an idea. Pick a metric \(g\) on \(M\) and let \(\Sigma\) be an embedded oriented surface of genus at least \(2\). Let \(\omega\) be a \(2\)-form representing the class \(\alpha\). Then, by the Gauss-Bonnet theorem, \(2\pi\chi(\Sigma)\) is the integral of the curvature of \(\Sigma\) with the induced metric from \((M, g)\). So,</p>
+
+\[\displaystyle \frac{\alpha[\Sigma]}{-\chi(\Sigma)} = -\frac{2\pi\int_{\Sigma}\omega}{\int_{\Sigma} K d\mathrm{vol}_g}\]
+
+<p>The numerator is bounded by the metric norm on \(\omega\) (which can be bounded by the harmonic norm) times the volume of \(\Sigma\), and the denominator is bounded by the \(L^2\)-norm of (half the) scalar curvature attained on \(\Sigma\) times the volume of \(\Sigma\). It seems we are awfully close, but \(a \leq b, c \leq d\) does not mean \(a/c \leq b/d\).</p>
+
+<p>The shortcoming of this approach is that we are only focusing on the scalar curvature attained along \(\Sigma\). We must pick metrics \(g\) such that the semi-local geometry around \(\Sigma\) dominates in \(M\). Let \(g_1\) be a metric on \(M\) such that some neighborhood of \(\Sigma\) in \(M\) is isometric to \(\Sigma \times [0, 1]\) with the product metric \(dt^2 + h\), where \((\Sigma, h)\) is a hyperbolic surface of unit area. Let \(g_r\) be a radial rescaling so that in that neighborhood we have \(g_r = r^2 dt^2 + h\) and \(g_r = g_1\) outside a slightly larger neighborhood. Then the same neighborhood with the metric \(g_r\) is isometric to the product \(\Sigma \times [0, r]\). Therefore, the \(L^2\)-norm of the scalar curvature is:</p>
+
+\[\displaystyle \begin{aligned} \int s(g_r)^2 \, d\mathrm{vol}_{g_r} &amp;= \int_{\Sigma \times [0, r]} s(g_r)^2 \, d\mathrm{vol}_{g_r} + \int_{M \setminus \Sigma \times [0, 1]} s(g_1)^2 \, d\mathrm{vol}_{g_1} \\ &amp;= (-4\pi\chi(\Sigma))^2 r + C \end{aligned}\]
+
+<p>since \(s(g_r) = 4\pi\chi(\Sigma)\) on \(\Sigma \times [0, r]\) and \(d\mathrm{vol}_{g_r} = r \, dt\,  d\mathrm{vol}_h\), and \(C\) is a constant independent of \(r\). Observe also that if \(\omega\) is any \(2\)-form representing the cohomology class \(\alpha\),</p>
+
+\[\displaystyle \begin{aligned} |\alpha[\Sigma]|^2 \leq \left | \int_{\Sigma} \omega \right |^2 \leq \left ( \int_{\Sigma} \|\omega\|_h d\mathrm{vol}_h \right )^2 \leq \|\omega\|_{L^2(\Sigma, h)} ^2 \mathrm{Area}(\Sigma)^2 &amp;= \|\omega\|_{L^2(\Sigma, h)}^2 \\ &amp; \leq r^{-2} \|\omega\|_{L^2(M,g_r)}^2 \end{aligned}\]
+
+<p>Therefore, we have the following equations:</p>
+
+\[\displaystyle \begin{aligned} \|s(g_r)\|_{L^2(M, g_r)} &amp;= -4\pi \chi(\Sigma) r + C' \\ \|\alpha\|_{har, g_r} &amp;\geq r |\alpha[\Sigma]|\end{aligned}\]
+
+<p>where \(C'\) is a constant independent of \(r\). Dividing the second by the first, one obtains:</p>
+
+\[\displaystyle \frac{\|\alpha\|_{har, g_r}}{\|s(g_r)\|_{L^2(M, g_r)}} \geq \frac{r |\alpha[\Sigma]|}{ -4\pi \chi(\Sigma) r + C'} \to \|\alpha\|_{Th}\]
+
+<p>as \(r \to \infty\). This proves the required inequality.</p>
+
+<p><em>Remark</em>. As \(r \to \infty\), the Riemannian manifolds \((M, g_r)\) exhibit a neck-stretching along the embedded surface \(\Sigma \subset M\), and geometrically converges to a manifold with \(\Bbb H^2 \times \Bbb R\) geometry. My guess is that if the above inequality is optimal, the equality is achieved in this limit.</p>
+
+<p>We now tie everything together by the following theorem:</p>
+
+<p><b>Theorem</b>. For a closed oriented irreducible atoroidal \(3\)-manifold (also known as a hyperbolic \(3\)-manifold), the monopole classes are contained in the dual Thurston norm-ball.</p>
+
+<p><em>Proof</em>. Suppose \(\mathfrak{s}\) is a spinc structure with \(\alpha = c_1(\mathfrak{s})\) a monopole class. Let \(g\) be an auxiliary Riemannian metric on \(M\). Then combining the inequalities we have deduced above, we get</p>
+
+\[\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \|\alpha\|_{har, g} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \frac{1}{4\pi} \cdot \|s(g)\|_{L^2(M, g)} = 1\]
+
+<p>In the follow-up to this post, we will prove the converse direction. Before going there, we need to make a detour from this detour to talk about taut foliations in relation to Thurston norm, and Gabai’s theorem on existence of such.</p>
 
       </div>
     
@@ -240,7 +289,7 @@
   
     <a href="/index.html"></a>
   
-<!-- <span class="page-number">Page 2 of 19</span> -->
+<!-- <span class="page-number">Page 2 of 18</span> -->
   
     <a href="/page/3/index.html"></a>
   

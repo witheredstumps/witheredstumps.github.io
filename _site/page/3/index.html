@@ -5,7 +5,7 @@
     <title>Home - page 3 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 3 of 19 for Home - page 3 | And Other Withered Stumps Of Time</title>
+<title>Page 3 of 18 for Home - page 3 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 3" />
 <meta property="og:locale" content="en_US" />
@@ -54,13 +54,6 @@
         <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
   <option value="#">Archive</option>
   
-  
-    
-    
-      <option value="/2025/11/">
-        November 2025
-      </option>
-    
   
     
     
@@ -148,143 +141,77 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2021/12/07/monopoles-thurston-norm-i/">Monopoles and Thurston norm: Part I</a>
+          <a href="/2024/03/13/segue-foliation/">Segue: a bit about foliations</a>
         </h2>
         <div class="meta">
-          <span>March 17, 2024</span>
+          <span>March 13, 2024</span>
         </div>
         <hr>
-        <p>A couple years ago I started writing a series of posts on Seiberg-Witten invariants which I never ended up finishing (which can be found here). To tie up with what I am learning now, I’ll write some notes on the 1997 paper ``Scalar curvature and the Thurston norm” by Kronheimer and Mrowka, which exhibits an interesting connection between Seiberg-Witten theory and the Thurston norm.</p>
+        <p>Recall that a foliation on a three-manifold is a decomposition of the manifold as a union of continuum-many disjoint, possibly noncompact subsurfaces (called leaves of the foliation), so that locally the decomposition is the standard decomposition of the three-space as a union of affine subspaces given by level sets of a linear functional. An easy example of a foliation is given by fibers of a fiber bundle \(\pi : M \to S^1\) from the three-manifold onto the circle, but not all foliations are fibers of a fibration. A famous example is the Reeb foliation, which is a foliation of the solid torus \(S^1 \times D^2\) consisting a unique compact leaf given by the boundary torus, and the rest of the leaves are embedded planes spiraling around the torus, accumulating to the boundary leaf.</p>
 
-<p>Let us begin by recalling basic terminology. Let $M$ be an oriented closed three-manifold, equipped with a Riemannian metric $g$. A spinc (stylized  spinC ) structure on $M$ is a unitary rank $2$ vector bundle $S \to M$ together with a ``Clifford multiplication” \(\rho : TM \to \mathrm{End}(S)\) satisfying the following property: given any oriented orthonormal frame \(\{e_1, e_2, e_3\}\) at a point \(p \in M\), the following properties are true for all \(i, j\):</p>
+<div class="figure-row">
+  <figure>
+    <img src="/assets/images/reeb.png" height="200" width="300" />
+    <figcaption>Figure. Reeb foliation as a viscous fluid flow.</figcaption>
+  </figure>
+</div>
 
-\[\displaystyle \begin{aligned}\rho(e_i)\rho(e_j) + \rho(e_j)\rho(e_i) &amp;= 2\delta_{ij}I \\ \rho(e_i)^\star &amp;= -\rho(e_i) \\ \rho(e_1)\rho(e_2)\rho(e_k) &amp;= I\end{aligned}\]
+<p>One may double the solid torus along the boundary by \((x, y) \mapsto (y, -x)\) to obtain an interesting foliation on \(S^3\). A general recipe to produce Reeb-like foliations is: suppose \(M\) is a manifold with torus boundary and \(\mathcal{F}\) be a foliation on \(M\) by surfaces with boundary, such that the boundary of the leaves themselves foliate the boundary of the manifold \(\partial M\). Then we may “spin” the leaves around the torus as we approach the boundary to obtain a foliation on \(M\) by the spun leaves of \(\mathcal{F}\) as well as a boundary leaf \(\partial M\). These are called dead-ends, since any arc transverse to the leaves foliation from the inside is stopped by the spinning leaves from ever intersecting the boundary leaf. One may also Dehn fill \(\partial M\) by a Reeb torus to obtain closed examples.</p>
 
-<p>It can be checked that these conditions are independent of the choice of the oriented orthonormal frame. Therefore, \(\rho\) is an orientation-preserving isometric isomorphism from \(TM\) onto the subbundle of \(\mathrm{End}(S)\) denoted as \(\mathfrak{su}(S)\), consisting of traceless anti-hermitian endomorphisms, equipped with the inner product \(\mathrm{tr}(a^\star b)/2\). Any three-manifold admits a spinc structure: it is a standard fact that the tangent bundle of a three-manifold is trivial, so we define \(S = M \times \Bbb C^2\) and let \(\rho(e_i) = \sigma_i\) be the Pauli matrices, where \(\{e_1, e_2, e_3\}\) is a global orthonormal frame on \(M\). The set of spinc structures is naturally an affine space over \(H^2(M; \Bbb Z)\) for the following reason: given any class \(\alpha\) in the second cohomology group, it corresponds naturally to a complex line bundle \(L\) over \(M\) so that \(c_1(L) = \alpha\). For any spinc structure \(\mathfrak{s} = (S, \rho)\), we may form a new spinc structure \((S \otimes L, \rho \otimes 1_L)\), denoted \(\mathfrak{s} + \alpha\). In fact, it is not too difficult to see that any two spinc structures differ by an element of the second integral cohomology group.</p>
+<p><b>Theorem</b>. Every three-manifold admits a foliation.</p>
 
-<p>Given a spinc structure \((S, \rho)\), a spinc connection is a metric connection \(B\) on \(S\) such that \(\rho\) is \(B\)-parallel, i.e., \(\nabla^B \rho = 0\). In other words, for all vector fields \(X, Y\) and section \(\psi\) of \(S\),</p>
+<p><em>Proof</em>. Choose an ambient Riemannian metric on \(M\). Since \(\chi(M) = 0\), there exists a nowhere zero vector field on \(M\). Taking the orthogonal complement at each point, we obtain a plane field \(\xi\). We wish to modify \(\xi\) to be everywhere integrable and thus give rise to a foliation. To this end, let \(\mathcal{T}= \cup_i \Delta_i^3\) be a triangulation of \(M\). We use the following lemma:</p>
 
-\[\nabla^B_X (\rho(Y)\psi) = \rho(\nabla_X Y)\psi + \rho(Y) \nabla^B_X \psi,\]
+<p><b>Lemma</b>. (Thurston’s jiggling lemma) There exists a subdivision \(\mathcal{T}'\) of \(\mathcal{T}\) and a \(C^0\)-small perturbation \(\mathcal{T}''\) of \(\mathcal{T}'\) such that (1) \(\xi\) is transverse to the interiors of the edges and faces of \(\mathcal{T}''\) of \(\mathcal{T}'\) and (2) \(\xi\) is \(C^\infty\)-close to being horizontal on each \(3\)-simplex of \(\mathcal{T}''\) with respect to some affine coordinate system.</p>
 
-<p>where \(\nabla_X Y\) is the Levi-Civita connection on \(M\). In the example \(S = M \times \Bbb C^2\) described above, we can explicitly solve for a spin connection as follows: write \(\nabla^B_X \psi = d \psi(X) + B(X) \psi\) where \(d\psi(X)\) is the directional derivative of the section \(\psi\) of \(S\) treated as a function to \(\Bbb C^2\), and \(B\) is a \(\mathfrak{u}(2)\)-valued \(1\)-form on \(M\). Then the parallelity condition above gives \([B(X), \rho(Y)] = \rho(\nabla_X Y)\). We may plug in \(X, Y\) from the oriented orthonormal basis \(\{e_1, e_2, e_3\}\) to write the trace-free part of \(B(e_i)\) completely in terms of the Pauli matrices and the Christoffel symbols. (Someone please do this computation and tell me the answer; I’ll make infinite sign errors if I try). The space of spinc connections on \((S, \rho)\) is likewise an affine space over \(\Omega^1(M; i\Bbb R)\). Indeed, for any spinc connection \(B\) and an imaginary-valued 1-form \(b\), we may form a new spinc connection \(B + b \otimes 1_S\), and any two spinc connections differ by such a 1-form. Let us call the sections of \(S\) as spinors.</p>
+<p><em>Proof of Lemma</em>. First, barycentric subdivide \(\mathcal{T}\) until all simplices become of arbitrarily small diameter, i.e., \(\mathrm{diam}(\Delta_i^3) &lt; \varepsilon\). Then by smoothness of \(\xi\), we may choose a coordinate system on each simplex with height coordinate \(z\) such that \(\xi\) is \(\varepsilon\)-close to \(\ker(dz)\). This ensures (2). Next, apply a crystalline subdivision procedure: embed \(\Delta^3\) in \([0, 1]^3\) as</p>
 
-<p>Since \(S\) is a unitary bundle of rank \(2\), its second exterior power \(L = \Lambda^2 S\) is a line bundle with a \(\mathfrak{u}(1) (= i\mathbb{R})\)-connection induced from \(B\), which we will call \(B^t\). Indeed, \(B^t\) is the trace of the \(\mathfrak{u}(2)\)-valued form \(B\) (since the derivative of determinant is trace). Since we saw in the previous paragraph that the trace-free part of \(B^t\) is completely determined by the Levi-Civita connection on \(M\), we conclude: a spinc connection \(B\) on a fixed Riemannian manifold is entirely determined by a \(i\mathbb{R}\)-valued \(1\)-form \(B^t\). We shall denote \(F_{B^t} = dB^t\) to be the curvature of this connection on the determinant line bundle. Note that the corresponding cohomology class</p>
+\[\Delta^3 = \{(x, y, z) \in [0, 1]^3 : x + y + z \leq 1\}\]
 
-\[\displaystyle \left [\frac{i}{2\pi} \cdot F_{B^t} \right ] \in H^2(M; \Bbb R)\]
+<p>Then slice by the hyperplanes \(\{x = k/n\}\), \(\{y = k/n\}\) and \(\{x + y + z = k/n\}\). This subdivides the simplices into uniformly small simplices such that each vertex in the one-skeleton has bounded valence. Moving the vertices up and down by small rigid motions within \([0, 1]^3\), the entire crystalline-subdivided simplex crumples up in a way that all the smaller simplices in the crystalline subdivision are of large slope and therefore transverse to the plane field \(\xi \cong \ker(dz)\), ensuring (1) as well. In retrospect, the exact model of the subdivision process is not really important for this: see figure below.</p>
 
-<p>is precisely the 1st Chern class of \(\Lambda^2 S\). We call it the Chern class of the spinc structure, and denote it by \(c_1(\mathfrak{s})\).</p>
+<div class="figure-row">
+  <figure>
+    <img src="/assets/images/miura-ori.webp" height="200" width="300" />
+    <figcaption>Figure. Thurston's jiggling as a Miura-ori.</figcaption>
+  </figure>
+</div>
 
-<p>Given a spinc connection, we may form the Dirac operator on spinors, which is a linear first order partial differential operator, as follows (the definition is basis-independent):</p>
+<p>Thus, by applying the jiggling lemma, we have made \(\xi\) transverse to the \(2\)-skeleton of the new triangulation \(\mathcal{T}''\), i.e., the “local min/max” with respect to \(\xi\) only occur at the vertices and possibly interiors of \(3\)-simplices. Remember that by construction, our \(2\)-plane field is co-oriented. Thus, the \(1\)-skeleton of the triangulation admits a directed graph structure, where we orient an edge so that it agrees with the co-orientation of the plane field. This also equips each simplex of the triangulation with a total order on the vertices so that all the edges point from a smaller vertex to a larger vertex. By a further subdivision of \(\mathcal{T}''\) if necessary, we can ensure that we can color the simplices red and blue so that adjacent simplices have different colors. We may tilt any particular red simplex so that the characteristic foliation has ``clockwise holonomy”, i.e., the leaves spiral down clockwise. Then on an adjacent blue simplex it spirals counterclockwise with respect to the natural coordinate system, by compatibility of orientation. This effect can then be inductively transported on all simplices.</p>
 
-\[\displaystyle D_B : \Gamma(S) \to \Gamma(S),\; D_B\psi = \sum_{i = 1}^3 \rho(e_i)\nabla^B_{e_i} \psi\]
+<div class="figure-row">
+  <figure>
+    <img src="/assets/images/charfoli.png" height="250" width="400" />
+    <figcaption>Figure. Characteristic foliation on a simplex before and after smoothing.</figcaption>
+  </figure>
+</div>
 
-<p>As a final observation, note that the Clifford multiplication \(\rho\) can be extended to be defined on cotangent vectors by setting \(\rho(e^i) = \rho(e_i)\) where \(e^i\) is the dual covector to \(e_i\). We can extend it to all forms by the rule</p>
+<p>Intersect \(\xi\) with the \(2\)-skeleton of the triangulation. On each simplex, this leaves an imprint of the plane field which is a singular (combinatorial) foliation on the boundary of the \(2\)-simplex, which we will call the characteristic foliation. It consists of exactly one minimum at the largest vertex, one maximum at the smallest vertex, and spiraling leaves connecting between them. We may extend this foliation into a neighborhood of the \(2\)-skeleton. This gives a codimension \(0\) submanifold with spherical boundaries on which the singular foliation is as described before. We would like to fill these holes by balls. This seems impossible, because of the spiraling of the leaves in the characteristic foliation. So, for each three-simplex \(\Delta^3\) with maximum vertex \(v\) and minimum vertex \(w\), we find an arc \(\tau\) transverse to the foliation joining \(v, w\) outside \(\Delta^3\). If this was possible, we could delete a neighborhood of \(\tau\) to obtain a solid torus hole with a nonsingular characteristic foliation on the boundary. Then spinning and Reeb-filling finishes the proof.</p>
 
-\[\displaystyle \rho(\alpha \wedge \beta) = \frac12 \left ( \rho(\alpha)\rho(\beta)+ (-1)^{|\alpha||\beta|} \rho(\beta)\rho(\alpha) \right )\]
+<p>It remains to show that such transverse arcs \(\tau\) can in fact be constructed. To do this, recall the color-coding of the three-simplices described a paragraph ago. Suppose \(\Delta^3\) is a red simplex. Then the characteristic foliation has clockwise holonomy. The strategy is to take an arc \(\tau\) joining \(v, w\) in \(\partial \Delta^3\) transverse to the singular foliation with anti-clockwise holonomy, so that it is transverse to all the leaves. Then we could take a push-off of \(\tau\) so that the interior of \(\tau\) is disjoint from \(\Delta^3\).</p>
 
-<p>We may also define it for differential forms valued in complex coefficients, by letting \(\rho\) simply commute with complex multiplication. Now that that’s all done, let us recall the Seiberg-Witten equations on 3-manifolds.</p>
+<p>This has a problem, in that the picture of the characteristic foliation in the above figure is ``wrong”. If the characteristic foliation was infinitely spiraling near the max/min vertices \(v, w\) as in the picture, we would not be able to extend it inwards on a regular neighborhood because of the singularity. We need to modify the plane field (or the coordinate system) so that near \(v, w\) the characteristic foliation is by concentric circles (or triangles, before smoothening), and outside a little neighborhood we have the spiraling pattern, to be able to extend to a smooth foliation in a regular neighborhood of the \(2-\)skeleton. But now we have a problem with constructing the arc \(\tau\) near \(v, w\). To solve this problem, we observe that there is an adjacent blue simplex such that \(v, w\) are one of the non-extremal vertices of this simplex. We start the arc \(\tau\) by going from \(v\) into this adjacent simplex, spiral downwards in counterclockwise fashion by following the singular foliation, come back to \(\Delta^3\) and follow our transverse arc counterclockwise to the characteristic foliation on \(\partial \Delta^3\), and once we are sufficiently close to \(w\), go back out into the adjacent simplex and follow its characteristic foliation again until coming back to \(w\) from the outside. Taking a push-off of this satisfies the required transversality property.</p>
 
-<p>Let \(M\) be a three manifold with a spinc structure \(\mathfrak{s} = (S, \rho)\). The Seiberg-Witten equations or monopole equations for a pair \((B, \psi)\) consisting of a spinc connection and a spinor are:</p>
+<p><em>Remark</em>. An analogous proof shows that all three-manifolds admit a contact structure, but its easier because the figure above for the characteristic foliation on the sphere is not wrong, and finding transverse arcs are much easier in contact topology. This also shows that any plane field can be homotoped to a foliation (respectively, contact structure). See, “Confoliations” by Thurston and Eliashberg for more.</p>
 
-\[\displaystyle \begin{aligned}\frac{1}{2} \cdot \rho(F_{B^t}) &amp;= \left (\psi \otimes \psi^\star\right)_0 \\ D_B \psi &amp;= 0 \end{aligned}\]
+<p>OK, every three-manifold has a foliation. But what if we changed the rules so that you cannot cheat?</p>
 
-<p>Here, \(\psi \otimes \psi^* \in S \otimes S^* = \mathrm{End}(S)\) is a linear transformation, and \((-)_0\) denotes the traceless part of it. One says a solution \((B, \psi)\) is gauge-equivalent to another solution \((B', \psi')\) if there is a function \(u : M \to S^1\) such that \(B' = B - u^{-1} du \otimes 1_S\) and \(\psi' = u \psi\). One tries to solve the monopole equations upto gauge equivalence. Observe that for any solution \((B, \psi)\), the cohomology class of \(F_{B^t}\) is unchanged under gauge equivalence. We call a solution reducible if \(\psi = 0\), which forces \(B^t\) to be flat by the first equation.</p>
+<p><b>Definition</b>. A foliation \(\mathcal{F}\) is taut if there exists an closed curve \(\gamma\) transversely intersecting all the leaves of \(\mathcal{F}\).</p>
 
-<p>Notice that the equations above depend on the choice of a metric \(g\) on the Riemannian manifold \(M\). In our definition, we built the spin structure \(\mathfrak{s} = (S, \rho)\) itself using the metric. But it is not difficult to check that any two such choices of metrics \(g_0, g_1\) gives rise to isomorphic spin structures \(\mathfrak{s}_0, \mathfrak{s}_1\). This is because the space of metrics is a cone in the space of quadratic differentials, hence contractible. Thus, we can join \(g_0, g_1\) by a 1-parameter family of metrics \(g_t\). This gives rise to a 1-parameter family of spin structures \(\mathfrak{s}_t\) interpolating \(\mathfrak{s}_0, \mathfrak{s}_1\). Therefore, the spinc structure depends only upto contractible choice on the space of Riemannian metrics. Consequently, the Chern class \(c_1(\mathfrak{s})\) is certainly independent of the underlying metric. However, the Seiberg-Witten equations themselves depend on the metric, since the Dirac operator and the Clifford multiplication both depend on the metric.</p>
+<p>This immediately rules out existence of Reeb components and dead-end components. So the proof above, which heavily relied on filling toroidal holes by Reeb foliations, breaks completely. So which three-manifolds admit taut foliations? Some immediate examples are that of fibered manifolds in the beginning of the post. We give an example of a taut foliation which is not fibered.</p>
 
-<p><b>Definition</b>. A cohomology class \(\alpha \in H^2(M; \Bbb R)\) is a monopole class if there is a spinc structure \(\mathfrak{s} = (S, \rho)\) such that \(c_1(\mathfrak{s}) = \alpha\), and the corresponding Seiberg-Witten equations have an irreducible solution for all choices of Riemannian metrics.</p>
+<p><em>Example</em>. Let \(f : \Sigma \to \Sigma\) be a diffeomorphism of a surface of genus \(g \geq 2\). Let \(M = T(f)\) be the mapping torus of \(f\), which admits an obvious fibering \(\pi : M \to S^1\) by construction. We shall modify the fibering to be a rather complicated taut foliation, as follows. Consider \(\Sigma \times [0, 1]\) with the standard foliation by \(\Sigma \times \{x\}\). Let \(C \subset \Sigma\) be any non-separating essential curve, for instance, a meridian. Then the annulus \(C \times [0, 1]\) intersects all the leaves of the standard height foliation transversely. We cut \(\Sigma \times [0, 1]\) open along \(C \times [0, 1]\), so that every leaf becomes a surface of genus \(1\) with two punctures.</p>
 
-<p>Observe that if \(c_1(\mathfrak{s}) \neq 0\), then if a solution to the Seiberg-Witten equations exist, they are necessarily irreducible. Otherwise, \((B, 0)\) is a solution, hence \(F_{B^t} = 0\), contradiction.</p>
+<div class="figure-row">
+  <figure>
+    <img src="/assets/images/depthfol.png" height="190" width="500" />
+    <figcaption>Figure. Messing up a fibering.</figcaption>
+  </figure>
+</div>
 
-<p>Suppose \((B, \psi)\) is an irreducible solution for the Seiberg-Witten equations with respect to some Riemannian metric \(g\) on \(M\). The linear part of the Seiberg-Witten equation tells us \(D_B \psi = 0\) (i.e., \(\psi\) is a harmonic spinor). We use the Weitzenbock-Lichnerowicz formula to deduce:</p>
+<p>Let \(h : [0, 1] \to [0, 1]\) be a homeomorphism such that \(0, 1\) are fixed points of \(h\), such that \(0\) is an attracting fixed point. We now ``cross-glue” the cut open \(\Sigma \times [0, 1]\) along \(C \times [0, 1]\) by \(h\), so that the cut-open leaves at different heights glue among themselves. Since \(h(0) = 0\) is an attracting fixed points, we will see infinite-genus surface leaves accumulating to \(\Sigma \times \{0\}\) in the resulting foliation. We glue the top and bottom by \(f\) to get back \(M\) with a new foliation that is definitely not fibered. Moreover, since the cutting-repasting operation does nothing to the foliation on one side, there is a closed transversal all the same: see the green arc above.</p>
 
-\[\displaystyle 0 = D_B^\star D_B \psi = (\nabla^B)^\star \nabla^B \psi + \frac12 \rho(F_{B^t}) \psi + \frac14 s \psi,\]
-
-<p>where \(s\) denotes the scalar curvature of \((M, g)\). The nonlinear part of the Seiberg-Witten equations imply the second term in the above is \((\psi \otimes \psi^*)_0 \psi\). We take inner product (wrt \(g\)) of the entire expression with \(\psi\). Let us compute \(\langle (\psi \otimes \psi^*)_0 \psi, \psi \rangle\). It is good to think of \(\psi\) as simply a column vector, and \(\psi \otimes \psi^*\) as simply the \(2 \times 2\) matrix \(\psi \psi^*\) where \(\psi^*\) is the conjugate-transposed row vector. Then:</p>
-
-\[\displaystyle  \begin{aligned} \langle (\psi \otimes \psi^*)_0 \psi, \psi \rangle &amp;= \langle (\psi \psi^* - \mathrm{tr}(\psi \psi^*)/2)\psi,  \psi \rangle \\ &amp;= \langle \psi \psi^* \psi,\psi \rangle - \frac12 \mathrm{tr}(\psi \psi^*) \langle \psi, \psi \rangle \\ &amp;= \|\psi\|^4 - \frac12 \|\psi\|^4 \\ &amp;= \frac12 \|\psi\|^4 \end{aligned}\]
-
-<p>Therefore, by using the definition of adjoint, we get:</p>
-
-\[\displaystyle 0 = \|\nabla^B \psi\|^2 + \frac12 \|\psi\|^4 + \frac14 s \|\psi\|^2\]
-
-<p><b>Corollary</b>. There are no irreducible solutions to the Seiberg-Witten equations for a metric \(g\) on a three-manifold of non-negative scalar curvature \(s \geq 0\). In particular, manifolds which admit a metric of non-negative scalar curvature do not possess any monopole classes.</p>
-
-<p>Suppose the solution is irreducible. Let us integrate the above expression over the entire manifold. Ignoring the term involving the covariant derivative of \(\psi\), we get</p>
-
-\[\displaystyle \int \frac12 \|\psi\|^4 + \frac14 \int s \|\psi\|^2 \leq 0\]
-
-<p>Therefore,</p>
-
-\[\displaystyle \begin{aligned}\int \|\psi\|^4 \leq \frac12 \int (-s) \cdot \|\psi\|^2 &amp;\leq \frac12 \left (\int s^2 \right)^{1/2} \left (\int \|\psi\|^4 \right )^{1/2} \\ \implies \int \|\psi\|^4 &amp;\leq \frac14 \int s^2\end{aligned}\]
-
-<p>where we use that \(\psi\) is not identically zero, by irreducibility. By the nonlinear part of the Seiberg-Witten equations, we have that the norm of \(\rho(F_{B^t})/2\) is equal to the norm of \((\psi \psi^*)_0\), which we compute:</p>
-
-\[\displaystyle \begin{aligned} \|(\psi \psi^*)_0\|^2 &amp;= \frac12 \mathrm{tr} \left ( (\psi \psi^*)_0 \cdot (\psi \psi^*)_0^* \right ) \\ &amp;= \frac12 \mathrm{tr}\left (\psi \psi^* - \frac12 \|\psi\|^2 \cdot 1_S \right )^2 \\ &amp;= \frac12 \left ( \|\psi\|^4 - \frac12 \|\psi\|^4 - \frac12 \|\psi\|^4 + \frac14 \|\psi\|^4 \right ) \\ &amp;= \frac14 \|\psi\|^4 \end{aligned}\]
-
-<p>Thus, \(\|(\psi \psi^*)_0\| = \|\psi\|^2/2\). Remember that \(\rho\) preserves norms, so we get norm of \(F_{B^t}\) with respect to \(g\) (or the inner product induced on the space of 2-forms thereof) is the same as \(\|\psi\|^2\). Therefore,</p>
-
-\[\displaystyle \int \|F_{B^t}\|^2 = \int \|\psi\|^4 \leq \frac14 \int s^2\]
-
-<p>Therefore, \(\|F_{B^t}\|_{L^2} \leq \|s\|_{L^2}/2\), using \(L^2\)-norms.</p>
-
-<p><b>Definition</b>. Let \((M, g)\) be a Riemannian \(3\)-manifold. Recall a differential \(2\)-form \(\omega\) on the manifold is harmonic if \(d\omega = d^*\omega = 0\). Every cohomology class admits a unique harmonic representative in de Rham cohomology, by Hodge theory. We define the harmonic norm on \(H^2(M; \Bbb R)\) by setting \(\|\alpha\|_{har, g}\) to be the \(L^2\)-norm of the unique harmonic \(2\)-form representing the cohomology class \(\alpha\).</p>
-
-<p><b>Corollary</b>. If \(\alpha \in H^2(M; \Bbb R)\) is a monopole class, then for all metrics \(g\) on \(M\),</p>
-
-\[\displaystyle \|\alpha\|_{har, g} \leq \frac{1}{4\pi} \cdot \|s\|_{L^2(M, g)}\]
-
-<p>This follows from what we derived as \(F_{B^t}\) represents the class \(2\pi/i \cdot \alpha\), where \(\alpha = c_1(\mathfrak{s})\) is the Chern classes associated to the spin structure we started with, and the harmonic form minimizes the \(L^2\)-norm in a given cohomology class.</p>
-
-<p>Finally, we relate the harmonic norm with the Thurston norm for irreducible atoroidal manifolds. Since the Thurston norm is a norm defined on the second homology, we must first dualize it to a norm defined on cohomology.</p>
-
-<p><b>Definition</b>. Let \(M\) be an oriented, closed, irreducible, atoroidal three-manifold with \(b_1(M) \neq 0\). We define the dual Thurston norm by setting for any \(\alpha \in H^2(M; \Bbb R)\),</p>
-
-\[\displaystyle \|\alpha\|_{Th} = \sup_{\Sigma} \frac{|\alpha[\Sigma]|}{-\chi(\Sigma)},\]
-
-<p>where \(\Sigma\) varies over all oriented embedded surfaces in \(M\) of genus at least \(2\).</p>
-
-<p><b>Proposition</b>. The dual Thurston norm and the harmonic norm on an oriented, closed, irreducible, atoroidal three-manifold \(M\), satisfy the following inequality:</p>
-
-\[\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi\|\alpha\|_{har, g}}{\|s(g)\|_{L^2(M, g)}},\]
-
-<p>where \(g\) varies over all Riemannian metrics on \(M\) and \(s(g)\) denotes the scalar curvature of \((M, g)\).</p>
-
-<p><em>Proof</em>. Let us start by fiddling around to see if we get an idea. Pick a metric \(g\) on \(M\) and let \(\Sigma\) be an embedded oriented surface of genus at least \(2\). Let \(\omega\) be a \(2\)-form representing the class \(\alpha\). Then, by the Gauss-Bonnet theorem, \(2\pi\chi(\Sigma)\) is the integral of the curvature of \(\Sigma\) with the induced metric from \((M, g)\). So,</p>
-
-\[\displaystyle \frac{\alpha[\Sigma]}{-\chi(\Sigma)} = -\frac{2\pi\int_{\Sigma}\omega}{\int_{\Sigma} K d\mathrm{vol}_g}\]
-
-<p>The numerator is bounded by the metric norm on \(\omega\) (which can be bounded by the harmonic norm) times the volume of \(\Sigma\), and the denominator is bounded by the \(L^2\)-norm of (half the) scalar curvature attained on \(\Sigma\) times the volume of \(\Sigma\). It seems we are awfully close, but \(a \leq b, c \leq d\) does not mean \(a/c \leq b/d\).</p>
-
-<p>The shortcoming of this approach is that we are only focusing on the scalar curvature attained along \(\Sigma\). We must pick metrics \(g\) such that the semi-local geometry around \(\Sigma\) dominates in \(M\). Let \(g_1\) be a metric on \(M\) such that some neighborhood of \(\Sigma\) in \(M\) is isometric to \(\Sigma \times [0, 1]\) with the product metric \(dt^2 + h\), where \((\Sigma, h)\) is a hyperbolic surface of unit area. Let \(g_r\) be a radial rescaling so that in that neighborhood we have \(g_r = r^2 dt^2 + h\) and \(g_r = g_1\) outside a slightly larger neighborhood. Then the same neighborhood with the metric \(g_r\) is isometric to the product \(\Sigma \times [0, r]\). Therefore, the \(L^2\)-norm of the scalar curvature is:</p>
-
-\[\displaystyle \begin{aligned} \int s(g_r)^2 \, d\mathrm{vol}_{g_r} &amp;= \int_{\Sigma \times [0, r]} s(g_r)^2 \, d\mathrm{vol}_{g_r} + \int_{M \setminus \Sigma \times [0, 1]} s(g_1)^2 \, d\mathrm{vol}_{g_1} \\ &amp;= (-4\pi\chi(\Sigma))^2 r + C \end{aligned}\]
-
-<p>since \(s(g_r) = 4\pi\chi(\Sigma)\) on \(\Sigma \times [0, r]\) and \(d\mathrm{vol}_{g_r} = r \, dt\,  d\mathrm{vol}_h\), and \(C\) is a constant independent of \(r\). Observe also that if \(\omega\) is any \(2\)-form representing the cohomology class \(\alpha\),</p>
-
-\[\displaystyle \begin{aligned} |\alpha[\Sigma]|^2 \leq \left | \int_{\Sigma} \omega \right |^2 \leq \left ( \int_{\Sigma} \|\omega\|_h d\mathrm{vol}_h \right )^2 \leq \|\omega\|_{L^2(\Sigma, h)} ^2 \mathrm{Area}(\Sigma)^2 &amp;= \|\omega\|_{L^2(\Sigma, h)}^2 \\ &amp; \leq r^{-2} \|\omega\|_{L^2(M,g_r)}^2 \end{aligned}\]
-
-<p>Therefore, we have the following equations:</p>
-
-\[\displaystyle \begin{aligned} \|s(g_r)\|_{L^2(M, g_r)} &amp;= -4\pi \chi(\Sigma) r + C' \\ \|\alpha\|_{har, g_r} &amp;\geq r |\alpha[\Sigma]|\end{aligned}\]
-
-<p>where \(C'\) is a constant independent of \(r\). Dividing the second by the first, one obtains:</p>
-
-\[\displaystyle \frac{\|\alpha\|_{har, g_r}}{\|s(g_r)\|_{L^2(M, g_r)}} \geq \frac{r |\alpha[\Sigma]|}{ -4\pi \chi(\Sigma) r + C'} \to \|\alpha\|_{Th}\]
-
-<p>as \(r \to \infty\). This proves the required inequality.</p>
-
-<p><em>Remark</em>. As \(r \to \infty\), the Riemannian manifolds \((M, g_r)\) exhibit a neck-stretching along the embedded surface \(\Sigma \subset M\), and geometrically converges to a manifold with \(\Bbb H^2 \times \Bbb R\) geometry. My guess is that if the above inequality is optimal, the equality is achieved in this limit.</p>
-
-<p>We now tie everything together by the following theorem:</p>
-
-<p><b>Theorem</b>. For a closed oriented irreducible atoroidal \(3\)-manifold (also known as a hyperbolic \(3\)-manifold), the monopole classes are contained in the dual Thurston norm-ball.</p>
-
-<p><em>Proof</em>. Suppose \(\mathfrak{s}\) is a spinc structure with \(\alpha = c_1(\mathfrak{s})\) a monopole class. Let \(g\) be an auxiliary Riemannian metric on \(M\). Then combining the inequalities we have deduced above, we get</p>
-
-\[\displaystyle \|\alpha\|_{Th} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \|\alpha\|_{har, g} \leq \sup_g \frac{4\pi}{\|s(g)\|_{L^2(M, g)}} \cdot \frac{1}{4\pi} \cdot \|s(g)\|_{L^2(M, g)} = 1\]
-
-<p>In the follow-up to this post, we will prove the converse direction. Before going there, we need to make a detour from this detour to talk about taut foliations in relation to Thurston norm, and Gabai’s theorem on existence of such.</p>
+<p>However, this only gives examples of interesting taut foliations on the class of fibered three-manifolds. Eventually, I would like to describe Gabai’s construction of taut foliations on many more three-manifolds (in fact, one just needs the first betti number to be positive). For now, in the next post we shall discuss the geometry of taut foliations: Sullivan’s theorem (topologically taut implies geometrically taut) and what it has to do with max-flow-min-cut. And then return to the Thurston norm, eventually.</p>
 
       </div>
     
@@ -296,7 +223,7 @@
   
     <a href="/page/2/index.html"></a>
   
-<!-- <span class="page-number">Page 3 of 19</span> -->
+<!-- <span class="page-number">Page 3 of 18</span> -->
   
     <a href="/page/4/index.html"></a>
   
