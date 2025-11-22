@@ -22,20 +22,16 @@
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2020-09-06T00:00:00+05:30","datePublished":"2020-09-06T00:00:00+05:30","description":"I am taking the course Introduction to Stochastic Processes offered by my institute and taught by Parthanil Roy this semester, and wanted to jot down some notes interspersed with my own thoughts somewhere, hence this post. We have started by discussing about point processes, so that is what I expect to talk about in the first few posts of the series. I have recycled the exposition and terminology present in the lecture notes from the instructor of the course, and the text “Lectures on the Poisson Process” by Last and Penrose, also available online, which I am reading independently.","headline":"Poisson Process: I","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2020/09/06/poisson-process-i/"},"url":"http://localhost:4000/2020/09/06/poisson-process-i/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <!-- Fonts: Original + Sidebar style -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
-	<!-- include lunar.js -->
-	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
     <!-- MathJax -->
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']],
-	  macros: {
-	    slash: ['\\not{#1}', 1]
-		}
+          macros: { slash: ['\\not{#1}', 1] }
         }
       };
     </script>
@@ -43,107 +39,12 @@
   </head>
   <body>
     <div class="background-pattern"></div>
-    <!-- Sidebar and toggle button container -->
-    <div class="sidebar-toggle-container">
-      <aside class="sidebar" id="sidebar">
-        <!-- Sidebar header with search bar -->
-        <nav>
-          <a href="/" >Home</a>
-          <a href="/about/" >About</a>
-        </nav>              
-        <!-- Archive section (label and dropdown) -->
-        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
-  <option value="#">Archive</option>
-  
-  
-    
-    
-      <option value="/2025/11/">
-        November 2025
-      </option>
-    
-  
-    
-    
-      <option value="/2024/03/">
-        March 2024
-      </option>
-    
-      <option value="/2024/02/">
-        February 2024
-      </option>
-    
-  
-    
-    
-      <option value="/2022/05/">
-        May 2022
-      </option>
-    
-      <option value="/2022/03/">
-        March 2022
-      </option>
-    
-      <option value="/2022/01/">
-        January 2022
-      </option>
-    
-  
-    
-    
-      <option value="/2021/12/">
-        December 2021
-      </option>
-    
-  
-    
-    
-      <option value="/2020/11/">
-        November 2020
-      </option>
-    
-      <option value="/2020/09/">
-        September 2020
-      </option>
-    
-      <option value="/2020/06/">
-        June 2020
-      </option>
-    
-      <option value="/2020/05/">
-        May 2020
-      </option>
-    
-      <option value="/2020/04/">
-        April 2020
-      </option>
-    
-      <option value="/2020/03/">
-        March 2020
-      </option>
-    
-  
-</select>
-        <div class="sidebar-footer"> 
-<form class="sidebar-search-form" onsubmit="return false;">
-  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
-  <div id="autocomplete-results" class="autocomplete-results"></div>
-</form>
-        </div>
-      </aside>
-      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
-      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
-    </div>
-    <!-- Backdrop for overlay effect -->
-    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
-    <!-- Main Content (not shifted) -->
-    <div class="main-content">
-      <header>
-        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
-      </header>
-	<main>
-  	
-    	<div class="content">
+    <header style="text-align:center; margin-top: 2rem;">
+      <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      <a href="/" class="home-btn">Home</a>
+    </header>
+    <main>
+      <div class="content">
   <article class="post">
     <header class="post-header">
       <h2 class="post-title" style="font-style: italic;">
@@ -236,37 +137,6 @@
     </a>
   
 </div>
-  	
-	</main>
-    </div>
-    <script>
-      function toggleSidebar() {
-        var sidebar = document.getElementById('sidebar');
-        var backdrop = document.getElementById('sidebar-backdrop');
-        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
-        sidebar.classList.toggle('open');
-        if (sidebar.classList.contains('open')) {
-          backdrop.style.display = 'block';
-          // Move the toggle button with the sidebar
-          sidebarToggle.classList.add('open');
-        } else {
-          backdrop.style.display = 'none';
-          sidebarToggle.classList.remove('open');
-        }
-      }
-      function closeSidebar() {
-        var sidebar = document.getElementById('sidebar');
-        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
-        var backdrop = document.getElementById('sidebar-backdrop');
-        sidebar.classList.remove('open');
-        sidebarToggle.classList.remove('open');
-        backdrop.style.display = 'none';
-      }
-      // Optional: close sidebar with Esc key
-      document.addEventListener('keydown', function(e){
-        if (e.key === "Escape") closeSidebar();
-      });
-    </script>
-<script src="/assets/js/lunr-autocomplete.js"></script>
+    </main>
   </body>
 </html>
