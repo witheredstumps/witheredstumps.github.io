@@ -5,7 +5,7 @@
     <title>Home - page 16 | And Other Withered Stumps Of Time</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Page 16 of 18 for Home - page 16 | And Other Withered Stumps Of Time</title>
+<title>Page 16 of 19 for Home - page 16 | And Other Withered Stumps Of Time</title>
 <meta name="generator" content="Jekyll v4.4.1" />
 <meta property="og:title" content="Home - page 16" />
 <meta property="og:locale" content="en_US" />
@@ -56,6 +56,13 @@
         <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
   <option value="#">Archive</option>
   
+  
+    
+    
+      <option value="/2025/11/">
+        November 2025
+      </option>
+    
   
     
     
@@ -143,149 +150,177 @@
     
       <div class="post-content post-item">
         <h2 style="font-style: italic;">
-          <a href="/2020/04/20/hilberts-theorem/">Hilbert&rsquo;s theorem and curiosities</a>
+          <a href="/2020/05/05/jacobi-fields-part-ii/">Jacobi fields: Part II</a>
         </h2>
         <div class="meta">
-          <span>April 20, 2020</span>
+          <span>May 05, 2020</span>
         </div>
         <hr>
-        <p>The contents of this post emerged in the process of preparing and presenting a mini-course titled “Curvature: Geometry, Topology and Combinatorics” in an online math camp for high school students called  <a href="https://sites.google.com/view/monsoon-math/">Monsoon Math Camp</a>. I acknowledge the community and in particular the students for prompting me to think about these questions.</p>
+        <p>In the previous post we solved the Jacobi equation explicitly for Riemannian 2-manifolds of constant curvature and saw how the norm of the Jacobi field behaves over time depending on the curvature. We also understood what our results say about the deviation of geodesics on the manifold. Here we shall do some general estimations to unearth the precise relation between these quantities.</p>
 
-<p>It is a classical theorem of Hilbert that there is no smooth isometric immersion of the hyperbolic plane \(\Bbb H^2\) in \(\Bbb R^3\). I will begin with a proof of this fact, as outlined in do Carmo, “Differential Geometry of Curves and Surfaces”.</p>
+<p>Let \((M, g)\) be a Riemannian manifold and \(\gamma : [0, c] \to M\) a geodesic starting at \(\gamma(0) = p\) with \(\gamma'(0) = v\). Let \(J\) be a Jacobi field along \(\gamma\) with initial conditions \(J(0) = 0\), \(J'(0) = w\) for some vector \(w \in T_v T_p M\). Define \(f : [0, c] \to \Bbb R\) to be</p>
 
-<p>Suppose \(M \subset \Bbb R^3\) is an everywhere negatively curved surface. Then for any point \(x \in M\), \(M\) must “look like” a saddle around \(x\), with \(x\) being the saddle point, so one would imagine \(T_x M\) intersects \(M\) in a pair of lines, as in a saddle. These lines are called the asymptotic directions of \(M\) at \(x\). More precisely, observe that if \(\Bbb{II}\) is the second fundamental form on \(M\), \(\Bbb{II}_x\) is a nondegenerate indefinite symmetric bilinear form on \(T_x M\) since if \(v, w \in T_x M\) is a pair of principal directions, \(\Bbb{II}_x(v, v) &gt; 0\) and \(\Bbb{II}_x(w, w) &lt; 0\). Thus \(\Bbb{II}_x\) has nontrivial kernel on \(T_x M\), which is a 1-dimensional cone, i.e., a pair of lines on \(T_x M\). The pair of lines vary continuously with \(x\), so we can choose a local parametrization</p>
+\[f(t) = g(J(t), J(t)) = \|J(t)\|^2\]
 
-\[\begin{align*}\mathbf{x} : U \subset \Bbb R^2 &amp;\to M \\
-(u, v) &amp;\mapsto \mathbf{x}(u, v)
-\end{align*}\]
+<p>We shall compute the Taylor expansion of \(f\) near \(0\). Let us use the shorthand \(J' = \nabla_{\gamma'} J\) for ease of notation. Clearly, we have \(f(0) = 0\), \(f'(0) = 2 g(J(0), J'(0)) = 0\), and since \(J(0) = 0\), we have</p>
 
-<p>such that \(\mathbf{x}_u\) and \(\mathbf{x}_v\) are the asymptotic directions throughout the local patch \(\mathbf{x}(U) \subset M\), i.e., \(\Bbb{II}(\mathbf{x}_u, \mathbf{x}_u) = \Bbb{II}(\mathbf{x}_v, \mathbf{x}_v) = 0\). Denote the metric and the second fundamental form with respect to these coordinates as</p>
+\[f''(0) = 2 g(J'(0), J'(0)) + 2 g(J(0), J''(0)) = 2 \|w\|^2\]
 
-\[\begin{align*}ds^2 &amp;= E du^2 + 2F du dv + G dv^2 \\ 
-\Bbb{II} &amp;= e du^2 + 2f du dv + g dv^2,
-\end{align*}\]
+<p>For the higher order terms we recall the Jacobi equation:</p>
 
-<p>as is convention. Note that \(e = f = 0\) since the coordinate directions are asymptotic.</p>
+\[J'' + R(J, \gamma')\gamma' = 0\]
 
-<p>Suppose moreover that \(M\) is constant curvature \(K &lt; 0\). Then the surface normal \(\mathbf{n}\) is parallel to \(\mathbf{x}_{uv}\) throughout \(\mathbf{x}(U) \subset M\). This can be seen by the following sequence of computations: By definition of Gaussian curvature, \(\mathbf{n}_u \times \mathbf{n}_v = K \mathbf{x}_u \times \mathbf{x}_v\). We write the area element as \(A = \|\mathbf{x}_u \times \mathbf{x}_v\|\), so that \(\mathbf{x}_u \times \mathbf{x}_v = A \mathbf{n}\). Noting the identity \((\mathbf{n} \times \mathbf{n}_v)_u - (\mathbf{n} \times \mathbf{n}_u)_v = 2 \mathbf{n}_u \times \mathbf{n}_v\) we proceed to calculate:</p>
+<p>We find \(f'''(0) = 6g(J''(0), J'(0)) + 2g(J(0), J'''(0))\). By the above, \(J''(0) = -R(J(0), v)v = 0\). So, we obtain \(f'''(0) = 0\) as well. Finally,</p>
 
-\[\displaystyle \begin{aligned} \mathbf{n} \times \mathbf{n}_u = \frac1{A} (\mathbf{x}_u \times \mathbf{x}_v) \times \mathbf{n}_u &amp;= \frac1{A} \left ( (\mathbf{x}_u \cdot \mathbf{n}_u) \mathbf{x}_v - (\mathbf{x}_v \cdot \mathbf{n}_u) \mathbf{x}_u \right ) \\&amp; = \frac1{A} (e \mathbf{x}_v - f \mathbf{x}_u) = -\frac{f}{A} \mathbf{x}_u \end{aligned}\]
+\[f^{\mathrm{IV}}(0) = 8 g(J'''(0), J'(0)) + 6 g(J''(0), J''(0)) + 2 g(J(0), J^{\mathrm{IV}}(0))\]
 
-\[\displaystyle \begin{aligned} \mathbf{n} \times \mathbf{n}_v = \frac1{A} (\mathbf{x}_u \times \mathbf{x}_v) \times \mathbf{n}_v &amp;= \frac1{A} \left ( (\mathbf{x}_u \cdot \mathbf{n}_v) \mathbf{x}_v - (\mathbf{x}_v \cdot \mathbf{n}_v) \mathbf{x}_u \right ) \\&amp; = \frac1{A} (f \mathbf{x}_v - g \mathbf{x}_u) = \frac{f}{A} \mathbf{x}_v \end{aligned}\]
+<p>Note that \(J''' = - \nabla_{\gamma'} R(J, \gamma')\gamma'\). Recall the following symmetry of the Riemann curvature tensor:</p>
 
-<p>We know \(K = \det{\Bbb{II}}/A^2 = -f^2/A^2\), so that \(f/A = \sqrt{-K}\). Plugging everything in, we get \(\displaystyle 2\sqrt{-K} \mathbf{x}_{uv} = 2\mathbf{n}_u \times \mathbf{n}_v = 2K A \mathbf{n}\) which shows \(\mathbf{n} \parallel \mathbf{x}_{uv}\) as desired.</p>
+\[g(R(U, V)Z, W) = g(R(Z, W)U, V) = -g(R(V, U)Z, W)\]
 
-<p>From the above we obtain \(E_v = 2\mathbf{x}_{uv} \cdot \mathbf{x}_u = 0\) and \(G_u = 2\mathbf{x}_{uv} \cdot \mathbf{x}_v = 0\). Thus, \(E = E(u)\) is a pure function of \(u\) and \(G = G(v)\) is a pure function of \(v\) respectively, and we can thus reparametrize the coordinates \(u, v\) separately so that \(E = 1\) and \(G = 1\), i.e., the coordinate curves are arclength parametrized. Thus in particular the rectangles formed by the coordinate curves \(\mathbf{x}(I) \subset M\), where \(I = [s_1, s_2] \times [t_1, t_2] \subset U\), be geometric parallelograms, i.e., have opposite sides of equal lengths. Moreover, \(F = \mathbf{x}_u \cdot \mathbf{x}_v = \cos(\theta)\) where \(\theta \in (0, \pi)\) is the angle between the coordinate directions. Thus the metric on the surface is:</p>
+<p>Let $X$ be an auxiliary vector field. Then we get:</p>
 
-\[ds^2 = du^2 + 2\cos(\theta) dudv + dv^2\]
+\[\displaystyle \begin{aligned} g(\nabla_{\gamma'} R(J, \gamma') \gamma', X) &amp; = \gamma' g(R(J, \gamma') \gamma', X) - g(R(J, \gamma') \gamma', \nabla_{\gamma'} X) \\ &amp; = -\gamma' g(R(\gamma', X) \gamma', J) - g(R(J, \gamma') \gamma', \nabla_{\gamma'} X) \\ &amp; = - g(\nabla_{\gamma'} R(\gamma', X)\gamma', J) - g(R(\gamma', X)\gamma', J') - g(R(J, \gamma') \gamma', \nabla_{\gamma'} X)\end{aligned}\]
 
-<p>We change coordinates by \(u = x + y\) and \(v = x - y\) to diagonalize the metric as</p>
+<p>Evaluating this expression at \(t = 0\), we see using \(J(0) = 0\) that the first and third term vanishes. Thus,</p>
 
-\[ds^2 = 4 \cos^2(\theta/2) dx^2 + 4 \sin^2(\theta/2) dy^2\]
+\[g(\nabla_{\gamma'} R(J, \gamma') \gamma', X) = g(-R(\gamma', J') \gamma', X)\]
 
-<p>For diagonalized metrics it is easy to compute curvature using the Gauss-Codazzi equations:</p>
+<p>for all \(X\). In particular, pluggin \(X = \gamma'\), we obtain</p>
 
-\[\displaystyle K = -\frac{1}{2\sqrt{EG}} \left ( \left ( \frac{E_y}{\sqrt{EG}} \right )_y + \left ( \frac{G_x}{\sqrt{EG}} \right )_x \right )\]
+\[\nabla_{\gamma'} R(J, \gamma') \gamma' = -R(\gamma', J')\gamma'\]
 
-<p>Plugging \(E_y = -2\sin(\theta)\theta_y\), \(G_x = 2\sin(\theta)\theta_x\) and \(\sqrt{EG} = 2\sin(\theta)\) in above, we get</p>
+<p>So we get \(J'''(0) = R(v, w)v\), and plugging this in we therefore obtain \(f^{\mathrm{IV}}(0) = 8 g(R(v, w)v, w)\). Now, the sectional curvature of the 2-plane \(\sigma \subset T_p M\) spanned by \(v\) and \(w\) is</p>
 
-\[\displaystyle K = -\frac{\theta_{xx} - \theta_{yy}}{4\sin(\theta)} = -\frac{\theta_{uv}}{\sin(\theta)}\]
+\[K_p(\sigma) = \frac{g(R(v, w)w, v)}{\|v\|^2 \|w\|^2 - g_p(v, w)},\]
 
-<p>So this special coordinate patch \(\mathbf{x} : U \to \mathbf{x}(U) \subset M\) on the constant negative curvature surface \(M\), known in literature as a  <em>Tchebyshef net</em>, can be imagined as a fishnet pattern over the surface made by two sets of arclength parametrized coordinate curves, where each individual cell is a geometric parallelogram with internal angle \(\theta\) varying cellwise according to the partial differential equation</p>
+<p>and \(\|v\|^2 \|w\|^2 - g_p(v, w) = \mathrm{Area}(\sigma)^2\) so \(f^{\mathrm{IV}}(0) = - 8 K_p(\sigma) \mathrm{Area}(\sigma)^2\).</p>
 
-\[\theta_{uv} + K \sin(\theta) = 0\]
+<p>With all the derivatives at hand, we do a fourth order Taylor expansion of \(f\) around the origin to obtain:</p>
 
-<p>Intuitively, (I think) the formula for the curvature can be justified as follows: \(K\) is equal to the limit of the holonomy angle when parallel transporting over a loop divided by area bounded by the loop, as the loop shrinks to the constant loop. We start with a node of the Tchebyshef net, and an asymptotic direction, and parallel transport it over a cell of area \(\sin(\theta) st\) in the fishnet. The asymptotic curves in the saddle are geodesics as they are straightlines, and since \(M\) locally looks like the saddle we can assume upto first order that the asymptotic curves are geodesics. Then the holonomy upon parallel translating over the coordinate cube is \(-\theta_{uv} s t\) upto second order, hence in the limit \(K = -\theta_{uv}/\sin(\theta)\), as we computed.</p>
+\[\displaystyle \begin{aligned} &amp; f(t) = f(0) + f'(0) t + f''(0) \frac{t^2}{2!} + f'''(0) \frac{t^3}{3!} + f^{\mathrm{IV}}(0) \frac{t^4}{4!} + o(t^5) \\ \implies &amp; \|J(t)\|^2 = \|w\|^2 t^2 - \frac{K_p(\sigma) \mathrm{Area}(\sigma)^2}{3} t^4 + O(t^5) \\ \implies &amp; \|J(t)\| = \|w\| t - \frac{K_p(\sigma) \mathrm{Area}(\sigma)^2}{6 \|w\|} t^3 + O(t^4) \end{aligned}\]
 
-<div class="figure-row">
-    <img src="/assets/images/fishnet.gif" height="40%" width="40%" />
-</div>
+<p>We can interpret the linear term as the growth of the Jacobi field along the ray passing through \(0\) in the direction of \(v\) in the tangent space \(T_p M\), and the formula tells us that there’s a cubic error between the deviation of geodesics on \(T_p M\) and on \(M\) which depends on the sectional curvature \(K_p(\sigma)\).</p>
 
-<p>Assume now that \(M\) is complete, and extend this to a global parametrization \(\mathbf{x} : \Bbb R^2 \dashrightarrow M\) by setting \(\mathbf{x}(0, 0) = p\) and defining \(\mathbf{x}(s, t)\) to be the point reached by running along the first coordinate asymptotic curve for time \(s\) and then the second coordinate asymptotic curve for time \(t\). Let the domain of the parametrization be \(E = \{(s, t) \in \Bbb R^2 : \mathbf{x}(s, t) \text{ is well-defined}\}\). If \((s_0, t_0) \in E\) we can lay a Tchebyshef net at \(\mathbf{x}(s_0, t_0)\) which would match \(\mathbf{x}\) in the intersection of the domain of definition, essentially by uniqueness of solutions to ODEs. Thus \(\mathbf{x}\) would be defined in a neighborhood of \((s_0, t_0)\) as well, hence \((s_0, t_0) \in E\) is an interior point. If \((s_\infty, t_\infty) \in E\) is a limit point, we can take a sequence \(\{(s_n, t_n)\}\) in \(E\) converging to \((s_\infty, t_\infty)\), so that \(q_n = \mathbf{x}(s_n, t_n)\) is a Cauchy sequence on \(M\) since coordinate distances are Euclidean by arclength parametrization of the coordinate curves; hence by metric completeness of \(M\) converges to some point \(q\) and we define \(\mathbf{x}(s_\infty, t_\infty) = q\). Thus, \((s_\infty, t_\infty) \in E\). These show that \(E \subset \Bbb R^2\) is a nonempty clopen subset, hence \(E = \Bbb R^2\) and thus \(\mathbf{x}\) is globally well-defined. It is clear that \(\mathbf{x}\) is a local diffeomorphism, since \(\mathbf{x}_u\) and \(\mathbf{x}_v\) are the two independent coordinate directions at every point.</p>
+<p>A quick application of the ideas above gives a relatively deep result: Suppose \(M\) is a complete Riemannian manifold which is everywhere non-positively curved, i.e., for any point \(p \in M\) and a 2-plane \(\sigma \subset T_p M\), \(K_p(\sigma) \leq 0\). If \(\gamma : [0, \infty) \to M\) is a geodesic and \(J\) is a nontrivial Jacobi field along \(\gamma\) with \(J(0) = 0\), the function \(f(t) = \|J(t)\|^2\) is convex:</p>
 
-<p>Let \(\Omega \subset M\) be the image of \(\mathbf{x}\), which must be an open subset as \(\mathbf{x} : \Bbb R^2 \to M\) is a local diffeomorphism. Choose a point \(p \in \partial \Omega\) and lay a Tchebyshef net around \(p\). This will intersect \(\Omega\) and thus we shall find a point \(q \in \Omega\) whose asymptotic curve intersects that of \(p\), which is impossible since asymptotic curves emanating from \(\Omega\) stays inside \(\Omega\). Thus \(\Omega = M\) and \(\mathbf{x}\) is therefore surjective. It’s a little more fidgety to argue \(M\) is simply connected, \(\mathbf{x}\) is injective: do Carmo gives a fidgety argument for this, but let me attempt at a cleaner approach. The fiberwise nondegenerate symmetric indefinite billinear form \(\Bbb{II}\) reduced the structure group of the tangent bundle \(TM\) to \(O(1, 1)\). Therefore we have a corresponding classifying map \(M \to BO(1, 1)\); but since \(\pi_1(M) = 0\), this map lifts to the universal cover \(\widetilde{BO(1, 1)} = BSO^+(1, 1)\). This implies we can upgrade the “cone field” on \(M\) given by \(\ker \Bbb{II}\) to a pair of well-defined global null vector fields \(X, Y\) on \(M\). Since \(\mathbf{x}_u = X\) and \(\mathbf{x}_v = Y\), we obtain by existence and uniqueness of ODEs that two independent family of strands of the fishnet given by \(\mathbf{x}\) do not self-intersect, and every pair of independent strands intersect at a unique point. This therefore implies \(\mathbf{x}\) is injective. We needed simple connectedness of \(M\) crucially in the argument, because in general it is possible that an asymptotic curve intersects itself in a general surface of negative curvature immersed in \(\Bbb R^3\).</p>
+\[\begin{aligned} \displaystyle f''(t) &amp;= 2 g(J', J') + 2 g(J'', J)  \\ &amp;= 2\|J'\|^2 - 2g(R(J, \gamma')\gamma', J) \\ &amp;= 2\|J'\|^2 - 2 K_p(\sigma) \mathrm{Area}(\sigma)^2 \geq 0 \end{aligned}\]
 
-<p>As a small detour at this point, observe that a Tchebyshef net is completely determined by the data of the fishnet angles, \(\theta : \Omega \subset \Bbb R^2 \to \Bbb R\) satisfying the PDE \(\theta_{uv} = - K \sin(\theta)\) relative to the geometric restriction \(0 &lt; \theta &lt; \pi\). This PDE is known as the  <em>sine-Gordon equation</em>, and Hilbert’s theorem is the statement that there are no regular global solutions to this equation with the restriction \(0 &lt; \theta &lt; \pi\). The name derives from the fact that if we write the equation in space-time coordinates \(x = u + v\), \(t = u - v\) it transforms into \(\square \theta - K \sin(\theta) = 0\) where \(\square \theta = \theta_{tt} - \theta_{xx}\) is the d’Alembert operator with speed of light assumed to be \(1\), which in the low-amplitude case has first order approximation to a linear wave equation-type PDE \((\square - K)\theta = 0\) known as the  <em>Klein-Gordon equation</em>. This is of course all reminiscent of 1-dimensional story with the simple harmonic oscillator, although I am not sure of what the precise physical meaning of this is. The sine-Gordon equation belongs to a class of nonlinear PDEs arising from physics known as  <em>soliton equations</em>  whose solutions are solitary waves \(u(x, t) = f(x - ct)\) with \(f\) rapidly decaying at infinity, which are called the  <em>soliton solutions</em>  and there exists a nonlinear superposition law of waves which gives rise to solutions asymptotic to sum of solitary waves \(\sum_{i = 1}^n f_i(x - c_i t)\) as \(t \to -\infty\) and \(\sum_{i = 1}^n f_i(x - c_i t + \phi_i)\) as \(t \to \infty\), which is to be interpreted as \(n\) solitary waves coming togather, interacting in a nonlinear fashion in a compact interval of time, and then dissipating off to infinity with no change in shape or velocities but individual phase shifts \(\phi_i\). Let us try to exhibit this phenomenon for the sine-Gordon equations in space-time coordinates with curvature \(K = -1\): plug \(\theta(x, t) = f(x - ct)\) as the soliton ansatz in \(\square \theta + \sin(\theta) = 0\) to obtain the ODE \((1 - c^2) f'' = \sin(f)\) where the rapid decay condition of the soliton is to be interpreted as \(\vert f(u)\vert, \vert f'(u)\vert \to 0\) as \(u \to \pm \infty\). Using this, we solve \(f(u) = 4 \arctan \exp(\pm \gamma (u - \phi))\) where \(\phi\) is the “phase” of the soliton and \(\gamma = 1/\sqrt{1 - c^2}\) is the “Lorentz factor” of the soliton with velocity \(c\). The solution with the positive sign in the argument is called a  <em>kink</em>  and the one with the negative sign is called an  <em>antikink</em>. The 1-parameter surfaces of constant curvature \(-1\) corresponding to these solutions is the Dini family of pseudospheres</p>
+<p>where \(\sigma\) is the 2-plane spanned by \(\gamma'(t)\) and \(J(t)\). Since sectional curvatures are nonpositive, this implies \(f''(t) \geq 0\), hence \(f\) is convex, as required. Moreover as \(J'(0) \neq 0\), \(J' \neq 0\) in a neighborhood of \(0\), thus \(f\) is strictly convex in a neighborhood of \(0\). Since \(f(0) = 0\) and a convex non-negative function can never “climb down” to \(0\), we conclude \(f(t) &gt; 0\) for all \(t \in [0, \infty)\). Thus \(J \neq 0\) throughout \((0, \infty)\). This says there are no pairs of conjugate points in \(M\), which implies the exponential map \(\exp_p : T_p M \to M\) has no critical points, i.e., it’s a local diffeomorphism. If \(K \subset M\) is a compact subset, then as \(d_M(p, -)\) is a continuous function on \(M\), it restricts to a continuous function on \(K\) hence attains a maximum value \(m\) on \(K\). Thus \(K \subseteq \exp_p(B(0; m))\), hence \(\exp_p^{-1}(K)\) is a bounded closed subset of \(T_p M\). Thus, \(\exp_p\) is a proper local diffeomorphism, hence a covering map.</p>
 
-<div class="figure-row">
-    <img src="/assets/images/dini1.png" width="70%" height="70%" />
-</div>
+<p>So we just proved every complete nonpositively curved Riemannian manifold \(M\) has universal cover diffeomorphic to \(\Bbb R^n\). This fact, known as the Cartan-Hadamard theorem, is remarkable, because since \(\Bbb R^n\) is contractible this means \(M\) is a \(K(\pi_1 M, 1)\)-space, i.e., all the higher homotopy groups are trivial. Curvature constraints thus pose nontrivial restrictions on the topology! We shall prove a positive curvature analogue, but we would need to introduce a new quantity to state the theorem:</p>
 
-<p>I used  <a href="http://3d-xplormath.org/">3D-XplorMath</a>  to plot this image, and I really recommend downloading it and try to play with pseudospherical surfaces there. There is an animation option which can be used to see the family of surfaces as \(c\) varies. One can observe the “hump” along the curve of singularities on the surface to be propagating like a wave along the axis of the pseudospheres, reminiscent of a corkscrew. At some intermediate stage, the curve of singularities limit from a spiral to a circle, and at that moment the Dini surface is the plain vanilla pseudosphere that we all know and adore. I wanted to talk a bit more about how one obtains multisoliton solutions to the sine-Gordon equation using Bäcklund transforms but I realize I don’t understand it adequately enough myself to explain it in a concise manner. Instead, I will refer the reader to the excellent exposition “Geometry of Solitons” by Terng and Uhlenbeck for further information on soliton equations and how sine-Gordon is an example of such. Here is a picture of a surface of constant curvature -1 obtained from a 2-soliton formed by colliding a kink and an anti-kink:</p>
+<p>Define for any two vector fields \(X, Y\) on \(M\) the bundle endomorphism</p>
 
-<div class="figure-row">
-    <img src="/assets/images/dini2.webp" height="70%" width="70%" />
-</div>
+\[\begin{gather*}R : TM \to TM \\ R(Z) := R(Z, X)Y\end{gather*}\]
 
-<p>We now proceed to prove Hilbert’s theorem. Suppose \(M \subset \Bbb R^3\) is a smoothly isometrically immersed copy of \(\Bbb H^2\), so by above we obtain a global Tchebyshef net \(\mathbf{x} : \Bbb R^2 \to M\) which is a bijective local diffeomorphism, hence a diffeomorphism as \(M\) is simply connected, and since \(K \equiv -1\), we have \(\theta_{uv} = \sin(\theta)\). Choose any coordinate rectangle \(I = [s_1, t_1] \times [s_2, t_2] \subset \Bbb R^2\). Then the area of \(\mathbf{x}(I) \subset M\) can be computed as:</p>
+<p>The trace of \(R\) is defined to be the Ricci curvature which we denote as \(\mathrm{Ric}_p(X, Y) = \text{tr}~ R_p\). This is a pointwise defined quantity in the sense that \(\mathrm{Ric}_p(X, Y)\) only depends on \(X(p), Y(p)\), which follows from the analogous property of the Riemann curvature tensor. If we choose an orthonormal basis \(\mathbf{e}_1, \cdots, \mathbf{e}_n\) of \(T_p M\), then the matrix of \(R\) with respect to this basis is \((g(R(X, \mathbf{e}_i)Y, \mathbf{e}_j))_{ij}\). Therefore,</p>
 
-\[\displaystyle \begin{aligned} \int_I A du dv &amp;= \int_I \sin(\theta) du dv = \int_I \theta_{uv} du dv \\ &amp; = \theta_{11} - \theta_{12} + \theta_{22} - \theta_{21} \\ &amp;= (\alpha_{11} + \alpha_{12} + \alpha_{21} + \alpha_{22}) - 2\pi &lt; 2\pi \end{aligned}\]
+\[\displaystyle \begin{align*} \mathrm{Ric}_p(X, Y) &amp;= \sum_{i = 1}^n g(R(\mathbf{e}_i, X)Y, \mathbf{e}_i) \\ \implies \mathrm{Ric}_p(\mathbf{e}_n, \mathbf{e}_n) &amp;= \sum_{i = 1}^{n-1} K_p(\mathbf{e}_i, \mathbf{e}_n) \end{align*}\]
 
-<p>Where \(\theta_{ij}\) are the fishnet angles and \(\alpha_{ij}\) are the interior angles at the vertices \(\mathbf{x}(s_i, t_j)\) of the geometric rectangle \(\mathbf{x}(I)\), where the last inequality is just a consequence of the fact that \(\alpha_{ij} &lt; \pi\). Taking the rectangles \(I = [-n, n]^2\) and letting \(n \to \infty\) shows that \(M\) has finite volume, bounded by \(2\pi\), which is a contradiction since \(\Bbb H^2\) is an infinite volume Riemannian surface. This also proves nonimmersability of any complete constant negative curvature surface in \(\Bbb R^3\), since we can compose the immersion with the exponential map \(\exp_p : T_p M \to M\) to get an immersion of \(T_p M\) with a metric of constant negative curvature \(K &lt; 0\), and the metric can be scaled so that \(K \equiv -1\), in which case by Cartan’s theorem (known as Minding’s theorem for surfaces) \(T_p M\) is isometric to \(\Bbb H^2\), reducing it to Hilbert’s theorem.</p>
+<p>Here, \(K_p(\mathbf{e}_i, \mathbf{e}_n)\) is the sectional curvature corresponding to the 2-plane spanned by \(\mathbf{e}_i, \mathbf{e}_n\) in \(T_p M\), for \(1 \leq i \leq n-1\). Note there is one less term in the expression as the last term vanishes.</p>
 
-<p>As a remark, observe that throughout we did not quite require smoothness of the immersion since to do these curvature arguments we just need \(C^2\)-regularity. Thus, Hilbert’s theorem in fact proves there is no \(C^2\)-regular immersion of \(\Bbb H^2\) in \(\Bbb R^3\). There are however many such \(C^1\)-regular embeddings. To construct one we shall use the  <em>Nash-Kuiper \(h\)-principle</em>. Call a smooth map \(f : (M, g) \to (N, h)\) of Riemannian manifolds a  <em>short map</em>  if \(f^* g &lt; h\) in the sense of quadratic forms, i.e, \(\|f_* v\|_h &lt; \|v\|_g\) for any \(v \in TM\).</p>
+<p>Here is some motivation for the Ricci curvature. Choose normal coordinates \((x^1, \cdots, x^n)\) around the point \(p \in M\) by pushing forward Euclidean coordinates by the exponential map \(\exp_p : T_p M \dashrightarrow M\). Let \((\partial_1, \cdots, \partial_n)\) be the induced frame on the normal neighborhood. We envision the metric \(g\) as a smoothly-varying assignment of symmetric matrices at every point on the normal neighborhood, with entries \(g_{ij}(x) = g_x(\partial_i, \partial_j)\). Let \(\mathbf{x} = (x_1, \cdots, x_n)\) be a point in the normal neighborhood and consider the radial geodesic \(\gamma : [0, 1] \to M\) defined by \(\gamma(t) = t \mathbf{x}\), and let \(J\) be a Jacobi field along \(\gamma\). Along $\gamma$, we write \(J(t) = \sum t J_i \partial_i\). Therefore,</p>
 
-<p><strong>Theorem</strong>  (Nash-Kuiper): Let \((M^m, g)\) be a Riemannian manifold, and \(g_{\mathrm{Euc}}\) be the Euclidean metric on \(\Bbb R^n\) where \(m &lt; n\). For any short immersion \(f : M \to \Bbb R^n\) and any \(\varepsilon &gt; 0\) there exists \(C^1\)-regular isometric immersion \(f_1 : M \to \Bbb R^n\) such that \(\|f_1 - f\|_{C^0} &lt; \varepsilon\), and \(f_1\) can be chosen to be an embedding if \(f\) is an embedding.</p>
+\[\|J(t)\|^2 = t^2 \sum_{i, j = 1}^n g_{ij}(t\mathbf{x}) J_i J_j\]
 
-<p>One model for the hyperbolic plane is the Beltrami-Klein disk model, which is the unit disk \(\Bbb D \subset \Bbb R^2\) equipped with the metric</p>
+<p>We plug all of these in the Taylor’s expansion formula for norm of the Jacobi field derived above:</p>
 
-\[\displaystyle ds^2 = \frac{dx^2 + dy^2}{1 - x^2 - y^2} + \frac{(xdx + ydy)^2}{(1 - x^2 - y^2)^2}\]
+\[\displaystyle \sum_{i, j} g_{ij}(t\mathbf{x}) J_i J_j t^2 = \sum_{i, j} g_{ij}(0) J_i J_j t^2 - \frac{g(R(\gamma'(0), J'(0))J'(0), \gamma'(0))}{3} t^4 + O(t^5)\]
 
-<p>This can be obtained from the hyperboloid model discussed in the previous post, by stereographically projecting to a disk tangent to the vertex of the hyperboloid as opposed to an equatorial disk as in the Poincare disk model.</p>
+<p>Note that \(\gamma'(0) =\sum_i \partial_i\) and \(J'(0) =\sum_i J_i \partial_i\). By multilinearity of the Riemann curvature tensor, we calculate:</p>
 
-<div class="figure-row">
-    <img src="/assets/images/hyperboloid-projection-2.webp" height="50%" width="50%" />
-</div>
+\[\displaystyle \begin{aligned} g(R(\gamma'(0), J'(0))J'(0), \gamma'(0)) &amp;= g \left ( R \left ( \sum_i \partial_i, \sum_j J_j \partial_j \right ) \sum_k J_k \partial_k, \sum_l \partial_l \right ) \\ &amp;= \sum_{i, j, k, l} g(R(\partial_i, \partial_j)\partial_k, \partial_l) J_j J_k \end{aligned}\]
 
-<p>Then the canonical inclusion \(\Bbb D \to \Bbb R^3\) is a short embedding, hence can be \(C^0\)-perturbed to a \(C^1\)-regular isometric embedding of \(\Bbb H^2\) in \(\Bbb R^3\). One can in fact do better (thanks to Mike Miller for asking the question): in the hyperboloid model, we parametrize the hyperboloid</p>
+<p>Let us denote \(R_{ijkl} := g(R(\partial_i, \partial_j)\partial_k, \partial_l)\), the coordinate form of the full curvature 4-tensor given by \(R(X, Y, Z, W) = g(R(X, Y)Z, W)\). We also note that \(g_{ij}(0) = \delta_{ij}\) since we are working with normal coordinates.  Plugging everything above,</p>
 
-\[H = \{(t, x, y) \in \Bbb R^{1, 2} : -t^2 + x^2 + y^2 = -1\}\]
+\[\displaystyle \sum_{i, j} g_{ij}(t\mathbf{x}) J_i J_j = \sum_{i, j} \delta_{ij} J_i J_j - \frac{t^2}{3} \sum_{i, j, k, l} R_{ijkl} J_j J_k  + O(t^3)\]
 
-<p>by \(\Psi : \Bbb R^2 \to H\), \(\Psi(\phi, \theta) = (\cosh(\phi), \sinh(\phi)\cos(\theta), \sinh(\phi)\sin(\theta))\). Recall the metric on \(H\) is simply the Minkowski metric \(ds^2 = -dt^2 + dx^2 + dy^2\), and we can verify that \(\Psi^*(ds^2) = d\phi^2 + \sinh^2(\phi)d\theta^2\) which is a metric away from the line \(\phi = 0\) along which it is degenerate because \(\Psi\) has degenerate Jacobian along that line. We can fix this by setting \(\phi = x\) and \(\theta = \coth(x) y\) so that we have a well-defined metric \(g = dx^2 + \cosh^2(x) dy^2\) on \(\Bbb R^2\) with constant negative curvature \(-1\) which models the hyperbolic plane. Let \(f : (\Bbb R^2, g) \to (\Bbb R^3, g_{\text{Euc}})\), \(f(x, y, z) = (x/2, y/2)\). Then</p>
+<p>Therefore the Taylor expansion for the metric \(g\) in the normal coordinates must be of the form (carefully note that we switched around some indices)</p>
 
-\[f^* g_{\text{Euc}} = (dx^2 + dy^2)/4 &lt; dx^2 + \cosh^2(x) dy^2 = g,\]
+\[\displaystyle g_{ij}(\mathbf{x}) = \delta_{ij} - \frac{1}{3} \sum_{k, l} R_{iklj} x_k x_l + O(\|\mathbf{x}\|^3)\]
 
-<p>hence \(f\) is a short embedding. By the Nash-Kuiper h-principle we can find a \(C^1\)-regular isometric embedding \(f_1 : (\Bbb R^2, g) \to \Bbb R^3\) which is \(C^0\)-close to \(f\), and thus as \(f\) is proper so is \(f_1\). We have found a proper \(C^1\)-regular isometric embedding of \(\Bbb H^2\) in \(\Bbb R^3\). The first embedding is a wild \(C^0\)-small perturbation of the Klein disk model, which essentially looks like a fractal-like ball of fuzz in space, almost like a hyperbolic crochet, with the ideal boundary \(\partial \Bbb{H}^2\) curled up into a wild continuum(?). On the other hand, the second example wrinkles more and more as we go towards infinity, to accommodate the exponential distance between points farther away from the origin.</p>
+<p>Recall the Riemannian volume form is given by \(d\mathrm{vol}_g = \sqrt{\det(g)} dx_1 \wedge \cdots \wedge dx_n\). The above also gives a Taylor expansion formula for the Riemannian volume form:</p>
 
-<div class="figure-row">
-    <img src="/assets/images/hyperbolic-crochet.jpg" height="60%" width="60%" />
-</div>
+\[\displaystyle \begin{aligned} &amp; \det(g(\mathbf{x})) = 1 - \frac13 \sum_{k, l} \mathrm{Ric}_p(\partial_k, \partial_l) x_k x_l + O(\|\mathbf{x}\|^3) \\ \implies &amp; d\mathrm{vol}_g = \left (1 - \frac16 \sum_{k, l} \mathrm{Ric}_p(\partial_k, \partial_l) x_k x_l+ O(\|\mathbf{x}\|^3) \right ) dx_1 \wedge \cdots \wedge dx_n\end{aligned}\]
 
-<p>At least two students of the said camp asked me if \(\Bbb H^2\) smoothly isometrically embeds in \(\Bbb R^n\) for some \(n &gt; 3\). A non-explicit answer is given once again by Nash, which states that if \((M, g)\) is an arbitrary Riemannian \(n\)-manifold then there is a \(C^\infty\)-regular isometric embedding in \(\Bbb R^{n(n+1)(3n+11)/2}\). Plugging the numbers we find \(\Bbb H^2\) admits a smooth isometric embedding in \(\Bbb R^{51}\). This seems like a dauntingly high dimension, so an interesting question might be what the minimal dimension is. David Brander’s thesis, “Isometric Embeddings between Space Forms” includes a result of Danilo Blanuša which states \(\Bbb H^2\) admits a smooth isometric embedding in \(\Bbb R^6\). It’s a very clever construction which emphasizes a key idea in the easy half of Nash-Kuiper theorem (a topic for another day!), I think, so I will try to write down an expository of the proof.</p>
+<p>Where we used \(\mathrm{Ric}_p(\partial_k, \partial_l) = \sum_i R_{ikli}\). Thus the Ricci curvature measures the the quadratic defect in the volume form on \(M\) from the Euclidean volume form on the flat tangent space \(T_p M\).</p>
 
-<p>We model \(\Bbb H^2\) by \((\Bbb R^2, g = dx^2 + \cosh^2(x) dy^2)\) as before. Our goal is to find an embedding \(f : \Bbb R^2 \to \Bbb R^6\) such that \(f^* g_{\mathrm{Euc}} = g\). Before stating the key lemma we go off on a tangent to make the following observation: Suppose \(\eta : \Bbb R \to \Bbb R\) is a \(C^\infty\)-function with bounded derivative. Consider the function \(F : \Bbb R^2 \to \Bbb R^2\),</p>
+<p>Suppose \(M\) is a complete Riemannian \(n\)-manifold and \(\gamma : [0, \ell] \to M\) be an arclength parametrized minimizing geodesic with \(\gamma(0) = p\) and \(\gamma(\ell) = q\). Let \(\mathbf{e}_1, \cdots, \mathbf{e}_n\) be an orthonormal basis of parallel vector fields along \(\gamma\), such that \(\mathbf{e}_n = \gamma'\). Define \(X_i = \sin(\pi t/\ell) \mathbf{e}_i\). Let \(\mathcal{E}\) be the energy functional we defined earlier; from the second variation formula we compute</p>
 
-\[\displaystyle F(x, y) = \left (\eta(x) \frac{\cos(cy)}{c}, \eta(x) \frac{\sin(cy)}{c} \right )\]
+\[\displaystyle \begin{aligned} h\mathcal{E}(\gamma)(X_i, X_i) &amp; = -2 \int_\gamma g(\nabla^2_{\gamma'} X_i + R(X_i, \gamma')\gamma', X_i) \\ &amp; = 2 \int_\gamma \sin^2(\pi t/\ell) (\pi^2/\ell^2 - K(\mathbf{e}_i, \mathbf{e}_n)) \\ \implies \sum_{i = 1}^{n-1} h\mathcal{E}(\gamma)(X_i, X_i) &amp; = 2\int_\gamma \sin^2(\pi t/\ell) ((n-1)\pi^2/\ell^2 - \mathrm{Ric}(\mathbf{e}_n, \mathbf{e}_n)) \end{aligned}\]
 
-<p>The function \(F\) essentially wraps the plane about itself so that the lines \(x = \mathrm{const}\) are mapped to circles of radius \(\eta(x)/c\) traversed in speed \(c\). It is an easy computation that</p>
+<p>Suppose \(\mathrm{Ric}(\mathbf{e}_n, \mathbf{e}_n) &gt; (n-1)\pi^2/\ell^2\). Then at least one of the terms \(h\mathcal{E}(\gamma)(X_i, X_i)\) must be negative. Observe that since \(\gamma\) is arclength parametrized, the energy of the path \(\mathcal{E}(\gamma) = \int_\gamma \|\gamma'\|^2 = \ell\) is exactly the arclength. Since \(\gamma\) is a minimizing geodesic, \(\ell &lt; \mathrm{length}(\sigma)\) for any other path \(\sigma\) with \(\sigma(0) = p\) and \(\sigma(\ell) = q\), and by Cauchy-Schwarz inequality, \(\mathrm{length}(\sigma)^2 \leq \ell \cdot \mathcal{E}(\sigma)\). Combining we get \(\mathcal{E}(\gamma) \leq \mathcal{E}(\sigma)\), therefore \(\gamma\) is also an energy minimizer. This forces \(h\mathcal{E}(\gamma)\) to be positive semi-definite on \(T_\gamma \Omega_{p, q}\) by the “second-derivative test” (it’s easy to convince yourself that this continues to hold in our infinite dimensional context), which leads to a contradiction. Thus, \(\mathrm{Ric}(\mathbf{e}_n, \mathbf{e}_n) \leq (n-1)\pi^2/\ell^2\).</p>
 
-\[\displaystyle F^*(dx^2 + dy^2) = \frac{\eta'(x)^2}{c^2} dx^2 + \eta(x)^2 dy^2\]
+<p>In summary we have proved that if \(M\) is a complete Riemannian manifold of dimension \(n\) such that \(\mathrm{Ric} \geq (n-1)/R^2\) for some \(R &gt; 0\), then every minimizing geodesic has length at most \(\pi R\), hence \(\text{diam}(M) \leq \pi R\) and in particular \(M\) is compact, since \(M = \exp_p(B(0; \pi R))\). This is known as the Bonnet-Myers theorem. A topological consequence is that if \(M\) is a complete Riemannian manifold with Ricci curvature bounded below by a positive constant then \(\pi_1(M)\) is finite: this is because the universal cover \(\widetilde{M}\) also has Ricci curvature bounded below by a positive constant as it is locally isometric to \(M\), and thus the fibers of the universal covering map \(\widetilde{M} \to M\), which is in bijection to \(\pi_1(M)\), must be finite. It is worth noting that if the sectional curvature satisfies \(K \geq 1/R^2\) then the hypothesis \(\mathrm{Ric} \geq (n-1)/R^2\) is automatically satisfied.</p>
 
-<p>If we let \(c \to \infty\), the angular coordinate is traversed so fast the radial direction contributes very little to the metric, and \(F^*(dx^2 + dy^2)\) becomes an arbitrarily good approximation of the quadratic differential \(\eta(x)^2 dy^2\). In fact, the bounded derivative hypothesis can be dealt away with by compromising more dimensions. Namely, let \(\psi = (\psi_1, \psi_2) : \Bbb R \to S^1\) be a smooth function such that \(\psi_i^{(k)}\) vanishes at the points congruent to \(i \pmod{2}\) for all \(k \geq 0\). Define \(F : \Bbb R^2 \to \Bbb R^4\) by</p>
+<p>We proceed to do some more Jacobi field estimates. Consider a geodesic hinge consisting of two geodesics \(\gamma_1\) and \(\gamma_2\) emerging from the fulcrum \(\gamma_1(0) = \gamma_2(0) = p\) with direction vectors \(\gamma_1'(0) = v\) and \(\gamma_2'(0) = w\). We shall improve the infinitisimal estimate regarding dispersion of geodesics above to a local estimate, by Taylor expanding the distance between \(\gamma_1(t)\) and \(\gamma_2(t)\); this is realized by length of a minimal geodesic joining them if \(t\) is small, and we call this the closing edge of the hinge.</p>
 
-\[\displaystyle F(x, y) = \left ( \eta \psi_1 \frac{\cos(c_1 y)}{c_1}, \eta \psi_1 \frac{\sin(c_1 y)}{c_1}, \eta \psi_2 \frac{\cos(c_2 y)}{c_2}, \eta \psi_2 \frac{\cos(c_2 y)}{c_2} \right )\]
+<p>To set up the calculation, define a variation</p>
 
-<p>Where \(c_i\) are  <em>piecewise-constant</em>  functions, with jump discontinuities at the set of points congruent to \(i \pmod{2}\). Using \(\psi_1^2 + \psi_2^2 = 1\), we compute that</p>
+\[\begin{gather*}V : [0, \varepsilon) \times [0, 1] \to M \\ V(s, t) = \exp_{\gamma_1(s)}(t \exp_{\gamma_1(s)}^{-1} \gamma_2(s))\end{gather*}\]
 
-\[\displaystyle F^*(dx_1^2 + dx_2^2 + dx_3^2 + dx_4^2) = \left [ \left ( \frac{(\eta \psi_1)'}{c_1} \right )^2 + \left ( \frac{(\eta \psi_2)'}{c_2} \right )^2 \right ] dx^2 + \eta(x)^2 dy^2\]
+<p>Here \(V(s, \cdot)\) are the minimal geodesics joining \(\gamma_1(s)\) and \(\gamma_2(s)\), parametrized to unit time, therefore note in particular that \(V\) is not a variation in our earlier sense of the word, since it does not leave endpoints of the geodesics fixed, but nonetheless we can compute with it. Let \(T := V_* \partial_t\) denote the tangent field along these geodesics and \(J := V_* \partial_s\) denote the transverse vector field, which are Jacobi fields along these geodesics. Since \(V(s, \cdot)\) is parametrized to run a unit time, the norm of \(T(s, \cdot)\) computes the length of this geodesic which is the distance between \(\gamma_1(s)\) and \(\gamma_2(s)\). In particular, \(T(0, \cdot) \equiv 0\) is the zero vector field as the curve \(V(0, \cdot)\) is the constant geodesic at the fulcrum \(p\). However, \(J(0, \cdot)\) is the linear vector field \(J(0, t) = v + t(w - v)\) along this constant curve; more meaningfully this formula should be understood as a formula for the restriction of \(V^* J\) to the edge \(\{0\} \times [0, 1]\) of the domain of \(V\) (alternatively, one can understand the region given by the image of \(V\) to be a submanifold with corners in \(M\) and set up an appropriate notion of vector fields on manifolds with corners). We define \(f : [0, \varepsilon) \to M\) by</p>
 
-<p>We can now choose \(c_1, c_2\) appropriately large on each interval of continuity so that \(F^* g_{\mathrm{Euc}}\) is again an arbitrarily good approximation of \(\eta(x)^2 dy^2\). More precisely, we have \(F^* g_{\mathrm{Euc}} = \epsilon^2 dx^2 + \eta^2 dy^2\) where \(\epsilon = \epsilon(x)\) is small in \(C^0\)-norm. This trick crops up in the Nash-Kuiper theorem to “approximately immerse” a Riemannian manifold in a Euclidean space. I plan to discuss this in more detail elsewhere.</p>
+\[\displaystyle f(s) = \mathrm{dist}^2(\gamma_1(s), \gamma_2(s)) = \|T(s, 0)\|^2\]
 
-<p>Consider the map \(f : \Bbb R^2 \to \Bbb R^6\), given by</p>
+<p>We follow the same routine as earlier. Denote \(T(s) := T(s, 0)\) and \(T' := \nabla_{\partial_s} T\). Observe \(f(0) = 0\), \(f'(0) = 2 g(T(0),  T'(0)) = 0\) since \(T(0) = 0\). Note that \(\nabla_{\partial_s} T = \nabla_{\partial_t} J\) and</p>
 
-\[f(x, y) = \left (\int_0^x \sqrt{1 - \epsilon(t)^2} dt, y, F(x, y) \right)\]
+\[T'(0) = \nabla_{\partial_t} J(0, \cdot) = w - v,\]
 
-<p>Then \(f\) is \(C^0\)-close to the parametrization of the graph of \(F\) which is an embedding, and by stability of embedings, we conclude \(f\) must be an embedding as well. Observe</p>
+<p>since \(J(0, t) = v + t(w - v)\). Hence we get</p>
 
-\[f^*(g_\mathrm{Euc}) = (1 - \epsilon(x)^2) dx^2 + dy^2 + F^*(g_\mathrm{Euc}) = dx^2 + (1 + \eta(x)^2) dy^2\]
+\[f''(0) = 2 g(T'(0), T'(0)) + 2 g(T''(0), T(0)) = 2\|w - v\|^2\]
 
-<p>Plugging \(\eta(x) = \sinh(x)\) gives the required \(C^\infty\)-regular isometric embedding \(f : \Bbb H^2 \to \Bbb R^6\). Note also since the graph of \(F\) is properly embedded in \(\Bbb R^6\) and \(f\) is \(C^0\)-close to the graph, it is also a proper embedding. We can also use the approximation result on \(\eta(x) = \cosh(x)\) and let \(f : \Bbb R^2 \to \Bbb R^5\),</p>
+<p>Next, we have the formula</p>
 
-\[f(x, y) = \left (\int_0^x \sqrt{1 - \epsilon(t)^2} dt, F(x, y) \right),\]
+\[f'''(0) = 6 g(T''(0), T'(0)) + 2 g(T'''(0), T(0))\]
 
-<p>forgetting the middle component. Then \(f^*(g_\mathrm{Euc}) = dx^2 + \eta^2(x) dy^2 = g\), so \(f\) is a \(C^\infty\)-isometric immersion of \(\Bbb H^2\) in \(\Bbb R^5\).</p>
+<p>To compute \(T''(0)\) we involve the Riemann curvature tensor:</p>
 
-<p>Whether the hyperbolic plane admits a \(C^k\)-isometric immersion in \(\Bbb R^4\) for \(k \geq 2\) is unknown, see Chapter 3.2 of Gromov, “Partial Differential Relations”.</p>
+\[\displaystyle \nabla^2_{\partial_s} T = \nabla_{\partial_s} \nabla_{\partial_t} J = \nabla_{\partial_t} \nabla_{\partial_s} J + R(J, T) J\]
+
+<p>As \(T(0) = 0\) the second term vanishes. Observe that \(\nabla_{\partial_s} J\) vanishes along the two edges of the hinge, as \(J(\cdot, 0)\) and \(J(\cdot, 1)\) are tangent to \(\gamma_1\) and \(\gamma_2\) respectively, since they are geodesics. Thus if we show \(\nabla_{\partial_t} \nabla_{\partial_s} J\) is parallel along the edge \(\{0\} \times [0, 1] \subset [0, \varepsilon) \times [0, 1]\), we will be through, since parallel vector fields along curves vanishing at endpoints must be zero throughout. We proceed to compute using the Jacobi equation:</p>
+
+\[\begin{aligned} \nabla_{\partial_t} \nabla_{\partial_t} \nabla_{\partial_s} J &amp;= \nabla_{\partial_t} \nabla_{\partial_s} \nabla_{\partial_t} J + \nabla_{\partial_t} R(T, J)J \\ &amp;= \nabla_{\partial_s} \nabla^2_{\partial_t} J + R(T, J)\nabla_{\partial_t} J + \nabla_{\partial_t} R(T, J)J \\ &amp;= -\nabla_{\partial_s} R(J, T)T + R(T, J)\nabla_{\partial_t} J + \nabla_{\partial_t} (R(T, J)J) \end{aligned}\]
+
+<p>To compute the covariant derivatives of the curvature terms we use the same trick as earlier. Let \(X\) be an auxiliary vector field and observe</p>
+
+\[\displaystyle \begin{aligned}g(\nabla_{\partial_s} R(J, T)T, X) &amp;= \partial_s g(R(J, T)T, X) - g(R(J, T)T, \nabla_{\partial_s} X) \\ &amp;= \partial_s g(R(T, X)J, T) - g(R(J, T)T, \nabla_{\partial_s} X) \\ &amp;= g(\nabla_{\partial_s} R(T, X)J, T) + g(R(T, X)J, \nabla_{\partial_s} T) - g(R(J, T)T, \nabla_{\partial_s} X)\end{aligned}\]
+
+\[\displaystyle \begin{aligned}g(\nabla_{\partial_t} R(T, J)J, X) &amp;= \partial_t g(R(T, J)J, X) - g(R(T, J)J, \nabla_{\partial_t} X) \\ &amp;= -\partial_t g(R(J, X)J, T) - g(R(T, J)J, \nabla_{\partial_t} X) \\ &amp;= -g(\nabla_{\partial_t} R(J, X)J, T) - g(R(J, X)T, \nabla_{\partial_t} J) - g(R(T, J)J, \nabla_{\partial_t} X)\end{aligned}\]
+
+<p>Since \(T(0) = 0\) and \(\nabla_{\partial_s} T = \nabla_{\partial_t} J\) vanishes along \(\{0\} \times [0, 1]\), we conclude that both expressions above vanish. As $X$ was arbitrary, \(\nabla_{\partial_s} R(J, T)T = \nabla_{\partial_t} R(T, J)J = 0\) when evaluated along \(V(0, \cdot)\). This concludes the proof of \((\nabla_{\partial_t} \nabla_{\partial_t} \nabla_{\partial_s} T)(0, \cdot) \equiv 0\) hence \((\nabla_{\partial_t} \nabla_{\partial_s} T)(0, \cdot) \equiv 0\) and thus \(T''(0) = 0\). Combining, we get \(f''(0) = 0\).</p>
+
+<p>Finally, observe \(f^{\mathrm{IV}}(0) = 8 g(T'''(0), T'(0)) + 6 g(T''(0), T''(0)) + 2 g(T(0), T^{\mathrm{IV}}(0))\). From prior calculations all but the first term vanishes since \(T''(0) = T(0) = 0\).</p>
+
+\[\displaystyle \nabla^3_{\partial_s} T = \nabla_{\partial_s} \nabla_{\partial_s} \nabla_{\partial_t} J = \nabla_{\partial_s} R(J, T)J + \nabla_{\partial_s} \nabla_{\partial_t} \nabla_{\partial_s} J\]
+
+<p>To compute \(g(\nabla_{\partial_s} R(J, T)J, \nabla_{\partial_s} T)\) we use the earlier trick:</p>
+
+\[\displaystyle \begin{aligned} g(\nabla_{\partial_s} R(J, T)J, \nabla_{\partial_s} T) &amp;= \partial_s g(R(J, T)J, \nabla_{\partial_s} T) + g(R(J, T)J, \nabla_{\partial_s}^2 T) \\ &amp;= \partial_s g(R(J, \nabla_{\partial_s} T)J, T) + g(R(J, T)J, \nabla_{\partial_s}^2 T) \\ &amp;= g(\nabla_{\partial_s} R(J, \nabla_{\partial_s} T)J, T) + g(R(J, \nabla_{\partial_s} T)J, \partial_s T) + g(R(J, T)J, \nabla_{\partial_s}^2 T) \end{aligned}\]
+
+<p>Since \(T(0) = 0\), the first and last term vanishes evaluated at \(\{0\} \times [0, 1]\). Moreover, \(J(0) = v\) and \(\nabla_{\partial_s} T(0, \cdot) = w - v\). Thus, the final expression is</p>
+
+\[g(\nabla_{\partial_s} R(J, T)J, \nabla_{\partial_s} T) = g(R(v, w - v)v, w - v) = g(R(v, w)v, w)\]
+
+<p>Therefore, we have</p>
+
+\[\displaystyle T'''(0) = g(R(v, w)v, w) + g(\nabla_{\partial_s} \nabla_{\partial_t} \nabla_{\partial_s} J, \nabla_{\partial_s} T)\vert_{\{0\} \times [0, 1]}\]
+
+<p>Thus, the last term must be independent of \(t\). Explicitly, we have</p>
+
+\[g(\nabla_{\partial_s} \nabla_{\partial_t} \nabla_{\partial_s} J, \nabla_{\partial_s} T)\vert_{\{0\} \times [0, 1]} = \partial_t \partial_s g(\nabla_{\partial_s} J, \nabla_{\partial_s} T)\]
+
+<p>which therefore implies \(\partial_s g(\nabla_{\partial_s} J, \nabla_{\partial_s} T)\) is linear in \(t\). Remember that \(\nabla_{\partial_s} J\) vanishes at the top and bottom edges of the hinge, and therefore so does \(\nabla_{\partial_s}^2 J\). This implies</p>
+
+\[\partial_s g(\nabla_{\partial_s} J, \nabla_{\partial_s} T) = g(\nabla_{\partial_s}^2 J, \nabla_{\partial_s} T) + g(\nabla_{\partial_s} J, \nabla^2_{\partial_s} T)\]
+
+<p>vanishes at \((s, t) = (0, 0)\) and \((s, t) = (0, 1)\) respectively. Since it is linear on \(t\), this forces the quantity to be identically zero! Thus, \(f^{\mathrm{IV}}(0) = 8 g(R(v, w)v, w)\). By Taylor’s formula:</p>
+
+\[\displaystyle \begin{aligned}&amp; f(s) = \|v - w\|^2 s^2 + \frac{1}{3} g(R(v, w)v, w) s^4 + O(s^5) \\ \implies &amp; \mathrm{dist}(\gamma_1(s), \gamma_2(s)) = \|v - w\| s - \frac{K(v, w) \mathrm{Area}(v, w)}{6 \|v-w\|} s^3 + O(s^4)\end{aligned}\]
+
+<p>This is completely analogous to the estimates for the norm of a Jacobi field that we had made earlier. Thus, deviation of geodesics on Riemannian manifolds behave exactly like Jacobi fields predict it to be.</p>
 
       </div>
     
@@ -297,7 +332,7 @@
   
     <a href="/page/15/index.html"></a>
   
-<!-- <span class="page-number">Page 16 of 18</span> -->
+<!-- <span class="page-number">Page 16 of 19</span> -->
   
     <a href="/page/17/index.html"></a>
   
