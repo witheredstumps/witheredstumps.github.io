@@ -6,7 +6,6 @@ body {
   font-style: normal;
   background: #fff;
 }
-
 /* --- Background pattern --- */
 .background-pattern {
   position: fixed;
@@ -18,7 +17,6 @@ body {
   /* margin: 20px; */
   /* border: 1px solid rgba(0, 0, 0, 0.3); */
 }
-
 /* Site title: center it fully */
 .site-title {
   font-family: 'EB Garamond', serif;
@@ -43,7 +41,6 @@ body {
     padding: 2em 2em 0em 2em;
   }
 }
-
 /* --- sidebar and toggle container --- */
 .sidebar-toggle-container {
   position: fixed;
@@ -55,7 +52,6 @@ body {
   flex-direction: row;
   align-items: flex-start;
 }
-
 /* --- sidebar layout --- */
 .sidebar {
   position: relative;
@@ -109,7 +105,6 @@ body {
   font-size: 0.95rem;
   color: #888;
 }
-
 /* Sidebar search bar at top, no icon, basic style */
 .sidebar-search-form {
   width: 100%;
@@ -134,7 +129,6 @@ body {
 .sidebar-search-input:focus {
   border-color: #8a2d2d;
 }
-
 /* --- Archive drop-down --- */
 .sidebar-archive-select {
   width: calc(100% - 2.4rem);
@@ -149,7 +143,6 @@ body {
   color: #222;
   box-sizing: border-box;
 }
-
 /* --- Sidebar toggle button - moves with sidebar --- */
 .sidebar-toggle {
   position: absolute;
@@ -185,7 +178,6 @@ body {
     left: 80px;
   }
 }
-
 /* --- Main content --- */
 .main-content {
   max-width: 900px;
@@ -199,7 +191,6 @@ body {
     padding: 1.2rem 0.5rem 1.2rem 0.5rem;
   }
 }
-
 /* --- Main content container --- */
 main {
   margin: 0 auto;
@@ -226,9 +217,7 @@ main {
     padding: 1.2rem 0.7rem 1.2rem 0.7rem;
   }
 }
-
 /* --- post block --- */
-
 .post-content {
   background: #fff;
   border-radius: 10px;
@@ -246,9 +235,7 @@ main {
     padding: 1.2rem 0.7rem 1.2rem 0.7rem;
   }
 }
-
 /* --- image class --- */
-
 .figure-row {
   display: flex;
   justify-content: center; 
@@ -260,7 +247,6 @@ main {
   max-width: 100%;
   display: block;
 }
-
 .figure-row figure {
   margin: 0 1em;
   text-align: center;
@@ -270,14 +256,11 @@ main {
   color: #666;
   margin-top: 0.4em;
 }
-
 /* --- mathjax --- */
-
 mjx-container {
   font-size: 95% !important;
   line-height: 1.2;
 }
-
 mjx-container[display="true"] {
     overflow-x: auto !important;
     overflow-y: hidden !important;
@@ -285,21 +268,16 @@ mjx-container[display="true"] {
     max-width: 100%;
     display: block !important;
 }
-
 /* --- hyperlinks --- */
-
 a {
   color: #8a2d2d;
   text-decoration: none;
 }
-
 a:hover,
 a:focus {
   color: #808080
 }
-
 /* --- button styles ---*/
-
 .bottom-btns-vertical {
   position: fixed;
   bottom: 24px;
@@ -332,28 +310,21 @@ a:focus {
   background: #8a2d2d;
   color: #fff;
 }
-
 /* -- Bold fonts -- */
-
 .content b {
   font-family: Georgia, serif;
   font-weight: bold;
   font-size: 0.88em;
 }
-
 .post-content b, .post-content strong {
   font-family: Georgia, serif;
   font-weight: bold;
   font-size: 0.88em;
 }
-
 /* -- Sidebar overlay fix -- */
-
 .sidebar-toggle-container {
   pointer-events: none;
 }
 .sidebar, .sidebar-toggle {
   pointer-events: auto;
 }
-
-
