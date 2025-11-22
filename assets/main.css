@@ -41,143 +41,6 @@ body {
     padding: 2em 2em 0em 2em;
   }
 }
-/* --- sidebar and toggle container --- */
-.sidebar-toggle-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  z-index: 100;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-/* --- sidebar layout --- */
-.sidebar {
-  position: relative;
-  left: 0;
-  top: 0;
-  width: 260px;
-  height: 100vh;
-  background: #fff;
-  color: #222;
-  overflow-y: auto;
-  box-shadow: 2px 0 8px rgba(0,0,0,0.04);
-  z-index: 101;
-  display: flex;
-  flex-direction: column;
-  transform: translateX(-100%);
-  transition: transform 0.2s;
-}
-.sidebar.open {
-  transform: translateX(0);
-}
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  padding: 1.2rem 1.2rem 0.4rem 1.2rem;
-}
-.sidebar nav a {
-  color: #2d3a4b;
-  text-decoration: none;
-  font-size: 1.08rem;
-  padding: 0.35rem 0.5rem;
-  border-radius: 3px;
-  transition: background 0.14s;
-}
-.sidebar nav a.active,
-.sidebar nav a:hover {
-  background: #f0f1f6;
-  color: #8a2d2d;
-}
-.sidebar-header {
-  width: 100%;
-  padding: 1.2rem;
-  box-sizing: border-box;
-  border-bottom: 1px solid #ececec;
-  background: transparent;
-  display: block; /* flex not needed for single search form */
-}
-.sidebar .sidebar-footer {
-  margin-top: auto;
-  padding: 1.2rem;
-  font-size: 0.95rem;
-  color: #888;
-}
-/* Sidebar search bar at top, no icon, basic style */
-.sidebar-search-form {
-  width: 100%;
-  padding: 1.2rem 1.2rem 1.2rem 0; /* top right bottom left */
-  box-sizing: border-box;
-}
-.sidebar-search-input {
-  width: 100%;
-  /* box-sizing: border-box; */
-  border: none;
-  border-bottom: 1px solid #ececec;
-  border-radius: 0;
-  font-size: 1.08rem;
-  font-family: inherit;
-  padding: 0.38rem 0.7rem;
-  margin: 0;
-  outline: none;
-  background: #fff;
-  color: #222;
-  transition: border 0.15s;
-}
-.sidebar-search-input:focus {
-  border-color: #8a2d2d;
-}
-/* --- Archive drop-down --- */
-.sidebar-archive-select {
-  width: calc(100% - 2.4rem);
-  margin-left: 1.2rem;
-  margin-bottom: 1.2rem;
-  padding: 0.35rem 0.25rem;
-  font-size: 1.08rem;
-  font-family: inherit;
-  border-radius: 3px;
-  border: 1px solid #ececec;
-  background: #fff;
-  color: #222;
-  box-sizing: border-box;
-}
-/* --- Sidebar toggle button - moves with sidebar --- */
-.sidebar-toggle {
-  position: absolute;
-  top: 1rem;
-  left: calc(100% + 0.75rem); /* 0.75rem gap from sidebar edge */
-  background: #fff;
-  color: #2d3a4b;
-  border: 0px solid #e6e6e6;
-  font-size: 2rem;
-  z-index: 200;
-  border-radius: 4px;
-  padding: 0.2rem 0.7rem;
-  cursor: pointer;
-  box-shadow: 1px 1px 8px rgba(80,60,40,0.03);
-  transition: left 0.2s, background 0.15s, color 0.15s;
-}
-/* When sidebar is closed, hide toggle button inside the container */
-.sidebar:not(.open) + .sidebar-toggle,
-.sidebar-toggle:not(.open) {
-  left: calc(0% + 0.75rem);
-  background: #fff;
-  color: #8a2d2d;
-}
-/* When sidebar is open, keep the toggle button in the same place for consistency (optional) */
-.sidebar.open + .sidebar-toggle,
-.sidebar-toggle.open {
-  left: calc(100% + 0.75rem);
-  background: #8a2d2d;
-  color: #fff;
-}
-@media (max-width: 900px) {
-  .sidebar-toggle.open px{
-    left: 80px;
-  }
-}
 /* --- Main content --- */
 .main-content {
   max-width: 900px;
@@ -307,6 +170,32 @@ a:focus {
   text-align: center;
 }
 .fixed-bottom-btn:hover {
+  background: #8a2d2d;
+  color: #fff;
+}
+.home-btn {
+  position: fixed;
+  top: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  z-index: 1000;
+  opacity: 1; /* hidden by default */
+  pointer-events: auto;
+  transition: opacity 1s;
+  background: #fff;
+  color: #8a2d2d;
+  padding: 10px 24px;
+  border-radius: 5px;
+  font-size: 1.1rem;
+  box-shadow: 0 2px 8px rgba(80,60,40,0.08);
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s;
+  text-align: center;
+}
+.home-btn:hover {
   background: #8a2d2d;
   color: #fff;
 }

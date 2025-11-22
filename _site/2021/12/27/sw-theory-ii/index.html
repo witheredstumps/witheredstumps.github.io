@@ -22,20 +22,16 @@
 {"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2021-12-27T00:00:00+05:30","datePublished":"2021-12-27T00:00:00+05:30","description":"Recall from the last paragraph of Part I that we wished to carry out all of the linear algebra but now parametrized over a manifold \\(M\\). Let us try to naively carry out the procedure, and in the process we will encounter the issue: let \\((M, g)\\) be a Riemannian \\(n\\)-manifold where \\(n = 2m\\) is even. The Riemannian metric \\(g\\) is a smoothly-varying inner product on each tangent space \\(T_p M\\), \\(p \\in M\\) which assemble to the tangent bundle \\(TM\\), so one can take the Clifford algebra \\(\\mathrm{Cliff}(T_p M, g_p)\\) for each \\(p \\in M\\) and assemble these to a “Clifford algebra bundle” \\(\\mathrm{Cliff}(M) := \\mathrm{Cliff}(TM, g)\\). One can try to construct a fiberwise complex spinor representation, which would be a bundle \\(S\\) over \\(M\\) such that for each \\(p \\in M\\), \\(S_p\\) is the complex spinor representation of \\(\\mathrm{Cliff}(T_pM, g_p)\\); this we know how to construct, simply look at the complexification \\(T_p^{\\Bbb C} M := T_p M \\otimes \\Bbb C\\) with the complexified inner product \\(g^{\\Bbb C}_p := g_p \\otimes \\Bbb C\\) (which is a symmetric bilinear form, not a Hermitian inner product), take \\(\\mathrm{Cliff}^{\\Bbb C}(T_p M, g_p) := \\mathrm{Cliff}(T_p^{\\Bbb C} M, g^{\\Bbb C}_p)\\) the complex Clifford algebra (which is in fact the complexification of the real Clifford algebra as described before in Part I) which assemble to the complex Clifford bundle \\(\\mathrm{Cliff}^{\\Bbb C}(M)\\), look at its action on the exterior algebra over the maximal totally isotropic subspace (or “Lagrangian subspace” in symplectic geometry terminology) of \\(T_p^{\\Bbb C} M\\) as described previously, and that’s exactly \\(S_p\\). Assemble these up and we are done…","headline":"Seiberg-Witten Theory: II","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/2021/12/27/sw-theory-ii/"},"url":"http://localhost:4000/2021/12/27/sw-theory-ii/"}</script>
 <!-- End Jekyll SEO tag -->
 
-    <!-- Fonts: Original + Sidebar style -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/main.css">
-	<!-- include lunar.js -->
-	<script src="https://cdn.jsdelivr.net/npm/lunr/lunr.min.js"></script>
     <!-- MathJax -->
     <script>
       window.MathJax = {
         tex: {
           inlineMath: [['$', '$'], ['\\(', '\\)']],
           displayMath: [['$$', '$$'], ['\\[', '\\]']],
-	  macros: {
-	    slash: ['\\not{#1}', 1]
-		}
+          macros: { slash: ['\\not{#1}', 1] }
         }
       };
     </script>
@@ -43,107 +39,12 @@
   </head>
   <body>
     <div class="background-pattern"></div>
-    <!-- Sidebar and toggle button container -->
-    <div class="sidebar-toggle-container">
-      <aside class="sidebar" id="sidebar">
-        <!-- Sidebar header with search bar -->
-        <nav>
-          <a href="/" >Home</a>
-          <a href="/about/" >About</a>
-        </nav>              
-        <!-- Archive section (label and dropdown) -->
-        <select id="sidebar-archive-select" class="sidebar-archive-select" onchange="location = this.value;">
-  <option value="#">Archive</option>
-  
-  
-    
-    
-      <option value="/2025/11/">
-        November 2025
-      </option>
-    
-  
-    
-    
-      <option value="/2024/03/">
-        March 2024
-      </option>
-    
-      <option value="/2024/02/">
-        February 2024
-      </option>
-    
-  
-    
-    
-      <option value="/2022/05/">
-        May 2022
-      </option>
-    
-      <option value="/2022/03/">
-        March 2022
-      </option>
-    
-      <option value="/2022/01/">
-        January 2022
-      </option>
-    
-  
-    
-    
-      <option value="/2021/12/">
-        December 2021
-      </option>
-    
-  
-    
-    
-      <option value="/2020/11/">
-        November 2020
-      </option>
-    
-      <option value="/2020/09/">
-        September 2020
-      </option>
-    
-      <option value="/2020/06/">
-        June 2020
-      </option>
-    
-      <option value="/2020/05/">
-        May 2020
-      </option>
-    
-      <option value="/2020/04/">
-        April 2020
-      </option>
-    
-      <option value="/2020/03/">
-        March 2020
-      </option>
-    
-  
-</select>
-        <div class="sidebar-footer"> 
-<form class="sidebar-search-form" onsubmit="return false;">
-  <input type="text" name="q" placeholder="Search..." class="sidebar-search-input" autocomplete="off">
-  <div id="autocomplete-results" class="autocomplete-results"></div>
-</form>
-        </div>
-      </aside>
-      <!-- Sidebar toggle for all screens, inside the container so it moves with sidebar -->
-      <button class="sidebar-toggle" id="sidebar-toggle-btn" onclick="toggleSidebar()">&#9776;</button>
-    </div>
-    <!-- Backdrop for overlay effect -->
-    <div class="sidebar-backdrop" id="sidebar-backdrop" onclick="closeSidebar()"></div>
-    <!-- Main Content (not shifted) -->
-    <div class="main-content">
-      <header>
-        <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
-      </header>
-	<main>
-  	
-    	<div class="content">
+    <header style="text-align:center; margin-top: 2rem;">
+      <h1 class="site-title"><em>And Other Withered Stumps Of Time</em></h1>
+      <a href="/" class="home-btn">Home</a>
+    </header>
+    <main>
+      <div class="content">
   <article class="post">
     <header class="post-header">
       <h2 class="post-title" style="font-style: italic;">
@@ -294,37 +195,6 @@
     </a>
   
 </div>
-  	
-	</main>
-    </div>
-    <script>
-      function toggleSidebar() {
-        var sidebar = document.getElementById('sidebar');
-        var backdrop = document.getElementById('sidebar-backdrop');
-        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
-        sidebar.classList.toggle('open');
-        if (sidebar.classList.contains('open')) {
-          backdrop.style.display = 'block';
-          // Move the toggle button with the sidebar
-          sidebarToggle.classList.add('open');
-        } else {
-          backdrop.style.display = 'none';
-          sidebarToggle.classList.remove('open');
-        }
-      }
-      function closeSidebar() {
-        var sidebar = document.getElementById('sidebar');
-        var sidebarToggle = document.getElementById('sidebar-toggle-btn');
-        var backdrop = document.getElementById('sidebar-backdrop');
-        sidebar.classList.remove('open');
-        sidebarToggle.classList.remove('open');
-        backdrop.style.display = 'none';
-      }
-      // Optional: close sidebar with Esc key
-      document.addEventListener('keydown', function(e){
-        if (e.key === "Escape") closeSidebar();
-      });
-    </script>
-<script src="/assets/js/lunr-autocomplete.js"></script>
+    </main>
   </body>
 </html>
