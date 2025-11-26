@@ -13,18 +13,6 @@ exclude:
   - inline.py
   - deploy-gh-pages.sh
 
-pagination:
-  enabled: true
-  per_page: 1
-  title: ':title - page :num'
-  trail:
-    before: 2
-    after: 2
-  sort_field: 'date'
-  sort_reverse: true
-  permalink: '/page/:num/'
-  indexpage: 'index.html'
-
 jekyll-archives:
   enabled:
     - month
